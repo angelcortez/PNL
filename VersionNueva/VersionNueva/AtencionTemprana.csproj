@@ -1,0 +1,2002 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6E45E6DA-62DA-4D5D-A65E-6141D6B157AE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AtencionTemprana</RootNamespace>
+    <AssemblyName>AtencionTemprana</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.7.429, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DevExpress.Data.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxEditors.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxGridView.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxPivotGrid.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.PivotGrid.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v10.1.Core, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v10.1, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v10.1.Web, Version=10.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EventCalendar, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\EventCalendar.dll</HintPath>
+    </Reference>
+    <Reference Include="GMaps, Version=4.1.0.5, Culture=neutral, PublicKeyToken=564d55b144e7aa5a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.4.3.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PdfFormFiller\WebPdfFormFiller\iTextSharp\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.0.3541.23206, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Word, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="WordToPDF">
+      <HintPath>..\..\..\Downloads\WordToPDF.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AcuerdoCumplimientoDiferido.aspx" />
+    <Content Include="AcuerdoCumplimientoInmediato.aspx" />
+    <Content Include="AcuerdoDiferidoFecha.aspx" />
+    <Content Include="Acuerdos.aspx" />
+    <Content Include="AcuerdosReparatorios.aspx" />
+    <Content Include="Administrar.aspx" />
+    <Content Include="AgenciaInvestigacion.aspx" />
+    <Content Include="Agenda.aspx" />
+    <Content Include="AgregarBandaDesartSec.aspx" />
+    <Content Include="AgregarNegociacionSec.aspx" />
+    <Content Include="AgregarProfugoSec.aspx" />
+    <Content Include="Alias.aspx" />
+    <Content Include="AsignarDetenidoPI.aspx" />
+    <Content Include="AudienciasJusticiaAlternativa.aspx" />
+    <Content Include="AudienciasSolicitadas.aspx" />
+    <Content Include="AutoridadDenuncia.aspx" />
+    <Content Include="BandasDesartSec.aspx" />
+    <Content Include="CargarAnexo.aspx" />
+    <Content Include="CargarFotografiasPerito.aspx" />
+    <Content Include="CargarFotografiasPI.aspx" />
+    <Content Include="CargarVideo.aspx" />
+    <Content Include="CargarVideosPeritos.aspx" />
+    <Content Include="CarpetaDigital.aspx" />
+    <Content Include="CarpetaPDF.aspx" />
+    <Content Include="ConculidoSinAcuerdo.aspx" />
+    <Content Include="ConsultaAtencionComunidad.aspx" />
+    <Content Include="consultahomicidios.aspx" />
+    <Content Include="CoordPoliciaInvestigador.aspx" />
+    <Content Include="CoordPoliciaInvestigador_Estadistica.aspx" />
+    <Content Include="CoordPoliciaInvestigador_MisOrdenes.aspx" />
+    <Content Include="css\Grid.css" />
+    <Content Include="DatosDetenidoPI.aspx" />
+    <Content Include="DatosPrincipalesSec.aspx" />
+    <Content Include="Defensor.aspx" />
+    <Content Include="DefensorPublico.aspx" />
+    <Content Include="DerivadasDeAtencion.aspx" />
+    <Content Include="Descargas.aspx" />
+    <Content Include="DesivadasDeOrientacion.aspx" />
+    <Content Include="DetalleDetenido.aspx" />
+    <Content Include="Detenidos.aspx" />
+    <Content Include="DireccionServiciosPericiales.aspx" />
+    <Content Include="DireccionServiciosPericiales_Estadisticas.aspx" />
+    <Content Include="DocCominidad.aspx" />
+    <Content Include="DocMediacion.aspx" />
+    <Content Include="Domicilio.aspx" />
+    <Content Include="ElaborarInformePolicial.aspx" />
+    <Content Include="EliminarAnexosOrdenPI.aspx" />
+    <Content Include="EliminarImagenes.aspx" />
+    <Content Include="EliminarImagenesSolicitudPericiales.aspx" />
+    <Content Include="EliminarObjetosPI.aspx" />
+    <Content Include="EliminarVehiculosPI.aspx" />
+    <Content Include="EliminarVideos.aspx" />
+    <Content Include="EliminarVideosPeritos.aspx" />
+    <Content Include="EmpreaOfendida.aspx" />
+    <Content Include="FlowPlayer\flowplayer-3.2.12.min.js" />
+    <Content Include="FlowPlayer\flowplayer-3.2.16.swf" />
+    <Content Include="FlowPlayer\flowplayer.controls-3.2.15.swf" />
+    <Content Include="FlowPlayer\flowplayer.pseudostreaming-3.2.12.swf" />
+    <Content Include="FormaInicioNac.aspx" />
+    <Content Include="FormaInicioNuc.aspx" />
+    <Content Include="FormaInicioNum.aspx" />
+    <Content Include="FormaInicioRac.aspx" />
+    <Content Include="GenerarDocs.aspx" />
+    <Content Include="Homicidios.aspx" />
+    <Content Include="img\ABSTENERSE.png" />
+    <Content Include="img\ARCHIVO TEMPORAL.png" />
+    <Content Include="img\CALENDARIO.png" />
+    <Content Include="img\canalizar.png" />
+    <Content Include="img\cargando.gif" />
+    <Content Include="img\carpetaPI.png" />
+    <Content Include="img\CARTELALEIDA.png" />
+    <Content Include="img\CONCLUIDO SIN ACUERDO.png" />
+    <Content Include="img\CONCLUIDO.png" />
+    <Content Include="img\consultarPI.png" />
+    <Content Include="img\CUMPLIMIENTO.png" />
+    <Content Include="img\delete_PI.png" />
+    <Content Include="img\DELITO.png" />
+    <Content Include="img\DENUNCIANTE.png" />
+    <Content Include="img\DESINTERES.png" />
+    <Content Include="img\DESISTIMIENTO.jpg" />
+    <Content Include="img\document.png" />
+    <Content Include="img\editar.png" />
+    <Content Include="img\eliminar.png" />
+    <Content Include="img\Estadistica.jpg" />
+    <Content Include="img\estados\abstenerse-01.png" />
+    <Content Include="img\estados\ACUMULAR-01.png" />
+    <Content Include="img\estados\ARCHIVO TEMPORAL-01.png" />
+    <Content Include="img\estados\ARCHIVOTEMPORAL-01.png" />
+    <Content Include="img\estados\CANALIZAR.png" />
+    <Content Include="img\estados\CANALIZAR_.png" />
+    <Content Include="img\estados\CANALIZAR.jpg" />
+    <Content Include="img\estados\CRITERIODEOPORTUNIDAD-01.png" />
+    <Content Include="img\estados\DERIVAR-01.png" />
+    <Content Include="img\estados\DERIVAR_.png" />
+    <Content Include="img\estados\DERIVAR.png" />
+    <Content Include="img\estados\DIFERIDO.png" />
+    <Content Include="img\estados\icompetencia.png" />
+    <Content Include="img\estados\inasistencia.png" />
+    <Content Include="img\estados\INICIAR1.png" />
+    <Content Include="img\estados\INICIAR_.png" />
+    <Content Include="img\estados\INICIAR.png" />
+    <Content Include="img\estados\JUDICIALIZAR-01.png" />
+    <Content Include="img\estados\MEDIOS ALTERNOS.png" />
+    <Content Include="img\estados\MEDIOS ALTERNOS1.png" />
+    <Content Include="img\estados\NO EJERCICIO-01.png" />
+    <Content Include="img\estados\PROCESO.png" />
+    <Content Include="img\estados\REMITIR-01.png" />
+    <Content Include="img\estados\REMITIR.png" />
+    <Content Include="img\estados\resolver-01.png" />
+    <Content Include="img\estados\RESOLVER.png" />
+    <Content Include="img\estados\SUSPENDER.png" />
+    <Content Include="img\foto.jpg" />
+    <Content Include="img\graph.jpg" />
+    <Content Include="img\graph.png" />
+    <Content Include="img\home.png" />
+    <Content Include="img\ICONO_Agenda.png" />
+    <Content Include="img\Icono_Registro.png" />
+    <Content Include="img\IMPUTADO.png" />
+    <Content Include="img\incom.png" />
+    <Content Include="img\inicio proceso.png" />
+    <Content Include="img\JUDICIALIZAR_.png" />
+    <Content Include="img\JUDICIALIZAR.png" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\LUGARDEHECHOS.png" />
+    <Content Include="img\monitodoble.jpg" />
+    <Content Include="img\no.png" />
+    <Content Include="img\NOEJERCICIO.png" />
+    <Content Include="img\nuc.png" />
+    <Content Include="img\NUM.png" />
+    <Content Include="img\object.png" />
+    <Content Include="img\OFENDIDO.png" />
+    <Content Include="img\OPORTUNIDAD.png" />
+    <Content Include="img\ordenes.png" />
+    <Content Include="img\perito.png" />
+    <Content Include="img\PROCESO MEDIACION.png" />
+    <Content Include="img\PROCESO SOLICITANTE.png" />
+    <Content Include="img\PROCESOINVITACION.png" />
+    <Content Include="img\RAC.png" />
+    <Content Include="img\remi.png" />
+    <Content Include="img\remiti2r.png" />
+    <Content Include="img\remitir.png" />
+    <Content Include="img\resuelto.png" />
+    <Content Include="img\si.png" />
+    <Content Include="img\suspender2.png" />
+    <Content Include="img\tree\DEFENSOR.png" />
+    <Content Include="img\tree\DELITO.png" />
+    <Content Include="img\tree\DELITO2.png" />
+    <Content Include="img\tree\DENUNCIANTE.png" />
+    <Content Include="img\tree\IMPUTADO.png" />
+    <Content Include="img\tree\JUEZ.png" />
+    <Content Include="img\tree\LUGARDEHECHOS.png" />
+    <Content Include="img\tree\MAPA.png" />
+    <Content Include="img\tree\NUC.png" />
+    <Content Include="img\tree\NUM.png" />
+    <Content Include="img\tree\OFENDIDO.png" />
+    <Content Include="img\tree\PDF.png" />
+    <Content Include="img\tree\RAC.png" />
+    <Content Include="img\tree\RELOJ.png" />
+    <Content Include="img\tree\VEHICULO.png" />
+    <Content Include="img\verPI.png" />
+    <Content Include="img\Video.png" />
+    <Content Include="img\Vperito.jpg" />
+    <Content Include="InicioProcesoNoAceptacion.aspx" />
+    <Content Include="IPH.aspx" />
+    <Content Include="IPHRegistro.aspx" />
+    <Content Include="iTextSharp\itextsharp.dll" />
+    <Content Include="jquery-ui.min.css" />
+    <Content Include="Judicializada.aspx" />
+    <Content Include="JusticiaAlternativaAudiencia.aspx" />
+    <Content Include="LiberacionSec.aspx" />
+    <Content Include="Mediacion.aspx" />
+    <Content Include="MediaFiliacionDetenido.aspx" />
+    <Content Include="ModuloSecuestros.aspx" />
+    <Content Include="NAC.aspx" />
+    <Content Include="NegociacionSec.aspx" />
+    <Content Include="NotificacionAudiencia.aspx" />
+    <Content Include="NUC.aspx" />
+    <Content Include="NucJudOrdenDelito.aspx" />
+    <Content Include="NucJudOrdenes.aspx" />
+    <Content Include="NucJudOrdenesPersona.aspx" />
+    <Content Include="NucJudSentencia.aspx" />
+    <Content Include="NUC_PNL.aspx" />
+    <Content Include="NUC_SECUESTRO.aspx" />
+    <Content Include="NUM.aspx" />
+    <Content Include="NUM_ACUERDOS.aspx" />
+    <Content Include="OrdenCoordPoliciaInvestigador.aspx" />
+    <Content Include="OrdenDirServiciosPericales.aspx" />
+    <Content Include="Ordenes.aspx" />
+    <Content Include="OrdenPerito.aspx" />
+    <Content Include="OrdenPoliciaInvestigador.aspx" />
+    <Content Include="Periciales.aspx" />
+    <Content Include="personalizado.css" />
+    <Content Include="Plantillas.aspx" />
+    <Content Include="PNLBusquedaRegistrosPNL.aspx" />
+    <Content Include="PNLDatosPrincipales.aspx" />
+    <Content Include="PNLDonante.aspx" />
+    <Content Include="PNLFotografia.aspx" />
+    <Content Include="PNLLocalizacion.aspx" />
+    <Content Include="PNLLocalizados.aspx" />
+    <Content Include="PNLMediaFiliacion.aspx" />
+    <Content Include="PNLPeritoRecolector.aspx" />
+    <Content Include="PNLPersonasNSJP.aspx" />
+    <Content Include="PNLSeniasParticulares.aspx" />
+    <Content Include="PoliciaInvestigador.aspx" />
+    <Content Include="ProfugosSec.aspx" />
+    <Content Include="PruebaPantallas.aspx" />
+    <Content Include="QuienResulteOfendido.aspx" />
+    <Content Include="QuienResulteResponsable.aspx" />
+    <Content Include="RAC.aspx" />
+    <Content Include="ConsultaRAC.aspx" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\layout.css" />
+    <Content Include="Datos.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Delito.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="FormaInicio.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Hechos.aspx" />
+    <Content Include="img\arrowBullet.png" />
+    <Content Include="img\arrowOrange.png" />
+    <Content Include="img\arrowSign.png" />
+    <Content Include="img\arrowWhite.png" />
+    <Content Include="img\ban1.png" />
+    <Content Include="img\ban2.png" />
+    <Content Include="img\ban3.png" />
+    <Content Include="img\ban4.png" />
+    <Content Include="img\ban5.png" />
+    <Content Include="img\banner.png" />
+    <Content Include="img\bannerTam.png" />
+    <Content Include="img\bg.png" />
+    <Content Include="img\circleBullet.png" />
+    <Content Include="img\condetenido.jpg" />
+    <Content Include="img\escudo.png" />
+    <Content Include="img\gallery.png" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\grayPattern.png" />
+    <Content Include="img\header.png" />
+    <Content Include="img\hospital.png" />
+    <Content Include="img\IconoLibro.png" />
+    <Content Include="img\liLocation.png" />
+    <Content Include="img\liTime.png" />
+    <Content Include="img\littlePhoto.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logoSys.png" />
+    <Content Include="img\LOGO_PGJ.png" />
+    <Content Include="img\mapa.jpg" />
+    <Content Include="img\Persona comparecencia.png" />
+    <Content Include="img\phone.png" />
+    <Content Include="img\photo.png" />
+    <Content Include="img\photoFlickr.png" />
+    <Content Include="img\search.png" />
+    <Content Include="img\service.png" />
+    <Content Include="img\SINDETENIDO.jpg" />
+    <Content Include="img\social.png" />
+    <Content Include="img\tvtam.png" />
+    <Content Include="img\vid.png" />
+    <Content Include="img\view-tree.png" />
+    <Content Include="img\whiteClock.png" />
+    <Content Include="ImprimirTurno.aspx" />
+    <Content Include="index.html" />
+    <Content Include="ios.png" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\fancy\blank.gif" />
+    <Content Include="js\fancy\fancybox_loading.gif" />
+    <Content Include="js\fancy\fancybox_overlay.png" />
+    <Content Include="js\fancy\fancybox_sprite.png" />
+    <Content Include="js\fancy\helpers\fancybox_buttons.png" />
+    <Content Include="js\fancy\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="js\fancy\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="js\fancy\helpers\jquery.fancybox-media.js" />
+    <Content Include="js\fancy\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="js\fancy\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="js\fancy\jquery.fancybox.css" />
+    <Content Include="js\fancy\jquery.fancybox.js" />
+    <Content Include="js\fancy\jquery.fancybox.pack.js" />
+    <Content Include="js\functions.js" />
+    <Content Include="js\jquery.cycle.all.latest.js" />
+    <Content Include="LlamarTurno.aspx" />
+    <Content Include="LlamarTurnoAtencion.aspx" />
+    <Content Include="LugarHechos.aspx" />
+    <Content Include="Mapa.aspx" />
+    <Content Include="MedioContacto.aspx" />
+    <Content Include="RazonAviso.aspx" />
+    <Content Include="RazonAvisoConDetenido.aspx" />
+    <Content Include="RazonAvisoSinDetenido.aspx" />
+    <Content Include="RedactarInformePericial.aspx" />
+    <Content Include="RegistrarDetencion.aspx" />
+    <Content Include="rpDenunciasModalidad.aspx" />
+    <Content Include="rpDenunciasViolencia.aspx" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\JQuery_Chosen\chosen-sprite%402x.png" />
+    <Content Include="Scripts\JQuery_Chosen\chosen-sprite.png" />
+    <Content Include="Scripts\JQuery_Chosen\chosen.css" />
+    <Content Include="Scripts\JQuery_Chosen\chosen.jquery.js" />
+    <Content Include="Scripts\JQuery_Chosen\chosen.jquery.min.js" />
+    <Content Include="Scripts\JQuery_Chosen\chosen.min.css" />
+    <Content Include="Scripts\JQuery_Chosen\docsupport\chosen.png" />
+    <Content Include="Scripts\JQuery_Chosen\docsupport\oss-credit.png" />
+    <Content Include="Scripts\JQuery_Chosen\docsupport\prism.css" />
+    <Content Include="Scripts\JQuery_Chosen\docsupport\prism.js" />
+    <Content Include="Scripts\JQuery_Chosen\docsupport\style.css" />
+    <Content Include="Scripts\JQuery_TinyBox\img\close.png" />
+    <Content Include="Scripts\JQuery_TinyBox\img\grd_alt.png" />
+    <Content Include="Scripts\JQuery_TinyBox\img\grd_alt_red.png" />
+    <Content Include="Scripts\JQuery_TinyBox\img\grd_head.png" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_1_1.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_1_2.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_1_3.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_1_4.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_1_5.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_2_1.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_2_2.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_2_3.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_2_4.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_2_5.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_3_1.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_3_2.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_3_3.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_3_4.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_3_5.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_4_1.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_4_2.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_4_3.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_4_4.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_4_5.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_5_1.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_5_2.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_5_3.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_5_4.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\loading_luke_5_5.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\preload.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\img\preload2.gif" />
+    <Content Include="Scripts\JQuery_TinyBox\tinybox.css" />
+    <Content Include="Scripts\JQuery_TinyBox\tinybox.js" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\animated-overlay.gif" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\fnd_25.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\images.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\lines.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\pbar-ani.gif" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\pbar-ani_luke_1.gif" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\pbar-ani_luke_2.gif" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_gloss-wave_20_114b0b_500x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_gloss-wave_20_192f18_500x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_gloss-wave_20_2c402b_500x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_gloss-wave_40_068e06_500x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_layered-circles_10_0b1d0b_13x13.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-bg_layered-circles_10_0b1d0b_13x132.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_494f5c_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_666666_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_a83300_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_d8ae05_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_dd1110_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_df4240_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_f3d8d9_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_f62101_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_ff2e36_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\JQuery_UI\CSS\jquery-ui.min.css" />
+    <Content Include="Scripts\JQuery_UI\CSS\jquery-ui.min_Backup1.css" />
+    <Content Include="Scripts\JQuery_UI\CSS\jquery-ui.min_backup2.css" />
+    <Content Include="Scripts\JQuery_UI\CSS\jquery-ui.structure.css" />
+    <Content Include="Scripts\JQuery_UI\CSS\jquery-ui.structure.min.css" />
+    <Content Include="Scripts\JQuery_UI\CSS\jquery-ui.theme.css" />
+    <Content Include="Scripts\JQuery_UI\CSS\jquery-ui.theme.min.css" />
+    <Content Include="Scripts\JQuery_UI\jquery-ui.js" />
+    <Content Include="Scripts\JQuery_UI\jquery-ui.min.js" />
+    <Content Include="SeñasParticularesDetenido.aspx" />
+    <Content Include="Solicitudes.aspx" />
+    <Content Include="SolicitudPeritos.aspx" />
+    <Content Include="SP_Cambio_Contra.aspx" />
+    <Content Include="style.css" />
+    <Content Include="Styles\css\apprise.css" />
+    <Content Include="Styles\css\bootstrap-3.2.0-dist\css\bootstrap-theme.css" />
+    <Content Include="Styles\css\bootstrap-3.2.0-dist\css\bootstrap-theme.min.css" />
+    <Content Include="Styles\css\bootstrap-3.2.0-dist\css\bootstrap.css" />
+    <Content Include="Styles\css\bootstrap-3.2.0-dist\css\bootstrap.min.css" />
+    <Content Include="Styles\css\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Styles\css\bootstrap-3.2.0-dist\js\bootstrap.js" />
+    <Content Include="Styles\css\bootstrap-3.2.0-dist\js\bootstrap.min.js" />
+    <Content Include="Styles\css\CSS.css" />
+    <Content Include="Styles\css\custom-theme\images\animated-overlay.gif" />
+    <Content Include="Styles\css\custom-theme\images\Conasorgo\conasorgo_logo_1.png" />
+    <Content Include="Styles\css\custom-theme\images\img_white_opacity.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_flat_50_272020_40x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_flat_55_63d153_40x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_flat_65_71ba65_40x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_flat_75_50ba17_40x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_flat_75_55924b_40x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_flat_75_f6f5f5_40x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_glass_20_0b3f5b_1x4001.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_glass_40_076183_1x400.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_glass_40_076183_1x4001.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_gloss-wave_20_25033f_500x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_gloss-wave_20_25033f_500x1001.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_gloss-wave_20_a60504_500x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_gloss-wave_20_fbef1a_500x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_gloss-wave_30_0e5a12_500x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_gloss-wave_30_384085_500x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_gloss-wave_30_cd3e10_500x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_gloss-wave_40_d60d02_500x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_gloss-wave_50_d12e16_500x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_highlight-soft_50_c33229_1x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_layered-circles_10_000000_13x13.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_layered-circles_15_018813_13x13.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_layered-circles_15_bb070b_13x13.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-bg_white-lines_85_c0b9b7_40x100.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_056cd1_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_236927_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_454545_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_88a206_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_b43e3e_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_c02727_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_d93428_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_e1e463_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_f4e61a_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_f59805_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_f9d10b_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_fbfbfb_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_ffeb33_256x240.png" />
+    <Content Include="Styles\css\custom-theme\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Styles\css\custom-theme\jquery-ui-1.10.2.custom.css" />
+    <Content Include="Styles\css\custom-theme\jquery-ui-1.10.2.custom.min.css" />
+    <Content Include="Styles\css\custom-theme\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Styles\css\custom-theme\jquery-ui-1.10.3.custom.min.css" />
+    <Content Include="Styles\css\custom-theme\jquery-ui.css" />
+    <Content Include="Styles\css\custom-theme\jquery-ui.min.css" />
+    <Content Include="Styles\css\custom-theme\jquery-ui.structure.css" />
+    <Content Include="Styles\css\custom-theme\jquery-ui.structure.min.css" />
+    <Content Include="Styles\css\custom-theme\jquery-ui.theme.css" />
+    <Content Include="Styles\css\custom-theme\jquery-ui.theme.min.css" />
+    <Content Include="Styles\css\grd_alt.png" />
+    <Content Include="Styles\css\grd_head.png" />
+    <Content Include="Styles\css\grd_pgr.png" />
+    <Content Include="Styles\css\img\alert_background_green.png" />
+    <Content Include="Styles\css\img\alert_background_red.png" />
+    <Content Include="Styles\css\img\alert_background_yellow.png" />
+    <Content Include="Styles\css\img\close.png" />
+    <Content Include="Styles\css\img\grd_alt.png" />
+    <Content Include="Styles\css\img\grd_alt_green.png" />
+    <Content Include="Styles\css\img\grd_alt_green_reverse.png" />
+    <Content Include="Styles\css\img\grd_alt_orange.png" />
+    <Content Include="Styles\css\img\grd_alt_red.png" />
+    <Content Include="Styles\css\img\grd_alt_red_reverse.png" />
+    <Content Include="Styles\css\img\grd_alt_skyblue.png" />
+    <Content Include="Styles\css\img\grd_alt_yellow.png" />
+    <Content Include="Styles\css\img\grd_head.png" />
+    <Content Include="Styles\css\img\grd_pgr.png" />
+    <Content Include="Styles\css\img\grd_style1_luke.png" />
+    <Content Include="Styles\css\img\grd_style2_luke.png" />
+    <Content Include="Styles\css\img\grd_style3_luke.png" />
+    <Content Include="Styles\css\img\img_white_opacity.png" />
+    <Content Include="Styles\css\img\luke_ui-bg_layered_4.png" />
+    <Content Include="Styles\css\img\luke_ui-style_green_1.png" />
+    <Content Include="Styles\css\img\luke_ui-style_green_2.png" />
+    <Content Include="Styles\css\img\luke_ui-style_green_3.png" />
+    <Content Include="Styles\css\img\luke_ui-style_green_5.png" />
+    <Content Include="Styles\css\img\luke_ui-style_red_1.png" />
+    <Content Include="Styles\css\img\luke_ui-style_red_2.png" />
+    <Content Include="Styles\css\img\luke_ui-style_red_3.png" />
+    <Content Include="Styles\css\img\luke_ui-style_red_4.png" />
+    <Content Include="Styles\css\img\luke_ui-style_red_5.png" />
+    <Content Include="Styles\css\img\luke_ui-style_white_4.png" />
+    <Content Include="Styles\css\img\preload.gif" />
+    <Content Include="Styles\css\img\preload2.gif" />
+    <Content Include="Styles\css\img\Red_Alert_1.gif" />
+    <Content Include="Styles\css\SCDSPM_Styles.css" />
+    <Content Include="Styles\css\style.css" />
+    <Content Include="Styles\css\tinybox.css" />
+    <Content Include="Styles\jquery-ui.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Styles\styles.css" />
+    <Content Include="Turno.aspx" />
+    <Content Include="UnidadPNL.aspx" />
+    <Content Include="UnidadRAC.aspx" />
+    <Content Include="UnidadSecuerstros.aspx" />
+    <Content Include="Usuarios.aspx" />
+    <Content Include="Vehiculo.aspx" />
+    <Content Include="WDatoIncompetencia.aspx" />
+    <Content Include="WDetailsDelit.aspx" />
+    <Content Include="WDetailsDenPorEsta.aspx" />
+    <Content Include="WDetailsDenuncias.aspx" />
+    <Content Include="WDetailsPerson.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="WebEstadistica.aspx" />
+    <Content Include="WebEstadisticaEstados.aspx" />
+    <Content Include="WebEstadisticaIniciadas.aspx" />
+    <Content Include="DocPdf.aspx" />
+    <Content Include="WebEstadisticaNUC.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <Content Include="WebHojadeAtencion.aspx" />
+    <Content Include="WebMapaDelincuencial.aspx" />
+    <Content Include="WEstadistica.aspx" />
+    <Content Include="WPNLBoletin.aspx" />
+    <Content Include="WReporte1.aspx" />
+    <Content Include="WReporte2.aspx" />
+    <Content Include="WReporte3.aspx" />
+    <Content Include="WReporte4.aspx" />
+    <Content Include="WReporte5.aspx" />
+    <Content Include="WReporte7.aspx" />
+    <Content Include="WTipoDQ.aspx" />
+    <Content Include="WTipoDQNuc.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcuerdoCumplimientoDiferido.aspx.cs">
+      <DependentUpon>AcuerdoCumplimientoDiferido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AcuerdoCumplimientoDiferido.aspx.designer.cs">
+      <DependentUpon>AcuerdoCumplimientoDiferido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AcuerdoCumplimientoInmediato.aspx.cs">
+      <DependentUpon>AcuerdoCumplimientoInmediato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AcuerdoCumplimientoInmediato.aspx.designer.cs">
+      <DependentUpon>AcuerdoCumplimientoInmediato.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AcuerdoDiferidoFecha.aspx.cs">
+      <DependentUpon>AcuerdoDiferidoFecha.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AcuerdoDiferidoFecha.aspx.designer.cs">
+      <DependentUpon>AcuerdoDiferidoFecha.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Acuerdos.aspx.cs">
+      <DependentUpon>Acuerdos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Acuerdos.aspx.designer.cs">
+      <DependentUpon>Acuerdos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AcuerdosReparatorios.aspx.cs">
+      <DependentUpon>AcuerdosReparatorios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AcuerdosReparatorios.aspx.designer.cs">
+      <DependentUpon>AcuerdosReparatorios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrar.aspx.cs">
+      <DependentUpon>Administrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrar.aspx.designer.cs">
+      <DependentUpon>Administrar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgenciaInvestigacion.aspx.cs">
+      <DependentUpon>AgenciaInvestigacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgenciaInvestigacion.aspx.designer.cs">
+      <DependentUpon>AgenciaInvestigacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Agenda.aspx.cs">
+      <DependentUpon>Agenda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agenda.aspx.designer.cs">
+      <DependentUpon>Agenda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarBandaDesartSec.aspx.cs">
+      <DependentUpon>AgregarBandaDesartSec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarBandaDesartSec.aspx.designer.cs">
+      <DependentUpon>AgregarBandaDesartSec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarNegociacionSec.aspx.cs">
+      <DependentUpon>AgregarNegociacionSec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarNegociacionSec.aspx.designer.cs">
+      <DependentUpon>AgregarNegociacionSec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarProfugoSec.aspx.cs">
+      <DependentUpon>AgregarProfugoSec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AgregarProfugoSec.aspx.designer.cs">
+      <DependentUpon>AgregarProfugoSec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Alias.aspx.cs">
+      <DependentUpon>Alias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alias.aspx.designer.cs">
+      <DependentUpon>Alias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Archivos.cs" />
+    <Compile Include="AsignarDetenidoPI.aspx.cs">
+      <DependentUpon>AsignarDetenidoPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AsignarDetenidoPI.aspx.designer.cs">
+      <DependentUpon>AsignarDetenidoPI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AudienciasJusticiaAlternativa.aspx.cs">
+      <DependentUpon>AudienciasJusticiaAlternativa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AudienciasJusticiaAlternativa.aspx.designer.cs">
+      <DependentUpon>AudienciasJusticiaAlternativa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AudienciasSolicitadas.aspx.cs">
+      <DependentUpon>AudienciasSolicitadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AudienciasSolicitadas.aspx.designer.cs">
+      <DependentUpon>AudienciasSolicitadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoridadDenuncia.aspx.cs">
+      <DependentUpon>AutoridadDenuncia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoridadDenuncia.aspx.designer.cs">
+      <DependentUpon>AutoridadDenuncia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BandasDesartSec.aspx.cs">
+      <DependentUpon>BandasDesartSec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BandasDesartSec.aspx.designer.cs">
+      <DependentUpon>BandasDesartSec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CargarAnexo.aspx.cs">
+      <DependentUpon>CargarAnexo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargarAnexo.aspx.designer.cs">
+      <DependentUpon>CargarAnexo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CargarFotografiasPerito.aspx.cs">
+      <DependentUpon>CargarFotografiasPerito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargarFotografiasPerito.aspx.designer.cs">
+      <DependentUpon>CargarFotografiasPerito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CargarFotografiasPI.aspx.cs">
+      <DependentUpon>CargarFotografiasPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargarFotografiasPI.aspx.designer.cs">
+      <DependentUpon>CargarFotografiasPI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CargarVideo.aspx.cs">
+      <DependentUpon>CargarVideo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargarVideo.aspx.designer.cs">
+      <DependentUpon>CargarVideo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CargarVideosPeritos.aspx.cs">
+      <DependentUpon>CargarVideosPeritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CargarVideosPeritos.aspx.designer.cs">
+      <DependentUpon>CargarVideosPeritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CarpetaDigital.aspx.cs">
+      <DependentUpon>CarpetaDigital.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarpetaDigital.aspx.designer.cs">
+      <DependentUpon>CarpetaDigital.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CarpetaPDF.aspx.cs">
+      <DependentUpon>CarpetaPDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarpetaPDF.aspx.designer.cs">
+      <DependentUpon>CarpetaPDF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="ConculidoSinAcuerdo.aspx.cs">
+      <DependentUpon>ConculidoSinAcuerdo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConculidoSinAcuerdo.aspx.designer.cs">
+      <DependentUpon>ConculidoSinAcuerdo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaAtencionComunidad.aspx.cs">
+      <DependentUpon>ConsultaAtencionComunidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaAtencionComunidad.aspx.designer.cs">
+      <DependentUpon>ConsultaAtencionComunidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="consultahomicidios.aspx.cs">
+      <DependentUpon>consultahomicidios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="consultahomicidios.aspx.designer.cs">
+      <DependentUpon>consultahomicidios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CoordPoliciaInvestigador.aspx.cs">
+      <DependentUpon>CoordPoliciaInvestigador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CoordPoliciaInvestigador.aspx.designer.cs">
+      <DependentUpon>CoordPoliciaInvestigador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CoordPoliciaInvestigador_Estadistica.aspx.cs">
+      <DependentUpon>CoordPoliciaInvestigador_Estadistica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CoordPoliciaInvestigador_Estadistica.aspx.designer.cs">
+      <DependentUpon>CoordPoliciaInvestigador_Estadistica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CoordPoliciaInvestigador_MisOrdenes.aspx.cs">
+      <DependentUpon>CoordPoliciaInvestigador_MisOrdenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CoordPoliciaInvestigador_MisOrdenes.aspx.designer.cs">
+      <DependentUpon>CoordPoliciaInvestigador_MisOrdenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DatosDetenidoPI.aspx.cs">
+      <DependentUpon>DatosDetenidoPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatosDetenidoPI.aspx.designer.cs">
+      <DependentUpon>DatosDetenidoPI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DatosPrincipalesSec.aspx.cs">
+      <DependentUpon>DatosPrincipalesSec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DatosPrincipalesSec.aspx.designer.cs">
+      <DependentUpon>DatosPrincipalesSec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Defensor.aspx.cs">
+      <DependentUpon>Defensor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Defensor.aspx.designer.cs">
+      <DependentUpon>Defensor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DefensorPublico.aspx.cs">
+      <DependentUpon>DefensorPublico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DefensorPublico.aspx.designer.cs">
+      <DependentUpon>DefensorPublico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DerivadasDeAtencion.aspx.cs">
+      <DependentUpon>DerivadasDeAtencion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DerivadasDeAtencion.aspx.designer.cs">
+      <DependentUpon>DerivadasDeAtencion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Descargas.aspx.cs">
+      <DependentUpon>Descargas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Descargas.aspx.designer.cs">
+      <DependentUpon>Descargas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DesivadasDeOrientacion.aspx.cs">
+      <DependentUpon>DesivadasDeOrientacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DesivadasDeOrientacion.aspx.designer.cs">
+      <DependentUpon>DesivadasDeOrientacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleDetenido.aspx.cs">
+      <DependentUpon>DetalleDetenido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleDetenido.aspx.designer.cs">
+      <DependentUpon>DetalleDetenido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detenidos.aspx.cs">
+      <DependentUpon>Detenidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detenidos.aspx.designer.cs">
+      <DependentUpon>Detenidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DireccionServiciosPericiales.aspx.cs">
+      <DependentUpon>DireccionServiciosPericiales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DireccionServiciosPericiales.aspx.designer.cs">
+      <DependentUpon>DireccionServiciosPericiales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DireccionServiciosPericiales_Estadisticas.aspx.cs">
+      <DependentUpon>DireccionServiciosPericiales_Estadisticas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DireccionServiciosPericiales_Estadisticas.aspx.designer.cs">
+      <DependentUpon>DireccionServiciosPericiales_Estadisticas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocCominidad.aspx.cs">
+      <DependentUpon>DocCominidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DocCominidad.aspx.designer.cs">
+      <DependentUpon>DocCominidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocMediacion.aspx.cs">
+      <DependentUpon>DocMediacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DocMediacion.aspx.designer.cs">
+      <DependentUpon>DocMediacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentoVehiculo.cs" />
+    <Compile Include="Domicilio.aspx.cs">
+      <DependentUpon>Domicilio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Domicilio.aspx.designer.cs">
+      <DependentUpon>Domicilio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSRepIniciadasNUC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSRepIniciadasNUC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReportes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ElaborarInformePolicial.aspx.cs">
+      <DependentUpon>ElaborarInformePolicial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ElaborarInformePolicial.aspx.designer.cs">
+      <DependentUpon>ElaborarInformePolicial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarAnexosOrdenPI.aspx.cs">
+      <DependentUpon>EliminarAnexosOrdenPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarAnexosOrdenPI.aspx.designer.cs">
+      <DependentUpon>EliminarAnexosOrdenPI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarImagenes.aspx.cs">
+      <DependentUpon>EliminarImagenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarImagenes.aspx.designer.cs">
+      <DependentUpon>EliminarImagenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarImagenesSolicitudPericiales.aspx.cs">
+      <DependentUpon>EliminarImagenesSolicitudPericiales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarImagenesSolicitudPericiales.aspx.designer.cs">
+      <DependentUpon>EliminarImagenesSolicitudPericiales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarObjetosPI.aspx.cs">
+      <DependentUpon>EliminarObjetosPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarObjetosPI.aspx.designer.cs">
+      <DependentUpon>EliminarObjetosPI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarVehiculosPI.aspx.cs">
+      <DependentUpon>EliminarVehiculosPI.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarVehiculosPI.aspx.designer.cs">
+      <DependentUpon>EliminarVehiculosPI.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarVideos.aspx.cs">
+      <DependentUpon>EliminarVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarVideos.aspx.designer.cs">
+      <DependentUpon>EliminarVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarVideosPeritos.aspx.cs">
+      <DependentUpon>EliminarVideosPeritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarVideosPeritos.aspx.designer.cs">
+      <DependentUpon>EliminarVideosPeritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmpreaOfendida.aspx.cs">
+      <DependentUpon>EmpreaOfendida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmpreaOfendida.aspx.designer.cs">
+      <DependentUpon>EmpreaOfendida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FileOutputStream.cs" />
+    <Compile Include="FormaInicioNac.aspx.cs">
+      <DependentUpon>FormaInicioNac.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormaInicioNac.aspx.designer.cs">
+      <DependentUpon>FormaInicioNac.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormaInicioNuc.aspx.cs">
+      <DependentUpon>FormaInicioNuc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormaInicioNuc.aspx.designer.cs">
+      <DependentUpon>FormaInicioNuc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormaInicioNum.aspx.cs">
+      <DependentUpon>FormaInicioNum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormaInicioNum.aspx.designer.cs">
+      <DependentUpon>FormaInicioNum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormaInicioRac.aspx.cs">
+      <DependentUpon>FormaInicioRac.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormaInicioRac.aspx.designer.cs">
+      <DependentUpon>FormaInicioRac.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="foto.ashx.cs">
+      <DependentUpon>foto.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="FotoBPNL.ashx.cs">
+      <DependentUpon>FotoBPNL.ashx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FotoBPNL.ashx.designer.cs">
+      <DependentUpon>FotoBPNL.ashx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fotoDetenido.ashx.cs">
+      <DependentUpon>fotoDetenido.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="FotoPNL.ashx.cs">
+      <DependentUpon>FotoPNL.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="fotosPericiales.ashx.cs">
+      <DependentUpon>fotosPericiales.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="GenerarDocs.aspx.cs">
+      <DependentUpon>GenerarDocs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GenerarDocs.aspx.designer.cs">
+      <DependentUpon>GenerarDocs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Homicidios.aspx.cs">
+      <DependentUpon>Homicidios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homicidios.aspx.designer.cs">
+      <DependentUpon>Homicidios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InicioProcesoNoAceptacion.aspx.cs">
+      <DependentUpon>InicioProcesoNoAceptacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InicioProcesoNoAceptacion.aspx.designer.cs">
+      <DependentUpon>InicioProcesoNoAceptacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IPH.aspx.cs">
+      <DependentUpon>IPH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IPH.aspx.designer.cs">
+      <DependentUpon>IPH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IPHRegistro.aspx.cs">
+      <DependentUpon>IPHRegistro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IPHRegistro.aspx.designer.cs">
+      <DependentUpon>IPHRegistro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Judicializada.aspx.cs">
+      <DependentUpon>Judicializada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Judicializada.aspx.designer.cs">
+      <DependentUpon>Judicializada.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="JusticiaAlternativaAudiencia.aspx.cs">
+      <DependentUpon>JusticiaAlternativaAudiencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JusticiaAlternativaAudiencia.aspx.designer.cs">
+      <DependentUpon>JusticiaAlternativaAudiencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LiberacionSec.aspx.cs">
+      <DependentUpon>LiberacionSec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LiberacionSec.aspx.designer.cs">
+      <DependentUpon>LiberacionSec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Marcadores.cs" />
+    <Compile Include="Mediacion.aspx.cs">
+      <DependentUpon>Mediacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mediacion.aspx.designer.cs">
+      <DependentUpon>Mediacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MediaFiliacionDetenido.aspx.cs">
+      <DependentUpon>MediaFiliacionDetenido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MediaFiliacionDetenido.aspx.designer.cs">
+      <DependentUpon>MediaFiliacionDetenido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModuloSecuestros.aspx.cs">
+      <DependentUpon>ModuloSecuestros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModuloSecuestros.aspx.designer.cs">
+      <DependentUpon>ModuloSecuestros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NAC.aspx.cs">
+      <DependentUpon>NAC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NAC.aspx.designer.cs">
+      <DependentUpon>NAC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NegociacionSec.aspx.cs">
+      <DependentUpon>NegociacionSec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NegociacionSec.aspx.designer.cs">
+      <DependentUpon>NegociacionSec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotificacionAudiencia.aspx.cs">
+      <DependentUpon>NotificacionAudiencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotificacionAudiencia.aspx.designer.cs">
+      <DependentUpon>NotificacionAudiencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NUC.aspx.cs">
+      <DependentUpon>NUC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NUC.aspx.designer.cs">
+      <DependentUpon>NUC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NucJudOrdenDelito.aspx.cs">
+      <DependentUpon>NucJudOrdenDelito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NucJudOrdenDelito.aspx.designer.cs">
+      <DependentUpon>NucJudOrdenDelito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NucJudOrdenes.aspx.cs">
+      <DependentUpon>NucJudOrdenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NucJudOrdenes.aspx.designer.cs">
+      <DependentUpon>NucJudOrdenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NucJudOrdenesPersona.aspx.cs">
+      <DependentUpon>NucJudOrdenesPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NucJudOrdenesPersona.aspx.designer.cs">
+      <DependentUpon>NucJudOrdenesPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NucJudSentencia.aspx.cs">
+      <DependentUpon>NucJudSentencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NucJudSentencia.aspx.designer.cs">
+      <DependentUpon>NucJudSentencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NUC_PNL.aspx.cs">
+      <DependentUpon>NUC_PNL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NUC_PNL.aspx.designer.cs">
+      <DependentUpon>NUC_PNL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NUC_SECUESTRO.aspx.cs">
+      <DependentUpon>NUC_SECUESTRO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NUC_SECUESTRO.aspx.designer.cs">
+      <DependentUpon>NUC_SECUESTRO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NUM.aspx.cs">
+      <DependentUpon>NUM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NUM.aspx.designer.cs">
+      <DependentUpon>NUM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NUM_ACUERDOS.aspx.cs">
+      <DependentUpon>NUM_ACUERDOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NUM_ACUERDOS.aspx.designer.cs">
+      <DependentUpon>NUM_ACUERDOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenCoordPoliciaInvestigador.aspx.cs">
+      <DependentUpon>OrdenCoordPoliciaInvestigador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrdenCoordPoliciaInvestigador.aspx.designer.cs">
+      <DependentUpon>OrdenCoordPoliciaInvestigador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenDirServiciosPericales.aspx.cs">
+      <DependentUpon>OrdenDirServiciosPericales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrdenDirServiciosPericales.aspx.designer.cs">
+      <DependentUpon>OrdenDirServiciosPericales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ordenes.aspx.cs">
+      <DependentUpon>Ordenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ordenes.aspx.designer.cs">
+      <DependentUpon>Ordenes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenPerito.aspx.cs">
+      <DependentUpon>OrdenPerito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrdenPerito.aspx.designer.cs">
+      <DependentUpon>OrdenPerito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenPoliciaInvestigador.aspx.cs">
+      <DependentUpon>OrdenPoliciaInvestigador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrdenPoliciaInvestigador.aspx.designer.cs">
+      <DependentUpon>OrdenPoliciaInvestigador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Periciales.aspx.cs">
+      <DependentUpon>Periciales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Periciales.aspx.designer.cs">
+      <DependentUpon>Periciales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PGJ_NSJPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PGJ_NSJPDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Plantillas.aspx.cs">
+      <DependentUpon>Plantillas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Plantillas.aspx.designer.cs">
+      <DependentUpon>Plantillas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNLBusquedaRegistrosPNL.aspx.cs">
+      <DependentUpon>PNLBusquedaRegistrosPNL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PNLBusquedaRegistrosPNL.aspx.designer.cs">
+      <DependentUpon>PNLBusquedaRegistrosPNL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNLDatosPrincipales.aspx.cs">
+      <DependentUpon>PNLDatosPrincipales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PNLDatosPrincipales.aspx.designer.cs">
+      <DependentUpon>PNLDatosPrincipales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNLDonante.aspx.cs">
+      <DependentUpon>PNLDonante.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PNLDonante.aspx.designer.cs">
+      <DependentUpon>PNLDonante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNLFotografia.aspx.cs">
+      <DependentUpon>PNLFotografia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PNLFotografia.aspx.designer.cs">
+      <DependentUpon>PNLFotografia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNLLocalizacion.aspx.cs">
+      <DependentUpon>PNLLocalizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PNLLocalizacion.aspx.designer.cs">
+      <DependentUpon>PNLLocalizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNLLocalizados.aspx.cs">
+      <DependentUpon>PNLLocalizados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PNLLocalizados.aspx.designer.cs">
+      <DependentUpon>PNLLocalizados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNLMediaFiliacion.aspx.cs">
+      <DependentUpon>PNLMediaFiliacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PNLMediaFiliacion.aspx.designer.cs">
+      <DependentUpon>PNLMediaFiliacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNLPeritoRecolector.aspx.cs">
+      <DependentUpon>PNLPeritoRecolector.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PNLPeritoRecolector.aspx.designer.cs">
+      <DependentUpon>PNLPeritoRecolector.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNLPersonasNSJP.aspx.cs">
+      <DependentUpon>PNLPersonasNSJP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PNLPersonasNSJP.aspx.designer.cs">
+      <DependentUpon>PNLPersonasNSJP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNLSeniasParticulares.aspx.cs">
+      <DependentUpon>PNLSeniasParticulares.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PNLSeniasParticulares.aspx.designer.cs">
+      <DependentUpon>PNLSeniasParticulares.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNL_NSJPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PNL_NSJPDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PNL_NSJPDataSetALERTA.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PNL_NSJPDataSetALERTA.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PNL_NSJPDataSetBOLETIN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PNL_NSJPDataSetBOLETIN.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PoliciaInvestigador.aspx.cs">
+      <DependentUpon>PoliciaInvestigador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PoliciaInvestigador.aspx.designer.cs">
+      <DependentUpon>PoliciaInvestigador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProfugosSec.aspx.cs">
+      <DependentUpon>ProfugosSec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProfugosSec.aspx.designer.cs">
+      <DependentUpon>ProfugosSec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PruebaPantallas.aspx.cs">
+      <DependentUpon>PruebaPantallas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PruebaPantallas.aspx.designer.cs">
+      <DependentUpon>PruebaPantallas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuienResulteOfendido.aspx.cs">
+      <DependentUpon>QuienResulteOfendido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuienResulteOfendido.aspx.designer.cs">
+      <DependentUpon>QuienResulteOfendido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QuienResulteResponsable.aspx.cs">
+      <DependentUpon>QuienResulteResponsable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuienResulteResponsable.aspx.designer.cs">
+      <DependentUpon>QuienResulteResponsable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RAC.aspx.cs">
+      <DependentUpon>RAC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RAC.aspx.designer.cs">
+      <DependentUpon>RAC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultaRAC.aspx.cs">
+      <DependentUpon>ConsultaRAC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultaRAC.aspx.designer.cs">
+      <DependentUpon>ConsultaRAC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Data.cs" />
+    <Compile Include="Datos.aspx.cs">
+      <DependentUpon>Datos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Datos.aspx.designer.cs">
+      <DependentUpon>Datos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dcOrientacion.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dcOrientacion.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Delito.aspx.cs">
+      <DependentUpon>Delito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Delito.aspx.designer.cs">
+      <DependentUpon>Delito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormaInicio.aspx.cs">
+      <DependentUpon>FormaInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormaInicio.aspx.designer.cs">
+      <DependentUpon>FormaInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Hechos.aspx.cs">
+      <DependentUpon>Hechos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hechos.aspx.designer.cs">
+      <DependentUpon>Hechos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ImprimirTurno.aspx.cs">
+      <DependentUpon>ImprimirTurno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ImprimirTurno.aspx.designer.cs">
+      <DependentUpon>ImprimirTurno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LlamarTurno.aspx.cs">
+      <DependentUpon>LlamarTurno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LlamarTurno.aspx.designer.cs">
+      <DependentUpon>LlamarTurno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LlamarTurnoAtencion.aspx.cs">
+      <DependentUpon>LlamarTurnoAtencion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LlamarTurnoAtencion.aspx.designer.cs">
+      <DependentUpon>LlamarTurnoAtencion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LugarHechos.aspx.cs">
+      <DependentUpon>LugarHechos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LugarHechos.aspx.designer.cs">
+      <DependentUpon>LugarHechos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mapa.aspx.cs">
+      <DependentUpon>Mapa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mapa.aspx.designer.cs">
+      <DependentUpon>Mapa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MedioContacto.aspx.cs">
+      <DependentUpon>MedioContacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MedioContacto.aspx.designer.cs">
+      <DependentUpon>MedioContacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RazonAviso.aspx.cs">
+      <DependentUpon>RazonAviso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RazonAviso.aspx.designer.cs">
+      <DependentUpon>RazonAviso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RazonAvisoConDetenido.aspx.cs">
+      <DependentUpon>RazonAvisoConDetenido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RazonAvisoConDetenido.aspx.designer.cs">
+      <DependentUpon>RazonAvisoConDetenido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RazonAvisoSinDetenido.aspx.cs">
+      <DependentUpon>RazonAvisoSinDetenido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RazonAvisoSinDetenido.aspx.designer.cs">
+      <DependentUpon>RazonAvisoSinDetenido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RedactarInformePericial.aspx.cs">
+      <DependentUpon>RedactarInformePericial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RedactarInformePericial.aspx.designer.cs">
+      <DependentUpon>RedactarInformePericial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarDetencion.aspx.cs">
+      <DependentUpon>RegistrarDetencion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarDetencion.aspx.designer.cs">
+      <DependentUpon>RegistrarDetencion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rpDenunciasModalidad.aspx.cs">
+      <DependentUpon>rpDenunciasModalidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rpDenunciasModalidad.aspx.designer.cs">
+      <DependentUpon>rpDenunciasModalidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rpDenunciasViolencia.aspx.cs">
+      <DependentUpon>rpDenunciasViolencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rpDenunciasViolencia.aspx.designer.cs">
+      <DependentUpon>rpDenunciasViolencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SeñasParticularesDetenido.aspx.cs">
+      <DependentUpon>SeñasParticularesDetenido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SeñasParticularesDetenido.aspx.designer.cs">
+      <DependentUpon>SeñasParticularesDetenido.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Solicitudes.aspx.cs">
+      <DependentUpon>Solicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Solicitudes.aspx.designer.cs">
+      <DependentUpon>Solicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SolicitudPeritos.aspx.cs">
+      <DependentUpon>SolicitudPeritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SolicitudPeritos.aspx.designer.cs">
+      <DependentUpon>SolicitudPeritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Cambio_Contra.aspx.cs">
+      <DependentUpon>SP_Cambio_Contra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SP_Cambio_Contra.aspx.designer.cs">
+      <DependentUpon>SP_Cambio_Contra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Turno.aspx.cs">
+      <DependentUpon>Turno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Turno.aspx.designer.cs">
+      <DependentUpon>Turno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UnidadPNL.aspx.cs">
+      <DependentUpon>UnidadPNL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnidadPNL.aspx.designer.cs">
+      <DependentUpon>UnidadPNL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UnidadRAC.aspx.cs">
+      <DependentUpon>UnidadRAC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnidadRAC.aspx.designer.cs">
+      <DependentUpon>UnidadRAC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UnidadSecuerstros.aspx.cs">
+      <DependentUpon>UnidadSecuerstros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnidadSecuerstros.aspx.designer.cs">
+      <DependentUpon>UnidadSecuerstros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vehiculo.aspx.cs">
+      <DependentUpon>Vehiculo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vehiculo.aspx.designer.cs">
+      <DependentUpon>Vehiculo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WDatoIncompetencia.aspx.cs">
+      <DependentUpon>WDatoIncompetencia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WDatoIncompetencia.aspx.designer.cs">
+      <DependentUpon>WDatoIncompetencia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WDetailsDelit.aspx.cs">
+      <DependentUpon>WDetailsDelit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WDetailsDelit.aspx.designer.cs">
+      <DependentUpon>WDetailsDelit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WDetailsDenPorEsta.aspx.cs">
+      <DependentUpon>WDetailsDenPorEsta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WDetailsDenPorEsta.aspx.designer.cs">
+      <DependentUpon>WDetailsDenPorEsta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WDetailsDenuncias.aspx.cs">
+      <DependentUpon>WDetailsDenuncias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WDetailsDenuncias.aspx.designer.cs">
+      <DependentUpon>WDetailsDenuncias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WDetailsPerson.aspx.cs">
+      <DependentUpon>WDetailsPerson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WDetailsPerson.aspx.designer.cs">
+      <DependentUpon>WDetailsPerson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebEstadistica.aspx.cs">
+      <DependentUpon>WebEstadistica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebEstadistica.aspx.designer.cs">
+      <DependentUpon>WebEstadistica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebEstadisticaEstados.aspx.cs">
+      <DependentUpon>WebEstadisticaEstados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebEstadisticaEstados.aspx.designer.cs">
+      <DependentUpon>WebEstadisticaEstados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebEstadisticaIniciadas.aspx.cs">
+      <DependentUpon>WebEstadisticaIniciadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebEstadisticaIniciadas.aspx.designer.cs">
+      <DependentUpon>WebEstadisticaIniciadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DocPdf.aspx.cs">
+      <DependentUpon>DocPdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DocPdf.aspx.designer.cs">
+      <DependentUpon>DocPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebEstadisticaNUC.aspx.cs">
+      <DependentUpon>WebEstadisticaNUC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebEstadisticaNUC.aspx.designer.cs">
+      <DependentUpon>WebEstadisticaNUC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebHojadeAtencion.aspx.cs">
+      <DependentUpon>WebHojadeAtencion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebHojadeAtencion.aspx.designer.cs">
+      <DependentUpon>WebHojadeAtencion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebMapaDelincuencial.aspx.cs">
+      <DependentUpon>WebMapaDelincuencial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebMapaDelincuencial.aspx.designer.cs">
+      <DependentUpon>WebMapaDelincuencial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WEstadistica.aspx.cs">
+      <DependentUpon>WEstadistica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WEstadistica.aspx.designer.cs">
+      <DependentUpon>WEstadistica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Word2Pdf.cs" />
+    <Compile Include="WPNLBoletin.aspx.cs">
+      <DependentUpon>WPNLBoletin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WPNLBoletin.aspx.designer.cs">
+      <DependentUpon>WPNLBoletin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WReporte1.aspx.cs">
+      <DependentUpon>WReporte1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WReporte1.aspx.designer.cs">
+      <DependentUpon>WReporte1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WReporte2.aspx.cs">
+      <DependentUpon>WReporte2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WReporte2.aspx.designer.cs">
+      <DependentUpon>WReporte2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WReporte3.aspx.cs">
+      <DependentUpon>WReporte3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WReporte3.aspx.designer.cs">
+      <DependentUpon>WReporte3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WReporte4.aspx.cs">
+      <DependentUpon>WReporte4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WReporte4.aspx.designer.cs">
+      <DependentUpon>WReporte4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WReporte5.aspx.cs">
+      <DependentUpon>WReporte5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WReporte5.aspx.designer.cs">
+      <DependentUpon>WReporte5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WReporte7.aspx.cs">
+      <DependentUpon>WReporte7.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WReporte7.aspx.designer.cs">
+      <DependentUpon>WReporte7.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WTipoDQ.aspx.cs">
+      <DependentUpon>WTipoDQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WTipoDQ.aspx.designer.cs">
+      <DependentUpon>WTipoDQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WTipoDQNuc.aspx.cs">
+      <DependentUpon>WTipoDQNuc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WTipoDQNuc.aspx.designer.cs">
+      <DependentUpon>WTipoDQNuc.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Account\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="DocTmp\" />
+    <Folder Include="Mediacion\" />
+    <Folder Include="VideosPI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".DS_Store" />
+    <Content Include="foto.ashx" />
+    <Content Include="img\chavito-1-qzo3i9hy0psy.zip" />
+    <Content Include="fotosPericiales.ashx" />
+    <Content Include="FotoPNL.ashx" />
+    <Content Include="fotoDetenido.ashx" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="DSRepIniciadasNUC.xsc">
+      <DependentUpon>DSRepIniciadasNUC.xsd</DependentUpon>
+    </None>
+    <None Include="DSRepIniciadasNUC.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSRepIniciadasNUC.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DSRepIniciadasNUC.xss">
+      <DependentUpon>DSRepIniciadasNUC.xsd</DependentUpon>
+    </None>
+    <Content Include="FotoBPNL.ashx" />
+    <None Include="PDF_ATENCION\DENUNCIA.pdf" />
+    <None Include="PDF_NUC\ACTA DE DENUNCIA O QUERELLA.pdf" />
+    <None Include="PDF_NUC\ACTA DE LECTURA Y EXPLICACIÓN DE DERECHOS A LA VÍCTIMA.pdf" />
+    <None Include="PDF_NUC\ACUERDO DE INCOMPETENCIA.pdf" />
+    <None Include="PDF_NUC\ACUERDO DE INICIO.pdf" />
+    <None Include="css\.DS_Store" />
+    <None Include="dcOrientacion.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>dcOrientacion.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PDF_NUC\ACUERDO PARA ABSTENERSE DE INVESTIGAR.pdf" />
+    <None Include="PDF_NUC\ARCHIVO TEMPORAL.pdf" />
+    <None Include="PDF_NUC\DECLARACION DE IMPUTADO.pdf" />
+    <None Include="PDF_NUC\DECLARACION TESTIMONIAL.pdf" />
+    <None Include="dsReportes.xsc">
+      <DependentUpon>dsReportes.xsd</DependentUpon>
+    </None>
+    <None Include="dsReportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReportes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReportes.xss">
+      <DependentUpon>dsReportes.xsd</DependentUpon>
+    </None>
+    <None Include="img\.DS_Store" />
+    <None Include="js\.DS_Store" />
+    <None Include="Logo Nuevo Sistema de JP%281%29.psd" />
+    <Content Include="Site.Master" />
+    <None Include="PDF_NUC\EXAMEN DE LA DETENCION.pdf" />
+    <None Include="PDF_NUC\INEJERCICIO POR PERDON.pdf" />
+    <None Include="PDF_NUC\OFICIO DE ENTREGA DE CUERPO.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA EL INSTITUTO DE VICTIMAS.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA MEDIACION.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA NOTIFICAR ACUERDO PARA ABSTENERSE DE INVESTIGAR.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA QUE PERITO EN HECHOS DE TRANSITO SE IMPONGA DE ACTAS.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA SOLICITAR EXHORTO %28IMPUTADO%29.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA SOLICITAR EXHORTO %28TESTIGO%29.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA SOLICITAR EXPLORACION FISICA DE DETENIDO.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA SOLICITAR FOTOGRAFIA.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA SOLICITAR INFORME EN MATERIA DE GENETICA.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA SOLICITAR INFORME MEDICO DE LESIONADO.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA SOLICITAR INFORME PSICOLOGICO PARA MENOR.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA SOLICITAR INFORME PSICOLOGICO.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA SOLICITAR PERITO QUMICO.pdf" />
+    <None Include="PDF_NUC\OFICIO PARA SOLICITAR PERITO VALUADOR Y FOTOGRAFIA.pdf" />
+    <None Include="PDF_NUC\ORDEN CONTINUACION DE INVESTIGACION A LA POLICIA MINISTERIAL.pdf" />
+    <None Include="PDF_NUC\ORDEN DE INVESTIGACION A LA POLICIA MINISTERIAL.pdf" />
+    <None Include="PDF_NUC\ORDEN PARA QUE LOS PERITOS SE CONSTITUYAN AL LUGAR DE LOS HECHOS.pdf" />
+    <None Include="PGJ_NSJPDataSet.xsc">
+      <DependentUpon>PGJ_NSJPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PGJ_NSJPDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PGJ_NSJPDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PGJ_NSJPDataSet.xss">
+      <DependentUpon>PGJ_NSJPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PNL_NSJPDataSet.xsc">
+      <DependentUpon>PNL_NSJPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PNL_NSJPDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PNL_NSJPDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PNL_NSJPDataSet.xss">
+      <DependentUpon>PNL_NSJPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PNL_NSJPDataSetALERTA.xsc">
+      <DependentUpon>PNL_NSJPDataSetALERTA.xsd</DependentUpon>
+    </None>
+    <None Include="PNL_NSJPDataSetALERTA.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PNL_NSJPDataSetALERTA.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PNL_NSJPDataSetALERTA.xss">
+      <DependentUpon>PNL_NSJPDataSetALERTA.xsd</DependentUpon>
+    </None>
+    <None Include="PNL_NSJPDataSetBOLETIN.xsc">
+      <DependentUpon>PNL_NSJPDataSetBOLETIN.xsd</DependentUpon>
+    </None>
+    <None Include="PNL_NSJPDataSetBOLETIN.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PNL_NSJPDataSetBOLETIN.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PNL_NSJPDataSetBOLETIN.xss">
+      <DependentUpon>PNL_NSJPDataSetBOLETIN.xsd</DependentUpon>
+    </None>
+    <None Include="Styles\css\bootstrap-3.2.0-dist\css\bootstrap-theme.css.map" />
+    <None Include="Styles\css\bootstrap-3.2.0-dist\css\bootstrap.css.map" />
+    <None Include="Styles\css\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Styles\css\bootstrap-3.2.0-dist\fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dcOrientacion.dbml.layout">
+      <DependentUpon>dcOrientacion.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReporteBoletinLocalizado.rdlc" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="ReporteAmber.rdlc" />
+    <EmbeddedResource Include="ReporteBoletin.rdlc" />
+    <EmbeddedResource Include="ReporteCarpetasIniciadas.rdlc" />
+    <EmbeddedResource Include="ReporteDenuncias.rdlc" />
+    <EmbeddedResource Include="ReporteEstados.rdlc" />
+    <EmbeddedResource Include="ReportePNL.rdlc" />
+    <EmbeddedResource Include="rpCarpetasIniciadas.rdlc" />
+    <EmbeddedResource Include="rpEstadoCarpeta.rdlc" />
+    <EmbeddedResource Include="rpModalidad.rdlc" />
+    <EmbeddedResource Include="rpOfendidosEdadSexo.rdlc" />
+    <EmbeddedResource Include="RptDelitos.rdlc" />
+    <EmbeddedResource Include="RptMunicipioHechos.rdlc" />
+    <EmbeddedResource Include="rpTurnoPersona.rdlc" />
+    <EmbeddedResource Include="rpTurnos.rdlc" />
+    <EmbeddedResource Include="rpViolencia.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50625</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
