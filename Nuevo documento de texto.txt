@@ -1,13 +1,2 @@
 Texto ejemplo
 
-
-ghghgfgfgfgfgfgfgfg
-
-
-<<<<<<< HEAD
-
-
-hfhgfghfgfhgfh
-=======
-asdasd
->>>>>>> eeedd1e05210f22cc708e63c682fc3d70838a2b3
