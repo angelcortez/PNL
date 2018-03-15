@@ -1,8 +1,2 @@
 Texto ejemplo
 
-<<<<<<< HEAD
-
-1234
-=======
-LINEA AGREGADA
->>>>>>> 128c2b4c02f7d528b9c5ec965c6f436881a60f44
