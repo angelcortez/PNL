@@ -2,6 +2,14 @@ Texto ejemplo
 
 
 Edición1
+<<<<<<< HEAD
 valentin linea nuevaasdasasdasdasd
 
 asdasdasd
+=======
+valentin linea nuevaasdas
+
+
+
+nuevas modificaciones.....
+>>>>>>> branch_valentin
