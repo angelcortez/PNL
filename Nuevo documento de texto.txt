@@ -4,9 +4,19 @@ Texto ejemplo
 ghghgfgfgfgfgfgfgfg
 
 
+<<<<<<< HEAD
 asdasd sdasd asdsd
 as
 d
 asd
 as
 d
+=======
+<<<<<<< HEAD
+
+
+hfhgfghfgfhgfh
+=======
+asdasd
+>>>>>>> eeedd1e05210f22cc708e63c682fc3d70838a2b3
+>>>>>>> 801ecb246cce028a812f2cdcd01f4e298e3811c3
