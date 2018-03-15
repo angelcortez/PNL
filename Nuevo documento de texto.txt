@@ -2,4 +2,4 @@ Texto ejemplo
 
 LINEA AGREGADA
 
-linea 2 agregado
+>>>>>>> fb448f122aebbc26776f5dfb19bec9d01ca71071
