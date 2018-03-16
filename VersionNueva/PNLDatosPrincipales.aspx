@@ -29,6 +29,7 @@
         }
              
     </script>--%>
+
     <%--class="chosen-select" pegado al ddl para que funcione--%>
     <style type="text/css">
         .style6
@@ -1317,7 +1318,6 @@
                                         Font-Size="Small" ForeColor="Black" Text="RELACIONES PERSONALES" />
                                 </td>
                             </tr>-->
-
                             <tr>
                             <td class="style27">
                                 <asp:RadioButton GroupName="causalesGroup" ID="rbPropiaVoluntad" runat="server" 
@@ -1445,7 +1445,7 @@
             </tr>
             <tr align="center">
                 <td colspan="4">
-                    <asp:Button ID="btnGuardarDatos" runat="server" Text="GUARDAR DATOS" OnClick="btnGuardarDatos_Click"
+                    <asp:Button ID="btnGuardarDatos"  runat="server" Text="GUARDAR DATOS" OnClick= "btnGuardarDatos_Click" 
                         Height="40px" Width="156px" class="button" />
                 </td>
             </tr>
