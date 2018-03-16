@@ -34,54 +34,43 @@
         .style6
         {
             height: 19px;
-            
         }
         .style7
         {
             height: 15px;
-          
         }
         .style9
         {
             width: 344px;
-            border-color: Aqua;
         }
         .style11
         {
             width: 237px;
-           
         }
         .style12
         {
             width: 266px;
-            
         }
         .style14
         {
             width: 546px;
-            
         }
         .style15
         {
             width: 541px;
-           
         }
         .style16
         {
             width: 437px;
-           
         }
         .style17
         {
             width: 325px;
-            
         }
         .style21
         {
             width: 335px;
-            
         }
-        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
@@ -1230,7 +1219,7 @@
             </tr>
             <tr>
                 <td colspan="4" align="center">
-                    <asp:Label ID="Label102" runat="server" Text="Label" Visible=false></asp:Label>
+                    <asp:Label ID="Label102" runat="server" Text="Label" Visible="false"></asp:Label>
                     <asp:Label ID="lblTitulo0" runat="server" Text="CAUSALES DE DESAPARICIÓN" Font-Size="Medium"
                         Font-Bold="true" class="color-fuente"></asp:Label>
                 </td>
@@ -1240,7 +1229,7 @@
                     <asp:Panel runat="server" GroupingText="SELECCIONE LOS CAMPOS CORRESPONDIENTES" Font-Bold="True"
                         Font-Size="Small" ID="Panel17">
                         <table style="width: 100%;">
-                            <tr>
+                            <!--<tr>
                                 <td class="style27">
                                     <asp:CheckBox runat="server" Text="POR SU PROPIA VOLUNTAD" Font-Bold="True" Font-Size="Small"
                                         ForeColor="Black" ID="chbPropiaVoluntad"></asp:CheckBox>
@@ -1292,8 +1281,10 @@
                                         ForeColor="Black" ID="chbAccidentes"></asp:CheckBox>
                                 </td>
                                 <td class="style36">
-                                <asp:Label ID="lblTipo" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"   Text="PRIVACIÓN POR:" Visible=false></asp:Label>
-                           
+                                <asp:Label ID="lblTipo" runat="server" Font-Bold="True"
+                                 Font-Size="Small" ForeColor="Black"
+                                   Text="PRIVACIÓN POR:" Visible=false>
+                                   </asp:Label>                           
                                     <asp:DropDownList ID="ddlTipo" runat="server"  Width="300px" Visible=false>
                                     </asp:DropDownList>
 
@@ -1325,7 +1316,120 @@
                                     <asp:CheckBox ID="chbRelacionesPersonales" runat="server" Font-Bold="True" 
                                         Font-Size="Small" ForeColor="Black" Text="RELACIONES PERSONALES" />
                                 </td>
+                            </tr>-->
+
+                            <tr>
+                            <td class="style27">
+                                <asp:RadioButton GroupName="causalesGroup" ID="rbPropiaVoluntad" runat="server" 
+                                Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                Text="POR SU PRPIA VOLUNTAD" />                                
+                            </td>
+                            <td class="style30"> 
+                                <asp:RadioButton  GroupName="causalesGroup" ID="rbSustraccionMenores" runat="server"
+                                Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                Text="SUSTRACION DE MENORES" />
+                            </td>
+                            <td class="style33">
+                                <asp:RadioButton GroupName="causalesGroup"  ID="rbSalud" runat="server" 
+                                Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                Text="SALUD" />
+                            </td>
+                            <td>
+                                <asp:RadioButton GroupName="causalesGroup" ID="rbProblemasFamiliares" runat="server" 
+                                Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                Text="PROBLEMAS FAMILIARES" />
+                            </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <asp:RadioButton GroupName="causalesGroup" ID="rbMigracion" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                    Text="MIGRACION" />
+                                </td>
+                                <td>
+                                    <asp:RadioButton GroupName="causalesGroup" ID="rbComisionDelito" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                    Text="POR LA COMISION DE UN DELITO" />
+                                </td>
+                                <td>
+                                    <asp:RadioButton GroupName="causalesGroup" ID="rbLevanton" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"     
+                                    AutoPostBack="True" oncheckedchanged="_CheckedChanged"                                                                
+                                    Text="PRIVACION ILEGAL DE LA LIBERTAD (LEVANTON)" />
+                                </td>
+                                <td>
+                                    <asp:RadioButton GroupName="causalesGroup" ID="rbAddicciones" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                    Text="ADICCIONES" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:RadioButton GroupName="causalesGroup" ID="rbVictimaDelito" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                    Text="VICTIMA DE DELITO" />
+                                </td>
+                                <td>
+                                    <asp:RadioButton GroupName="causalesGroup" ID="rbAccidentes" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                    Text="ACCIDENTES" />
+                                </td>
+                                <td class="style36">
+
+                                    <asp:Label ID="rb_lblTipo" runat="server"
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"                                    
+                                    Text="PRIVACIÓN POR:" Visible="false">
+                                    </asp:Label>
+                           
+                                    <asp:DropDownList ID="rb_ddlTipo" runat="server"  Width="300px" Visible="false">
+                                    </asp:DropDownList>
+
+                                </td>
+                                <td>
+                                    <asp:RadioButton GroupName="causalesGroup" ID="rbDetenido" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                    Text="DETENIDO (PERSONAS NO LOCALIZADAS RELACIONADAS CON ALGUN ACTO ILICITO)" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:RadioButton GroupName="causalesGroup" ID="rbMotivosLaborales" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                    Text="MOTIVOS LABORALES" />
+                                </td>
+                                <td>
+                                    <asp:RadioButton GroupName="causalesGroup" ID="rbDesaparicionForzada" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                    Text="DESAPARICION FORZADA" />
+                                </td>
+                                <td>
+                                    <asp:RadioButton GroupName="causalesGroup" ID="rbSeDesconoce" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                    Text="SE DESCONOCE" />
+                                </td>
+                                <td>
+                                    <asp:RadioButton GroupName="causalesGroup" ID="rbRelacionesPersonales" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" oncheckedchanged="_CheckedChanged"
+                                    Text="RELACIONES PERSONALES" />
+                                </td>
+                            </tr>
+
+
+
                         </table>
                     </asp:Panel>
                 </td>

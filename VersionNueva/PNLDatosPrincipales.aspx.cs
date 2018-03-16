@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 using System.Web.Security;
 using System.Data;
 using Subgurim.Controles;
+using DevExpress.Web.ASPxTabControl;
+
 
 namespace AtencionTemprana
 {
@@ -72,7 +74,7 @@ namespace AtencionTemprana
                     PGJ.CargaCombo(ddlTamDientes, "PNL_CAT_TAMANO_OJOS_Y_DIENTES", "IdTamaño", "Tamaño");
                     PGJ.CargaCombo(ddlProtesis, "PNL_CAT_PROTESIS", "IdProtesis", "Protesis");
                     PGJ.CargaCombo(ddlVestimenta, "CAT_VESTUARIO", "ID_VSTUARIO", "VSTUARIO");
-                    PGJ.CargaCombo(ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
+                    PGJ.CargaCombo(rb_ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
                     cargarOfendido();
                 }
                 else if (Session["op"].ToString() == "Modificar")
@@ -120,7 +122,7 @@ namespace AtencionTemprana
                         PGJ.CargaCombo(ddlTamDientes, "PNL_CAT_TAMANO_OJOS_Y_DIENTES", "IdTamaño", "Tamaño");
                         PGJ.CargaCombo(ddlProtesis, "PNL_CAT_PROTESIS", "IdProtesis", "Protesis");
                         PGJ.CargaCombo(ddlVestimenta, "CAT_VESTUARIO", "ID_VSTUARIO", "VSTUARIO");
-                        PGJ.CargaCombo(ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
+                        PGJ.CargaCombo(rb_ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
 
                         CargarPNL();
                         CargarPertenenciaSocial();
@@ -133,8 +135,6 @@ namespace AtencionTemprana
 
 
                         PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 5, "Consulto PNL Datos Principales ID_DATOS_GENERALES=" + ID_DATOS_GENERALES.Text + " IdCarpeta=" + Session["ID_CARPETA"] + " IdPersona= " + ID_PERSONA.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
-
-                                                                                                                                              
 
                         btnMediaFiliacion.Visible = true;
                         btnSeniasParticulares.Visible = true;
@@ -361,7 +361,7 @@ namespace AtencionTemprana
 
         }
 
-        void CargarCausales()
+        /*void CargarCausales()
         {
 
             SqlCommand sql = new SqlCommand("PNL_ConsultaCausalesDesaparicion " + ID_CARPETA.Text + "," + ID_MUNICIPIO_CARPETA.Text + "," + ID_PERSONA.Text, Data.CnnCentral);
@@ -393,7 +393,44 @@ namespace AtencionTemprana
             }
             dr.Close();
 
+        }*/
+
+
+        void CargarCausales()
+        {
+
+            SqlCommand sql = new SqlCommand("PNL_ConsultaCausalesDesaparicion " + ID_CARPETA.Text + "," + ID_MUNICIPIO_CARPETA.Text + "," + ID_PERSONA.Text, Data.CnnCentral);
+            SqlDataReader dr = sql.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                dr.Read();
+                rbPropiaVoluntad.Checked = bool.Parse(dr["PropiaVoluntad"].ToString());
+                rbSustraccionMenores.Checked = bool.Parse(dr["SustraccionMenores"].ToString());
+                rbSalud.Checked = bool.Parse(dr["Salud"].ToString());
+                rbAddicciones.Checked = bool.Parse(dr["Adicciones"].ToString());
+                rbMigracion.Checked = bool.Parse(dr["Migracion"].ToString());
+                rbComisionDelito.Checked = bool.Parse(dr["ComisionDelito"].ToString());
+                rbLevanton.Checked = bool.Parse(dr["Levanton"].ToString());
+                rbDetenido.Checked = bool.Parse(dr["Detenido"].ToString());
+                rbVictimaDelito.Checked = bool.Parse(dr["VictimaDelito"].ToString());
+                rbAccidentes.Checked = bool.Parse(dr["Accidentes"].ToString());
+                rbProblemasFamiliares.Checked = bool.Parse(dr["ProblemasFamiliares"].ToString());
+                rbRelacionesPersonales.Checked = bool.Parse(dr["RelacionesPersonales"].ToString());
+                rbMotivosLaborales.Checked = bool.Parse(dr["MotivosLaborales"].ToString());
+                rbDesaparicionForzada.Checked = bool.Parse(dr["DesaparicionForzada"].ToString());
+                if (dr["Levanton"].ToString() == "True")
+                {
+                    rb_ddlTipo.Visible = true;
+                }
+                rb_ddlTipo.SelectedValue = dr["IdTipoSujeto"].ToString();
+                rbSeDesconoce.Checked = bool.Parse(dr["SeDesconoce"].ToString());
+            }
+            dr.Close();
         }
+
+
+
 
 
         protected void btnAgregarDonante_Click(object sender, EventArgs e)
@@ -501,9 +538,18 @@ namespace AtencionTemprana
                         PGJ.PNL_InsertaOtraInformacion(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), chbDetencion.Checked, chbAllamiento.Checked, chbHostigamiento.Checked, chbAmenazas.Checked, chbLesiones.Checked, chbDisposicionDinero.Checked, chbProblemasVecinales.Checked, chbProblemasFamiliares.Checked, chbActitudNerviosa.Checked, chbMovimientosCB.Checked, chbDesaparecido.Checked, chbCaptores.Checked, chbSolicitud.Checked, chbInternet.Checked, chbParadero.Checked);
 
                         /*INSERTA CAUSALES DE DESAPARICION*/
-                        PGJ.PNL_InsertaCausalesDesaparicion(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), chbPropiaVoluntad.Checked, chbSustraccionMenores.Checked, chbSalud.Checked, chbAdicciones.Checked, chbMigracion.Checked, chbComisionDelito.Checked, chbLevantons.Checked, chbDetenido.Checked, chbVictimaDelito.Checked, chbAccidentes.Checked, chbProblemasFamiliaresCausales.Checked, chbRelacionesPersonales.Checked, chbMotivosLaborales.Checked
-                            , chbDesparicion.Checked, int.Parse(ddlTipo.SelectedValue), chbSeDesconoce.Checked);
+                        //PGJ.PNL_InsertaCausalesDesaparicion(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), chbPropiaVoluntad.Checked, chbSustraccionMenores.Checked, chbSalud.Checked, chbAdicciones.Checked, chbMigracion.Checked, chbComisionDelito.Checked, chbLevantons.Checked, chbDetenido.Checked, chbVictimaDelito.Checked, chbAccidentes.Checked, chbProblemasFamiliaresCausales.Checked, chbRelacionesPersonales.Checked, chbMotivosLaborales.Checked
+                        //    , chbDesparicion.Checked, int.Parse(ddlTipo.SelectedValue), chbSeDesconoce.Checked);
 
+                        PGJ.PNL_InsertaCausalesDesaparicion(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()),
+                             rbPropiaVoluntad.Checked, rbSustraccionMenores.Checked, rbSalud.Checked, rbAddicciones.Checked, rbMigracion.Checked, rbComisionDelito.Checked, rbLevanton.Checked, rbDetenido.Checked, rbVictimaDelito.Checked, rbAccidentes.Checked, rbProblemasFamiliares.Checked, rbRelacionesPersonales.Checked, rbMotivosLaborales.Checked, rbDesaparicionForzada.Checked, int.Parse(rb_ddlTipo.SelectedValue), rbSeDesconoce.Checked);
+
+                        //string icausal = ""+(0 + int.Parse(ID_CARPETA.Text) + short.Parse(Session["IdMunicipio"].ToString()) + int.Parse(ddlOfendido.SelectedValue.ToString()) +
+                        //     rbPropiaVoluntad.Checked + rbSustraccionMenores.Checked + rbSalud.Checked + rbAddicciones.Checked + rbMigracion.Checked + rbComisionDelito.Checked + rbLevanton.Checked + rbDetenido.Checked + rbVictimaDelito.Checked + rbAccidentes.Checked + rbProblemasFamiliares.Checked + rbRelacionesPersonales.Checked + rbMotivosLaborales.Checked + rbDesaparicionForzada.Checked + int.Parse(ddlTipo.SelectedValue) + rbSeDesconoce.Checked);
+
+                        //lblEstatus.Text = icausal;
+                        
+                        
 
                         PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 2,
                         "Inserta DATOS GENERALES: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() +
@@ -571,12 +617,13 @@ namespace AtencionTemprana
                         PGJ.PNL_ActualizaOtraInformacion(int.Parse(ID_OTRA_INFO.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), chbDetencion.Checked, chbAllamiento.Checked, chbHostigamiento.Checked, chbAmenazas.Checked, chbLesiones.Checked, chbDisposicionDinero.Checked, chbProblemasVecinales.Checked, chbProblemasFamiliares.Checked, chbActitudNerviosa.Checked, chbMovimientosCB.Checked, chbDesaparecido.Checked, chbCaptores.Checked, chbSolicitud.Checked, chbInternet.Checked, chbParadero.Checked);
 
                         /*MODIFICA CAUSALES DESAPARICIÓN*/
-                        PGJ.PNL_ActualizaCausalesDesaparicion(int.Parse(ID_CAUSALES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), chbPropiaVoluntad.Checked, chbSustraccionMenores.Checked, chbSalud.Checked, chbAdicciones.Checked, chbMigracion.Checked, chbComisionDelito.Checked, chbLevantons.Checked, chbDetenido.Checked, chbVictimaDelito.Checked, chbAccidentes.Checked, chbProblemasFamiliaresCausales.Checked, chbRelacionesPersonales.Checked, chbMotivosLaborales.Checked
-                        , chbDesparicion.Checked, int.Parse(ddlTipo.SelectedValue), chbSeDesconoce.Checked);
+                        //PGJ.PNL_ActualizaCausalesDesaparicion(int.Parse(ID_CAUSALES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), chbPropiaVoluntad.Checked, chbSustraccionMenores.Checked, chbSalud.Checked, chbAdicciones.Checked, chbMigracion.Checked, chbComisionDelito.Checked, chbLevantons.Checked, chbDetenido.Checked, chbVictimaDelito.Checked, chbAccidentes.Checked, chbProblemasFamiliaresCausales.Checked, chbRelacionesPersonales.Checked, chbMotivosLaborales.Checked
+                        //, chbDesparicion.Checked, int.Parse(ddlTipo.SelectedValue), chbSeDesconoce.Checked);
 
+                        PGJ.PNL_ActualizaCausalesDesaparicion(int.Parse(ID_CAUSALES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text),
+                             rbPropiaVoluntad.Checked, rbSustraccionMenores.Checked, rbSalud.Checked, rbAddicciones.Checked, rbMigracion.Checked, rbComisionDelito.Checked, rbLevanton.Checked, rbDetenido.Checked, rbVictimaDelito.Checked, rbAccidentes.Checked, rbProblemasFamiliares.Checked, rbRelacionesPersonales.Checked, rbMotivosLaborales.Checked, rbDesaparicionForzada.Checked, int.Parse(rb_ddlTipo.SelectedValue), rbSeDesconoce.Checked);
 
                         PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 3, "Actualiza DATOS GENERALES: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() + ", IdPersona= " + ID_PERSONA.Text + ", Etnia= " + ddlEtnia.SelectedItem + ", Fecha ultimo avistamiento= " + txtUltimoAvistamiento.Text + ", Ultima actividad= " + ddlUltimaActividad.SelectedItem + ",PERTENENCIA SOCIAL: ONG= " + txtONG.Text + ", Sindicalista= " + txtSindicalista.Text + ", Reinsertado= " + txtReinsertado.Text + ", Grupo religioso= " + txtGrupoReligioso.Text + ", Org estatal= " + txtOrgEstatal.Text + ", Derechos humanos= " + txtDH.Text + ", Otros= " + txtOtros.Text + ", INFORMACIÓN FINANCIERA: Banco = " + ddlBanco.SelectedItem + ", Num Cuenta = " + txtNumCuenta.Text + ", Tipo de cuenta = " + txtTipoCuenta.Text + ", Banco crédito = " + ddlBanco0.SelectedItem + ", Num tarjeta crédito = " + txtNumTarjetaCredito.Text + ", Banco tarjeta crédito = " + ddlBanco1.SelectedItem + ", Tarjeta de débito = " + txtNumTarjetaDebito.Text + ", Tarjeta departamental = " + txtTarjetaDepartamental.Text + ", Num tarjeta departamental = " + txtNumTarjetaDepartamental.Text + ", DISCAPACIDADES: Discapacidad mental= " + ddlDiscapacidadMental.SelectedItem + ", Discapacidad mental= " + txtDiscapacidadMental.Text + ", Discapacidad física= " + ddlDiscapacidadFisica.SelectedItem + ", Discapacidad física= " + txtDiscapacidadFisica.Text + ", Padecimientos= " + txtPadecimientos.Text + ", Enfermadades sistemáticas= " + txtSistematicas.Text + ", Enfermedad mental= " + txtEnfermedadMental.Text + ", Enfermedades piel= " + txtEnfermedadPiel.Text + ", Adicciones= " + txtAdicciones.Text + ", Medicamentos= " + txtMedicamentos.Text + ", Cirugias= " + txtCirugias.Text + ", Embarazo= " + rbEmbarazo.SelectedItem + ", Control natal= " + rbControlNatal.SelectedItem + ", Otro control natal= " + txtOtroControlNatal.Text + ", INFO ODNTOLOGICA: Odontólogo= " + txtOdontologo.Text + ", Tamaño dientes= " + ddlTamDientes.SelectedItem + ", Dientes completos= " + rbCompletos.SelectedValue + ", Dientes separados= " + rbSeparados.SelectedItem + ", Dientes girados= " + rbGirados.SelectedItem + ", Dientes apiñonados= " + rbApinonados.SelectedItem + ", Dientes manchados= " + rbManchados.SelectedItem + ", Dientes con desgaste= " + rbDesgaste.SelectedValue + ", Resinas= " + rbResinas.SelectedItem + ", Amalagamas= " + rbAmalgamas.SelectedItem + ", Coronas metálicas= " + rbCoronasMetalicas.SelectedItem + ", Coronas estéticas= " + rbCoronasEsteticas.SelectedItem + ", Endodoncia= " + rbEndodoncia.SelectedItem + ", Blanqueamiento= " + rbBlanqueamiento.SelectedItem + ", Incrustación= " + rbIncrustacion.SelectedItem + ", Otro= " + txtOtro.Text + ", Prótesis dental= " + ddlProtesis.SelectedItem + ", Braquets= " + rbBraquets.SelectedItem + ", Retenedores= " + rbRetenedores.SelectedItem + ", Implantes= " + rbImplantes.SelectedItem + ", Otro= " + txtOtro.Text + ", Llevaba puesto aditamento= " + rbPuesto.SelectedItem + ", Ausencias dentales= " + txtAusenciasDentales.Text + ", Hábitos dentales= " + txtHabitosDentales.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
-
 
                         lblEstatus.Text = "DATOS GUARDADOS";
                         Panel3.Enabled = false;
@@ -720,7 +767,8 @@ namespace AtencionTemprana
         {
 
             if (chbLevantons.Checked == true)
-            {
+            {               
+               
                 lblTipo.Visible = true;
                 ddlTipo.Visible = true;
             }
@@ -732,5 +780,20 @@ namespace AtencionTemprana
             }
         }
 
+
+        //evento del radiobutton7 para mostrar el combobox con el tipo de privacion
+        protected void _CheckedChanged(object sender, EventArgs e)
+        {
+            if ( rbLevanton.Checked == true)
+            {                
+                rb_lblTipo.Visible = true;
+                rb_ddlTipo.Visible = true;
+            }
+            else
+            {
+                rb_lblTipo.Visible = false;
+                rb_ddlTipo.Visible = false;
+            }
+        }
     }
 }
