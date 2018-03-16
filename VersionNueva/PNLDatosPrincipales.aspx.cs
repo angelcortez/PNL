@@ -324,9 +324,6 @@ namespace AtencionTemprana
                 rbPuesto.SelectedValue = dr["AditamentoEnDesaparicion"].ToString();
                 txtAusenciasDentales.Text = dr["AusenciaDental"].ToString();
                 txtHabitosDentales.Text = dr["HabitosDentales"].ToString();
-
-
-
             }
             dr.Close();
         }
@@ -781,7 +778,7 @@ namespace AtencionTemprana
         }
 
 
-        //evento del radiobutton7 para mostrar el combobox con el tipo de privacion
+        //evento del rbLevanton para mostrar el combobox con el tipo de privacion
         protected void _CheckedChanged(object sender, EventArgs e)
         {
             if ( rbLevanton.Checked == true)

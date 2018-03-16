@@ -24,10 +24,7 @@
                 placeholder_text_multiple: "Selecciona el elemento a agregar",
                 multiple: true
             });
-
-
-        }
-             
+        }             
     </script>--%>
 
     <%--class="chosen-select" pegado al ddl para que funcione--%>
