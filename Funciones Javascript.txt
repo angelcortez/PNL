@@ -1,0 +1,8 @@
+function soloNumeros(e){
+	var key = window.Event ? e.which : e.keyCode
+	return (key >= 48 && key <= 57)
+}
+
+Ejemplo de llamada de la función:
+
+<input type="text" onKeyPress="return soloNumeros(event)" />
