@@ -6,3 +6,13 @@ function soloNumeros(e){
 Ejemplo de llamada de la función:
 
 <input type="text" onKeyPress="return soloNumeros(event)" />
+
+function soloLetras(e) {
+                     key = e.keyCode || e.which;
+                     tecla = String.fromCharCode(key).toLowerCase();
+                     letras = "abcdefghijklmnñopqrstuvwxyz";
+                     
+                     if (letras.indexOf(tecla) == -1) {
+                         return false;
+                     }
+                 }
