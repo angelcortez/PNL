@@ -5,6 +5,15 @@
         {
             width: 257px;
         }
+         .bordeCampoObligatorio
+        {
+            border-style: solid;
+            border-color:#ff0000;
+            border-bottom-width:1px;
+            border-top-width:1px;
+            border-left-width:1px;
+            border-right-width:1px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" runat="server" 
@@ -110,7 +119,7 @@
             </tr>
             <tr>
                 <td class="style2">
-                    <asp:DropDownList ID="ddlTipoContacto" runat="server" Width="200px">
+                    <asp:DropDownList ID="ddlTipoContacto" runat="server" Width="200px" class="bordeCampoObligatorio">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                         ControlToValidate="ddlTipoContacto" Display="Dynamic" 
@@ -118,7 +127,7 @@
                         ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtDescripcion" runat="server" Width="200px" MaxLength="30" style="text-transform :uppercase"></asp:TextBox>
+                    <asp:TextBox ID="txtDescripcion" runat="server" Width="200px" MaxLength="30" style="text-transform :uppercase" class="bordeCampoObligatorio"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
                         ControlToValidate="txtDescripcion" Display="Dynamic" 
                         ErrorMessage="INGRESA DESCRIPCION" Font-Bold="True" Font-Size="Small" 
