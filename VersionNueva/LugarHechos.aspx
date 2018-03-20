@@ -21,7 +21,7 @@
         .bordeCampoObligatorio
         {
             border-style: solid;
-            border-color:#0000FF;
+            border-color:#FF0000;
             border-bottom-width:1px;
             border-top-width:1px;
             border-left-width:1px;
