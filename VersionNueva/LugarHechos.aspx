@@ -5,7 +5,6 @@
     <style type="text/css">
         .style2
         {
-            border-color: Aqua;
         }
         .style12
         {
@@ -19,11 +18,16 @@
         {
             height: 19px;
         }
-        
-        #borde
+        .bordeCampoObligatorio
         {
-            border-color: Aqua;
+            border-style: solid;
+            border-color:#ff0000;
+            border-bottom-width:1px;
+            border-top-width:1px;
+            border-left-width:1px;
+            border-right-width:1px;
         }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" runat="server" 
@@ -54,24 +58,25 @@
                      return (key >= 48 && key <= 57)
                  }
 
-
-                 //Se utiliza para que el campo de texto solo acepte letras
                  function soloLetras(e) {
                      key = e.keyCode || e.which;
-                     tecla = String.fromCharCode(key).toString();
-                     letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ"; //Se define todo el abecedario que se quiere que se muestre.
-                    // especiales = [8, 37, 39, 46, 6]; //Es la validación del KeyCodes, que teclas recibe el campo de texto.
-                     especiales = [8, 37, 46, 6];
-                     tecla_especial = false
-                     for (var i in especiales) {
-                         if (key == especiales[i]) {
-                             tecla_especial = true;
-                             break;
-                         }
-                     }
+                     tecla = String.fromCharCode(key).toLowerCase();
+                     letras = " abcdefghijklmnñopqrstuvwxyz";
+                     //especiales = "";
 
-                     if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-                         //alert('Tecla no aceptada');
+                     //                     tecla_especial = false
+                     //                     for (var i in especiales) {
+                     //                         if (key == especiales[i]) {
+                     //                             tecla_especial = true;
+                     //                             break;
+                     //                         }
+                     //                     }
+
+                     //                     if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+                     //                         return false;
+                     //                     }
+
+                     if (letras.indexOf(tecla) == -1) {
                          return false;
                      }
                  }
@@ -194,7 +199,7 @@
                             </tr>
                             <tr>
                                 <td class="style12">
-                                    <asp:TextBox runat="server" MaxLength="10" TabIndex="1" Width="170px" style="border-color: coral;" 
+                                    <asp:TextBox class="bordeCampoObligatorio" runat="server" MaxLength="10" TabIndex="1" Width="170px" 
                                         ID="txtFecha"></asp:TextBox>
                                     <asp:CalendarExtender runat="server" Format="dd/MM/yyyy" Enabled="True" 
                                         TargetControlID="txtFecha" ID="txtFecha_CalendarExtender" OnClientDateSelectionChanged="revisarFechaDepositado">
@@ -218,8 +223,7 @@
                                                 TargetControlID="txtHora" />
                                             <asp:MaskedEditValidator ID="MaskedEditValidator3" runat="server" ControlExtender="MaskedEditExtender3"
                                                 ControlToValidate="txtHora" ErrorMessage="*" InvalidValueMessage="REGISTRE HORA"
-                                                ForeColor="Red" ToolTip="ERROR FORMATO HORA" TooltipMessage="Hora 0:00 am hasta 12:59 pm">
-                                            </asp:MaskedEditValidator>
+                                                ForeColor="Red" ToolTip="ERROR FORMATO HORA" TooltipMessage="Hora 0:00 am hasta 12:59 pm"></asp:MaskedEditValidator>
                                     <asp:RequiredFieldValidator runat="server" ForeColor="Red" 
                                         ControlToValidate="txtHora" ErrorMessage="INGRESA HORA" Display="Dynamic" 
                                         Font-Bold="True" Font-Size="Small" ID="RequiredFieldValidator2">*</asp:RequiredFieldValidator>
@@ -282,7 +286,7 @@
                                     </tr>
                                     <tr>
                                         <td class="style2" colspan="2">
-                                            <asp:DropDownList ID="ddlTipoLugar" runat="server" Width="470px" TabIndex="3" class="chosen-select" style=" border-color:Green;border-width:2px " >
+                                            <asp:DropDownList ID="ddlTipoLugar" runat="server" Width="470px" TabIndex="3" class="bordeCampoObligatorio">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                                                 ControlToValidate="ddlTipoLugar" Display="Dynamic" 
@@ -290,7 +294,7 @@
                                                 ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td>
-                                            <asp:DropDownList ID="ddlMunicipio" runat="server" Width="200px" class="chosen-select"
+                                            <asp:DropDownList ID="ddlMunicipio" runat="server" Width="200px" class="bordeCampoObligatorio"
                                                 AutoPostBack="True" 
                                                 onselectedindexchanged="ddlMunicipio_SelectedIndexChanged" TabIndex="4">
                                             </asp:DropDownList>
@@ -300,7 +304,7 @@
                                                 ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td>
-                                            <asp:DropDownList ID="ddlLocalidad" runat="server" Width="200px" class="chosen-select"
+                                            <asp:DropDownList ID="ddlLocalidad" runat="server" Width="200px" class="bordeCampoObligatorio"
                                                 AutoPostBack="True" 
                                                 onselectedindexchanged="ddlLocalidad_SelectedIndexChanged" TabIndex="5">
                                             </asp:DropDownList>
@@ -336,14 +340,14 @@
                                     </tr>
                                     <tr>
                                         <td class="style2" colspan="2">
-                                            <asp:DropDownList ID="ddlColonia" runat="server" Width="470px" TabIndex="6" class="chosen-select">
+                                            <asp:DropDownList ID="ddlColonia" runat="server" Width="470px" TabIndex="6" class="bordeCampoObligatorio">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                                                 ControlToValidate="ddlColonia" Display="Dynamic" ErrorMessage="INGRESA COLONIA" 
                                                 Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td colspan="2">
-                                            <asp:DropDownList ID="ddlCalle" runat="server" Width="470px" TabIndex="7" class="chosen-select">
+                                            <asp:DropDownList ID="ddlCalle" runat="server" Width="470px" TabIndex="7" class="bordeCampoObligatorio">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
                                                 ControlToValidate="ddlCalle" Display="Dynamic" ErrorMessage="INGRESA CALLE" 
@@ -366,7 +370,7 @@
                                     </tr>
                                     <tr>
                                         <td class="style2" colspan="2">
-                                            <asp:DropDownList ID="ddlEntreCalle" runat="server" Width="470px" TabIndex="8" class="chosen-select">
+                                            <asp:DropDownList ID="ddlEntreCalle" runat="server" Width="470px" TabIndex="8" class="bordeCampoObligatorio">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
                                                 ControlToValidate="ddlEntreCalle" Display="Dynamic" 
@@ -374,7 +378,7 @@
                                                 ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td colspan="2">
-                                            <asp:DropDownList ID="ddlYcalle" runat="server" Width="470px" TabIndex="9" class="chosen-select">
+                                            <asp:DropDownList ID="ddlYcalle" runat="server" Width="470px" TabIndex="9" class="bordeCampoObligatorio">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
                                                 ControlToValidate="ddlYcalle" Display="Dynamic" ErrorMessage="INGRESA Y CALLE" 
@@ -409,15 +413,16 @@
                                     </tr>
                                     <tr>
                                         <td class="style2">
-                                            <asp:TextBox ID="txtNumero" runat="server" Width="170px" MaxLength="10" TabIndex="10" style="text-transform :uppercase" onKeyPress="return soloNumeros(event)"></asp:TextBox>
+                                            <asp:TextBox ID="txtNumero" runat="server" Width="170px" MaxLength="10" onKeyPress="return soloNumeros(event)" 
+                                                TabIndex="10" style="text-transform :uppercase"></asp:TextBox>
                                         </td>
                                         <td class="style2">
-                                            <asp:TextBox ID="txtManzana" runat="server" Width="170px" MaxLength="10" 
-                                                TabIndex="11" style="text-transform :uppercase" ></asp:TextBox>
+                                            <asp:TextBox ID="txtManzana" runat="server" Width="170px" MaxLength="10" onkeypress="return soloLetras(event)"
+                                                TabIndex="11" style="text-transform :uppercase"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtLote" runat="server" Width="200px" MaxLength="10" 
-                                                TabIndex="12" style="text-transform :uppercase" onKeyPress="return soloNumeros(event)"></asp:TextBox>
+                                                TabIndex="12" style="text-transform :uppercase"></asp:TextBox>
                                         </td>
                                         <td>
                                             &nbsp;</td>
@@ -448,16 +453,16 @@
                                         <td class="style2">
                                             <asp:TextBox ID="txtLatitud" runat="server" Width="170px" MaxLength="20" 
                                                 TabIndex="13" style="text-transform :uppercase" Enabled="False">0</asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
                                                 ControlToValidate="txtLatitud" Display="Dynamic" ErrorMessage="INGRESA LATITUD" 
-                                                ForeColor="Red">*</asp:RequiredFieldValidator>
+                                                ForeColor="Red">*</asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtLongitud" runat="server" Width="170px" MaxLength="20" 
                                                 TabIndex="14" style="text-transform :uppercase" Enabled="False">0</asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" 
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" 
                                                 ControlToValidate="txtLongitud" Display="Dynamic" 
-                                                ErrorMessage="INGRESA LONGITUD" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                                ErrorMessage="INGRESA LONGITUD" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td colspan="2" rowspan="5">
                                             <asp:TextBox ID="txtReferencias" runat="server" Height="85px" 
