@@ -21,7 +21,7 @@
         .bordeCampoObligatorio
         {
             border-style: solid;
-            border-color:#FF0000;
+            border-color:#0000FF;
             border-bottom-width:1px;
             border-top-width:1px;
             border-left-width:1px;
@@ -413,11 +413,11 @@
                                     </tr>
                                     <tr>
                                         <td class="style2">
-                                            <asp:TextBox ID="txtNumero" runat="server" Width="170px" MaxLength="10" onKeyPress="return soloNumeros(event)" 
+                                            <asp:TextBox ID="txtNumero" runat="server" Width="170px" MaxLength="10" 
                                                 TabIndex="10" style="text-transform :uppercase"></asp:TextBox>
                                         </td>
                                         <td class="style2">
-                                            <asp:TextBox ID="txtManzana" runat="server" Width="170px" MaxLength="10" onkeypress="return soloLetras(event)"
+                                            <asp:TextBox ID="txtManzana" runat="server" Width="170px" MaxLength="10" 
                                                 TabIndex="11" style="text-transform :uppercase"></asp:TextBox>
                                         </td>
                                         <td>

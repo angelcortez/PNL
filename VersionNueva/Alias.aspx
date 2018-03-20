@@ -1,10 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Alias.aspx.cs" Inherits="AtencionTemprana.Alias" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<style  type="text/css">
+        .bordeCampoObligatorio
+        {
+            border-style: solid;
+            border-color:#ff0000;
+            border-bottom-width:1px;
+            border-top-width:1px;
+            border-left-width:1px;
+            border-right-width:1px;
+        }
+        </style>
 </asp:Content>
-<asp:Content ID="Content2" runat="server" 
-    contentplaceholderid="ContentPlaceHolder1">
-        
-        
+<asp:Content ID="Content2" runat="server" contentplaceholderid="ContentPlaceHolder1">
+
 <div id="main-wrapper">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
@@ -96,8 +105,9 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    <asp:TextBox ID="txtAlias" runat="server" Width="200px" MaxLength="30" style="text-transform :uppercase"></asp:TextBox>
+                <td >
+                    <asp:TextBox ID="txtAlias" runat="server" Width="200px" MaxLength="30" style="text-transform :uppercase" class="bordeCampoObligatorio">
+                    </asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                         ControlToValidate="txtAlias" Display="Dynamic" ErrorMessage="INGRESA ALIAS" 
                         Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>

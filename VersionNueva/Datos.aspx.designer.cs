@@ -1462,15 +1462,6 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.TextBox txtLatitud;
         
         /// <summary>
-        /// RequiredFieldValidator28 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator28;
-        
-        /// <summary>
         /// txtLongitud control.
         /// </summary>
         /// <remarks>
@@ -1478,15 +1469,6 @@ namespace AtencionTemprana {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLongitud;
-        
-        /// <summary>
-        /// RequiredFieldValidator29 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator29;
         
         /// <summary>
         /// txtReferencias control.
