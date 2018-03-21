@@ -193,6 +193,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.DropDownList ddlOfendido;
         
         /// <summary>
+        /// RequiredFieldValidatorCB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCB;
+        
+        /// <summary>
         /// Label100 control.
         /// </summary>
         /// <remarks>
@@ -238,6 +247,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.TextBox txtUltimoAvistamiento;
         
         /// <summary>
+        /// txtUltimoAvistamento_CalendarExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender txtUltimoAvistamento_CalendarExtender;
+        
+        /// <summary>
         /// RequiredFieldValidator5 control.
         /// </summary>
         /// <remarks>
@@ -245,6 +263,15 @@ namespace AtencionTemprana {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        
+        /// <summary>
+        /// RangeValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeValidator1;
         
         /// <summary>
         /// ddlUltimaActividad control.

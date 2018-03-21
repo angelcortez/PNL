@@ -8,6 +8,7 @@
 <script type="text/javascript" language="javascript" src="/Scripts/JQuery_Chosen/chosen.jquery.min.js"></script>
 <script type="text/javascript" language="javascript" src="/Scripts/JQuery_TinyBox/tinybox.js"></script>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
     <%-- <script type="text/javascript">
 
         $(function () {
@@ -68,6 +69,15 @@
         .style21
         {
             width: 335px;
+        }
+        .bordeCampoObligatorio
+        {
+            border-style: solid;
+            border-color:#ff0000;
+            border-bottom-width:1px;
+            border-top-width:1px;
+            border-left-width:1px;
+            border-right-width:1px;
         }
     </style>
 </asp:Content>
@@ -175,8 +185,11 @@
                             </tr>
                             <tr>
                                 <td colspan="3">
-                                    <asp:DropDownList ID="ddlOfendido" runat="server" Width="400px">
+                                <!-- class="chosen-select" -->
+                                    <asp:DropDownList ID="ddlOfendido" runat="server" Width="400px" class="bordeCampoObligatorio">
                                     </asp:DropDownList>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidatorCB" runat="server" ControlToValidate="ddlOfendido" Display="Dynamic" ErrorMessage="SELECCIONE UNA PERSONA" ForeColor="Red">* SELECCIONE UN A PERSONA
+                                    </asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -200,17 +213,24 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:DropDownList ID="ddlEtnia" runat="server" TabIndex="1" Width="200px" class="chosen-select">
+                                <!-- class="chosen-select" -->
+                                    <asp:DropDownList ID="ddlEtnia" runat="server" TabIndex="1" Width="200px" >
                                     </asp:DropDownList>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtUltimoAvistamiento" runat="server" MaxLength="30" Style="text-transform: uppercase"
-                                        TabIndex="4" Width="200px"></asp:TextBox>
-                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtUltimoAvistamiento"
-                                        Display="Dynamic" ErrorMessage="INGRESA FECHA" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                    <asp:TextBox ID="txtUltimoAvistamiento" runat="server" MaxLength="7" Style="text-transform: uppercase" TabIndex="4" Width="200px" class="bordeCampoObligatorio"></asp:TextBox>
+                                    <asp:CalendarExtender ID="txtUltimoAvistamento_CalendarExtender" runat="server" Enabled="True"  Format="dd/MM/yyyy"  TargetControlID="txtUltimoAvistamiento">
+                                    </asp:CalendarExtender>                                    
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtUltimoAvistamiento" Display="Dynamic" ErrorMessage="INGRESA FECHA" ForeColor="Red">* INGRESE FECHA
+                                    </asp:RequiredFieldValidator>    
+                                    <asp:RangeValidator runat="server" MaximumValue="31/12/9999" 
+                                        MinimumValue="01/01/1111" ForeColor="Red" ControlToValidate="txtUltimoAvistamiento" 
+                                        ErrorMessage="FECHA INVALIDA" Display="Dynamic" Font-Bold="True" 
+                                        Font-Size="Medium" ID="RangeValidator1"></asp:RangeValidator>                                
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddlUltimaActividad" runat="server" TabIndex="3" Width="200px" class="chosen-select">
+                                <!-- class="chosen-select" -->
+                                    <asp:DropDownList ID="ddlUltimaActividad" runat="server" TabIndex="3" Width="200px" >
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -263,7 +283,7 @@
             </tr>
         </table>
         <br />
-        <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="1" Width="1100px"
+        <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="4" Width="1100px"
             UseVerticalStripPlacement="False" VerticalStripWidth="200px">
             <asp:TabPanel ID="TabPanel1" runat="server" HeaderText="TabPanel1">
                 <HeaderTemplate>
@@ -406,7 +426,8 @@
                             </tr>
                             <tr>
                                 <td class="style34">
-                                    <asp:DropDownList ID="ddlBanco" runat="server" Width="200px" class="chosen-select">
+                                <!-- class="chosen-select" -->
+                                    <asp:DropDownList ID="ddlBanco" runat="server" Width="200px" >
                                     </asp:DropDownList>
                                 </td>
                                 <td class="style35">
@@ -476,7 +497,8 @@
                             </tr>
                             <tr>
                                 <td class="style34">
-                                    <asp:DropDownList ID="ddlBanco0" runat="server" Width="200px" class="chosen-select">
+                                <!-- class="chosen-select" -->
+                                    <asp:DropDownList ID="ddlBanco0" runat="server" Width="200px" >
                                     </asp:DropDownList>
                                 </td>
                                 <td class="style35">
@@ -486,7 +508,8 @@
                                     </asp:FilteredTextBoxExtender>
                                 </td>
                                 <td class="style36">
-                                    <asp:DropDownList ID="ddlBanco1" runat="server" Width="200px" class="chosen-select">
+                                <!-- class="chosen-select" -->
+                                    <asp:DropDownList ID="ddlBanco1" runat="server" Width="200px" >
                                     </asp:DropDownList>
                                 </td>
                                 <td class="style37">
@@ -589,14 +612,16 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:DropDownList ID="ddlDiscapacidadMental" runat="server" Width="200px" class="chosen-select">
+                            <!--class="chosen-select" -->
+                                <asp:DropDownList ID="ddlDiscapacidadMental" runat="server" Width="200px" >
                                 </asp:DropDownList>
                             </td>
                             <td>
                                 <asp:TextBox ID="txtDiscapacidadMental" runat="server" Width="200px"></asp:TextBox>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlDiscapacidadFisica" runat="server" Width="200px" class="chosen-select">
+                            <!--class="chosen-select" -->
+                                <asp:DropDownList ID="ddlDiscapacidadFisica" runat="server" Width="200px">
                                 </asp:DropDownList>
                             </td>
                             <td>
@@ -847,7 +872,8 @@
                             </tr>
                             <tr>
                                 <td class="style17">
-                                    <asp:DropDownList ID="ddlTamDientes" runat="server" Width="200px" class="chosen-select">
+                                <!--class="chosen-select" -->
+                                    <asp:DropDownList ID="ddlTamDientes" runat="server" Width="200px" >
                                     </asp:DropDownList>
                                 </td>
                                 <td>
@@ -1039,7 +1065,8 @@
                             </tr>
                             <tr>
                                 <td class="style21">
-                                    <asp:DropDownList ID="ddlProtesis" runat="server" Width="200px" class="chosen-select">
+                                <!--class="chosen-select" -->
+                                    <asp:DropDownList ID="ddlProtesis" runat="server" Width="200px" >
                                     </asp:DropDownList>
                                 </td>
                                 <td class="style16">
@@ -1422,7 +1449,7 @@
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"
                                     Text="RELACIONES PERSONALES" />
-                                </td>
+                                </td>                               
                             </tr>
 
 
@@ -1437,7 +1464,7 @@
                 <td colspan="4">
                     <asp:Label ID="lblEstatus" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="Red"></asp:Label>
                     <br />
-                    <asp:Label ID="lblError" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="Red"></asp:Label>
+                    <asp:Label ID="lblError" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="Red"></asp:Label>                    
                 </td>
             </tr>
             <tr align="center">
