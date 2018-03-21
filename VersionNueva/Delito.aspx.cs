@@ -92,6 +92,11 @@ namespace AtencionTemprana
                     try{
                     PGJ.CargaCombo(ddlDelito, "CAT_DELITO", "ID_DLTO", "DLTO");
                     PGJ.CargaCombo(ddlModalidad, "CAT_MODALIDAD", "ID_MDLDD", "MDLDD");
+                    ddlModalidad.Items.Insert(0, "--SELECCIONE--");
+                    ddlClasificacion.Items.Insert(0, "--SELECCIONE--");
+                    ddlCorporacion.Items.Insert(0, "--SELECCIONE--");
+                    dllSujetoInterviene.Items.Insert(0, "--SELECCIONE--");
+
                     }
                     catch (Exception ex)
                     {
@@ -110,6 +115,8 @@ namespace AtencionTemprana
                         cargarDelito();
                         PGJ.CargaComboFiltrado(dllSujetoInterviene, "PNL_CAT_SUJETOS_INTERVIENE", "IdSujetoInterviene", "SujetoInterviene", "IdDelito=" + Session["ID_DELITO"]);
                         PGJ.CargaCombo(ddlCorporacion, "PNL_CAT_TIPO_SUJETO_INTERVIENE", "IdCorporacion", "Corporacion");
+                        dllSujetoInterviene.Items.Insert(0, "--SELECCIONE--");
+                        ddlCorporacion.Items.Insert(0, "--SELECCIONE--");
                         cargarSujetos();
                        
            
@@ -343,6 +350,17 @@ namespace AtencionTemprana
                 {
                     lblError.Text = "1";
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('DELITO DEBERIA SER MARCADO COMO PRINCIPAL DEBIDO A QUE LA CARPETA NO CUENTA CON DELITO PRINCIPAL.')", true);
+                }
+
+                if (ddlCorporacion.Visible==true && ddlCorporacion.SelectedValue.ToString() == "--SELECCIONE--") //Corporación
+                {
+                    lblError.Text = "1";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA CORPORACIÓN OBLIGATORIO.')", true);
+                }
+                if (dllSujetoInterviene.Visible == true && dllSujetoInterviene.SelectedValue.ToString() == "--SELECCIONE--") //Sujeto interviene
+                {
+                    lblError.Text = "1";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA SUJETO INTERVIENE OBLIGATORIO.')", true);
                 }
             }
 

@@ -7,6 +7,15 @@
         {
             height: 19px;
         }
+         .bordeCampoObligatorio
+        {
+            border-style: solid;
+            border-color:#FF0000;
+            border-bottom-width:1px;
+            border-top-width:1px;
+            border-left-width:1px;
+            border-right-width:1px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
@@ -117,7 +126,7 @@
                     </tr>
                     <tr>
                         <td align="center" colspan="4">
-                            <asp:RadioButtonList ID="rbPrincipal" runat="server" Font-Bold="True" Font-Size="X-Large"
+                            <asp:RadioButtonList ID="rbPrincipal" runat="server" Font-Bold="True" Font-Size="X-Large" class="bordeCampoObligatorio"
                                 ForeColor="Black" RepeatDirection="Horizontal" TabIndex="5">
                                 <asp:ListItem Value="1">SI</asp:ListItem>
                                 <asp:ListItem Value="0">NO</asp:ListItem>
@@ -159,7 +168,7 @@
                     <tr>
                         <td colspan="4">
                             <asp:DropDownList ID="ddlDelito" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlDelito_SelectedIndexChanged"
-                                TabIndex="1" Width="1000px" class="chosen-select">
+                                TabIndex="1" Width="1000px" class="bordeCampoObligatorio">
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlDelito"
                                 Display="Dynamic" ErrorMessage="SELECCIONA DELITO" Font-Bold="True" Font-Size="Small"
@@ -205,8 +214,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:DropDownList ID="ddlModalidad" runat="server" Style="margin-top: 0px" TabIndex="2"
-                                Width="200px" class="chosen-select">
+                            <asp:DropDownList ID="ddlModalidad" runat="server" Style="margin-top: 0px" TabIndex="2" 
+                                Width="200px" class="bordeCampoObligatorio">
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlModalidad"
                                 Display="Dynamic" ErrorMessage="SELECCIONA MODALIDAD" Font-Bold="True" Font-Size="Small"
@@ -214,14 +223,14 @@
                         </td>
                         <td>
                             <asp:DropDownList ID="ddlClasificacion" runat="server" TabIndex="2" Width="250px"
-                                class="chosen-select">
+                                class="bordeCampoObligatorio">
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddlClasificacion"
                                 Display="Dynamic" ErrorMessage="SELECCIONA CLASIFICACION" Font-Bold="True" Font-Size="Small"
                                 ForeColor="Red">*</asp:RequiredFieldValidator>
                         </td>
                         <td>
-                            <asp:RadioButtonList ID="rbViolencia" runat="server" Font-Bold="True" Font-Size="Small"
+                            <asp:RadioButtonList ID="rbViolencia" runat="server" Font-Bold="True" Font-Size="Small" class="bordeCampoObligatorio"
                                 ForeColor="Black" RepeatDirection="Horizontal" TabIndex="3">
                                 <asp:ListItem Value="1">SI</asp:ListItem>
                                 <asp:ListItem Value="0">NO</asp:ListItem>
@@ -231,7 +240,7 @@
                                 ForeColor="Red">*</asp:RequiredFieldValidator>
                         </td>
                         <td>
-                            <asp:RadioButtonList ID="rbGrave" runat="server" Font-Bold="True" Font-Size="Small"
+                            <asp:RadioButtonList ID="rbGrave" runat="server" Font-Bold="True" Font-Size="Small" class="bordeCampoObligatorio"
                                 ForeColor="Black" RepeatDirection="Horizontal" TabIndex="4">
                                 <asp:ListItem Value="1">SI</asp:ListItem>
                                 <asp:ListItem Value="0">NO</asp:ListItem>
@@ -275,13 +284,13 @@
                         <td>
                            <asp:DropDownList ID="dllSujetoInterviene" runat="server" 
                                 Style="margin-top: 0px" TabIndex="2"
-                                Width="200px" class="chosen-select" Visible=false AutoPostBack="True" 
+                                Width="200px" Visible=false AutoPostBack="True" 
                                 onselectedindexchanged="dllSujetoInterviene_SelectedIndexChanged">
                             </asp:DropDownList>
                         </td>
                         <td>
                            <asp:DropDownList ID="ddlCorporacion" runat="server" Style="margin-top: 0px" TabIndex="2"
-                                Width="200px" class="chosen-select" Visible=false>
+                                Width="200px" Visible=false>
                             </asp:DropDownList>
                         </td>
                         <td>

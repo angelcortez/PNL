@@ -213,7 +213,7 @@
                                         Font-Size="Medium" ID="RangeValidator1">*</asp:RangeValidator>
                                 </td>
                                 <td>
-                                    <asp:TextBox runat="server" MaxLength="5" TabIndex="2" Width="170px" 
+                                    <asp:TextBox runat="server" MaxLength="5" TabIndex="2" Width="170px"  class="bordeCampoObligatorio"
                                         ID="txtHora"></asp:TextBox>
                                      <asp:MaskedEditExtender ID="MaskedEditExtender3" runat="server" AcceptAMPM="True"
                                                 BehaviorID="_content_MaskedEditExtender3" Century="2000" CultureAMPMPlaceholder=""
