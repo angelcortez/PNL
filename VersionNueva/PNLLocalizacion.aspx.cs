@@ -70,7 +70,24 @@ namespace AtencionTemprana
                     PGJ.CargaCombo(ddlCondiciones, "PNL_CAT_CONDICION_LOCALIZACION", "IdCondicionLocalizacion", "CondicionLocalizacion");
                     PGJ.CargaCombo(ddlCausaFallecimiento, "PNL_CAT_CAUSA_FALLECIMIENTO", "IdCausasFallecimiento", "CausasFallecimiento");
                     PGJ.CargaCombo(ddlParentesco0, "CAT_PARENTESCO", "ID_PRNTSCO", "PRNTSCO");
-                    cargarAgregarPersona();
+                    
+                    //agregado
+                    ddlCondiciones.Items.Insert(0, "--SELECCIONE--");
+                    ddlPais.Items.Insert(0, "--SELECCIONE--");
+                    ddlEntidad.Items.Insert(0, "--SELECCIONE--");
+                    ddlMunicipio.Items.Insert(0, "--SELECCIONE--");
+                    ddlLocalidadDom.Items.Insert(0, "--SELECCIONE--");
+                    ddlCalle.Items.Insert(0, "--SELECCIONE--");
+                    ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+                    ddlYcalle.Items.Insert(0, "--SELECCIONE--");
+                    ddlColonia.Items.Insert(0, "--SELECCIONE--");
+                    ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+                    ddlLugarHallazgo.Items.Insert(0, "--SELECCIONE--");
+                    ddlParentesco0.Items.Insert(0, "--SELECCIONE--");
+                    ddlCausaFallecimiento.Items.Insert(0, "--SELECCIONE--");
+                    //fin
+
+                   // cargarAgregarPersona();
                 }
                 else if (Session["op"].ToString() == "Modificar")
                 {
@@ -424,6 +441,7 @@ namespace AtencionTemprana
 
         protected void cmdGuardarCuerpo_Click(object sender, EventArgs e)
         {
+            bool guardar = true;
             if (ddlOfendido.SelectedValue == "0")
             {
                 lblEstatus.Text = "SELECCIONA PERSONA";
@@ -432,22 +450,115 @@ namespace AtencionTemprana
             {
                 if (Session["op"].ToString() == "Agregar")
                 {
-                    //try
-                    //{
-                    PGJ.InsertaDatosLocalizacion(int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(rbEstatus.SelectedValue), DateTime.Parse(txtFechaLocalizacion.Text), txtHoraLocalizacion.Text, txtDesaparicion.Text, short.Parse(ddlCondiciones.SelectedValue), short.Parse(ddlLugarHallazgo.SelectedValue), short.Parse(ddlPais.SelectedValue), short.Parse(ddlEntidad.SelectedValue), short.Parse(ddlMunicipio.SelectedValue), short.Parse(ddlLocalidadDom.SelectedValue),
-                    short.Parse(ddlColonia.SelectedValue), int.Parse(ddlCalle.SelectedValue), int.Parse(ddlEntreCalle.SelectedValue), int.Parse(ddlYcalle.SelectedValue),
-                    txtNumExt0.Text, txtNumInt0.Text, txtCP0.Text, txtFechaIngreso.Text, txtHoraIngreso.Text, short.Parse(ddlCausaFallecimiento.SelectedValue), txtIdentificacion.Text, txtFechaEntrega.Text, txtFechaProbable.Text, short.Parse(rbLocaliza.SelectedValue), txtNombreLocalizado.Text, txtPaterno.Text, txtMaterno.Text, txtInstitucion.Text, txtAutoridad.Text, txtNombreAutoridad.Text, txtPaternoAutoridad.Text, txtMaternoAutoridad.Text, txtNombreReclama.Text, txtPaternoReclama.Text, txtMaternoReclama.Text, short.Parse(ddlParentesco0.SelectedValue));
-                    string script = @"<script type='text/javascript'>
-                                alert('DATOS GUARDADOS');  </script>";
+                    ddlCondiciones.Items.Insert(0, "--SELECCIONE--");
+                    ddlPais.Items.Insert(0, "--SELECCIONE--");
+                    ddlEntidad.Items.Insert(0, "--SELECCIONE--");
+                    ddlMunicipio.Items.Insert(0, "--SELECCIONE--");
+                    ddlLocalidadDom.Items.Insert(0, "--SELECCIONE--");
+                    ddlCalle.Items.Insert(0, "--SELECCIONE--");
+                    ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+                    ddlYcalle.Items.Insert(0, "--SELECCIONE--");
+                    ddlColonia.Items.Insert(0, "--SELECCIONE--");
+                    ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+                    ddlLugarHallazgo.Items.Insert(0, "--SELECCIONE--");
+                    ddlParentesco0.Items.Insert(0, "--SELECCIONE--");
+                    ddlCausaFallecimiento.Items.Insert(0, "--SELECCIONE--");
+
+                    if (ddlCondiciones.SelectedValue.ToString() == "--SELECCIONE--") //CONDICIONES
+                    {
+                        guardar = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA CONDICIONES OBLIGATORIO.')", true);
+                    }
+                    if (ddlPais.SelectedValue.ToString() == "--SELECCIONE--") //PAIS
+                    {
+                        guardar = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA PAIS OBLIGATORIO.')", true);
+                    }
+
+                    if (ddlEntidad.SelectedValue.ToString() == "--SELECCIONE--") //ESTADO
+                    {
+                        guardar = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA ESTADO OBLIGATORIO.')", true);
+                    }
+
+                    if (ddlMunicipio.SelectedValue.ToString() == "--SELECCIONE--") //MUNICIPIO
+                    {
+                        guardar = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA MUNICIPIO OBLIGATORIO.')", true);
+                    }
+
+                    if (ddlLocalidadDom.SelectedValue.ToString() == "--SELECCIONE--") //LOCALIDAD
+                    {
+                        guardar = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA LOCALIDAD OBLIGATORIO.')", true);
+                    }
+
+                    if (ddlCalle.SelectedValue.ToString() == "--SELECCIONE--") //CALLE
+                    {
+                        guardar = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA CALLE OBLIGATORIO.')", true);
+                    }
+
+                    if (ddlColonia.SelectedValue.ToString() == "--SELECCIONE--") //COLONIA
+                    {
+                        guardar = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA COLONIA OBLIGATORIO.')", true);
+                    }
+
+                    if (ddlEntreCalle.SelectedValue.ToString() == "--SELECCIONE--") //ENTRE CALLE
+                    {
+                        guardar = false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA ENTRE CALLE OBLIGATORIO.')", true);
+                    }
+
+                    if (ddlYcalle.SelectedValue.ToString() == "--SELECCIONE--") //Y CALLE
+                    {
+                        guardar=false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA Y CALLE OBLIGATORIO.')", true);
+                    }
+                    if (ddlLugarHallazgo.SelectedValue.ToString() == "--SELECCIONE--") //LUGAR HALLAZGO
+                    {
+                        guardar=false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA LUGAR HALLAZGO OBLIGATORIO.')", true);
+                    }
+                    if (ddlParentesco0.SelectedValue.ToString() == "--SELECCIONE--") //PARENTESCO
+                    {
+                        guardar=false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA PARENTESCO OBLIGATORIO.')", true);
+                    }
+                    if (ddlCausaFallecimiento.SelectedValue.ToString() == "--SELECCIONE--") //CAUSA DE FALLECIMIENTO
+                    {
+                        guardar=false;
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('CAMPO DE CAPTURA CAUSA DE FALLECIMIENTO OBLIGATORIO.')", true);
+                    }
+                    
+                    if (guardar)
+                    {
+                        try
+                        {
+                            PGJ.InsertaDatosLocalizacion(int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(rbEstatus.SelectedValue), DateTime.Parse(txtFechaLocalizacion.Text), txtHoraLocalizacion.Text, txtDesaparicion.Text, short.Parse(ddlCondiciones.SelectedValue), short.Parse(ddlLugarHallazgo.SelectedValue), short.Parse(ddlPais.SelectedValue), short.Parse(ddlEntidad.SelectedValue), short.Parse(ddlMunicipio.SelectedValue), short.Parse(ddlLocalidadDom.SelectedValue),
+                              short.Parse(ddlColonia.SelectedValue), int.Parse(ddlCalle.SelectedValue), int.Parse(ddlEntreCalle.SelectedValue), int.Parse(ddlYcalle.SelectedValue),
+                                 txtNumExt0.Text, txtNumInt0.Text, txtCP0.Text, txtFechaIngreso.Text, txtHoraIngreso.Text, short.Parse(ddlCausaFallecimiento.SelectedValue), txtIdentificacion.Text, txtFechaEntrega.Text, txtFechaProbable.Text, short.Parse(rbLocaliza.SelectedValue), txtNombreLocalizado.Text, txtPaterno.Text, txtMaterno.Text, txtInstitucion.Text, txtAutoridad.Text, txtNombreAutoridad.Text, txtPaternoAutoridad.Text, txtMaternoAutoridad.Text, txtNombreReclama.Text, txtPaternoReclama.Text, txtMaternoReclama.Text, short.Parse(ddlParentesco0.SelectedValue));
+                                   string script = @"<script type='text/javascript'> alert('DATOS GUARDADOS');  </script>";
 
 
-                    PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 2, "Inserta Datos localización: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() + ", IdPersona= " + ddlOfendido.SelectedItem + ", Estatus persona= " + rbEstatus.SelectedItem + ", Fecha localización= "+txtFechaLocalizacion.Text + ", Hora localización= " + txtHoraLocalizacion.Text  + ", Posible causa desaparición= " + txtDesaparicion.Text  + ", Condiciones localización= " + ddlCondiciones.SelectedItem + ", Lugar de hallazgo= " + ddlLugarHallazgo.SelectedItem + ", País localización= " + ddlPais.SelectedItem + ", Entidad= " + ddlEntidad.SelectedItem + ", Municipio= " +ddlMunicipio.SelectedItem + ", Localidad= " +ddlLocalidadDom.SelectedItem
-                    + ", Colonia= " + ddlColonia.SelectedItem + ", Calle= " +ddlCalle.SelectedItem + ", Entre calle= " +ddlEntreCalle.SelectedItem + ", Y calle= " + ddlYcalle.SelectedItem
-                    + ", N° exterior= " +txtNumExt0.Text + ", N° interrior= " +txtNumInt0.Text + ", CP= " + txtCP0.Text + ", Fecha de ingreso al SEMEFO= " + txtFechaIngreso.Text + ", Hora de ingreso= " + txtHoraIngreso.Text + ", Causa de fallecimiento= " + ddlCausaFallecimiento.SelectedItem + ", Identificación= " + txtIdentificacion.Text + ", Fecha de entrega del cuerpo= " + txtFechaEntrega.Text + ", Fecha probable de fallecimiento= " + txtFechaProbable.Text + ", Ente que localiza= " + rbLocaliza.SelectedItem + ", Nombre quien localiza= " + txtNombreLocalizado.Text + " "+txtPaterno.Text+" "+txtMaterno.Text+ ", Institución que localiza= " + txtInstitucion.Text + ", Autoridad que localiza= " + txtAutoridad.Text + ", Nombre autoridad= " + txtNombreAutoridad.Text+" "+txtPaternoAutoridad.Text+" "+ txtMaternoAutoridad.Text + ", Nombre quien reclama el cuerpo= " + txtNombreReclama.Text+" "+txtPaternoReclama.Text+" "+txtMaternoReclama.Text+ ", Parentesco con el occiso= " + ddlParentesco0.SelectedItem, int.Parse(Session["IdModuloBitacora"].ToString()));
-                
+                            PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 2, "Inserta Datos localización: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() + ", IdPersona= " + ddlOfendido.SelectedItem + ", Estatus persona= " + rbEstatus.SelectedItem + ", Fecha localización= " + txtFechaLocalizacion.Text + ", Hora localización= " + txtHoraLocalizacion.Text + ", Posible causa desaparición= " + txtDesaparicion.Text + ", Condiciones localización= " + ddlCondiciones.SelectedItem + ", Lugar de hallazgo= " + ddlLugarHallazgo.SelectedItem + ", País localización= " + ddlPais.SelectedItem + ", Entidad= " + ddlEntidad.SelectedItem + ", Municipio= " + ddlMunicipio.SelectedItem + ", Localidad= " + ddlLocalidadDom.SelectedItem
+                            + ", Colonia= " + ddlColonia.SelectedItem + ", Calle= " + ddlCalle.SelectedItem + ", Entre calle= " + ddlEntreCalle.SelectedItem + ", Y calle= " + ddlYcalle.SelectedItem
+                            + ", N° exterior= " + txtNumExt0.Text + ", N° interrior= " + txtNumInt0.Text + ", CP= " + txtCP0.Text + ", Fecha de ingreso al SEMEFO= " + txtFechaIngreso.Text + ", Hora de ingreso= " + txtHoraIngreso.Text + ", Causa de fallecimiento= " + ddlCausaFallecimiento.SelectedItem + ", Identificación= " + txtIdentificacion.Text + ", Fecha de entrega del cuerpo= " + txtFechaEntrega.Text + ", Fecha probable de fallecimiento= " + txtFechaProbable.Text + ", Ente que localiza= " + rbLocaliza.SelectedItem + ", Nombre quien localiza= " + txtNombreLocalizado.Text + " " + txtPaterno.Text + " " + txtMaterno.Text + ", Institución que localiza= " + txtInstitucion.Text + ", Autoridad que localiza= " + txtAutoridad.Text + ", Nombre autoridad= " + txtNombreAutoridad.Text + " " + txtPaternoAutoridad.Text + " " + txtMaternoAutoridad.Text + ", Nombre quien reclama el cuerpo= " + txtNombreReclama.Text + " " + txtPaternoReclama.Text + " " + txtMaternoReclama.Text + ", Parentesco con el occiso= " + ddlParentesco0.SelectedItem, int.Parse(Session["IdModuloBitacora"].ToString()));
 
-                    ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
 
+                            ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
+
+
+                            lblEstatus.Text = "DATOS GUARDADOS";
+                            
+                        }
+                        catch (Exception ex)
+                        {
+                            lblEstatus.Text = ex.Message;
+                            //lblEstatus1.Text = "INTENTELO NUEVAMENTE";
+                        }
+                    }
                 }
                 else if (Session["op"].ToString() == "Modificar")
                 {

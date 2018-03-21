@@ -25,8 +25,8 @@ namespace AtencionTemprana
             PUESTO.Text = Session["PUESTO"].ToString();
             //ReportViewer1.DataBind();
             }
-            //seccionReporte.Visible = false;
-            //seccionTabla.Visible = false;
+            seccionReporte.Visible = false;
+            seccionTabla.Visible = false;
                 
            
         }
@@ -36,11 +36,13 @@ namespace AtencionTemprana
 
             try
             {
-                //ASPxPivotGrid1.Visible = true;
-                //ReportViewer1.Visible = true;
-                //ReportViewer1.ViewStateMode = System.Web.UI.ViewStateMode.Enabled;
-                //seccionReporte.Visible = true;
-                //seccionTabla.Visible = true;
+                ASPxPivotGrid1.Visible = true;
+                ReportViewer1.Visible = true;
+                ReportViewer1.ViewStateMode = System.Web.UI.ViewStateMode.Enabled;
+                seccionReporte.Visible = true;
+                
+                //seccionReporte.Attributes["class"] = truwe;
+                seccionTabla.Visible = true;
                 PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 2, "Se Realizo Una Busqueda de Carpetas Iniciadas NUC " + "con Fecha de Incio Del: " + TxtFecha1.Text + " Al: " + TxtFecha2.Text + " En:" + UNDD.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
                 SqlDataSource1.DataBind();
                 ReportViewer1.LocalReport.Refresh();
