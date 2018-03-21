@@ -51,6 +51,24 @@
         {
             height: 58px;
         }
+        .bordeCampoObligatorio
+        {
+            border-style: solid;
+            border-color:#FF0000;
+            border-bottom-width:1px;
+            border-top-width:1px;
+            border-left-width:1px;
+            border-right-width:1px;
+        }
+        #seccionTabla
+        { 
+            visibility: hidden;
+        }
+        #seccionReporte
+        {
+            visibility:hidden;
+        }
+        
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -136,7 +154,7 @@
             <tr>
                 <td class="style6">
                     &nbsp;
-                    <asp:TextBox ID="TxtFecha1" runat="server" MaxLength="10" TabIndex="20" 
+                    <asp:TextBox ID="TxtFecha1" runat="server" MaxLength="10" TabIndex="20" class="bordeCampoObligatorio"
                         Width="190px"></asp:TextBox>
                     <asp:CalendarExtender ID="txtFecha1_CalendarExtender" runat="server" 
                         Enabled="True" Format="dd/MM/yyyy" TargetControlID="TxtFecha1">
@@ -145,10 +163,13 @@
                         ControlToValidate="TxtFecha1" Display="Dynamic" ErrorMessage="FECHA INVALIDA" 
                         Font-Bold="True" Font-Size="Medium" ForeColor="Red" MaximumValue="31/12/9999" 
                         MinimumValue="01/01/2013">*</asp:RangeValidator>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="TxtFecha1" Display="Dynamic" ErrorMessage="SELECCIONA FECHA INICIAL" 
+                        Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="style27">
                     &nbsp;
-                    <asp:TextBox ID="TxtFecha2" runat="server" MaxLength="10" TabIndex="20" 
+                    <asp:TextBox ID="TxtFecha2" runat="server" MaxLength="10" TabIndex="20" class="bordeCampoObligatorio"
                         Width="190px"></asp:TextBox>
                     <asp:CalendarExtender ID="txtFecha2_CalendarExtender" runat="server" 
                         Enabled="True" Format="dd/MM/yyyy" TargetControlID="TxtFecha2">
@@ -157,6 +178,9 @@
                         ControlToValidate="TxtFecha2" Display="Dynamic" ErrorMessage="FECHA INVALIDA" 
                         Font-Bold="True" Font-Size="Medium" ForeColor="Red" MaximumValue="31/12/9999" 
                         MinimumValue="01/01/2013">*</asp:RangeValidator>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ControlToValidate="TxtFecha2" Display="Dynamic" ErrorMessage="SELECCIONA FECHA FINAL" 
+                        Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td class="style7">
                     <asp:Button ID="CmdFiltrar" runat="server" onclick="CmdFiltrar_Click" 
@@ -167,7 +191,20 @@
                 </td>
             </tr>
             <tr>
-                <td class="style22" colspan="3">
+                <td align="center" colspan="3">
+                    &nbsp;
+                    <asp:Label ID="lblEstatus" runat="server" Font-Bold="True" Font-Size="Medium" 
+                        ForeColor="Red"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblEstatus1" runat="server" Font-Bold="True" Font-Size="Medium" 
+                        ForeColor="Red"></asp:Label>
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" Font-Bold="True" 
+                        Font-Size="Small" ForeColor="Red" />
+                    &nbsp; &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="style22" colspan="3" id="seccionTabla" runat="server">
                     &nbsp;
                     <dx:ASPxPivotGrid ID="ASPxPivotGrid1" runat="server" ClientIDMode="AutoID" 
                         DataSourceID="SqlDataSource1" Width="1100px">
@@ -261,7 +298,7 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="style18" colspan="3">
+                <td class="style18" colspan="3" id="seccionReporte" runat="server">
                     <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" 
                         Font-Size="8pt" InteractiveDeviceInfos="(Collection)" ShowBackButton="False" 
                         ShowZoomControl="False" style="margin-right: 0px" 
@@ -288,7 +325,11 @@
                 <td>
                     &nbsp;</td>
             </tr>
+            
+            
             <tr>
+
+
                 <td class="style18" colspan="3">
                     &nbsp;</td>
                 <td>
