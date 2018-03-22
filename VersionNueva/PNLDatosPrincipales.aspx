@@ -283,7 +283,7 @@
             </tr>
         </table>
         <br />
-        <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="4" Width="1100px"
+        <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="1100px"
             UseVerticalStripPlacement="False" VerticalStripWidth="200px">
             <asp:TabPanel ID="TabPanel1" runat="server" HeaderText="TabPanel1">
                 <HeaderTemplate>
@@ -325,13 +325,25 @@
                         </tr>
                         <tr>
                             <td class="style34">
-                                <asp:TextBox ID="txtONG" runat="server"></asp:TextBox>
+                                <!--<asp:TextBox ID="txtONG" runat="server" ></asp:TextBox>-->
+                                <asp:RadioButtonList ID="rb_ong" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" >
+                                    <asp:ListItem Value="SI" Text="SI"></asp:ListItem>
+                                    <asp:ListItem Value="NO" Selected="True" Text="NO"></asp:ListItem>
+                                </asp:RadioButtonList>                                
                             </td>
                             <td class="style35">
-                                <asp:TextBox ID="txtSindicalista" runat="server"></asp:TextBox>
+                                <!--<asp:TextBox ID="txtSindicalista" runat="server"></asp:TextBox>-->
+                                <asp:RadioButtonList ID="rb_sindicalista" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" >
+                                    <asp:ListItem Value="SI" Text="SI"></asp:ListItem>
+                                    <asp:ListItem Value="NO" Selected="True" Text="NO"></asp:ListItem>
+                                </asp:RadioButtonList>
                             </td>
                             <td class="style36">
-                                <asp:TextBox ID="txtReinsertado" runat="server"></asp:TextBox>
+                                <!--<asp:TextBox ID="txtReinsertado" runat="server"></asp:TextBox>-->
+                                <asp:RadioButtonList ID="rb_reinsertado" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" >
+                                    <asp:ListItem Value="SI" Text="SI"></asp:ListItem>
+                                    <asp:ListItem Value="NO" Selected="True" Text="NO"></asp:ListItem>
+                                </asp:RadioButtonList>
                             </td>
                             <td class="style37">
                                 <asp:TextBox ID="txtGrupoReligioso" runat="server"></asp:TextBox>
@@ -370,10 +382,18 @@
                         </tr>
                         <tr>
                             <td class="style27">
-                                <asp:TextBox ID="txtOrgEstatal" runat="server"></asp:TextBox>
+                                <!--<asp:TextBox ID="txtOrgEstatal" runat="server"></asp:TextBox>-->
+                                <asp:RadioButtonList ID="rb_OrgEstatal" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" >
+                                    <asp:ListItem Value="SI" Text="SI"></asp:ListItem>
+                                    <asp:ListItem Value="NO" Selected="True" Text="NO"></asp:ListItem>
+                                </asp:RadioButtonList>
                             </td>
                             <td class="style30">
-                                <asp:TextBox ID="txtDH" runat="server"></asp:TextBox>
+                                <!--<asp:TextBox ID="txtDH" runat="server"></asp:TextBox>-->
+                                <asp:RadioButtonList ID="rb_DH" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" >
+                                    <asp:ListItem Value="SI" Text="SI"></asp:ListItem>
+                                    <asp:ListItem Value="NO" Selected="True" Text="NO"></asp:ListItem>
+                                </asp:RadioButtonList>
                             </td>
                             <td class="style33">
                                 <asp:TextBox ID="txtOtros" runat="server"></asp:TextBox>

@@ -373,6 +373,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.TextBox txtONG;
         
         /// <summary>
+        /// rb_ong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rb_ong;
+        
+        /// <summary>
         /// txtSindicalista control.
         /// </summary>
         /// <remarks>
@@ -382,6 +391,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.TextBox txtSindicalista;
         
         /// <summary>
+        /// rb_sindicalista control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rb_sindicalista;
+        
+        /// <summary>
         /// txtReinsertado control.
         /// </summary>
         /// <remarks>
@@ -389,6 +407,15 @@ namespace AtencionTemprana {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtReinsertado;
+        
+        /// <summary>
+        /// rb_reinsertado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rb_reinsertado;
         
         /// <summary>
         /// txtGrupoReligioso control.
@@ -436,6 +463,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.TextBox txtOrgEstatal;
         
         /// <summary>
+        /// rb_OrgEstatal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rb_OrgEstatal;
+        
+        /// <summary>
         /// txtDH control.
         /// </summary>
         /// <remarks>
@@ -443,6 +479,15 @@ namespace AtencionTemprana {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDH;
+        
+        /// <summary>
+        /// rb_DH control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rb_DH;
         
         /// <summary>
         /// txtOtros control.

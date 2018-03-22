@@ -75,6 +75,7 @@ namespace AtencionTemprana
                     PGJ.CargaCombo(ddlProtesis, "PNL_CAT_PROTESIS", "IdProtesis", "Protesis");
                     PGJ.CargaCombo(ddlVestimenta, "CAT_VESTUARIO", "ID_VSTUARIO", "VSTUARIO");
                     PGJ.CargaCombo(rb_ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
+
                     cargarOfendido();
                 }
                 else if (Session["op"].ToString() == "Modificar")
@@ -125,7 +126,7 @@ namespace AtencionTemprana
                         PGJ.CargaCombo(rb_ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
 
                         CargarPNL();
-                        CargarPertenenciaSocial();
+                        CargarPertenenciaSocial();                       
                         CargarInformacionFinanciera();
                         CargarDiscapacidades();
                         CargarInfoOdontologica();
@@ -156,6 +157,8 @@ namespace AtencionTemprana
             }
 
         }
+
+       
 
         void cargarOfendido()
         {
@@ -222,13 +225,72 @@ namespace AtencionTemprana
             if (dr.HasRows)
             {
                 dr.Read();
-                txtONG.Text = dr["MiembroONG"].ToString();
+                /*
+                 * ANTERIORMENTE SE UTILIZABA PARA LLENAR LOS INPUT TEXT EN EL HTML
+                 */
+                /*txtONG.Text = dr["MiembroONG"].ToString();
                 txtSindicalista.Text = dr["Sindicalista"].ToString();
-                txtReinsertado.Text = dr["Reinsertado"].ToString();
+                txtReinsertado.Text = dr["Reinsertado"].ToString();*/
                 txtGrupoReligioso.Text = dr["GrupoReligioso"].ToString();
-                txtOrgEstatal.Text = dr["OrganismoEstatal"].ToString();
+                /*txtOrgEstatal.Text = dr["OrganismoEstatal"].ToString();
                 txtDH.Text = dr["GrupoDH"].ToString();
-                txtOtros.Text = dr["Otros"].ToString();
+                txtOtros.Text = dr["Otros"].ToString();*/
+
+                string ong = dr["MiembroONG"].ToString();
+                string sindicalista = dr["Sindicalista"].ToString();
+                string reinsertado = dr["Reinsertado"].ToString();
+                string grupoReligioso = dr["GrupoReligioso"].ToString();
+                string orgEstatal = dr["OrganismoEstatal"].ToString();
+                string grupoDH = dr["GrupoDH"].ToString();
+
+                string ONG = ong.ToUpper().ToString();
+                string SINDICALISTA = sindicalista.ToUpper().ToString();
+                string REINSERTADO = reinsertado.ToUpper().ToString();
+                string ORGESTATAL = orgEstatal.ToUpper().ToString();
+                string GRUPODH = grupoDH.ToUpper().ToString();
+
+                if (!ONG.Equals("SI")){
+                    rb_ong.SelectedValue = "NO";
+                }else
+                {
+                    rb_ong.SelectedValue = "SI";
+                }
+
+                if (!SINDICALISTA.Equals("SI"))
+                {
+                    rb_sindicalista.SelectedValue = "NO";
+                }
+                else
+                {
+                    rb_sindicalista.SelectedValue = "SI";
+                }
+
+                if (!REINSERTADO.Equals("SI"))
+                {
+                    rb_reinsertado.SelectedValue = "NO";
+                }
+                else
+                {
+                    rb_reinsertado.SelectedValue = "SI";
+                }
+
+                if (!ORGESTATAL.Equals("SI"))
+                {
+                    rb_OrgEstatal.SelectedValue = "NO";
+                }
+                else
+                {
+                    rb_OrgEstatal.SelectedValue = "SI";
+                }
+
+                if (!GRUPODH.Equals("SI"))
+                {
+                    rb_DH.SelectedValue = "NO";
+                }
+                else
+                {
+                    rb_DH.SelectedValue = "SI";
+                } 
             }
             dr.Close();
 
@@ -511,7 +573,7 @@ namespace AtencionTemprana
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
                         lblEstatus.Text = "INTENTELO NUEVEMENTE";*/
 
-                        lblEstatus.Text = "DEBES SELECCIONAR UNA PERSONA";
+                        lblEstatus.Text = "YA EXISTE UN REGISTRO A NOMBRE DE LA PERSONA QUE DESEA INGRESAR, FAVOR DE EDITAR O COMPLEMENTAR EL EXISTENTE O BIEN, SELECCIONE UN OFENDIDO DISTINTO.";
 
                     }
                     else if(!validarRadioButtons()){
@@ -524,7 +586,7 @@ namespace AtencionTemprana
                         PGJ.PNL_InsertaDatosGenerales(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), int.Parse(ddlEtnia.SelectedValue), DateTime.Parse(txtUltimoAvistamiento.Text), short.Parse(ddlUltimaActividad.SelectedValue));
 
                         /*INSERTA PERTENENCIA SOCIAL*/
-                        PGJ.PNL_InsertaPertenenciaSocial(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), txtONG.Text, txtSindicalista.Text, txtReinsertado.Text, txtGrupoReligioso.Text, txtOrgEstatal.Text, txtDH.Text, txtOtros.Text);
+                        PGJ.PNL_InsertaPertenenciaSocial(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()),rb_ong.SelectedValue/*txtONG.Text*/, txtSindicalista.Text, txtReinsertado.Text, txtGrupoReligioso.Text, txtOrgEstatal.Text, txtDH.Text, txtOtros.Text);
 
                         /*INSERTA INFORMACIÓN FINANCIERA*/
 
@@ -554,7 +616,7 @@ namespace AtencionTemprana
                         PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 2,
                         "Inserta DATOS GENERALES: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() +
                         ", IdPersona= " + ID_PERSONA.Text + ", Etnia= " + ddlEtnia.SelectedItem + ", Fecha ultimo avistamiento= " + txtUltimoAvistamiento.Text +
-                        ", Ultima actividad= " + ddlUltimaActividad.SelectedItem + ",PERTENENCIA SOCIAL: ONG= " + txtONG.Text + ", Sindicalista= " +
+                        ", Ultima actividad= " + ddlUltimaActividad.SelectedItem + ",PERTENENCIA SOCIAL: ONG= " + rb_ong.SelectedValue/*txtONG.Text*/ + ", Sindicalista= " +
                         txtSindicalista.Text + ", Reinsertado= " + txtReinsertado.Text + ", Grupo religioso= " + txtGrupoReligioso.Text + ", Org estatal= " +
                         txtOrgEstatal.Text + ", Derechos humanos= " + txtDH.Text + ", Otros= " + txtOtros.Text + ", INFORMACIÓN FINANCIERA: Banco = " + ddlBanco.SelectedItem
                         + ", Num Cuenta = " + txtNumCuenta.Text + ", Tipo de cuenta = " + txtTipoCuenta.Text + ", Banco crédito = " + ddlBanco0.SelectedItem +
@@ -601,7 +663,7 @@ namespace AtencionTemprana
                         PGJ.ActualizaDatosGenerales(int.Parse(ID_DATOS_GENERALES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), int.Parse(ddlEtnia.SelectedValue), DateTime.Parse(txtUltimoAvistamiento.Text), short.Parse(ddlUltimaActividad.SelectedValue));
 
                         /*MODIFICA PERTENENCIA SOCIAL*/
-                        PGJ.PNL_ActualizaPertenenciaSocial(int.Parse(ID_PERTENENCIA_SOCIAL.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), txtONG.Text, txtSindicalista.Text, txtReinsertado.Text, txtGrupoReligioso.Text, txtOrgEstatal.Text, txtDH.Text, txtOtros.Text);
+                        PGJ.PNL_ActualizaPertenenciaSocial(int.Parse(ID_PERTENENCIA_SOCIAL.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), rb_ong.SelectedValue/*txtONG.Text*/, rb_sindicalista.SelectedValue /*txtSindicalista.Text*/, rb_reinsertado.SelectedValue /*txtReinsertado.Text*/, txtGrupoReligioso.Text, rb_OrgEstatal.SelectedValue /*txtOrgEstatal.Text*/, rb_DH.SelectedValue /*txtDH.Text*/, txtOtros.Text);
 
                         /*MODIFICA INFORMACIÓN FINANCIERA*/
 
