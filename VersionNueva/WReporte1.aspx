@@ -101,7 +101,7 @@
                                                 Format="dd/MM/yyyy" TargetControlID="TxtFechaInicio">
                                             </asp:CalendarExtender>
                                             <asp:RequiredFieldValidator runat="server" ForeColor="Red" 
-                                        ControlToValidate="TxtFechaInicio" ErrorMessage="INGRESA FECHA INICIAL" Display="Dynamic" 
+                                        ControlToValidate="TxtFechaInicio" ErrorMessage="SELECCIONA FECHA INICIAL" Display="Dynamic" 
                                         ID="RequiredFieldValidator1">*</asp:RequiredFieldValidator>
                                     <asp:RangeValidator runat="server" MaximumValue="31/12/9999" 
                                         MinimumValue="01/01/1111" ForeColor="Red" ControlToValidate="TxtFechaInicio" 
@@ -117,7 +117,7 @@
                                             </asp:CalendarExtender>
                                             
                                               <asp:RequiredFieldValidator runat="server" ForeColor="Red" 
-                                        ControlToValidate="TxtFechaFin" ErrorMessage="INGRESA FECHA FINAL" Display="Dynamic" 
+                                        ControlToValidate="TxtFechaFin" ErrorMessage="SELECCIONA FECHA FINAL" Display="Dynamic" 
                                         ID="RequiredFieldValidator2">*</asp:RequiredFieldValidator>
                                     <asp:RangeValidator runat="server" MaximumValue="31/12/9999" 
                                         MinimumValue="01/01/1111" ForeColor="Red" ControlToValidate="TxtFechaFin" 
