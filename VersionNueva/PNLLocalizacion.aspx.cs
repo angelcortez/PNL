@@ -361,7 +361,40 @@ namespace AtencionTemprana
             ddlEntidad.DataTextField = "ESTDO";
             ddlEntidad.DataBind();
 
-            if (ddlEntidad.Items.Count == 0) { ddlEntidad.Items.Insert(0, "ESTADO DESCONOCIDO"); }
+            if (ddlEntidad.Items.Count == 0)
+            {
+                ddlEntidad.Items.Insert(0, "ESTADO DESCONOCIDO");
+                Session["ID_ESTADO_DOM"] = "0";// ddlEntidad.SelectedValue.ToString();
+                consultaEstadoMunicipioDom();
+            }
+            else
+            {
+
+
+                ddlMunicipio.Items.Clear();
+                ddlLocalidadDom.Items.Clear();
+                ddlCalle.Items.Clear();
+                ddlEntreCalle.Items.Clear();
+                ddlYcalle.Items.Clear();
+                ddlColonia.Items.Clear();
+                ddlEntreCalle.Items.Clear();
+
+                ddlMunicipio.Items.Insert(0, "--SELECCIONE--");
+                ddlLocalidadDom.Items.Insert(0, "--SELECCIONE--");
+                ddlCalle.Items.Insert(0, "--SELECCIONE--");
+                ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+                ddlYcalle.Items.Insert(0, "--SELECCIONE--");
+                ddlColonia.Items.Insert(0, "--SELECCIONE--");
+                ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+                //ddlMunicipio.Items.Insert(0, "--SELECCIONE--");
+                //ddlLocalidadDom.Items.Insert(0, "--SELECCIONE--");
+                //ddlCalle.Items.Insert(0, "--SELECCIONE--");
+                //ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+                //ddlYcalle.Items.Insert(0, "--SELECCIONE--");
+                //ddlColonia.Items.Insert(0, "--SELECCIONE--");
+                //ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+            }
+
 
         }
 
@@ -381,7 +414,12 @@ namespace AtencionTemprana
             ddlMunicipio.DataTextField = "MNCPIO";
             ddlMunicipio.DataBind();
 
-            if (ddlMunicipio.Items.Count == 0) { ddlMunicipio.Items.Insert(0, "MUNICIPIO DESCONOCIDO"); }
+            if (ddlMunicipio.Items.Count == 0) 
+            { 
+                ddlMunicipio.Items.Insert(0, "MUNICIPIO DESCONOCIDO");
+                Session["ID_MUNICIPIO_DOM"] ="0";
+                consultaMunicipioLocalidad();
+            }
 
         }
 
@@ -401,7 +439,15 @@ namespace AtencionTemprana
             ddlLocalidadDom.DataTextField = "LCLDD";
             ddlLocalidadDom.DataBind();
 
-            if (ddlLocalidadDom.Items.Count == 0) { ddlLocalidadDom.Items.Insert(0,"LOCALIDAD DESCONOCIDA"); }
+            if (ddlLocalidadDom.Items.Count == 0) 
+            { 
+                ddlLocalidadDom.Items.Insert(0,"LOCALIDAD DESCONOCIDA");
+                Session["ID_LOCALIDAD"] = "0";
+                consultaLocalidadColonia();
+                consultaLocalidadCalle();
+                consultaLocalidadEntreCalle();
+                consultaLocalidadYCalle();
+            }
 
         }
 
@@ -423,7 +469,10 @@ namespace AtencionTemprana
             ddlColonia.DataTextField = "CLNIA";
             ddlColonia.DataBind();
 
-            if (ddlColonia.Items.Count == 0) { ddlColonia.Items.Insert(0, "COLONIA DESCONOCIDA"); }
+            if (ddlColonia.Items.Count == 0) 
+            { 
+                ddlColonia.Items.Insert(0, "COLONIA DESCONOCIDA"); 
+            }
         }
 
         void consultaLocalidadCalle()
@@ -436,7 +485,10 @@ namespace AtencionTemprana
             ddlCalle.DataTextField = "CLLE";
             ddlCalle.DataBind();
 
-            if (ddlCalle.Items.Count == 0) { ddlCalle.Items.Insert(0, "CALLE DESCONOCIDA"); }
+            if (ddlCalle.Items.Count == 0) 
+            { 
+                ddlCalle.Items.Insert(0, "CALLE DESCONOCIDA"); 
+            }
         }
 
         void consultaLocalidadEntreCalle()
@@ -449,7 +501,10 @@ namespace AtencionTemprana
             ddlEntreCalle.DataTextField = "CLLE";
             ddlEntreCalle.DataBind();
 
-            if (ddlEntreCalle.Items.Count == 0) { ddlEntreCalle.Items.Insert(0, "ENTRE CALLE DESCONOCIDA"); }
+            if (ddlEntreCalle.Items.Count == 0) 
+            { 
+                ddlEntreCalle.Items.Insert(0, "ENTRE CALLE DESCONOCIDA"); 
+            }
         }
 
         void consultaLocalidadYCalle()
@@ -462,7 +517,10 @@ namespace AtencionTemprana
             ddlYcalle.DataTextField = "CLLE";
             ddlYcalle.DataBind();
 
-            if (ddlYcalle.Items.Count == 0) { ddlYcalle.Items.Insert(0, "Y CALLE DESCONOCIDA"); }
+            if (ddlYcalle.Items.Count == 0) 
+            { 
+                ddlYcalle.Items.Insert(0, "Y CALLE DESCONOCIDA"); 
+            }
         }
 
         protected void cmdGuardarCuerpo_Click(object sender, EventArgs e)

@@ -31,6 +31,24 @@
         //        document.onkeydown = function (evt) { return (evt ? evt.which : event.keyCode) != 13; /*BLOQUEAR ENTER*/ }
         document.onkeydown = function (evt1) { return (evt1 ? evt1.which : event.keyCode) != 13; } /*BLOQUEAR BACKSPACE*/
         //        document.onkeydown = function (evt) { return (evt ? evt.which : event.keyCode) != 32; } /*BLOQUEAR BARRA ESPACIDORA*/
+
+
+        function soloNumeros(e) {
+            var key = window.Event ? e.which : e.keyCode
+            return (key >= 48 && key <= 57)
+        }
+
+        function soloLetras(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " abcdefghijklmnñopqrstuvwxyz";
+
+            if (letras.indexOf(tecla) == -1) {
+                return false;
+            }
+        }
+
+
     </script>
     <div id="main-wrapper">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
@@ -837,19 +855,19 @@
                                                        <td>
                                                            &nbsp;</td>
                                                        <td>
-                                                           <asp:TextBox ID="txtNombreAutoridad" runat="server" Width="200px"  style="text-transform :uppercase" class="bordeCampoObligatorio"></asp:TextBox>
+                                                           <asp:TextBox ID="txtNombreAutoridad" runat="server" Width="200px"  style="text-transform :uppercase" class="bordeCampoObligatorio" onKeyPress="return soloLetras(event)"></asp:TextBox>
                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" 
                                                                ControlToValidate="txtNombreAutoridad" Display="Dynamic" 
                                                                ErrorMessage="INGRESA NOMBRE" ForeColor="Red">*</asp:RequiredFieldValidator>
                                                        </td>
                                                        <td>
-                                                           <asp:TextBox ID="txtPaternoAutoridad" runat="server" Width="200px"  style="text-transform :uppercase" class="bordeCampoObligatorio"></asp:TextBox>
+                                                           <asp:TextBox ID="txtPaternoAutoridad" runat="server" Width="200px"  style="text-transform :uppercase" class="bordeCampoObligatorio" onKeyPress="return soloLetras(event)"></asp:TextBox>
                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" 
                                                                ControlToValidate="txtPaternoAutoridad" Display="Dynamic" 
                                                                ErrorMessage="INGRESA PATERNO" ForeColor="Red">*</asp:RequiredFieldValidator>
                                                        </td>
                                                        <td>
-                                                           <asp:TextBox ID="txtMaternoAutoridad" runat="server" Width="200px"  style="text-transform :uppercase"></asp:TextBox>
+                                                           <asp:TextBox ID="txtMaternoAutoridad" runat="server" Width="200px"  style="text-transform :uppercase" onKeyPress="return soloLetras(event)"></asp:TextBox>
                                                        </td>
                                                        <td>
                                                            &nbsp;</td>
@@ -910,19 +928,19 @@
                                                        <td>
                                                            &nbsp;</td>
                                                        <td>
-                                                           <asp:TextBox ID="txtNombreReclama" runat="server" Width="200px" MaxLength="30"  style="text-transform :uppercase" class="bordeCampoObligatorio"></asp:TextBox>
+                                                           <asp:TextBox ID="txtNombreReclama" runat="server" Width="200px" MaxLength="30"  style="text-transform :uppercase" class="bordeCampoObligatorio" onKeyPress="return soloLetras(event)"></asp:TextBox>
                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" 
                                                                ControlToValidate="txtNombreReclama" Display="Dynamic" 
                                                                ErrorMessage="INGRESA NOMBRE" ForeColor="Red">*</asp:RequiredFieldValidator>
                                                        </td>
                                                        <td>
-                                                           <asp:TextBox ID="txtPaternoReclama" runat="server" Width="200px" MaxLength="30"  style="text-transform :uppercase" class="bordeCampoObligatorio"></asp:TextBox>
+                                                           <asp:TextBox ID="txtPaternoReclama" runat="server" Width="200px" MaxLength="30"  style="text-transform :uppercase" class="bordeCampoObligatorio"  onKeyPress="return soloLetras(event)"></asp:TextBox>
                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" 
                                                                ControlToValidate="txtPaternoReclama" Display="Dynamic" 
                                                                ErrorMessage="INGRESA PATERNO" ForeColor="Red">*</asp:RequiredFieldValidator>
                                                        </td>
                                                        <td>
-                                                           <asp:TextBox ID="txtMaternoReclama" runat="server" Width="200px" MaxLength="30"  style="text-transform :uppercase"></asp:TextBox>
+                                                           <asp:TextBox ID="txtMaternoReclama" runat="server" Width="200px" MaxLength="30"  style="text-transform :uppercase" onKeyPress="return soloLetras(event)"></asp:TextBox>
                                                        </td>
                                                        <td>
                                                            <asp:DropDownList ID="ddlParentesco0" runat="server" AutoPostBack="True"  Width="200px" class="bordeCampoObligatorio">
