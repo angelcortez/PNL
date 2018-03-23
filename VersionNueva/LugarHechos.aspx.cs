@@ -359,7 +359,7 @@ namespace AtencionTemprana
             }
             drValida.Close();
 
-            if (Valor == "0")
+            if (Valor == "0") 
             {
                 lblError.Text = "1";
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('LA FECHA DE HECHOS NO PUEDE SER MAYOR A LA FECHA DE INICIO DE LA CARPETA.')", true);

@@ -132,7 +132,8 @@
                </tr>
                    <tr>
                        <td colspan="4">
-                           <asp:DropDownList ID="ddlOfendido" runat="server" Width="400px">
+                           <asp:DropDownList ID="ddlOfendido" runat="server" Width="400px" class="bordeCampoObligatorio">
+                           <asp:ListItem>--SELECCIONE--</asp:ListItem>
                            </asp:DropDownList>
                        </td>
                    </tr>
@@ -186,11 +187,19 @@
                                         Mask="99/99/9999" MaskType="Date" MessageValidatorTip="true" TargetControlID="txtFechaLocalizacion" />
                        </td>
                        <td>
-                           <asp:TextBox ID="txtHoraLocalizacion" runat="server" MaxLength="10" class="bordeCampoObligatorio"
-                                               Width="200px"></asp:TextBox>
-                           <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
-                                               ControlToValidate="txtHoraLocalizacion" Display="Dynamic" 
-                                               ErrorMessage="INGRESA HORA LOCALIZACION" ForeColor="Red">*</asp:RequiredFieldValidator>
+                           <asp:TextBox ID="txtHoraLocalizacion" runat="server" MaxLength="10" class="bordeCampoObligatorio" Width="200px"></asp:TextBox>
+                            <asp:MaskedEditExtender ID="MaskedEditExtender3" runat="server" AcceptAMPM="True"
+                                                BehaviorID="_content_MaskedEditExtender3" Century="2000" CultureAMPMPlaceholder=""
+                                                CultureCurrencySymbolPlaceholder="€" CultureDateFormat="DMY" CultureDatePlaceholder="/"
+                                                CultureDecimalPlaceholder="," CultureName="es-ES" CultureThousandsPlaceholder="."
+                                                CultureTimePlaceholder=":" ErrorTooltipEnabled="True" Mask="99:99" MaskType="Time"
+                                                TargetControlID="txtHoraLocalizacion" 
+                            />
+                            <asp:MaskedEditValidator ID="MaskedEditValidator3" runat="server" ControlExtender="MaskedEditExtender3"
+                                                ControlToValidate="txtHoraLocalizacion" ErrorMessage="*" InvalidValueMessage="REGISTRE HORA"
+                                                ForeColor="Red" ToolTip="ERROR FORMATO HORA" TooltipMessage="Hora 00:00 am hasta 23:59 pm">
+				            </asp:MaskedEditValidator>
+                           <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtHoraLocalizacion" Display="Dynamic" ErrorMessage="INGRESA HORA LOCALIZACION" ForeColor="Red">*</asp:RequiredFieldValidator>
                        </td>
                    </tr>
                    
@@ -218,7 +227,7 @@
                        <td colspan="4">
                            <asp:TextBox ID="txtDesaparicion" runat="server" Height="69px" MaxLength="1000" 
                                                style="text-transform :uppercase" TextMode="MultiLine" 
-                               Width="967px"></asp:TextBox>
+                               Width="967px" class="bordeCampoObligatorio"></asp:TextBox>
                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
                                                ControlToValidate="txtDesaparicion" Display="Dynamic" 
                                                ErrorMessage="INGRESA CAUSA DESAPARICION" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -253,7 +262,7 @@
                    
                    <tr>
                        <td>
-                           <asp:DropDownList ID="ddlCondiciones" runat="server" Width="200px" class="bordeCampoObligatorio">
+                           <asp:DropDownList ID="ddlCondiciones" runat="server" Width="200px" class="bordeCampoObligatorio">                            
                            </asp:DropDownList>
                            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
                                                ControlToValidate="ddlCondiciones" Display="Dynamic" 
@@ -261,7 +270,7 @@
                                ForeColor="Red">*</asp:RequiredFieldValidator>
                        </td>
                        <td>
-                           <asp:DropDownList ID="ddlLugarHallazgo" runat="server" Width="200px" class="bordeCampoObligatorio">
+                           <asp:DropDownList ID="ddlLugarHallazgo" runat="server" Width="200px" class="bordeCampoObligatorio">                            
                            </asp:DropDownList>
                            <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" 
                                                ControlToValidate="ddlLugarHallazgo" Display="Dynamic" 
@@ -575,6 +584,19 @@
                                        </td>
                                        <td>
                                            <asp:TextBox ID="txtHoraIngreso" runat="server" Width="200px" MaxLength="10" class="bordeCampoObligatorio"></asp:TextBox>
+                                           
+                                           <asp:MaskedEditExtender ID="MaskedEditExtender2" runat="server" AcceptAMPM="True"
+                                                BehaviorID="_content_MaskedEditExtender2" Century="2000" CultureAMPMPlaceholder=""
+                                                CultureCurrencySymbolPlaceholder="€" CultureDateFormat="DMY" CultureDatePlaceholder="/"
+                                                CultureDecimalPlaceholder="," CultureName="es-ES" CultureThousandsPlaceholder="."
+                                                CultureTimePlaceholder=":" ErrorTooltipEnabled="True" Mask="99:99" MaskType="Time"
+                                                TargetControlID="txtHoraIngreso" 
+                                            />
+                                            <asp:MaskedEditValidator ID="MaskedEditValidator1" runat="server" ControlExtender="MaskedEditExtender2"
+                                                ControlToValidate="txtHoraIngreso" ErrorMessage="*" InvalidValueMessage="REGISTRE HORA"
+                                                ForeColor="Red" ToolTip="ERROR FORMATO HORA" TooltipMessage="Hora 00:00 am hasta 23:59 pm">
+				                            </asp:MaskedEditValidator>
+                                           
                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" 
                                                ControlToValidate="txtHoraIngreso" Display="Dynamic" 
                                                ErrorMessage="INGRESA HORA DE INGRESO" ForeColor="Red">*</asp:RequiredFieldValidator>

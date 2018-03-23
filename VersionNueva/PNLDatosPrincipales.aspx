@@ -230,7 +230,7 @@
                                 </td>
                                 <td>
                                 <!-- class="chosen-select" -->
-                                    <asp:DropDownList ID="ddlUltimaActividad" runat="server" TabIndex="3" Width="200px" >
+                                    <asp:DropDownList ID="ddlUltimaActividad" runat="server" TabIndex="3" Width="200px" class="bordeCampoObligatorio">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -346,7 +346,19 @@
                                 </asp:RadioButtonList>
                             </td>
                             <td class="style37">
-                                <asp:TextBox ID="txtGrupoReligioso" runat="server"></asp:TextBox>
+                                <!--<asp:TextBox ID="txtGrupoReligioso" runat="server"></asp:TextBox>-->
+                                <asp:DropDownList ID="ddlGrupoRel" runat="server"  Width="200px" Visible="TRUE">
+                                <asp:ListItem Value="--SELECCIONE--" ></asp:ListItem>
+                                <asp:ListItem Value="NINGUNA" ></asp:ListItem>
+                                <asp:ListItem Value="DESCONOCIDA" ></asp:ListItem>
+                                <asp:ListItem Value="ATEO" ></asp:ListItem>
+                                <asp:ListItem Value="CATOLICA" ></asp:ListItem>
+                                <asp:ListItem Value="CRISTIANA" ></asp:ListItem>
+                                <asp:ListItem Value="EVANGELICA" ></asp:ListItem>
+                                <asp:ListItem Value="TESTIGO DE JEHOVA" ></asp:ListItem>
+                                <asp:ListItem Value="PENTECOSTES" ></asp:ListItem>
+                                <asp:ListItem Value="ADVENTISTA" ></asp:ListItem>
+                                </asp:DropDownList>
                             </td>
                         </tr>
                         <tr>

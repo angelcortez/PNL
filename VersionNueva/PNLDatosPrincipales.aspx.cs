@@ -230,9 +230,9 @@ namespace AtencionTemprana
                  */
                 /*txtONG.Text = dr["MiembroONG"].ToString();
                 txtSindicalista.Text = dr["Sindicalista"].ToString();
-                txtReinsertado.Text = dr["Reinsertado"].ToString();*/
+                txtReinsertado.Text = dr["Reinsertado"].ToString();
                 txtGrupoReligioso.Text = dr["GrupoReligioso"].ToString();
-                /*txtOrgEstatal.Text = dr["OrganismoEstatal"].ToString();
+                txtOrgEstatal.Text = dr["OrganismoEstatal"].ToString();
                 txtDH.Text = dr["GrupoDH"].ToString();
                 txtOtros.Text = dr["Otros"].ToString();*/
 
@@ -246,9 +246,56 @@ namespace AtencionTemprana
                 string ONG = ong.ToUpper().ToString();
                 string SINDICALISTA = sindicalista.ToUpper().ToString();
                 string REINSERTADO = reinsertado.ToUpper().ToString();
+                string GRUPORELIGIOSO = grupoReligioso.ToUpper().ToString();
                 string ORGESTATAL = orgEstatal.ToUpper().ToString();
                 string GRUPODH = grupoDH.ToUpper().ToString();
 
+
+                switch (GRUPORELIGIOSO) {   
+                    case "NINGUNA":
+                        ddlGrupoRel.SelectedValue = "NINGUNA";
+                        break;
+                    case "":
+                        ddlGrupoRel.SelectedValue = "NINGUNA";
+                        break;
+                    case "SIN DATOS":
+                        ddlGrupoRel.SelectedValue = "NINGUNA";
+                        break;
+                    case "NO":
+                        ddlGrupoRel.SelectedValue = "NINGUNA";
+                        break;
+                    case "ATEO":
+                        ddlGrupoRel.SelectedValue = "ATEO";
+                        break;
+                    case "CATOLICO":
+                        ddlGrupoRel.SelectedValue = "CATOLICA";
+                        break;
+                    case "CATOLICA":
+                        ddlGrupoRel.SelectedValue = "CATOLICA";
+                        break;
+                    case "CRISTIANA":
+                        ddlGrupoRel.SelectedValue = "CRISTIANA";
+                        break;
+                    case "CRISTIANO":
+                        ddlGrupoRel.SelectedValue = "CRISTIANA";
+                        break;
+                    case "PENTECOSTES":
+                        ddlGrupoRel.SelectedValue = "PENTECOSTES";
+                        break;
+                    case "ADVENTISTA":
+                        ddlGrupoRel.SelectedValue = "ADVENTISTA";
+                        break;
+                    case "EVANGELICA":
+                        ddlGrupoRel.SelectedValue = "EVANGELICA";
+                        break;
+                    case "EVANGELICO":
+                        ddlGrupoRel.SelectedValue = "EVANGELICA";
+                        break;
+                    case "TESTIGO DE JEHOVA":
+                        ddlGrupoRel.SelectedValue = "TESTIGO DE JEHOVA";
+                        break; 
+                }                
+                
                 if (!ONG.Equals("SI")){
                     rb_ong.SelectedValue = "NO";
                 }else
@@ -575,8 +622,13 @@ namespace AtencionTemprana
 
                         lblEstatus.Text = "YA EXISTE UN REGISTRO A NOMBRE DE LA PERSONA QUE DESEA INGRESAR, FAVOR DE EDITAR O COMPLEMENTAR EL EXISTENTE O BIEN, SELECCIONE UN OFENDIDO DISTINTO.";
 
-                    }
-                    else if(!validarRadioButtons()){
+                    }else if (ddlUltimaActividad.SelectedValue == "0")
+                    {
+                        lblEstatus.Text = "DEBE SELECCIONAR EL CAMPO ULTIMA ACTIVIDAD REGISTRADA ";
+                    }else if(ddlGrupoRel.SelectedValue == "--SELECCIONE--")
+                    {
+                        lblEstatus.Text = "DEBE SELECCIONAR UN GRUPO RELIGIOSO";
+                    }else if(!validarRadioButtons()){
                         lblEstatus.Text=" DEBES SELECCIONAR ALMENOS UNA CAUSAL";
                     }
                     else
@@ -586,7 +638,7 @@ namespace AtencionTemprana
                         PGJ.PNL_InsertaDatosGenerales(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), int.Parse(ddlEtnia.SelectedValue), DateTime.Parse(txtUltimoAvistamiento.Text), short.Parse(ddlUltimaActividad.SelectedValue));
 
                         /*INSERTA PERTENENCIA SOCIAL*/
-                        PGJ.PNL_InsertaPertenenciaSocial(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()),rb_ong.SelectedValue/*txtONG.Text*/, txtSindicalista.Text, txtReinsertado.Text, txtGrupoReligioso.Text, txtOrgEstatal.Text, txtDH.Text, txtOtros.Text);
+                        PGJ.PNL_InsertaPertenenciaSocial(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()),rb_ong.SelectedValue/*txtONG.Text*/, rb_sindicalista.SelectedValue/*txtSindicalista.Text*/, rb_reinsertado.SelectedValue/*txtReinsertado.Text*/, ddlGrupoRel.SelectedValue /*txtGrupoReligioso.Text*/, rb_OrgEstatal.SelectedValue/*txtOrgEstatal.Text*/, rb_DH.SelectedValue/*txtDH.Text*/, txtOtros.Text);
 
                         /*INSERTA INFORMACIÓN FINANCIERA*/
 
@@ -617,8 +669,8 @@ namespace AtencionTemprana
                         "Inserta DATOS GENERALES: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() +
                         ", IdPersona= " + ID_PERSONA.Text + ", Etnia= " + ddlEtnia.SelectedItem + ", Fecha ultimo avistamiento= " + txtUltimoAvistamiento.Text +
                         ", Ultima actividad= " + ddlUltimaActividad.SelectedItem + ",PERTENENCIA SOCIAL: ONG= " + rb_ong.SelectedValue/*txtONG.Text*/ + ", Sindicalista= " +
-                        txtSindicalista.Text + ", Reinsertado= " + txtReinsertado.Text + ", Grupo religioso= " + txtGrupoReligioso.Text + ", Org estatal= " +
-                        txtOrgEstatal.Text + ", Derechos humanos= " + txtDH.Text + ", Otros= " + txtOtros.Text + ", INFORMACIÓN FINANCIERA: Banco = " + ddlBanco.SelectedItem
+                        rb_sindicalista.SelectedValue/*txtSindicalista.Text*/ + ", Reinsertado= " + rb_reinsertado.SelectedValue/*txtReinsertado.Text*/ + ", Grupo religioso= " + ddlGrupoRel.SelectedValue/*txtGrupoReligioso.Text*/ + ", Org estatal= " +
+                        rb_OrgEstatal.SelectedValue/*txtOrgEstatal.Text*/ + ", Derechos humanos= " + rb_DH.SelectedValue/*txtDH.Text*/ + ", Otros= " + txtOtros.Text + ", INFORMACIÓN FINANCIERA: Banco = " + ddlBanco.SelectedItem
                         + ", Num Cuenta = " + txtNumCuenta.Text + ", Tipo de cuenta = " + txtTipoCuenta.Text + ", Banco crédito = " + ddlBanco0.SelectedItem +
                         ", Num tarjeta crédito = " + txtNumTarjetaCredito.Text + ", Banco tarjeta crédito = " + ddlBanco1.SelectedItem + ", Tarjeta de débito = "
                         + txtNumTarjetaDebito.Text + ", Tarjeta departamental = " + txtTarjetaDepartamental.Text + ", Num tarjeta departamental = " +
@@ -656,49 +708,63 @@ namespace AtencionTemprana
                 }
                 else if (Session["op"].ToString() == "Modificar")
                 {
-                    try
+
+                    if (ddlUltimaActividad.SelectedValue == "0")
                     {
-
-                        /*MODIFICA LOS DATOS GENERALES*/
-                        PGJ.ActualizaDatosGenerales(int.Parse(ID_DATOS_GENERALES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), int.Parse(ddlEtnia.SelectedValue), DateTime.Parse(txtUltimoAvistamiento.Text), short.Parse(ddlUltimaActividad.SelectedValue));
-
-                        /*MODIFICA PERTENENCIA SOCIAL*/
-                        PGJ.PNL_ActualizaPertenenciaSocial(int.Parse(ID_PERTENENCIA_SOCIAL.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), rb_ong.SelectedValue/*txtONG.Text*/, rb_sindicalista.SelectedValue /*txtSindicalista.Text*/, rb_reinsertado.SelectedValue /*txtReinsertado.Text*/, txtGrupoReligioso.Text, rb_OrgEstatal.SelectedValue /*txtOrgEstatal.Text*/, rb_DH.SelectedValue /*txtDH.Text*/, txtOtros.Text);
-
-                        /*MODIFICA INFORMACIÓN FINANCIERA*/
-
-                        PGJ.PNL_ActualizaInfoFinanciera(int.Parse(ID_INFO_FINANCIERA.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlBanco.SelectedValue), txtNumCuenta.Text, txtTipoCuenta.Text, short.Parse(ddlBanco0.SelectedValue), txtNumTarjetaCredito.Text, short.Parse(ddlBanco1.SelectedValue), txtNumTarjetaDebito.Text, txtTarjetaDepartamental.Text, txtNumTarjetaDepartamental.Text);
-
-                        /*MODIFICA DISCAPACIDADES*/
-                        PGJ.PNL_ActualizaDiscapacidades(int.Parse(ID_DISCAPACIDADES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, txtPadecimientos.Text, txtSistematicas.Text, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), chCesarea.Checked, chPartoNatural.Checked, chAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
-
-                        /*MODIFICA INFORMACIÓN ODONTOLÓGICA*/
-                        PGJ.PNL_ActualizaInformacionOdontologica(int.Parse(ID_INFO_ODONTOLOGICA.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(rbExpedienteDental.SelectedValue), txtOdontologo.Text, short.Parse(ddlTamDientes.SelectedValue), short.Parse(rbCompletos.SelectedValue), short.Parse(rbSeparados.SelectedValue), short.Parse(rbGirados.SelectedValue), short.Parse(rbApinonados.SelectedValue), short.Parse(rbManchados.SelectedValue), short.Parse(rbDesgaste.SelectedValue), short.Parse(rbResinas.SelectedValue), short.Parse(rbAmalgamas.SelectedValue), short.Parse(rbCoronasMetalicas.SelectedValue), short.Parse(rbCoronasEsteticas.SelectedValue), short.Parse(rbEndodoncia.SelectedValue), short.Parse(rbBlanqueamiento.SelectedValue), short.Parse(rbIncrustacion.SelectedValue), txtOtro.Text, short.Parse(ddlProtesis.SelectedValue), short.Parse(rbBraquets.SelectedValue), short.Parse(rbRetenedores.SelectedValue), short.Parse(rbImplantes.SelectedValue), txtOtro.Text, short.Parse(rbPuesto.SelectedValue), txtAusenciasDentales.Text, txtHabitosDentales.Text);
-
-                        /*MODIFICA OTROS DATOS*/
-                        PGJ.PNL_ActualizaOtraInformacion(int.Parse(ID_OTRA_INFO.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), chbDetencion.Checked, chbAllamiento.Checked, chbHostigamiento.Checked, chbAmenazas.Checked, chbLesiones.Checked, chbDisposicionDinero.Checked, chbProblemasVecinales.Checked, chbProblemasFamiliares.Checked, chbActitudNerviosa.Checked, chbMovimientosCB.Checked, chbDesaparecido.Checked, chbCaptores.Checked, chbSolicitud.Checked, chbInternet.Checked, chbParadero.Checked);
-
-                        /*MODIFICA CAUSALES DESAPARICIÓN*/
-                        //PGJ.PNL_ActualizaCausalesDesaparicion(int.Parse(ID_CAUSALES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), chbPropiaVoluntad.Checked, chbSustraccionMenores.Checked, chbSalud.Checked, chbAdicciones.Checked, chbMigracion.Checked, chbComisionDelito.Checked, chbLevantons.Checked, chbDetenido.Checked, chbVictimaDelito.Checked, chbAccidentes.Checked, chbProblemasFamiliaresCausales.Checked, chbRelacionesPersonales.Checked, chbMotivosLaborales.Checked
-                        //, chbDesparicion.Checked, int.Parse(ddlTipo.SelectedValue), chbSeDesconoce.Checked);
-
-                        PGJ.PNL_ActualizaCausalesDesaparicion(int.Parse(ID_CAUSALES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text),
-                             rbPropiaVoluntad.Checked, rbSustraccionMenores.Checked, rbSalud.Checked, rbAddicciones.Checked, rbMigracion.Checked, rbComisionDelito.Checked, rbLevanton.Checked, rbDetenido.Checked, rbVictimaDelito.Checked, rbAccidentes.Checked, rbProblemasFamiliares.Checked, rbRelacionesPersonales.Checked, rbMotivosLaborales.Checked, rbDesaparicionForzada.Checked, int.Parse(rb_ddlTipo.SelectedValue), rbSeDesconoce.Checked);
-
-                        PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 3, "Actualiza DATOS GENERALES: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() + ", IdPersona= " + ID_PERSONA.Text + ", Etnia= " + ddlEtnia.SelectedItem + ", Fecha ultimo avistamiento= " + txtUltimoAvistamiento.Text + ", Ultima actividad= " + ddlUltimaActividad.SelectedItem + ",PERTENENCIA SOCIAL: ONG= " + txtONG.Text + ", Sindicalista= " + txtSindicalista.Text + ", Reinsertado= " + txtReinsertado.Text + ", Grupo religioso= " + txtGrupoReligioso.Text + ", Org estatal= " + txtOrgEstatal.Text + ", Derechos humanos= " + txtDH.Text + ", Otros= " + txtOtros.Text + ", INFORMACIÓN FINANCIERA: Banco = " + ddlBanco.SelectedItem + ", Num Cuenta = " + txtNumCuenta.Text + ", Tipo de cuenta = " + txtTipoCuenta.Text + ", Banco crédito = " + ddlBanco0.SelectedItem + ", Num tarjeta crédito = " + txtNumTarjetaCredito.Text + ", Banco tarjeta crédito = " + ddlBanco1.SelectedItem + ", Tarjeta de débito = " + txtNumTarjetaDebito.Text + ", Tarjeta departamental = " + txtTarjetaDepartamental.Text + ", Num tarjeta departamental = " + txtNumTarjetaDepartamental.Text + ", DISCAPACIDADES: Discapacidad mental= " + ddlDiscapacidadMental.SelectedItem + ", Discapacidad mental= " + txtDiscapacidadMental.Text + ", Discapacidad física= " + ddlDiscapacidadFisica.SelectedItem + ", Discapacidad física= " + txtDiscapacidadFisica.Text + ", Padecimientos= " + txtPadecimientos.Text + ", Enfermadades sistemáticas= " + txtSistematicas.Text + ", Enfermedad mental= " + txtEnfermedadMental.Text + ", Enfermedades piel= " + txtEnfermedadPiel.Text + ", Adicciones= " + txtAdicciones.Text + ", Medicamentos= " + txtMedicamentos.Text + ", Cirugias= " + txtCirugias.Text + ", Embarazo= " + rbEmbarazo.SelectedItem + ", Control natal= " + rbControlNatal.SelectedItem + ", Otro control natal= " + txtOtroControlNatal.Text + ", INFO ODNTOLOGICA: Odontólogo= " + txtOdontologo.Text + ", Tamaño dientes= " + ddlTamDientes.SelectedItem + ", Dientes completos= " + rbCompletos.SelectedValue + ", Dientes separados= " + rbSeparados.SelectedItem + ", Dientes girados= " + rbGirados.SelectedItem + ", Dientes apiñonados= " + rbApinonados.SelectedItem + ", Dientes manchados= " + rbManchados.SelectedItem + ", Dientes con desgaste= " + rbDesgaste.SelectedValue + ", Resinas= " + rbResinas.SelectedItem + ", Amalagamas= " + rbAmalgamas.SelectedItem + ", Coronas metálicas= " + rbCoronasMetalicas.SelectedItem + ", Coronas estéticas= " + rbCoronasEsteticas.SelectedItem + ", Endodoncia= " + rbEndodoncia.SelectedItem + ", Blanqueamiento= " + rbBlanqueamiento.SelectedItem + ", Incrustación= " + rbIncrustacion.SelectedItem + ", Otro= " + txtOtro.Text + ", Prótesis dental= " + ddlProtesis.SelectedItem + ", Braquets= " + rbBraquets.SelectedItem + ", Retenedores= " + rbRetenedores.SelectedItem + ", Implantes= " + rbImplantes.SelectedItem + ", Otro= " + txtOtro.Text + ", Llevaba puesto aditamento= " + rbPuesto.SelectedItem + ", Ausencias dentales= " + txtAusenciasDentales.Text + ", Hábitos dentales= " + txtHabitosDentales.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
-
-                        lblEstatus.Text = "DATOS GUARDADOS";
-                        Panel3.Enabled = false;
-                        TabContainer1.Enabled = false;
-                        Panel17.Enabled = false;
-                        btnGuardarDatos.Enabled = false;
-
+                        lblEstatus.Text = "DEBE SELECCIONAR EL CAMPO ULTIMA ACTIVIDAD REGISTRADA ";
                     }
-                    catch (Exception ex)
-                    {
+                    else
+                        if (ddlGrupoRel.SelectedValue == "--SELECCIONE--")
+                        {
+                            lblEstatus.Text = "DEBES SELECCIONAR UN GRUPO RELIGIOSO";
+                        }
+                        else
+                        {
 
-                    }
+                            try
+                            {
 
+                                /*MODIFICA LOS DATOS GENERALES*/
+                                PGJ.ActualizaDatosGenerales(int.Parse(ID_DATOS_GENERALES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), int.Parse(ddlEtnia.SelectedValue), DateTime.Parse(txtUltimoAvistamiento.Text), short.Parse(ddlUltimaActividad.SelectedValue));
+
+                                /*MODIFICA PERTENENCIA SOCIAL*/
+                                PGJ.PNL_ActualizaPertenenciaSocial(int.Parse(ID_PERTENENCIA_SOCIAL.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), rb_ong.SelectedValue/*txtONG.Text*/, rb_sindicalista.SelectedValue /*txtSindicalista.Text*/, rb_reinsertado.SelectedValue /*txtReinsertado.Text*/, ddlGrupoRel.SelectedValue/*txtGrupoReligioso.Text*/, rb_OrgEstatal.SelectedValue /*txtOrgEstatal.Text*/, rb_DH.SelectedValue /*txtDH.Text*/, txtOtros.Text);
+
+                                /*MODIFICA INFORMACIÓN FINANCIERA*/
+
+                                PGJ.PNL_ActualizaInfoFinanciera(int.Parse(ID_INFO_FINANCIERA.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlBanco.SelectedValue), txtNumCuenta.Text, txtTipoCuenta.Text, short.Parse(ddlBanco0.SelectedValue), txtNumTarjetaCredito.Text, short.Parse(ddlBanco1.SelectedValue), txtNumTarjetaDebito.Text, txtTarjetaDepartamental.Text, txtNumTarjetaDepartamental.Text);
+
+                                /*MODIFICA DISCAPACIDADES*/
+                                PGJ.PNL_ActualizaDiscapacidades(int.Parse(ID_DISCAPACIDADES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, txtPadecimientos.Text, txtSistematicas.Text, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), chCesarea.Checked, chPartoNatural.Checked, chAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
+
+                                /*MODIFICA INFORMACIÓN ODONTOLÓGICA*/
+                                PGJ.PNL_ActualizaInformacionOdontologica(int.Parse(ID_INFO_ODONTOLOGICA.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(rbExpedienteDental.SelectedValue), txtOdontologo.Text, short.Parse(ddlTamDientes.SelectedValue), short.Parse(rbCompletos.SelectedValue), short.Parse(rbSeparados.SelectedValue), short.Parse(rbGirados.SelectedValue), short.Parse(rbApinonados.SelectedValue), short.Parse(rbManchados.SelectedValue), short.Parse(rbDesgaste.SelectedValue), short.Parse(rbResinas.SelectedValue), short.Parse(rbAmalgamas.SelectedValue), short.Parse(rbCoronasMetalicas.SelectedValue), short.Parse(rbCoronasEsteticas.SelectedValue), short.Parse(rbEndodoncia.SelectedValue), short.Parse(rbBlanqueamiento.SelectedValue), short.Parse(rbIncrustacion.SelectedValue), txtOtro.Text, short.Parse(ddlProtesis.SelectedValue), short.Parse(rbBraquets.SelectedValue), short.Parse(rbRetenedores.SelectedValue), short.Parse(rbImplantes.SelectedValue), txtOtro.Text, short.Parse(rbPuesto.SelectedValue), txtAusenciasDentales.Text, txtHabitosDentales.Text);
+
+                                /*MODIFICA OTROS DATOS*/
+                                PGJ.PNL_ActualizaOtraInformacion(int.Parse(ID_OTRA_INFO.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), chbDetencion.Checked, chbAllamiento.Checked, chbHostigamiento.Checked, chbAmenazas.Checked, chbLesiones.Checked, chbDisposicionDinero.Checked, chbProblemasVecinales.Checked, chbProblemasFamiliares.Checked, chbActitudNerviosa.Checked, chbMovimientosCB.Checked, chbDesaparecido.Checked, chbCaptores.Checked, chbSolicitud.Checked, chbInternet.Checked, chbParadero.Checked);
+
+                                /*MODIFICA CAUSALES DESAPARICIÓN*/
+                                //PGJ.PNL_ActualizaCausalesDesaparicion(int.Parse(ID_CAUSALES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), chbPropiaVoluntad.Checked, chbSustraccionMenores.Checked, chbSalud.Checked, chbAdicciones.Checked, chbMigracion.Checked, chbComisionDelito.Checked, chbLevantons.Checked, chbDetenido.Checked, chbVictimaDelito.Checked, chbAccidentes.Checked, chbProblemasFamiliaresCausales.Checked, chbRelacionesPersonales.Checked, chbMotivosLaborales.Checked
+                                //, chbDesparicion.Checked, int.Parse(ddlTipo.SelectedValue), chbSeDesconoce.Checked);
+
+                                PGJ.PNL_ActualizaCausalesDesaparicion(int.Parse(ID_CAUSALES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text),
+                                     rbPropiaVoluntad.Checked, rbSustraccionMenores.Checked, rbSalud.Checked, rbAddicciones.Checked, rbMigracion.Checked, rbComisionDelito.Checked, rbLevanton.Checked, rbDetenido.Checked, rbVictimaDelito.Checked, rbAccidentes.Checked, rbProblemasFamiliares.Checked, rbRelacionesPersonales.Checked, rbMotivosLaborales.Checked, rbDesaparicionForzada.Checked, int.Parse(rb_ddlTipo.SelectedValue), rbSeDesconoce.Checked);
+
+                                PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 3, "Actualiza DATOS GENERALES: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() + ", IdPersona= " + ID_PERSONA.Text + ", Etnia= " + ddlEtnia.SelectedItem + ", Fecha ultimo avistamiento= " + txtUltimoAvistamiento.Text + ", Ultima actividad= " + ddlUltimaActividad.SelectedItem + ",PERTENENCIA SOCIAL: ONG= " + txtONG.Text + ", Sindicalista= " + txtSindicalista.Text + ", Reinsertado= " + txtReinsertado.Text + ", Grupo religioso= " + txtGrupoReligioso.Text + ", Org estatal= " + txtOrgEstatal.Text + ", Derechos humanos= " + txtDH.Text + ", Otros= " + txtOtros.Text + ", INFORMACIÓN FINANCIERA: Banco = " + ddlBanco.SelectedItem + ", Num Cuenta = " + txtNumCuenta.Text + ", Tipo de cuenta = " + txtTipoCuenta.Text + ", Banco crédito = " + ddlBanco0.SelectedItem + ", Num tarjeta crédito = " + txtNumTarjetaCredito.Text + ", Banco tarjeta crédito = " + ddlBanco1.SelectedItem + ", Tarjeta de débito = " + txtNumTarjetaDebito.Text + ", Tarjeta departamental = " + txtTarjetaDepartamental.Text + ", Num tarjeta departamental = " + txtNumTarjetaDepartamental.Text + ", DISCAPACIDADES: Discapacidad mental= " + ddlDiscapacidadMental.SelectedItem + ", Discapacidad mental= " + txtDiscapacidadMental.Text + ", Discapacidad física= " + ddlDiscapacidadFisica.SelectedItem + ", Discapacidad física= " + txtDiscapacidadFisica.Text + ", Padecimientos= " + txtPadecimientos.Text + ", Enfermadades sistemáticas= " + txtSistematicas.Text + ", Enfermedad mental= " + txtEnfermedadMental.Text + ", Enfermedades piel= " + txtEnfermedadPiel.Text + ", Adicciones= " + txtAdicciones.Text + ", Medicamentos= " + txtMedicamentos.Text + ", Cirugias= " + txtCirugias.Text + ", Embarazo= " + rbEmbarazo.SelectedItem + ", Control natal= " + rbControlNatal.SelectedItem + ", Otro control natal= " + txtOtroControlNatal.Text + ", INFO ODNTOLOGICA: Odontólogo= " + txtOdontologo.Text + ", Tamaño dientes= " + ddlTamDientes.SelectedItem + ", Dientes completos= " + rbCompletos.SelectedValue + ", Dientes separados= " + rbSeparados.SelectedItem + ", Dientes girados= " + rbGirados.SelectedItem + ", Dientes apiñonados= " + rbApinonados.SelectedItem + ", Dientes manchados= " + rbManchados.SelectedItem + ", Dientes con desgaste= " + rbDesgaste.SelectedValue + ", Resinas= " + rbResinas.SelectedItem + ", Amalagamas= " + rbAmalgamas.SelectedItem + ", Coronas metálicas= " + rbCoronasMetalicas.SelectedItem + ", Coronas estéticas= " + rbCoronasEsteticas.SelectedItem + ", Endodoncia= " + rbEndodoncia.SelectedItem + ", Blanqueamiento= " + rbBlanqueamiento.SelectedItem + ", Incrustación= " + rbIncrustacion.SelectedItem + ", Otro= " + txtOtro.Text + ", Prótesis dental= " + ddlProtesis.SelectedItem + ", Braquets= " + rbBraquets.SelectedItem + ", Retenedores= " + rbRetenedores.SelectedItem + ", Implantes= " + rbImplantes.SelectedItem + ", Otro= " + txtOtro.Text + ", Llevaba puesto aditamento= " + rbPuesto.SelectedItem + ", Ausencias dentales= " + txtAusenciasDentales.Text + ", Hábitos dentales= " + txtHabitosDentales.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
+
+                                lblEstatus.Text = "DATOS GUARDADOS";
+                                Panel3.Enabled = false;
+                                TabContainer1.Enabled = false;
+                                Panel17.Enabled = false;
+                                btnGuardarDatos.Enabled = false;
+
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+
+                        }
                 }
             }           
            

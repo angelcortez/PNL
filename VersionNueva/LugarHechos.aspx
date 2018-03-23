@@ -157,8 +157,8 @@
      
       
     </table> 
-            <asp:Label ID="lblError" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black" Visible=FALSE ></asp:Label>
-            <asp:TextBox ID="txtFechaInicio" runat="server" MaxLength="10" Width="200px"  Visible=FALSE ></asp:TextBox>
+            <asp:Label ID="lblError" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black" Visible="false" ></asp:Label>
+            <asp:TextBox ID="txtFechaInicio" runat="server" MaxLength="10" Width="200px"  Visible="false" ></asp:TextBox>
 
     <h2> 
         <asp:Label ID="lblOperacion" runat="server" 
@@ -223,7 +223,7 @@
                                                 TargetControlID="txtHora" />
                                             <asp:MaskedEditValidator ID="MaskedEditValidator3" runat="server" ControlExtender="MaskedEditExtender3"
                                                 ControlToValidate="txtHora" ErrorMessage="*" InvalidValueMessage="REGISTRE HORA"
-                                                ForeColor="Red" ToolTip="ERROR FORMATO HORA" TooltipMessage="Hora 0:00 am hasta 12:59 pm"></asp:MaskedEditValidator>
+                                                ForeColor="Red" ToolTip="ERROR FORMATO HORA" TooltipMessage="Hora 00:00 am hasta 23:59 pm"></asp:MaskedEditValidator>
                                     <asp:RequiredFieldValidator runat="server" ForeColor="Red" 
                                         ControlToValidate="txtHora" ErrorMessage="INGRESA HORA" Display="Dynamic" 
                                         Font-Bold="True" Font-Size="Small" ID="RequiredFieldValidator2">*</asp:RequiredFieldValidator>
