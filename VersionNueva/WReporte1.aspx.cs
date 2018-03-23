@@ -38,38 +38,48 @@ namespace AtencionTemprana
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            //gvEstados.Visible = true;
-            //gvEstados.DataSourceID = "ObjectTabla";
-            //gvEstados.DataBind();
-            LBVerDetalles.Visible = true;
+            //if (lblError.Text == "")
+            //{
+                try
+                {
+                    //gvEstados.Visible = true;
+                    //gvEstados.DataSourceID = "ObjectTabla";
+                    //gvEstados.DataBind();
+                    LBVerDetalles.Visible = true;
 
-            Chart1.Visible = true;
+                    Chart1.Visible = true;
 
-            ObjectDataSource ObjectDataSource1 = new ObjectDataSource("AtencionTemprana.dsReportesTableAdapters.SP_ConteoPNLTablaTableAdapter", "GetData");
-            ObjectDataSource1.SelectParameters.Add("fechainicio", TxtFechaInicio.Text);
-            ObjectDataSource1.SelectParameters.Add("fechafin", TxtFechaFin.Text);
-            ObjectDataSource1.SelectParameters.Add("IdMunicipio", IdMunicipio.Text);
-            ObjectDataSource1.SelectParameters.Add("IdUnidad", IdUnidad.Text);
+                    ObjectDataSource ObjectDataSource1 = new ObjectDataSource("AtencionTemprana.dsReportesTableAdapters.SP_ConteoPNLTablaTableAdapter", "GetData");
+                    ObjectDataSource1.SelectParameters.Add("fechainicio", TxtFechaInicio.Text);
+                    ObjectDataSource1.SelectParameters.Add("fechafin", TxtFechaFin.Text);
+                    ObjectDataSource1.SelectParameters.Add("IdMunicipio", IdMunicipio.Text);
+                    ObjectDataSource1.SelectParameters.Add("IdUnidad", IdUnidad.Text);
 
-            Microsoft.Reporting.WebForms.ReportDataSource rds = new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", ObjectDataSource1);
+                    Microsoft.Reporting.WebForms.ReportDataSource rds = new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", ObjectDataSource1);
 
-            ObjectDataSource ObjectDataSource2 = new ObjectDataSource("AtencionTemprana.dsReportesTableAdapters.SP_ConteoPNLGraficaTableAdapter", "GetData");
-            ObjectDataSource2.SelectParameters.Add("fechainicio", TxtFechaInicio.Text);
-            ObjectDataSource2.SelectParameters.Add("fechafin", TxtFechaFin.Text);
-            ObjectDataSource2.SelectParameters.Add("IdMunicipio", IdMunicipio.Text);
-            ObjectDataSource2.SelectParameters.Add("IdUnidad", IdUnidad.Text);
+                    ObjectDataSource ObjectDataSource2 = new ObjectDataSource("AtencionTemprana.dsReportesTableAdapters.SP_ConteoPNLGraficaTableAdapter", "GetData");
+                    ObjectDataSource2.SelectParameters.Add("fechainicio", TxtFechaInicio.Text);
+                    ObjectDataSource2.SelectParameters.Add("fechafin", TxtFechaFin.Text);
+                    ObjectDataSource2.SelectParameters.Add("IdMunicipio", IdMunicipio.Text);
+                    ObjectDataSource2.SelectParameters.Add("IdUnidad", IdUnidad.Text);
 
-            Microsoft.Reporting.WebForms.ReportDataSource rds2 = new Microsoft.Reporting.WebForms.ReportDataSource("DataSet2", ObjectDataSource2);
+                    Microsoft.Reporting.WebForms.ReportDataSource rds2 = new Microsoft.Reporting.WebForms.ReportDataSource("DataSet2", ObjectDataSource2);
 
-            ReportViewer1.LocalReport.DataSources.Clear();
-            ReportViewer1.LocalReport.DataSources.Add(rds);
-            ReportViewer1.LocalReport.DataSources.Add(rds2);
-            ReportViewer1.LocalReport.ReportPath = "ReportePNL.rdlc";
-            ReportViewer1.LocalReport.Refresh();
+                    ReportViewer1.LocalReport.DataSources.Clear();
+                    ReportViewer1.LocalReport.DataSources.Add(rds);
+                    ReportViewer1.LocalReport.DataSources.Add(rds2);
+                    ReportViewer1.LocalReport.ReportPath = "ReportePNL.rdlc";
+                    ReportViewer1.LocalReport.Refresh();
 
 
-            PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 10, "Conteo de personas reportadas como no localizadas, fecha de inicio: " + TxtFechaInicio.Text + " fecha fin: " + TxtFechaFin.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
-        }
+                    PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 10, "Conteo de personas reportadas como no localizadas, fecha de inicio: " + TxtFechaInicio.Text + " fecha fin: " + TxtFechaFin.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
+                }
+                catch (Exception ex)
+                {
+                    lblEstatus.Text = ex.Message;
+                    lblEstatus1.Text = "INTENTELO NUEVAMENTE";
+                }
+            }
 
         protected void LBVerDetalles_Click(object sender, EventArgs e)
         {
