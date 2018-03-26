@@ -4372,7 +4372,7 @@ namespace AtencionTemprana
            short Colonia, int Calle, int EntreCalle1, int EntreCalle2, String NumeroExterior, String NumeroInterior,
            String CP, String FechaIngreso, String HoraIngreso, short IdCausasFallecimiento, String IdentificacionCadaver,
           String FechaEntregaCuerpo, String FechaProbableFallecimiento, short EnteLocaliza, String NombreEnte, String PaternoEnte, String MaternoEnte, String Institucion, String Autoridad, String NombreAutoridad, String PaternoAutoridad,
-           String MaternoAutoridad, String NombreReclama, String PaternoReclama, String MaternoReclama, short IdParentescoReclama)
+           String MaternoAutoridad, String NombreReclama, String PaternoReclama, String MaternoReclama, short IdParentescoReclama, String domicilioReferencia)
         {
             SqlCommand Cmd = new SqlCommand("PNL_InsertaDatosLocalizacion", Data.CnnCentral);
             Cmd.CommandType = CommandType.StoredProcedure;
@@ -4416,7 +4416,7 @@ namespace AtencionTemprana
             Cmd.Parameters.Add("@NumeroInterior", SqlDbType.VarChar);
             Cmd.Parameters["@NumeroInterior"].Value = NumeroInterior;
             Cmd.Parameters.Add("@CP", SqlDbType.VarChar);
-            Cmd.Parameters["@CP"].Value = CP;
+            Cmd.Parameters["@CP"].Value = CP;            
             Cmd.Parameters.Add("@FechaIngreso", SqlDbType.VarChar);
             Cmd.Parameters["@FechaIngreso"].Value = FechaIngreso;
             Cmd.Parameters.Add("@HoraIngreso", SqlDbType.VarChar);
@@ -4461,6 +4461,9 @@ namespace AtencionTemprana
             Cmd.Parameters.Add("@IdParentescoReclama", SqlDbType.SmallInt);
             Cmd.Parameters["@IdParentescoReclama"].Value = IdParentescoReclama;
 
+            Cmd.Parameters.Add("@domicilioReferencia", SqlDbType.VarChar);
+            Cmd.Parameters["@domicilioReferencia"].Value = domicilioReferencia;
+
 
             SqlDataReader DR = Cmd.ExecuteReader();
 
@@ -4471,7 +4474,7 @@ namespace AtencionTemprana
            short Colonia, int Calle, int EntreCalle1, int EntreCalle2, String NumeroExterior, String NumeroInterior,
            String CP, String FechaIngreso, String HoraIngreso, short IdCausasFallecimiento, String IdentificacionCadaver,
           String FechaEntregaCuerpo, String FechaProbableFallecimiento, short EnteLocaliza, String NombreEnte, String PaternoEnte, String MaternoEnte, String Institucion, String Autoridad, String NombreAutoridad, String PaternoAutoridad,
-           String MaternoAutoridad, String NombreReclama, String PaternoReclama, String MaternoReclama, short IdParentescoReclama)
+           String MaternoAutoridad, String NombreReclama, String PaternoReclama, String MaternoReclama, short IdParentescoReclama, String domicilioReferencia)
         {
             SqlCommand Cmd = new SqlCommand("PNL_ActualizaDatosLocalizacion", Data.CnnCentral);
             Cmd.CommandType = CommandType.StoredProcedure;
@@ -4511,7 +4514,7 @@ namespace AtencionTemprana
             Cmd.Parameters.Add("@NumeroInterior", SqlDbType.VarChar);
             Cmd.Parameters["@NumeroInterior"].Value = NumeroInterior;
             Cmd.Parameters.Add("@CP", SqlDbType.VarChar);
-            Cmd.Parameters["@CP"].Value = CP;
+            Cmd.Parameters["@CP"].Value = CP;            
             Cmd.Parameters.Add("@FechaIngreso", SqlDbType.VarChar);
             Cmd.Parameters["@FechaIngreso"].Value = FechaIngreso;
             Cmd.Parameters.Add("@HoraIngreso", SqlDbType.VarChar);
@@ -4555,6 +4558,9 @@ namespace AtencionTemprana
 
             Cmd.Parameters.Add("@IdParentescoReclama", SqlDbType.SmallInt);
             Cmd.Parameters["@IdParentescoReclama"].Value = IdParentescoReclama;
+
+            Cmd.Parameters.Add("@domicilioReferencia", SqlDbType.VarChar);
+            Cmd.Parameters["@domicilioReferencia"].Value = domicilioReferencia;
 
 
             SqlDataReader DR = Cmd.ExecuteReader();

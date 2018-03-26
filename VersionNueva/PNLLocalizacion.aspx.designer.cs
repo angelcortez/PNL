@@ -670,6 +670,24 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.TextBox txtCP0;
         
         /// <summary>
+        /// lblReferenciaDom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblReferenciaDom;
+        
+        /// <summary>
+        /// txtReferenciaDom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtReferenciaDom;
+        
+        /// <summary>
         /// UpdatePanel2 control.
         /// </summary>
         /// <remarks>
@@ -749,6 +767,15 @@ namespace AtencionTemprana {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
+        
+        /// <summary>
+        /// MaskedEditExtender4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender4;
         
         /// <summary>
         /// txtHoraIngreso control.
@@ -859,6 +886,15 @@ namespace AtencionTemprana {
         protected global::AjaxControlToolkit.CalendarExtender txtFechaEntrega_CalendarExtender;
         
         /// <summary>
+        /// MaskedEditExtender5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender5;
+        
+        /// <summary>
         /// txtFechaProbable control.
         /// </summary>
         /// <remarks>
@@ -875,6 +911,15 @@ namespace AtencionTemprana {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender txtFechaProbable_CalendarExtender;
+        
+        /// <summary>
+        /// MaskedEditExtender6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender6;
         
         /// <summary>
         /// Panel3 control.

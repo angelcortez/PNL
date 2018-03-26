@@ -329,9 +329,9 @@ namespace AtencionTemprana
             var fecha = from c in dc.fechaServidor()
                         select c;
             foreach (var propiedad in fecha)
-            {
-                lblFecha.Text = propiedad.FechaActual.ToString();
-            }
+                {
+                    lblFecha.Text = propiedad.FechaActual.ToString();
+                }
 
         }
 

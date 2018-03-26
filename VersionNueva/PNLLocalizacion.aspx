@@ -537,6 +537,26 @@
                                         <td>
                                             &nbsp;</td>
                                     </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td><asp:Label ID="lblReferenciaDom" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                                Text="REFERENCIA DOMICILIO"></asp:Label></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "4">
+                                            <asp:TextBox ID="txtReferenciaDom" runat="server" Height="69px" MaxLength="1000" 
+                                               style="text-transform :uppercase" TextMode="MultiLine" 
+                                                Width="1024px"></asp:TextBox>
+                                        </td>
+                                    </tr>
                                 </table>
                             </ContentTemplate>
                         </asp:UpdatePanel>
@@ -599,6 +619,9 @@
                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" 
                                                ControlToValidate="txtFechaIngreso" Display="Dynamic" 
                                                ErrorMessage="INGRESA FECHA DE INGRESO" ForeColor="Red">*</asp:RequiredFieldValidator>
+                                           <asp:MaskedEditExtender
+                                               ID="MaskedEditExtender4" runat="server" ErrorTooltipEnabled="True"
+                                               Mask="99/99/9999" MaskType="Date" MessageValidatorTip="true" TargetControlID="txtFechaIngreso" />
                                        </td>
                                        <td>
                                            <asp:TextBox ID="txtHoraIngreso" runat="server" Width="200px" MaxLength="10" class="bordeCampoObligatorio"></asp:TextBox>
@@ -668,12 +691,18 @@
                                            <asp:CalendarExtender ID="txtFechaEntrega_CalendarExtender" runat="server"  Format="dd/MM/yyyy"  
                                                Enabled="True" TargetControlID="txtFechaEntrega">
                                            </asp:CalendarExtender>
+                                           <asp:MaskedEditExtender
+                                               ID="MaskedEditExtender5" runat="server" ErrorTooltipEnabled="True"
+                                               Mask="99/99/9999" MaskType="Date" MessageValidatorTip="true" TargetControlID="txtFechaEntrega" />
                                        </td>
                                        <td>
                                            <asp:TextBox ID="txtFechaProbable" runat="server" Width="200px" MaxLength="10"></asp:TextBox>
                                            <asp:CalendarExtender ID="txtFechaProbable_CalendarExtender" runat="server"  Format="dd/MM/yyyy" 
                                                Enabled="True" TargetControlID="txtFechaProbable">
                                            </asp:CalendarExtender>
+                                           <asp:MaskedEditExtender
+                                               ID="MaskedEditExtender6" runat="server" ErrorTooltipEnabled="True"
+                                               Mask="99/99/9999" MaskType="Date" MessageValidatorTip="true" TargetControlID="txtFechaProbable" />
                                        </td>
                                        <td>
                                            &nbsp;</td>

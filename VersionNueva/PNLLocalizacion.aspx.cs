@@ -225,7 +225,7 @@ namespace AtencionTemprana
                                   
                 txtNumExt0.Text = dr["NumeroExterior"].ToString();
                 txtNumInt0.Text = dr["NumeroInterior"].ToString();
-                txtCP0.Text = dr["CP"].ToString();
+                txtCP0.Text = dr["CP"].ToString();                
 
                 txtFechaIngreso.Text = dr["FechaIngreso"].ToString();
                 txtHoraIngreso.Text = dr["HoraIngreso"].ToString();
@@ -248,6 +248,8 @@ namespace AtencionTemprana
                 txtPaternoReclama.Text = dr["PaternoReclama"].ToString();
                 txtMaternoReclama.Text = dr["MaternoReclama"].ToString();
                 ddlParentesco0.SelectedValue = dr["IdParentescoReclama"].ToString();
+
+                txtReferenciaDom.Text = dr["domicilioReferencia"].ToString();
 
                 Session["ID_PAIS_DOM"] = dr["IdPais"].ToString();
                 ddlPais.SelectedValue = Session["ID_PAIS_DOM"].ToString();
@@ -303,8 +305,6 @@ namespace AtencionTemprana
             consultaLocalidadEntreCalle();
             ddlYcalle.SelectedValue = "5";
             consultaLocalidadYCalle();
-            
-
         }
 
 
@@ -369,8 +369,6 @@ namespace AtencionTemprana
             }
             else
             {
-
-
                 ddlMunicipio.Items.Clear();
                 ddlLocalidadDom.Items.Clear();
                 ddlCalle.Items.Clear();
@@ -414,13 +412,30 @@ namespace AtencionTemprana
             ddlMunicipio.DataTextField = "MNCPIO";
             ddlMunicipio.DataBind();
 
-            if (ddlMunicipio.Items.Count == 0) 
-            { 
+            if (ddlMunicipio.Items.Count == 0)
+            {
                 ddlMunicipio.Items.Insert(0, "MUNICIPIO DESCONOCIDO");
-                Session["ID_MUNICIPIO_DOM"] ="0";
+                Session["ID_MUNICIPIO_DOM"] = "0";
                 consultaMunicipioLocalidad();
             }
+            else 
+            {
+                ddlLocalidadDom.Items.Clear();
+                ddlCalle.Items.Clear();
+                ddlEntreCalle.Items.Clear();
+                ddlYcalle.Items.Clear();
+                ddlColonia.Items.Clear();
+                ddlEntreCalle.Items.Clear();
+                
+                ddlLocalidadDom.Items.Insert(0, "--SELECCIONE--");
+                ddlCalle.Items.Insert(0, "--SELECCIONE--");
+                ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+                ddlYcalle.Items.Insert(0, "--SELECCIONE--");
+                ddlColonia.Items.Insert(0, "--SELECCIONE--");
+                ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+            }
 
+            
         }
 
         protected void ddlMunicipioDom_SelectedIndexChanged(object sender, EventArgs e)
@@ -439,14 +454,27 @@ namespace AtencionTemprana
             ddlLocalidadDom.DataTextField = "LCLDD";
             ddlLocalidadDom.DataBind();
 
-            if (ddlLocalidadDom.Items.Count == 0) 
-            { 
-                ddlLocalidadDom.Items.Insert(0,"LOCALIDAD DESCONOCIDA");
+            if (ddlLocalidadDom.Items.Count == 0)
+            {
+                ddlLocalidadDom.Items.Insert(0, "LOCALIDAD DESCONOCIDA");
                 Session["ID_LOCALIDAD"] = "0";
                 consultaLocalidadColonia();
                 consultaLocalidadCalle();
                 consultaLocalidadEntreCalle();
                 consultaLocalidadYCalle();
+            }
+            else 
+            {
+                ddlColonia.Items.Clear();
+                ddlCalle.Items.Clear();
+                ddlEntreCalle.Items.Clear();
+                ddlYcalle.Items.Clear();
+
+                ddlColonia.Items.Insert(0, "--SELECCIONE--");
+                ddlCalle.Items.Insert(0, "--SELECCIONE--");
+                ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+                ddlYcalle.Items.Insert(0, "--SELECCIONE--");
+
             }
 
         }
@@ -471,8 +499,20 @@ namespace AtencionTemprana
 
             if (ddlColonia.Items.Count == 0) 
             { 
-                ddlColonia.Items.Insert(0, "COLONIA DESCONOCIDA"); 
-            }
+                ddlColonia.Items.Insert(0, "COLONIA DESCONOCIDA");
+                Session["ID_LOCALIDAD"] = "0";
+                consultaLocalidadCalle();
+                consultaLocalidadEntreCalle();
+                consultaLocalidadYCalle();
+            }else{
+                ddlCalle.Items.Clear();
+                ddlEntreCalle.Items.Clear();
+                ddlYcalle.Items.Clear();
+
+                ddlCalle.Items.Insert(0, "--SELECCIONE--");
+                ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+                ddlYcalle.Items.Insert(0, "--SELECCIONE--");
+            }          
         }
 
         void consultaLocalidadCalle()
@@ -485,9 +525,20 @@ namespace AtencionTemprana
             ddlCalle.DataTextField = "CLLE";
             ddlCalle.DataBind();
 
-            if (ddlCalle.Items.Count == 0) 
-            { 
-                ddlCalle.Items.Insert(0, "CALLE DESCONOCIDA"); 
+            if (ddlCalle.Items.Count == 0)
+            {
+                ddlCalle.Items.Insert(0, "CALLE DESCONOCIDA");
+                Session["ID_LOCALIDAD"] = "0";
+                consultaLocalidadEntreCalle();
+                consultaLocalidadYCalle();
+            }
+            else 
+            {
+                ddlEntreCalle.Items.Clear();
+                ddlYcalle.Items.Clear();
+                
+                ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
+                ddlYcalle.Items.Insert(0, "--SELECCIONE--");
             }
         }
 
@@ -501,9 +552,17 @@ namespace AtencionTemprana
             ddlEntreCalle.DataTextField = "CLLE";
             ddlEntreCalle.DataBind();
 
-            if (ddlEntreCalle.Items.Count == 0) 
-            { 
-                ddlEntreCalle.Items.Insert(0, "ENTRE CALLE DESCONOCIDA"); 
+            if (ddlEntreCalle.Items.Count == 0)
+            {
+                ddlEntreCalle.Items.Insert(0, "ENTRE CALLE DESCONOCIDA");
+                Session["ID_LOCALIDAD"] = "0";
+                consultaLocalidadYCalle();
+            }
+            else 
+            {
+                ddlYcalle.Items.Clear();
+                
+                ddlYcalle.Items.Insert(0, "--SELECCIONE--");
             }
         }
 
@@ -519,7 +578,8 @@ namespace AtencionTemprana
 
             if (ddlYcalle.Items.Count == 0) 
             { 
-                ddlYcalle.Items.Insert(0, "Y CALLE DESCONOCIDA"); 
+                ddlYcalle.Items.Insert(0, "Y CALLE DESCONOCIDA");
+                Session["ID_LOCALIDAD"] = "0";
             }
         }
 
@@ -647,13 +707,13 @@ namespace AtencionTemprana
                         {
                             PGJ.InsertaDatosLocalizacion(int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(rbEstatus.SelectedValue), DateTime.Parse(txtFechaLocalizacion.Text), txtHoraLocalizacion.Text, txtDesaparicion.Text, short.Parse(ddlCondiciones.SelectedValue), short.Parse(ddlLugarHallazgo.SelectedValue), short.Parse(ddlPais.SelectedValue), short.Parse(ddlEntidad.SelectedValue), short.Parse(ddlMunicipio.SelectedValue), short.Parse(ddlLocalidadDom.SelectedValue),
                               short.Parse(ddlColonia.SelectedValue), int.Parse(ddlCalle.SelectedValue), int.Parse(ddlEntreCalle.SelectedValue), int.Parse(ddlYcalle.SelectedValue),
-                                 txtNumExt0.Text, txtNumInt0.Text, txtCP0.Text, txtFechaIngreso.Text, txtHoraIngreso.Text, short.Parse(ddlCausaFallecimiento.SelectedValue), txtIdentificacion.Text, txtFechaEntrega.Text, txtFechaProbable.Text, short.Parse(rbLocaliza.SelectedValue), txtNombreLocalizado.Text, txtPaterno.Text, txtMaterno.Text, txtInstitucion.Text, txtAutoridad.Text, txtNombreAutoridad.Text, txtPaternoAutoridad.Text, txtMaternoAutoridad.Text, txtNombreReclama.Text, txtPaternoReclama.Text, txtMaternoReclama.Text, short.Parse(ddlParentesco0.SelectedValue));
+                                 txtNumExt0.Text, txtNumInt0.Text, txtCP0.Text, txtFechaIngreso.Text, txtHoraIngreso.Text, short.Parse(ddlCausaFallecimiento.SelectedValue), txtIdentificacion.Text, txtFechaEntrega.Text, txtFechaProbable.Text, short.Parse(rbLocaliza.SelectedValue), txtNombreLocalizado.Text, txtPaterno.Text, txtMaterno.Text, txtInstitucion.Text, txtAutoridad.Text, txtNombreAutoridad.Text, txtPaternoAutoridad.Text, txtMaternoAutoridad.Text, txtNombreReclama.Text, txtPaternoReclama.Text, txtMaternoReclama.Text, short.Parse(ddlParentesco0.SelectedValue),txtReferenciaDom.Text);
                                    string script = @"<script type='text/javascript'> alert('DATOS GUARDADOS');  </script>";
 
 
                             PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 2, "Inserta Datos localización: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() + ", IdPersona= " + ddlOfendido.SelectedItem + ", Estatus persona= " + rbEstatus.SelectedItem + ", Fecha localización= " + txtFechaLocalizacion.Text + ", Hora localización= " + txtHoraLocalizacion.Text + ", Posible causa desaparición= " + txtDesaparicion.Text + ", Condiciones localización= " + ddlCondiciones.SelectedItem + ", Lugar de hallazgo= " + ddlLugarHallazgo.SelectedItem + ", País localización= " + ddlPais.SelectedItem + ", Entidad= " + ddlEntidad.SelectedItem + ", Municipio= " + ddlMunicipio.SelectedItem + ", Localidad= " + ddlLocalidadDom.SelectedItem
                             + ", Colonia= " + ddlColonia.SelectedItem + ", Calle= " + ddlCalle.SelectedItem + ", Entre calle= " + ddlEntreCalle.SelectedItem + ", Y calle= " + ddlYcalle.SelectedItem
-                            + ", N° exterior= " + txtNumExt0.Text + ", N° interrior= " + txtNumInt0.Text + ", CP= " + txtCP0.Text + ", Fecha de ingreso al SEMEFO= " + txtFechaIngreso.Text + ", Hora de ingreso= " + txtHoraIngreso.Text + ", Causa de fallecimiento= " + ddlCausaFallecimiento.SelectedItem + ", Identificación= " + txtIdentificacion.Text + ", Fecha de entrega del cuerpo= " + txtFechaEntrega.Text + ", Fecha probable de fallecimiento= " + txtFechaProbable.Text + ", Ente que localiza= " + rbLocaliza.SelectedItem + ", Nombre quien localiza= " + txtNombreLocalizado.Text + " " + txtPaterno.Text + " " + txtMaterno.Text + ", Institución que localiza= " + txtInstitucion.Text + ", Autoridad que localiza= " + txtAutoridad.Text + ", Nombre autoridad= " + txtNombreAutoridad.Text + " " + txtPaternoAutoridad.Text + " " + txtMaternoAutoridad.Text + ", Nombre quien reclama el cuerpo= " + txtNombreReclama.Text + " " + txtPaternoReclama.Text + " " + txtMaternoReclama.Text + ", Parentesco con el occiso= " + ddlParentesco0.SelectedItem, int.Parse(Session["IdModuloBitacora"].ToString()));
+                            + ", N° exterior= " + txtNumExt0.Text + ", N° interrior= " + txtNumInt0.Text + ", CP= " + txtCP0.Text + ", Fecha de ingreso al SEMEFO= " + txtFechaIngreso.Text + ", Hora de ingreso= " + txtHoraIngreso.Text + ", Causa de fallecimiento= " + ddlCausaFallecimiento.SelectedItem + ", Identificación= " + txtIdentificacion.Text + ", Fecha de entrega del cuerpo= " + txtFechaEntrega.Text + ", Fecha probable de fallecimiento= " + txtFechaProbable.Text + ", Ente que localiza= " + rbLocaliza.SelectedItem + ", Nombre quien localiza= " + txtNombreLocalizado.Text + " " + txtPaterno.Text + " " + txtMaterno.Text + ", Institución que localiza= " + txtInstitucion.Text + ", Autoridad que localiza= " + txtAutoridad.Text + ", Nombre autoridad= " + txtNombreAutoridad.Text + " " + txtPaternoAutoridad.Text + " " + txtMaternoAutoridad.Text + ", Nombre quien reclama el cuerpo= " + txtNombreReclama.Text + " " + txtPaternoReclama.Text + " " + txtMaternoReclama.Text + ", Parentesco con el occiso= " + ddlParentesco0.SelectedItem + ", Referencia del Domicilio = " + txtReferenciaDom.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
 
 
                             ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
@@ -667,8 +727,8 @@ namespace AtencionTemprana
                         }
                         catch (Exception ex)
                         {
-                            lblEstatus.Text = ex.Message;
-                            //lblEstatus1.Text = "INTENTELO NUEVAMENTE";
+                            //lblEstatus.Text = ex.Message;
+                            lblEstatus.Text = "INTENTELO NUEVAMENTE";
                         }
                     }
                 }
@@ -774,14 +834,14 @@ namespace AtencionTemprana
                         {
                             PGJ.ActualizaDatosLocalizacion(int.Parse(ID_LOCALIZADO.Text), short.Parse(rbEstatus.SelectedValue), DateTime.Parse(txtFechaLocalizacion.Text), txtHoraLocalizacion.Text, txtDesaparicion.Text, short.Parse(ddlCondiciones.SelectedValue), short.Parse(ddlLugarHallazgo.SelectedValue), short.Parse(ddlPais.SelectedValue), short.Parse(ddlEntidad.SelectedValue), short.Parse(ddlMunicipio.SelectedValue), short.Parse(ddlLocalidadDom.SelectedValue),
                         short.Parse(ddlColonia.SelectedValue), int.Parse(ddlCalle.SelectedValue), int.Parse(ddlEntreCalle.SelectedValue), int.Parse(ddlYcalle.SelectedValue),
-                        txtNumExt0.Text, txtNumInt0.Text, txtCP0.Text, txtFechaIngreso.Text, txtHoraIngreso.Text, short.Parse(ddlCausaFallecimiento.SelectedValue), txtIdentificacion.Text, txtFechaEntrega.Text, txtFechaProbable.Text, short.Parse(rbLocaliza.SelectedValue), txtNombreLocalizado.Text, txtPaterno.Text, txtMaterno.Text, txtInstitucion.Text, txtAutoridad.Text, txtNombreAutoridad.Text, txtPaternoAutoridad.Text, txtMaternoAutoridad.Text, txtNombreReclama.Text, txtPaternoReclama.Text, txtMaternoReclama.Text, short.Parse(ddlParentesco0.SelectedValue));
+                        txtNumExt0.Text, txtNumInt0.Text, txtCP0.Text, txtFechaIngreso.Text, txtHoraIngreso.Text, short.Parse(ddlCausaFallecimiento.SelectedValue), txtIdentificacion.Text, txtFechaEntrega.Text, txtFechaProbable.Text, short.Parse(rbLocaliza.SelectedValue), txtNombreLocalizado.Text, txtPaterno.Text, txtMaterno.Text, txtInstitucion.Text, txtAutoridad.Text, txtNombreAutoridad.Text, txtPaternoAutoridad.Text, txtMaternoAutoridad.Text, txtNombreReclama.Text, txtPaternoReclama.Text, txtMaternoReclama.Text, short.Parse(ddlParentesco0.SelectedValue), txtReferenciaDom.Text);
                             string script = @"<script type='text/javascript'>
                                 alert('DATOS GUARDADOS');  </script>";
 
 
                             PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 3, "Actualiza Datos localización: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() + ", IdLocalizado= " + ID_LOCALIZADO.Text + ", Estatus persona= " + rbEstatus.SelectedItem + ", Fecha localización= " + txtFechaLocalizacion.Text + ", Hora localización= " + txtHoraLocalizacion.Text + ", Posible causa desaparición= " + txtDesaparicion.Text + ", Condiciones localización= " + ddlCondiciones.SelectedItem + ", Lugar de hallazgo= " + ddlLugarHallazgo.SelectedItem + ", País localización= " + ddlPais.SelectedItem + ", Entidad= " + ddlEntidad.SelectedItem + ", Municipio= " + ddlMunicipio.SelectedItem + ", Localidad= " + ddlLocalidadDom.SelectedItem
                         + ", Colonia= " + ddlColonia.SelectedItem + ", Calle= " + ddlCalle.SelectedItem + ", Entre calle= " + ddlEntreCalle.SelectedItem + ", Y calle= " + ddlYcalle.SelectedItem
-                        + ", N° exterior= " + txtNumExt0.Text + ", N° interrior= " + txtNumInt0.Text + ", CP= " + txtCP0.Text + ", Fecha de ingreso al SEMEFO= " + txtFechaIngreso.Text + ", Hora de ingreso= " + txtHoraIngreso.Text + ", Causa de fallecimiento= " + ddlCausaFallecimiento.SelectedItem + ", Identificación= " + txtIdentificacion.Text + ", Fecha de entrega del cuerpo= " + txtFechaEntrega.Text + ", Fecha probable de fallecimiento= " + txtFechaProbable.Text + ", Ente que localiza= " + rbLocaliza.SelectedItem + ", Nombre quien localiza= " + txtNombreLocalizado.Text + " " + txtPaterno.Text + " " + txtMaterno.Text + ", Institución que localiza= " + txtInstitucion.Text + ", Autoridad que localiza= " + txtAutoridad.Text + ", Nombre autoridad= " + txtNombreAutoridad.Text + " " + txtPaternoAutoridad.Text + " " + txtMaternoAutoridad.Text + ", Nombre quien reclama el cuerpo= " + txtNombreReclama.Text + " " + txtPaternoReclama.Text + " " + txtMaternoReclama.Text + ", Parentesco con el occiso= " + ddlParentesco0.SelectedItem, int.Parse(Session["IdModuloBitacora"].ToString()));
+                        + ", N° exterior= " + txtNumExt0.Text + ", N° interrior= " + txtNumInt0.Text + ", CP= " + txtCP0.Text + ", Fecha de ingreso al SEMEFO= " + txtFechaIngreso.Text + ", Hora de ingreso= " + txtHoraIngreso.Text + ", Causa de fallecimiento= " + ddlCausaFallecimiento.SelectedItem + ", Identificación= " + txtIdentificacion.Text + ", Fecha de entrega del cuerpo= " + txtFechaEntrega.Text + ", Fecha probable de fallecimiento= " + txtFechaProbable.Text + ", Ente que localiza= " + rbLocaliza.SelectedItem + ", Nombre quien localiza= " + txtNombreLocalizado.Text + " " + txtPaterno.Text + " " + txtMaterno.Text + ", Institución que localiza= " + txtInstitucion.Text + ", Autoridad que localiza= " + txtAutoridad.Text + ", Nombre autoridad= " + txtNombreAutoridad.Text + " " + txtPaternoAutoridad.Text + " " + txtMaternoAutoridad.Text + ", Nombre quien reclama el cuerpo= " + txtNombreReclama.Text + " " + txtPaternoReclama.Text + " " + txtMaternoReclama.Text + ", Parentesco con el occiso= " + ddlParentesco0.SelectedItem + ", Referencia del Domicilio= "+txtReferenciaDom.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
 
 
                             ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, false);
@@ -792,7 +852,7 @@ namespace AtencionTemprana
                         }
                         catch (Exception ex)
                         {
-
+                            lblEstatus.Text = "INTENTELO NUEVAMENTE";
                         }
                     }
                 }
