@@ -3,6 +3,27 @@
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
     Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+ <style type="text/css">
+        .bordeCampoObligatorio
+        {
+            border-style: solid;
+            border-color:#FF0000;
+            border-bottom-width:1px;
+            border-top-width:1px;
+            border-left-width:1px;
+            border-right-width:1px;
+        }
+        
+     .style2
+     {
+         width: 127px;
+     }
+     .style3
+     {
+         width: 1091px;
+     }
+        
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div id="main-wrapper">
@@ -84,21 +105,50 @@
          <td></td>
      </tr>
      <tr>
-         <td>                    <asp:TextBox ID="TxtFechaInicio" runat="server" MaxLength="10" TabIndex="20" 
+         <td>                    <asp:TextBox ID="TxtFechaInicio" runat="server" MaxLength="10" TabIndex="20" class="bordeCampoObligatorio"
                         Width="190px"></asp:TextBox>
                                                <asp:CalendarExtender ID="TxtFechaInicio_CalendarExtender" runat="server" Enabled="True"
                                                 Format="dd/MM/yyyy" TargetControlID="TxtFechaInicio">
                                             </asp:CalendarExtender>
+                                             <asp:RequiredFieldValidator runat="server" ForeColor="Red" 
+                                        ControlToValidate="TxtFechaInicio" ErrorMessage="SELECCIONA FECHA INICIAL" Display="Dynamic" 
+                                        ID="RequiredFieldValidator1">*</asp:RequiredFieldValidator>
+                                    <asp:RangeValidator runat="server" MaximumValue="31/12/9999" 
+                                        MinimumValue="01/01/1111" ForeColor="Red" ControlToValidate="TxtFechaInicio" 
+                                        ErrorMessage="FECHA INVALIDA" Display="Dynamic" Font-Bold="True" 
+                                        Font-Size="Medium" ID="RangeValidator1">*</asp:RangeValidator>
                         </td>
-         <td>                    <asp:TextBox ID="TxtFechaFin" runat="server" MaxLength="10" TabIndex="20" 
+         <td>                    <asp:TextBox ID="TxtFechaFin" runat="server" MaxLength="10" TabIndex="20" class="bordeCampoObligatorio"
                         Width="190px"></asp:TextBox>
                                                <asp:CalendarExtender ID="TxtFechaFin_CalendarExtender" runat="server" Enabled="True"
                                                 Format="dd/MM/yyyy" TargetControlID="TxtFechaFin">
-                                            </asp:CalendarExtender></td>
+                                            </asp:CalendarExtender>
+                                            <asp:RequiredFieldValidator runat="server" ForeColor="Red" 
+                                        ControlToValidate="TxtFechaFin" ErrorMessage="SELECCIONA FECHA FINAL" Display="Dynamic" 
+                                        ID="RequiredFieldValidator2">*</asp:RequiredFieldValidator>
+                                    <asp:RangeValidator runat="server" MaximumValue="31/12/9999" 
+                                        MinimumValue="01/01/1111" ForeColor="Red" ControlToValidate="TxtFechaFin" 
+                                        ErrorMessage="FECHA INVALIDA" Display="Dynamic" Font-Bold="True" 
+                                        Font-Size="Medium" ID="RangeValidator2">*</asp:RangeValidator>
+                                            </td>
          <td>                    <asp:Button ID="btnBuscar" runat="server" 
                         Text="BUSCAR" Width="149px" class="button" 
                  onclick="btnBuscar_Click" /></td>
      </tr>
+    </table>
+
+     <table >
+     <tr>
+                <td align="center" class="style3">
+                    <asp:Label ID="lblEstatus" runat="server" Font-Bold="True" Font-Size="Medium" 
+                        ForeColor="Red"></asp:Label>
+                    <br />
+                    <asp:Label ID="lblEstatus1" runat="server" Font-Bold="True" Font-Size="Medium" 
+                        ForeColor="Red"></asp:Label>
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" Font-Bold="True" 
+                        Font-Size="Small" ForeColor="Red" />
+                </td>
+            </tr>
     </table>
     <br />
            <asp:GridView ID="gvEstados" runat="server" Height="118px" Width="1024px" 
