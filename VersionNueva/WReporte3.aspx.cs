@@ -38,6 +38,7 @@ namespace AtencionTemprana
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
+            try{
             //gvEstados.Visible = true;
             //gvEstados.DataSourceID = "ObjectTabla";
             //gvEstados.DataBind();
@@ -71,6 +72,12 @@ namespace AtencionTemprana
             ReportViewer1.LocalReport.Refresh();
 
             PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 10, "Conteo de denuncinas por fecha de hechos organizado por fecha de denuncia, fecha de inicio: " + TxtFechaInicio.Text + " fecha fin: " + TxtFechaFin.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
+        }
+            catch (Exception ex)
+            {
+                lblEstatus.Text = ex.Message;
+                lblEstatus1.Text = "INTENTELO NUEVAMENTE";
+            }
         }
 
         protected void LBVerDetalles_Click(object sender, EventArgs e)
