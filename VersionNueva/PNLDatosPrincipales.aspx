@@ -23,7 +23,7 @@
                 multiple: true
             });
 
-            if ($(".chosen-select option:selected").val() == "NINGUNA") {
+            /*if ($(".chosen-select option:selected").val() == "NINGUNA") {
                 var commaSeparated = $('#<%= lbPad.ClientID %> option')
                 .not('option:eq(0)').map(function () {
                     return this.innerHTML;
@@ -38,7 +38,7 @@
             }
             else {
                 $(".chosen-select option[value='NINGUNA']").attr("disabled", true)
-             }
+             }*/
         }
     </script>
 

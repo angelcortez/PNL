@@ -34,31 +34,27 @@ namespace AtencionTemprana
         
         ArrayList cargarPadecmientos() {
             ArrayList list = new ArrayList();
-                list.Add("NINGUNA");
-                list.Add("5 MESES DE GESTACION");
-                list.Add("ALERGIAS");
-                list.Add("PRESION ARTERIAL BAJA");
+                list.Add("ALERGIAS");                
                 list.Add("ARTRITIS");
                 list.Add("ASMA");
-                list.Add("ESQUIZOFRENIA");
                 list.Add("BRONQUITIS");
                 list.Add("CIRROSIS");
-                list.Add("NERVIOS");
                 list.Add("DEPRESION");
                 list.Add("DIABETES");
-                list.Add("MIGRAÑA");
-                list.Add("DROGADICCION");
+                list.Add("DROGADICCION");    
+                list.Add("ESQUIZOFRENIA");                
                 list.Add("GASTRITIS");
-                list.Add("HIPERTENSION");
-                list.Add("PRESION ARTERIAL");
-                list.Add("PRESION Y DIABETES");
-                list.Add("PRESION");
+                list.Add("HEPATITIS");
+                list.Add("HIPERTENSION");    
+                list.Add("MIGRAÑA");
+                list.Add("NERVIOS");
+                list.Add("PRESION Y DIABETES");               
                 list.Add("PRESION ARTERIAL ALTA");
+                list.Add("PRESION ARTERIAL BAJA");
                 list.Add("PSORIASIS");
                 list.Add("RESPIRATORIO");
-                list.Add("SINOCITIS CRONICA");
-                list.Add("SI");
-                list.Add("HEPATITIS");
+                list.Add("SINOCITIS CRONICA");                                
+                list.Add("5 MESES DE GESTACION");
             return list;        
         }    
        
