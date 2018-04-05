@@ -12,6 +12,8 @@ using System.Web.Security;
 using System.Data;
 using Subgurim.Controles;
 using DevExpress.Web.ASPxTabControl;
+using System.Collections;
+using System.Text;
 
 
 namespace AtencionTemprana
@@ -29,8 +31,37 @@ namespace AtencionTemprana
                 }";
         Data PGJ = new Data();
 
-
-
+        
+        ArrayList cargarPadecmientos() {
+            ArrayList list = new ArrayList();
+                list.Add("NINGUNA");
+                list.Add("5 MESES DE GESTACION");
+                list.Add("ALERGIAS");
+                list.Add("PRESION ARTERIAL BAJA");
+                list.Add("ARTRITIS");
+                list.Add("ASMA");
+                list.Add("ESQUIZOFRENIA");
+                list.Add("BRONQUITIS");
+                list.Add("CIRROSIS");
+                list.Add("NERVIOS");
+                list.Add("DEPRESION");
+                list.Add("DIABETES");
+                list.Add("MIGRAÑA");
+                list.Add("DROGADICCION");
+                list.Add("GASTRITIS");
+                list.Add("HIPERTENSION");
+                list.Add("PRESION ARTERIAL");
+                list.Add("PRESION Y DIABETES");
+                list.Add("PRESION");
+                list.Add("PRESION ARTERIAL ALTA");
+                list.Add("PSORIASIS");
+                list.Add("RESPIRATORIO");
+                list.Add("SINOCITIS CRONICA");
+                list.Add("SI");
+                list.Add("HEPATITIS");
+            return list;        
+        }    
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["IdUsuario"] == null)
@@ -45,7 +76,8 @@ namespace AtencionTemprana
                 SCRIPT_DOFOCUS.Replace("REQUEST_LASTFOCUS", Request["__LASTFOCUS"]),
                 true);
                 //---
-                lblArbol.Text = Session["lblArbol"].ToString();
+
+                lblArbol.Text = Session["lblArbol"].ToString();              
 
                 //TRAE EL USUARIO, PUESTO, UNIDAD Y LA OPERACIÓN. ADEMÁS DE CARGAR LA FECHA ACTUAL// 
                 Session["op"] = Request.QueryString["op"];
@@ -75,6 +107,12 @@ namespace AtencionTemprana
                     PGJ.CargaCombo(ddlProtesis, "PNL_CAT_PROTESIS", "IdProtesis", "Protesis");
                     PGJ.CargaCombo(ddlVestimenta, "CAT_VESTUARIO", "ID_VSTUARIO", "VSTUARIO");
                     PGJ.CargaCombo(rb_ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
+
+                    foreach (var item in cargarPadecmientos())
+                    {
+                        //ddlPadecimientos.Items.Add(item.ToString());
+                        lbPad.Items.Add(item.ToString());
+                    }
 
                     cargarOfendido();
                 }
@@ -125,6 +163,12 @@ namespace AtencionTemprana
                         PGJ.CargaCombo(ddlVestimenta, "CAT_VESTUARIO", "ID_VSTUARIO", "VSTUARIO");
                         PGJ.CargaCombo(rb_ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
 
+                        foreach (var item in cargarPadecmientos())
+                        {
+                            //ddlPadecimientos.Items.Add(item.ToString());
+                            lbPad.Items.Add(item.ToString());
+                        }
+
                         CargarPNL();
                         CargarPertenenciaSocial();                       
                         CargarInformacionFinanciera();
@@ -150,15 +194,9 @@ namespace AtencionTemprana
 
 
                     }
-
-
                 }
-
             }
-
-        }
-
-       
+        }       
 
         void cargarOfendido()
         {
@@ -170,6 +208,7 @@ namespace AtencionTemprana
             ddlOfendido.DataTextField = "OFENDIDO";
             ddlOfendido.DataBind();
         }
+
         private void HookOnFocus(Control CurrentControl)
         {
 
@@ -226,7 +265,7 @@ namespace AtencionTemprana
             {
                 dr.Read();
                 /*
-                 * ANTERIORMENTE SE UTILIZABA PARA LLENAR LOS INPUT TEXT EN EL HTML
+                 * ANTERIORMENTE SE UTILIZABA PARA LLENAR LOS INPUTTEXT EN EL HTML
                  */
                 /*txtONG.Text = dr["MiembroONG"].ToString();
                 txtSindicalista.Text = dr["Sindicalista"].ToString();
@@ -388,9 +427,54 @@ namespace AtencionTemprana
                 txtMedicamentos.Text = dr["Medicamentos"].ToString();
                 txtCirugias.Text = dr["Cirugias"].ToString();
                 rbEmbarazo.SelectedValue = dr["Embarazo"].ToString();
-                chCesarea.Checked = bool.Parse(dr["Cesarea"].ToString());
-                chPartoNatural.Checked = bool.Parse(dr["PartoNatural"].ToString());
-                chAborto.Checked = bool.Parse(dr["Aborto"].ToString());
+
+                string p = txtPadecimientos.Text;                
+                string[] padecimientosList = p.Split(',');                
+                foreach (ListItem item in lbPad.Items)
+                {
+                    foreach(string padecimiento in padecimientosList) 
+                    {
+                        if (padecimiento.Equals(item.Text)) 
+                        {
+                            item.Selected = true;
+                        }                
+                    }                    
+                }
+
+                if (rbEmbarazo.SelectedValue == "1")
+                {
+                    /*Label27.Visible = true;
+                    Label28.Visible = true;
+                    Label29.Visible = true;
+                    chCesarea.Visible = true;
+                    chPartoNatural.Visible = true;
+                    chAborto.Visible = true;*/
+                    lblOpcionEmbarazo.Visible = true;
+                    rbPartoNat.Visible = true;
+                    rbCesarea.Visible = true;
+                    rbAborto.Visible = true;
+
+                }
+                else
+                {
+                    /*Label27.Visible = false;
+                    Label28.Visible = false;
+                    Label29.Visible = false;
+                    chCesarea.Visible = false;
+                    chPartoNatural.Visible = false;
+                    chAborto.Visible = false;*/
+
+                    lblOpcionEmbarazo.Visible = false;
+                    rbPartoNat.Visible = false;
+                    rbCesarea.Visible = false;
+                    rbAborto.Visible = false;
+                }
+
+                /*chCesarea*/rbCesarea.Checked = bool.Parse(dr["Cesarea"].ToString());
+                /*chPartoNatural*/rbPartoNat.Checked = bool.Parse(dr["PartoNatural"].ToString());
+                /*chAborto*/rbAborto.Checked = bool.Parse(dr["Aborto"].ToString());
+               
+                
                 rbControlNatal.SelectedValue = dr["ControlNatal"].ToString();
                 txtOtroControlNatal.Text = dr["OtroControlNatal"].ToString();
 
@@ -593,7 +677,22 @@ namespace AtencionTemprana
         protected void btnGuardarDatos_Click(object sender, EventArgs e)
         {
 
-            lblError.Text = "";        
+            lblError.Text = "";       
+ 
+
+            /*
+             * GUARDAR EN VARIABLE (padecimientos),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
+             */
+            string padecimientos = "";
+            foreach (ListItem item in lbPad.Items)
+            {
+                if (item.Selected)
+                { 
+                        //txtPadecimientos.Text += item.Text + ", ";
+                        padecimientos += item.Text + ",";
+                }
+            }
+
 
             DateTime dt1 = new DateTime();
             dt1 = Convert.ToDateTime(txtUltimoAvistamiento.Text);
@@ -645,7 +744,7 @@ namespace AtencionTemprana
                         PGJ.PNL_InsertaInfoFinanciera(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(ddlBanco.SelectedValue), txtNumCuenta.Text, txtTipoCuenta.Text, short.Parse(ddlBanco0.SelectedValue), txtNumTarjetaCredito.Text, short.Parse(ddlBanco1.SelectedValue), txtNumTarjetaDebito.Text, txtTarjetaDepartamental.Text, txtNumTarjetaDepartamental.Text);
 
                         /*INSERTA DISCAPACIDADES*/
-                        PGJ.PNL_InsertaDiscapacidades(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, txtPadecimientos.Text, txtSistematicas.Text, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), chCesarea.Checked, chPartoNatural.Checked, chAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
+                        PGJ.PNL_InsertaDiscapacidades(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, /*ddlPadecimientos.SelectedValue*//*txtPadecimientos.Text*/padecimientos, txtSistematicas.Text, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), /*chCesarea*/rbCesarea.Checked, /*chPartoNatural*/rbPartoNat.Checked, /*chAborto*/rbAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
 
                         /*INSERTA INFORMACIÓN ODONTOLÓGICA*/
                         PGJ.PNL_InsertaInformacionOdontologica(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(rbExpedienteDental.SelectedValue), txtOdontologo.Text, short.Parse(ddlTamDientes.SelectedValue), short.Parse(rbCompletos.SelectedValue), short.Parse(rbSeparados.SelectedValue), short.Parse(rbGirados.SelectedValue), short.Parse(rbApinonados.SelectedValue), short.Parse(rbManchados.SelectedValue), short.Parse(rbDesgaste.SelectedValue), short.Parse(rbResinas.SelectedValue), short.Parse(rbAmalgamas.SelectedValue), short.Parse(rbCoronasMetalicas.SelectedValue), short.Parse(rbCoronasEsteticas.SelectedValue), short.Parse(rbEndodoncia.SelectedValue), short.Parse(rbBlanqueamiento.SelectedValue), short.Parse(rbIncrustacion.SelectedValue), txtOtro.Text, short.Parse(ddlProtesis.SelectedValue), short.Parse(rbBraquets.SelectedValue), short.Parse(rbRetenedores.SelectedValue), short.Parse(rbImplantes.SelectedValue), txtOtro.Text, short.Parse(rbPuesto.SelectedValue), txtAusenciasDentales.Text, txtHabitosDentales.Text);
@@ -676,7 +775,7 @@ namespace AtencionTemprana
                         + txtNumTarjetaDebito.Text + ", Tarjeta departamental = " + txtTarjetaDepartamental.Text + ", Num tarjeta departamental = " +
                         txtNumTarjetaDepartamental.Text + ", DISCAPACIDADES: Discapacidad mental= " + ddlDiscapacidadMental.SelectedItem + ", Discapacidad mental= " +
                         txtDiscapacidadMental.Text + ", Discapacidad física= " + ddlDiscapacidadFisica.SelectedItem + ", Discapacidad física= " +
-                        txtDiscapacidadFisica.Text + ", Padecimientos= " + txtPadecimientos.Text + ", Enfermadades sistemáticas= " + txtSistematicas.Text +
+                        txtDiscapacidadFisica.Text + ", Padecimientos= " + /*txtPadecimientos.Text*/padecimientos + ", Enfermadades sistemáticas= " + txtSistematicas.Text +
                         ", Enfermedad mental= " + txtEnfermedadMental.Text + ", Enfermedades piel= " + txtEnfermedadPiel.Text + ", Adicciones= " + txtAdicciones.Text +
                         ", Medicamentos= " + txtMedicamentos.Text + ", Cirugias= " + txtCirugias.Text + ", Embarazo= " + rbEmbarazo.SelectedItem + ", Control natal= "
                         + rbControlNatal.SelectedItem + ", Otro control natal= " + txtOtroControlNatal.Text + ", INFO ODNTOLOGICA: Odontólogo= " + txtOdontologo.Text +
@@ -722,7 +821,7 @@ namespace AtencionTemprana
                         {
 
                             try
-                            {
+                            {                                
 
                                 /*MODIFICA LOS DATOS GENERALES*/
                                 PGJ.ActualizaDatosGenerales(int.Parse(ID_DATOS_GENERALES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), int.Parse(ddlEtnia.SelectedValue), DateTime.Parse(txtUltimoAvistamiento.Text), short.Parse(ddlUltimaActividad.SelectedValue));
@@ -735,7 +834,7 @@ namespace AtencionTemprana
                                 PGJ.PNL_ActualizaInfoFinanciera(int.Parse(ID_INFO_FINANCIERA.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlBanco.SelectedValue), txtNumCuenta.Text, txtTipoCuenta.Text, short.Parse(ddlBanco0.SelectedValue), txtNumTarjetaCredito.Text, short.Parse(ddlBanco1.SelectedValue), txtNumTarjetaDebito.Text, txtTarjetaDepartamental.Text, txtNumTarjetaDepartamental.Text);
 
                                 /*MODIFICA DISCAPACIDADES*/
-                                PGJ.PNL_ActualizaDiscapacidades(int.Parse(ID_DISCAPACIDADES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, txtPadecimientos.Text, txtSistematicas.Text, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), chCesarea.Checked, chPartoNatural.Checked, chAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
+                                PGJ.PNL_ActualizaDiscapacidades(int.Parse(ID_DISCAPACIDADES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, /*ddlPadecimientos.SelectedValue*//*txtPadecimientos.Text*/padecimientos, txtSistematicas.Text, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), /*chCesarea*/rbCesarea.Checked, /*chPartoNatural*/rbPartoNat.Checked, /*chAborto*/rbAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
 
                                 /*MODIFICA INFORMACIÓN ODONTOLÓGICA*/
                                 PGJ.PNL_ActualizaInformacionOdontologica(int.Parse(ID_INFO_ODONTOLOGICA.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(rbExpedienteDental.SelectedValue), txtOdontologo.Text, short.Parse(ddlTamDientes.SelectedValue), short.Parse(rbCompletos.SelectedValue), short.Parse(rbSeparados.SelectedValue), short.Parse(rbGirados.SelectedValue), short.Parse(rbApinonados.SelectedValue), short.Parse(rbManchados.SelectedValue), short.Parse(rbDesgaste.SelectedValue), short.Parse(rbResinas.SelectedValue), short.Parse(rbAmalgamas.SelectedValue), short.Parse(rbCoronasMetalicas.SelectedValue), short.Parse(rbCoronasEsteticas.SelectedValue), short.Parse(rbEndodoncia.SelectedValue), short.Parse(rbBlanqueamiento.SelectedValue), short.Parse(rbIncrustacion.SelectedValue), txtOtro.Text, short.Parse(ddlProtesis.SelectedValue), short.Parse(rbBraquets.SelectedValue), short.Parse(rbRetenedores.SelectedValue), short.Parse(rbImplantes.SelectedValue), txtOtro.Text, short.Parse(rbPuesto.SelectedValue), txtAusenciasDentales.Text, txtHabitosDentales.Text);
@@ -761,7 +860,7 @@ namespace AtencionTemprana
                             }
                             catch (Exception ex)
                             {
-
+                                lblEstatus.Text = ex.ToString();
                             }
 
                         }
@@ -832,8 +931,6 @@ namespace AtencionTemprana
 
                     PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 2, "Inserta DATOS GENERALES: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() + ", IdPersona= " + ID_PERSONA.Text+", Vestimenta seleccionada: "+ddlVestimenta.SelectedItem+", Descripción vestimenta: "+ txtDescVestimenta.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
                 
-
-
                     gvVestimenta.DataSourceID = "dsConsultaVestimenta";
                     gvVestimenta.DataBind();
                     txtDescVestimenta.Text = "";
@@ -944,5 +1041,59 @@ namespace AtencionTemprana
                 rb_ddlTipo.Visible = false;
             }
         }
+
+        protected void _onSelectedIndexChangedRB(object sender, EventArgs e) 
+        {
+            if (rbEmbarazo.SelectedValue == "1")
+            {
+                /*Label27.Visible = true;
+                Label28.Visible = true;
+                Label29.Visible = true;
+                chAborto.Visible = true;
+                chPartoNatural.Visible = true;
+                chCesarea.Visible = true;*/
+
+                lblOpcionEmbarazo.Visible = true;                
+                rbCesarea.Visible = true;
+                rbPartoNat.Visible = true;
+                rbAborto.Visible = true;
+            }
+            else
+            {
+                /*Label27.Visible = false;
+                Label28.Visible = false;
+                Label29.Visible = false;
+                chAborto.Visible = false;
+                chPartoNatural.Visible = false;
+                chCesarea.Visible = false;
+
+                chAborto.Checked = false;
+                chPartoNatural.Checked = false;
+                chCesarea.Checked = false;*/
+
+                lblOpcionEmbarazo.Visible = false;
+                rbCesarea.Visible = false;
+                rbPartoNat.Visible = false;
+                rbAborto.Visible = false;
+
+                rbCesarea.Checked = false;
+                rbPartoNat.Checked = false;
+                rbAborto.Checked = false;
+            }
+        }
+
+        /*protected void selectindex(object sender, EventArgs e)
+        {
+            //txtPadecimientos.Text ="";
+            string padecimientos = "";
+            foreach (ListItem item in lbPad.Items)
+            {
+                if (item.Selected)
+                {                    
+                    //txtPadecimientos.Text += item.Text + ", ";
+                    padecimientos += item.Text + ",";
+                }
+            }
+        }*/
     }
 }

@@ -23,7 +23,7 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="personalizado.css" rel="stylesheet" type="text/css" />
 
-
+   
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">

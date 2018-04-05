@@ -877,6 +877,24 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.TextBox txtPadecimientos;
         
         /// <summary>
+        /// ddlPadecimientos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPadecimientos;
+        
+        /// <summary>
+        /// lbPad control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbPad;
+        
+        /// <summary>
         /// txtSistematicas control.
         /// </summary>
         /// <remarks>
@@ -976,6 +994,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.Label Label27;
         
         /// <summary>
+        /// lblOpcionEmbarazo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOpcionEmbarazo;
+        
+        /// <summary>
         /// Label28 control.
         /// </summary>
         /// <remarks>
@@ -1012,6 +1039,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.CheckBox chCesarea;
         
         /// <summary>
+        /// rbCesarea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbCesarea;
+        
+        /// <summary>
         /// chPartoNatural control.
         /// </summary>
         /// <remarks>
@@ -1021,6 +1057,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.CheckBox chPartoNatural;
         
         /// <summary>
+        /// rbPartoNat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbPartoNat;
+        
+        /// <summary>
         /// chAborto control.
         /// </summary>
         /// <remarks>
@@ -1028,6 +1073,15 @@ namespace AtencionTemprana {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chAborto;
+        
+        /// <summary>
+        /// rbAborto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbAborto;
         
         /// <summary>
         /// Label30 control.

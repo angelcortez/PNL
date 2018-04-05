@@ -5,28 +5,42 @@
 <%@ Register Assembly="GMaps" Namespace="Subgurim.Controles" TagPrefix="cc1" %>
 <%--<script type="text/javascript" src="/Scripts/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="/Scripts/jquery-ui.js"></script>
-<script type="text/javascript" language="javascript" src="/Scripts/JQuery_Chosen/chosen.jquery.min.js"></script>
-<script type="text/javascript" language="javascript" src="/Scripts/JQuery_TinyBox/tinybox.js"></script>--%>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script type="text/javascript" language="javascript" src="/Scripts/JQuery_Chosen/chosen.jquery.min.js"></script>--%>
 
-    <%-- <script type="text/javascript">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <script type="text/javascript">
 
         $(function () {
             PageInit_AlertOrNotification();
         });
 
         function PageInit_AlertOrNotification() {
-
-
             $(".chosen-select").chosen({
                 allow_single_deselect: true,
                 no_results_text: "No existe: ",
                 width: "95%",
-                placeholder_text_multiple: "Selecciona el elemento a agregar",
+                placeholder_text_multiple: "-- Selecciona --",                    
                 multiple: true
             });
-        }             
-    </script>--%>
+
+            if ($(".chosen-select option:selected").val() == "NINGUNA") {
+                var commaSeparated = $('#<%= lbPad.ClientID %> option')
+                .not('option:eq(0)').map(function () {
+                    return this.innerHTML;
+                }).get().join(',');
+                $('#<%= txtPadecimientos.ClientID %>').val(commaSeparated);
+
+                var i = commaSeparated.split(',');
+
+                for (var j in i) {
+                    $(".chosen-select option[value='" + i[j] + "']").attr("disabled", true)
+                }
+            }
+            else {
+                $(".chosen-select option[value='NINGUNA']").attr("disabled", true)
+             }
+        }
+    </script>
 
     <%--class="chosen-select" pegado al ddl para que funcione--%>
     <style type="text/css">
@@ -78,10 +92,24 @@
             border-top-width:1px;
             border-left-width:1px;
             border-right-width:1px;
+        }        
+        .style22
+        {
+            width: 299px;
         }
+        .style23
+        {
+            width: 257px;
+        }
+        .style24
+        {
+            width: 251px;
+        }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+
     <%-- <asp:ModalPopupExtender ID="Panel2_ModalPopupExtender" runat="server" PopupControlID="Panel2"
                         DynamicServicePath="" Enabled="True" TargetControlID="Label40" PopupDragHandleControlID="PoppupHeader" Drag="true" BackgroundCssClass="ModalPopupBG">
                     </asp:ModalPopupExtender>--%>
@@ -90,6 +118,7 @@
         document.onkeydown = function (evt1) { return (evt1 ? evt1.which : event.keyCode) != 13; } /*BLOQUEAR BACKSPACE*/
         //        document.onkeydown = function (evt) { return (evt ? evt.which : event.keyCode) != 32; } /*BLOQUEAR BARRA ESPACIDORA*/
     </script>
+
     <div id="main-wrapper">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
@@ -283,7 +312,7 @@
             </tr>
         </table>
         <br />
-        <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="0" Width="1100px"
+        <asp:TabContainer ID="TabContainer1" runat="server" ActiveTabIndex="2" Width="1100px"
             UseVerticalStripPlacement="False" VerticalStripWidth="200px">
             <asp:TabPanel ID="TabPanel1" runat="server" HeaderText="TabPanel1">
                 <HeaderTemplate>
@@ -625,200 +654,218 @@
                 <ContentTemplate>
                     <table style="width: 100%;">
                         <tr>
-                            <td>
+                            <td class="style24">
                                 <asp:Label ID="Label14" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="DISCAPACIDAD MENTAL"></asp:Label>
                             </td>
-                            <td>
+                            <td class="style24">
                                 <asp:Label ID="Label15" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="OTRA DISCAPACIDAD MENTAL"></asp:Label>
                             </td>
-                            <td>
+                            <td class="style24">
                                 <asp:Label ID="Label16" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="DISCAPACIDAD FISICA"></asp:Label>
                             </td>
-                            <td>
+                            <td class="style24">
                                 <asp:Label ID="Label17" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="OTRA DISCAPACIDAD FISICA"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="style24">
                             <!--class="chosen-select" -->
-                                <asp:DropDownList ID="ddlDiscapacidadMental" runat="server" Width="200px" >
-                                </asp:DropDownList>
+                                <asp:DropDownList ID="ddlDiscapacidadMental" runat="server" Width="200px"></asp:DropDownList>                                
                             </td>
-                            <td>
+                            <td class="style24">
                                 <asp:TextBox ID="txtDiscapacidadMental" runat="server" Width="200px"></asp:TextBox>
                             </td>
-                            <td>
+                            <td class="style24">
                             <!--class="chosen-select" -->
                                 <asp:DropDownList ID="ddlDiscapacidadFisica" runat="server" Width="200px">
                                 </asp:DropDownList>
                             </td>
-                            <td>
+                            <td class="style24">
                                 <asp:TextBox ID="txtDiscapacidadFisica" runat="server" Width="200px"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
                         </tr>
                         <tr>
-                            <td class="style38">
+                            <td class="style24">
                                 <asp:Label ID="Label18" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="PADECIMIENTOS"></asp:Label>
                             </td>
-                            <td class="style38">
+                            <td class="style24">
                                 <asp:Label ID="Label19" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="ENFERMEDADES SISTEMATICAS"></asp:Label>
                             </td>
-                            <td class="style38">
+                            <td class="style24">
                                 <asp:Label ID="Label20" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="ENFERMEDADES MENTALES"></asp:Label>
                             </td>
-                            <td class="style38">
+                            <td class="style24">
                                 <asp:Label ID="Label21" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="ENFERMEDADES DE LA PIEL"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td class="style37">
-                                <asp:TextBox ID="txtPadecimientos" runat="server" Width="200px"></asp:TextBox>
+                            <td class="style24">
+                               <!--<asp:TextBox ID="txtPadecimientos" runat="server" Width="195px" Visible="true"  ></asp:TextBox> 
+                               <br />-->         
+                               <!--<asp:DropDownList ID="ddlPadecimientos" runat="server"  Width="200px" Visible="true" > 
+                                    </asp:DropDownList> class="chosen-select"-->
+                                <asp:ListBox ID="lbPad" runat="server" SelectionMode="Multiple" Width="200px" AutoPostBack="true" class="chosen-select"></asp:ListBox>                              
                             </td>
-                            <td class="style37">
+                            <td class="style24">
                                 <asp:TextBox ID="txtSistematicas" runat="server" Width="200px"></asp:TextBox>
                             </td>
-                            <td class="style37">
+                            <td class="style24">
                                 <asp:TextBox ID="txtEnfermedadMental" runat="server" Width="200px"></asp:TextBox>
                             </td>
-                            <td class="style37">
+                            <td class="style24">
                                 <asp:TextBox ID="txtEnfermedadPiel" runat="server" Width="200px"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="style24">                               
+                                &nbsp;&nbsp;
+                                </td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
-                            <td>
-                                &nbsp;&nbsp;
-                            </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="style24">
                                 <asp:Label ID="Label22" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="ADICCIONES"></asp:Label>
                             </td>
-                            <td>
+                            <td class="style24">
                                 <asp:Label ID="Label24" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="MEDICAMENTOS HABITUALES"></asp:Label>
                             </td>
-                            <td>
+                            <td class="style24">
                                 <asp:Label ID="Label25" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="CIRUGIAS"></asp:Label>
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="style24">
                                 <asp:TextBox ID="txtAdicciones" runat="server" Width="200px"></asp:TextBox>
                             </td>
-                            <td>
+                            <td class="style24">
                                 <asp:TextBox ID="txtMedicamentos" runat="server" Width="200px"></asp:TextBox>
                             </td>
-                            <td>
+                            <td class="style24">
                                 <asp:TextBox ID="txtCirugias" runat="server" Width="200px"></asp:TextBox>
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="style24">
                                 <asp:Label ID="Label26" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="EMBARAZO"></asp:Label>
                             </td>
-                            <td>
-                                <asp:Label ID="Label27" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
-                                    Text="CESÁREA"></asp:Label>
+                            <td class="style24">
+                               <!--<asp:Label ID="Label27" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    Text="CESÁREA"></asp:Label>-->
+                                   <asp:Label ID="lblOpcionEmbarazo" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black" Text="ESCOGE UNA OPCION"></asp:Label>
+
                             </td>
-                            <td>
-                                <asp:Label ID="Label28" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
-                                    Text="PARTO NATURAL"></asp:Label>
+                            <td class="style24">
+                                <!--<asp:Label ID="Label28" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    Text="PARTO NATURAL"></asp:Label>-->
                             </td>
-                            <td>
-                                <asp:Label ID="Label29" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
-                                    Text="ABORTO"></asp:Label>
+                            <td class="style24">
+                                <!--<asp:Label ID="Label29" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    Text="ABORTO"></asp:Label>-->
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="style24">
                                 <asp:RadioButtonList ID="rbEmbarazo" runat="server" Font-Bold="True" Font-Size="Small"
-                                    ForeColor="Black" RepeatDirection="Horizontal">
-                                    <asp:ListItem Value="1">SI</asp:ListItem>
-                                    <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
+                                    ForeColor="Black" RepeatDirection="Horizontal" AutoPostBack="True"  
+                                    OnSelectedIndexChanged="_onSelectedIndexChangedRB">
+                                    <asp:ListItem Value="1" Text="SI"></asp:ListItem>
+                                    <asp:ListItem Value="0" Text="NO" Selected="True"></asp:ListItem>
                                 </asp:RadioButtonList>
                             </td>
-                            <td>
-                                <asp:CheckBox ID="chCesarea" runat="server" />
+                            <td class="style24">
+                                <!--<asp:CheckBox ID="chCesarea" runat="server" />-->
+                               <asp:RadioButton GroupName="embarazoGroup" ID="rbCesarea" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" 
+                                    Text="CESAREA"/>
                             </td>
-                            <td>
-                                <asp:CheckBox ID="chPartoNatural" runat="server" />
+                            <td class="style24">
+                               <!--<asp:CheckBox ID="chPartoNatural" runat="server" /> -->
+                               <asp:RadioButton GroupName="embarazoGroup" ID="rbPartoNat" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" 
+                                    Text="PARTO NATURAL"/>
                             </td>
-                            <td>
-                                <asp:CheckBox ID="chAborto" runat="server" />
+                            <td class="style24">
+                                <!--<asp:CheckBox ID="chAborto" runat="server" />-->
+                                <asp:RadioButton GroupName="embarazoGroup" ID="rbAborto" runat="server" 
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Black"
+                                    AutoPostBack="True" 
+                                    Text="ABORTO"/>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="style24">
                                 <asp:Label ID="Label30" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="CONTROL NATAL"></asp:Label>
                             </td>
-                            <td>
+                            <td class="style24">
                                 <asp:Label ID="Label31" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="OTRO CONTROL NATAL" Visible="False"></asp:Label>
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class="style24">
                                 <asp:RadioButtonList ID="rbControlNatal" runat="server" Font-Bold="True" Font-Size="Small"
                                     ForeColor="Black" RepeatDirection="Horizontal" AutoPostBack="True" OnSelectedIndexChanged="rbControlNatal_SelectedIndexChanged">
                                     <asp:ListItem Value="1">DIU</asp:ListItem>
@@ -827,13 +874,13 @@
                                     <asp:ListItem Value="4">OTRO</asp:ListItem>
                                 </asp:RadioButtonList>
                             </td>
-                            <td>
+                            <td class="style24">
                                 <asp:TextBox ID="txtOtroControlNatal" runat="server" Width="200px" Visible="False"></asp:TextBox>
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
-                            <td>
+                            <td class="style24">
                                 &nbsp;&nbsp;
                             </td>
                         </tr>

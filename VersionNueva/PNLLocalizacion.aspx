@@ -48,6 +48,16 @@
             }
         }
 
+        function soloLetrasYnumeros(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " abcdefghijklmnñopqrstuvwxyz0123456789";
+
+            if (letras.indexOf(tecla) == -1) {
+                return false;
+            }
+        }
+
 
     </script>
     <div id="main-wrapper">
@@ -524,15 +534,15 @@
                                     <tr>
                                         <td>
                                             <asp:TextBox ID="txtNumExt0" runat="server" Width="190px" MaxLength="50" Style="text-transform: uppercase"
-                                                TabIndex="21"></asp:TextBox>
+                                                TabIndex="21" onKeyPress="return soloLetrasYnumeros(event)"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtNumInt0" runat="server" Width="190px" MaxLength="50" Style="text-transform: uppercase"
-                                                TabIndex="22"></asp:TextBox>
+                                                TabIndex="22" onKeyPress="return soloLetrasYnumeros(event)"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtCP0" runat="server" Width="190px" MaxLength="50" Style="text-transform: uppercase"
-                                                TabIndex="23"></asp:TextBox>
+                                                TabIndex="23" onKeyPress="return soloLetrasYnumeros(event)"></asp:TextBox>
                                         </td>
                                         <td>
                                             &nbsp;</td>
