@@ -904,6 +904,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.TextBox txtSistematicas;
         
         /// <summary>
+        /// lbSistematicas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbSistematicas;
+        
+        /// <summary>
         /// txtEnfermedadMental control.
         /// </summary>
         /// <remarks>

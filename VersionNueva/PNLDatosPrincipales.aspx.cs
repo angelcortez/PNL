@@ -29,35 +29,10 @@ namespace AtencionTemprana
                         document.getElementById('REQUEST_LASTFOCUS').focus();
                     } catch (ex) {}
                 }";
-        Data PGJ = new Data();
+        Data PGJ = new Data(); 
 
-        
-        ArrayList cargarPadecmientos() {
-            ArrayList list = new ArrayList();
-                list.Add("ALERGIAS");                
-                list.Add("ARTRITIS");
-                list.Add("ASMA");
-                list.Add("BRONQUITIS");
-                list.Add("CIRROSIS");
-                list.Add("DEPRESION");
-                list.Add("DIABETES");
-                list.Add("DROGADICCION");    
-                list.Add("ESQUIZOFRENIA");                
-                list.Add("GASTRITIS");
-                list.Add("HEPATITIS");
-                list.Add("HIPERTENSION");    
-                list.Add("MIGRAÑA");
-                list.Add("NERVIOS");
-                list.Add("PRESION Y DIABETES");               
-                list.Add("PRESION ARTERIAL ALTA");
-                list.Add("PRESION ARTERIAL BAJA");
-                list.Add("PSORIASIS");
-                list.Add("RESPIRATORIO");
-                list.Add("SINOCITIS CRONICA");                                
-                list.Add("5 MESES DE GESTACION");
-            return list;        
-        }    
-       
+        ListaDiscapacidadesPadecimientos ld = new ListaDiscapacidadesPadecimientos();//CREO UNA INSTANCIA DE LA CLASE DE lISTA DE DISCCAPACIDADES Y ENFERMEDADES
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["IdUsuario"] == null)
@@ -104,10 +79,14 @@ namespace AtencionTemprana
                     PGJ.CargaCombo(ddlVestimenta, "CAT_VESTUARIO", "ID_VSTUARIO", "VSTUARIO");
                     PGJ.CargaCombo(rb_ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
 
-                    foreach (var item in cargarPadecmientos())
+                    foreach (var item in ld.cargarPadecimientos())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE PADECIMIENTOS
                     {
-                        //ddlPadecimientos.Items.Add(item.ToString());
-                        lbPad.Items.Add(item.ToString());
+                        lbPad.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                    }
+
+                    foreach (var item in ld.cargarEnfermedadesSistematicas())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE PADECIMIENTOS
+                    {
+                        lbSistematicas.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
                     }
 
                     cargarOfendido();
@@ -159,10 +138,14 @@ namespace AtencionTemprana
                         PGJ.CargaCombo(ddlVestimenta, "CAT_VESTUARIO", "ID_VSTUARIO", "VSTUARIO");
                         PGJ.CargaCombo(rb_ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
 
-                        foreach (var item in cargarPadecmientos())
+                        foreach (var item in ld.cargarPadecimientos())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE PADECIMIENTOS
                         {
-                            //ddlPadecimientos.Items.Add(item.ToString());
-                            lbPad.Items.Add(item.ToString());
+                            lbPad.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                        }
+
+                        foreach (var item in ld.cargarEnfermedadesSistematicas())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE PADECIMIENTOS
+                        {
+                            lbSistematicas.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
                         }
 
                         CargarPNL();
@@ -424,8 +407,19 @@ namespace AtencionTemprana
                 txtCirugias.Text = dr["Cirugias"].ToString();
                 rbEmbarazo.SelectedValue = dr["Embarazo"].ToString();
 
-                string p = txtPadecimientos.Text;                
-                string[] padecimientosList = p.Split(',');                
+
+                //OBTENGO EN UNA VARIABLE EL TEXTO DEVUELTO EN LA CONSULTA
+                string p = txtPadecimientos.Text;
+                string s = txtSistematicas.Text;
+
+                //SEPARO POR ',' LO QUE CONTIENE LA VARIABLE Y LO ALMACENO EN UN ARRAY STRING
+                string[] padecimientosList = p.Split(',');
+                string[] sistematicasList = s.Split(',');
+
+                /*
+                 *RECORRO CADA ITEM DEL LISTBOX CARGADO Y LO COMPARO CON CADA ELEMENTO DEL ARREGLO PARA 
+                 *MARCAR COMO SELECCIONADO EL ITEM SI COINCIDE CON UN ELEMENTO DEL ARRAY 
+                 */
                 foreach (ListItem item in lbPad.Items)
                 {
                     foreach(string padecimiento in padecimientosList) 
@@ -436,6 +430,18 @@ namespace AtencionTemprana
                         }                
                     }                    
                 }
+
+                foreach (ListItem item in lbSistematicas.Items)
+                {
+                    foreach (string sistematica in sistematicasList)
+                    {
+                        if (sistematica.Equals(item.Text))
+                        {
+                            item.Selected = true;
+                        }
+                    }
+                }
+
 
                 if (rbEmbarazo.SelectedValue == "1")
                 {
@@ -474,6 +480,18 @@ namespace AtencionTemprana
                 rbControlNatal.SelectedValue = dr["ControlNatal"].ToString();
                 txtOtroControlNatal.Text = dr["OtroControlNatal"].ToString();
 
+                if (rbControlNatal.SelectedValue == "4")
+                {
+                    txtOtroControlNatal.Visible = true;
+                    Label31.Visible = true;
+                    SetFocus(txtOtroControlNatal);
+                }
+                else
+                {
+                    txtOtroControlNatal.Visible = false;
+                    Label31.Visible = false;
+                    SetFocus(rbControlNatal);
+                }
             }
             dr.Close();
 
@@ -615,16 +633,10 @@ namespace AtencionTemprana
             dr.Close();
         }
 
-
-
-
-
         protected void btnAgregarDonante_Click(object sender, EventArgs e)
         {
             Response.Redirect("PNLDonante.aspx?op=Agregar");
         }
-
-
 
         protected void btnAgregarFotografia_Click(object sender, EventArgs e)
         {
@@ -636,8 +648,6 @@ namespace AtencionTemprana
             Session["op"] = " ";
             Response.Redirect("PNLLocalizacion.aspx?op=Agregar");
         }
-
-
 
         void CargarOfendidoParaComparar()
         {
@@ -662,19 +672,14 @@ namespace AtencionTemprana
                 btnAgregarFotografia.Visible = false;
                 btnLocalizacion.Visible = false;
                 btnagregarVestimenta.Visible = false;
-
-
-
             }
             dr.Close();
-
         }
                        
         protected void btnGuardarDatos_Click(object sender, EventArgs e)
         {
 
-            lblError.Text = "";       
- 
+            lblError.Text = "";        
 
             /*
              * GUARDAR EN VARIABLE (padecimientos),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
@@ -684,11 +689,21 @@ namespace AtencionTemprana
             {
                 if (item.Selected)
                 { 
-                        //txtPadecimientos.Text += item.Text + ", ";
                         padecimientos += item.Text + ",";
                 }
             }
 
+            /*
+            * GUARDAR EN VARIABLE (sistematicas),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
+            */
+            string sistematicas = "";
+            foreach (ListItem item in lbSistematicas.Items)
+            {
+                if (item.Selected)
+                {
+                    sistematicas += item.Text + ",";
+                }
+            }
 
             DateTime dt1 = new DateTime();
             dt1 = Convert.ToDateTime(txtUltimoAvistamiento.Text);
@@ -740,7 +755,7 @@ namespace AtencionTemprana
                         PGJ.PNL_InsertaInfoFinanciera(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(ddlBanco.SelectedValue), txtNumCuenta.Text, txtTipoCuenta.Text, short.Parse(ddlBanco0.SelectedValue), txtNumTarjetaCredito.Text, short.Parse(ddlBanco1.SelectedValue), txtNumTarjetaDebito.Text, txtTarjetaDepartamental.Text, txtNumTarjetaDepartamental.Text);
 
                         /*INSERTA DISCAPACIDADES*/
-                        PGJ.PNL_InsertaDiscapacidades(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, /*ddlPadecimientos.SelectedValue*//*txtPadecimientos.Text*/padecimientos, txtSistematicas.Text, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), /*chCesarea*/rbCesarea.Checked, /*chPartoNatural*/rbPartoNat.Checked, /*chAborto*/rbAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
+                        PGJ.PNL_InsertaDiscapacidades(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, /*ddlPadecimientos.SelectedValue*//*txtPadecimientos.Text*/padecimientos, sistematicas/*txtSistematicas.Text*/, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), /*chCesarea*/rbCesarea.Checked, /*chPartoNatural*/rbPartoNat.Checked, /*chAborto*/rbAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
 
                         /*INSERTA INFORMACIÓN ODONTOLÓGICA*/
                         PGJ.PNL_InsertaInformacionOdontologica(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(rbExpedienteDental.SelectedValue), txtOdontologo.Text, short.Parse(ddlTamDientes.SelectedValue), short.Parse(rbCompletos.SelectedValue), short.Parse(rbSeparados.SelectedValue), short.Parse(rbGirados.SelectedValue), short.Parse(rbApinonados.SelectedValue), short.Parse(rbManchados.SelectedValue), short.Parse(rbDesgaste.SelectedValue), short.Parse(rbResinas.SelectedValue), short.Parse(rbAmalgamas.SelectedValue), short.Parse(rbCoronasMetalicas.SelectedValue), short.Parse(rbCoronasEsteticas.SelectedValue), short.Parse(rbEndodoncia.SelectedValue), short.Parse(rbBlanqueamiento.SelectedValue), short.Parse(rbIncrustacion.SelectedValue), txtOtro.Text, short.Parse(ddlProtesis.SelectedValue), short.Parse(rbBraquets.SelectedValue), short.Parse(rbRetenedores.SelectedValue), short.Parse(rbImplantes.SelectedValue), txtOtro.Text, short.Parse(rbPuesto.SelectedValue), txtAusenciasDentales.Text, txtHabitosDentales.Text);
@@ -771,7 +786,7 @@ namespace AtencionTemprana
                         + txtNumTarjetaDebito.Text + ", Tarjeta departamental = " + txtTarjetaDepartamental.Text + ", Num tarjeta departamental = " +
                         txtNumTarjetaDepartamental.Text + ", DISCAPACIDADES: Discapacidad mental= " + ddlDiscapacidadMental.SelectedItem + ", Discapacidad mental= " +
                         txtDiscapacidadMental.Text + ", Discapacidad física= " + ddlDiscapacidadFisica.SelectedItem + ", Discapacidad física= " +
-                        txtDiscapacidadFisica.Text + ", Padecimientos= " + /*txtPadecimientos.Text*/padecimientos + ", Enfermadades sistemáticas= " + txtSistematicas.Text +
+                        txtDiscapacidadFisica.Text + ", Padecimientos= " + /*txtPadecimientos.Text*/padecimientos + ", Enfermadades sistemáticas= " + sistematicas/*txtSistematicas.Text*/ +
                         ", Enfermedad mental= " + txtEnfermedadMental.Text + ", Enfermedades piel= " + txtEnfermedadPiel.Text + ", Adicciones= " + txtAdicciones.Text +
                         ", Medicamentos= " + txtMedicamentos.Text + ", Cirugias= " + txtCirugias.Text + ", Embarazo= " + rbEmbarazo.SelectedItem + ", Control natal= "
                         + rbControlNatal.SelectedItem + ", Otro control natal= " + txtOtroControlNatal.Text + ", INFO ODNTOLOGICA: Odontólogo= " + txtOdontologo.Text +
@@ -830,7 +845,7 @@ namespace AtencionTemprana
                                 PGJ.PNL_ActualizaInfoFinanciera(int.Parse(ID_INFO_FINANCIERA.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlBanco.SelectedValue), txtNumCuenta.Text, txtTipoCuenta.Text, short.Parse(ddlBanco0.SelectedValue), txtNumTarjetaCredito.Text, short.Parse(ddlBanco1.SelectedValue), txtNumTarjetaDebito.Text, txtTarjetaDepartamental.Text, txtNumTarjetaDepartamental.Text);
 
                                 /*MODIFICA DISCAPACIDADES*/
-                                PGJ.PNL_ActualizaDiscapacidades(int.Parse(ID_DISCAPACIDADES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, /*ddlPadecimientos.SelectedValue*//*txtPadecimientos.Text*/padecimientos, txtSistematicas.Text, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), /*chCesarea*/rbCesarea.Checked, /*chPartoNatural*/rbPartoNat.Checked, /*chAborto*/rbAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
+                                PGJ.PNL_ActualizaDiscapacidades(int.Parse(ID_DISCAPACIDADES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, /*ddlPadecimientos.SelectedValue*//*txtPadecimientos.Text*/padecimientos, sistematicas/*txtSistematicas.Text*/, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), /*chCesarea*/rbCesarea.Checked, /*chPartoNatural*/rbPartoNat.Checked, /*chAborto*/rbAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
 
                                 /*MODIFICA INFORMACIÓN ODONTOLÓGICA*/
                                 PGJ.PNL_ActualizaInformacionOdontologica(int.Parse(ID_INFO_ODONTOLOGICA.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(rbExpedienteDental.SelectedValue), txtOdontologo.Text, short.Parse(ddlTamDientes.SelectedValue), short.Parse(rbCompletos.SelectedValue), short.Parse(rbSeparados.SelectedValue), short.Parse(rbGirados.SelectedValue), short.Parse(rbApinonados.SelectedValue), short.Parse(rbManchados.SelectedValue), short.Parse(rbDesgaste.SelectedValue), short.Parse(rbResinas.SelectedValue), short.Parse(rbAmalgamas.SelectedValue), short.Parse(rbCoronasMetalicas.SelectedValue), short.Parse(rbCoronasEsteticas.SelectedValue), short.Parse(rbEndodoncia.SelectedValue), short.Parse(rbBlanqueamiento.SelectedValue), short.Parse(rbIncrustacion.SelectedValue), txtOtro.Text, short.Parse(ddlProtesis.SelectedValue), short.Parse(rbBraquets.SelectedValue), short.Parse(rbRetenedores.SelectedValue), short.Parse(rbImplantes.SelectedValue), txtOtro.Text, short.Parse(rbPuesto.SelectedValue), txtAusenciasDentales.Text, txtHabitosDentales.Text);
@@ -941,7 +956,6 @@ namespace AtencionTemprana
 
                         PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 2, "Inserta DATOS GENERALES: IdCarpeta= " + ID_CARPETA.Text + ", IdMunicipio " + Session["IdMunicipio"].ToString() + ", IdPersona= " + ID_PERSONA.Text + ", Vestimenta seleccionada: " + ddlVestimenta.SelectedItem + ", Descripción vestimenta: " + txtDescVestimenta.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
                 
-
                         gvVestimenta.DataSourceID = "dsConsultaVestimenta";
                         gvVestimenta.DataBind();
                         txtDescVestimenta.Text = "";
@@ -952,14 +966,12 @@ namespace AtencionTemprana
                     }
                 }
             }
-
         }
 
         protected void btnRegresar_Click(object sender, EventArgs e)
         {
             try
             {
-
                 if (lblArbol.Text == "2")
                 {
 
@@ -994,7 +1006,6 @@ namespace AtencionTemprana
             catch (Exception ex)
             {
                 lblEstatus.Text = ex.Message;
-
             }
             
             
@@ -1008,14 +1019,12 @@ namespace AtencionTemprana
         {
 
             if (chbLevantons.Checked == true)
-            {               
-               
+            {   
                 lblTipo.Visible = true;
                 ddlTipo.Visible = true;
             }
             else
             {
-
                 lblTipo.Visible = false;
                 ddlTipo.Visible = false;
             }

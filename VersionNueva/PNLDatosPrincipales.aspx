@@ -19,7 +19,7 @@
                 allow_single_deselect: true,
                 no_results_text: "No existe: ",
                 width: "95%",
-                placeholder_text_multiple: "-- Selecciona --",                    
+                placeholder_text_multiple: "-- Selecciona --",
                 multiple: true
             });
 
@@ -93,17 +93,15 @@
             border-left-width:1px;
             border-right-width:1px;
         }        
-        .style22
-        {
-            width: 299px;
-        }
-        .style23
-        {
-            width: 257px;
-        }
         .style24
         {
             width: 251px;
+        }
+        
+        .style25
+        {
+            width: 251px;
+            height: 20px;
         }
         
     </style>
@@ -726,10 +724,13 @@
                                <br />-->         
                                <!--<asp:DropDownList ID="ddlPadecimientos" runat="server"  Width="200px" Visible="true" > 
                                     </asp:DropDownList> class="chosen-select"-->
-                                <asp:ListBox ID="lbPad" runat="server" SelectionMode="Multiple" Width="200px" AutoPostBack="true" class="chosen-select"></asp:ListBox>                              
+                                <asp:ListBox ID="lbPad" runat="server" SelectionMode="Multiple" Width="200px" 
+                                    AutoPostBack="True" class="chosen-select"></asp:ListBox>                              
                             </td>
                             <td class="style24">
-                                <asp:TextBox ID="txtSistematicas" runat="server" Width="200px"></asp:TextBox>
+                                <!--<asp:TextBox ID="txtSistematicas" runat="server" Width="200px"></asp:TextBox>-->
+                                <asp:ListBox ID="lbSistematicas" runat="server" SelectionMode="Multiple" 
+                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox>                              
                             </td>
                             <td class="style24">
                                 <asp:TextBox ID="txtEnfermedadMental" runat="server" Width="200px"></asp:TextBox>
@@ -849,18 +850,24 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="style24">
+                            <td class="style24"> &nbsp;&nbsp;</td>
+                            <td class="style24"> &nbsp;&nbsp;</td>
+                            <td class="style24"> &nbsp;&nbsp;</td>
+                            <td class="style24"> &nbsp;&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="style25">
                                 <asp:Label ID="Label30" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="CONTROL NATAL"></asp:Label>
                             </td>
-                            <td class="style24">
+                            <td class="style25">
                                 <asp:Label ID="Label31" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     Text="OTRO CONTROL NATAL" Visible="False"></asp:Label>
                             </td>
-                            <td class="style24">
+                            <td class="style25">
                                 &nbsp;&nbsp;
                             </td>
-                            <td class="style24">
+                            <td class="style25">
                                 &nbsp;&nbsp;
                             </td>
                         </tr>
