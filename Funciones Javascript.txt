@@ -16,3 +16,33 @@ function soloLetras(e) {
                          return false;
                      }
                  }
+
+
+Ejemplo para recorrer elementos en un ListBox con el pluguin (chosen-select)
+
+function PageInit_AlertOrNotification() {
+            $(".chosen-select").chosen({
+                allow_single_deselect: true,
+                no_results_text: "No existe: ",
+                width: "95%",
+                placeholder_text_multiple: "-- Selecciona --",                    
+                multiple: true
+            });
+
+            if ($(".chosen-select option:selected").val() == "NINGUNA") {
+                var commaSeparated = $('#<%= lbPad.ClientID %> option')
+                .not('option:eq(0)').map(function () {
+                    return this.innerHTML;
+                }).get().join(',');
+                $('#<%= txtPadecimientos.ClientID %>').val(commaSeparated);
+
+                var i = commaSeparated.split(',');
+
+                for (var j in i) {
+                    $(".chosen-select option[value='" + i[j] + "']").attr("disabled", true)
+                }
+            }
+            else {
+                $(".chosen-select option[value='NINGUNA']").attr("disabled", true)
+             }
+        }
