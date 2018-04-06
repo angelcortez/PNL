@@ -922,6 +922,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.TextBox txtEnfermedadMental;
         
         /// <summary>
+        /// lbEnfermedadMental control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbEnfermedadMental;
+        
+        /// <summary>
         /// txtEnfermedadPiel control.
         /// </summary>
         /// <remarks>
@@ -929,6 +938,15 @@ namespace AtencionTemprana {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEnfermedadPiel;
+        
+        /// <summary>
+        /// lbenfermedadPiel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbenfermedadPiel;
         
         /// <summary>
         /// Label22 control.
@@ -967,6 +985,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.TextBox txtAdicciones;
         
         /// <summary>
+        /// lbAdicciones control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbAdicciones;
+        
+        /// <summary>
         /// txtMedicamentos control.
         /// </summary>
         /// <remarks>
@@ -976,6 +1003,15 @@ namespace AtencionTemprana {
         protected global::System.Web.UI.WebControls.TextBox txtMedicamentos;
         
         /// <summary>
+        /// lbMedicamentos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbMedicamentos;
+        
+        /// <summary>
         /// txtCirugias control.
         /// </summary>
         /// <remarks>
@@ -983,6 +1019,15 @@ namespace AtencionTemprana {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCirugias;
+        
+        /// <summary>
+        /// lbCirugias control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbCirugias;
         
         /// <summary>
         /// Label26 control.

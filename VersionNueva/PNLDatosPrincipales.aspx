@@ -95,8 +95,10 @@
         }        
         .style24
         {
-            width: 251px;
+            width: 251px;            
         }
+        
+        #td1 {margin: 0px;}        
         
         .style25
         {
@@ -719,7 +721,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="style24">
+                            <td valign="top" class="style24">
                                <!--<asp:TextBox ID="txtPadecimientos" runat="server" Width="195px" Visible="true"  ></asp:TextBox> 
                                <br />-->         
                                <!--<asp:DropDownList ID="ddlPadecimientos" runat="server"  Width="200px" Visible="true" > 
@@ -727,16 +729,20 @@
                                 <asp:ListBox ID="lbPad" runat="server" SelectionMode="Multiple" Width="200px" 
                                     AutoPostBack="True" class="chosen-select"></asp:ListBox>                              
                             </td>
-                            <td class="style24">
-                                <!--<asp:TextBox ID="txtSistematicas" runat="server" Width="200px"></asp:TextBox>-->
-                                <asp:ListBox ID="lbSistematicas" runat="server" SelectionMode="Multiple" 
-                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox>                              
+                            <td valign="top" class="style24">
+                                <!--<asp:TextBox ID="txtSistematicas" runat="server" Width="200px"></asp:TextBox>-->                                
+                                    <asp:ListBox ID="lbSistematicas" runat="server" SelectionMode="Multiple" 
+                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox>                                                              
                             </td>
-                            <td class="style24">
-                                <asp:TextBox ID="txtEnfermedadMental" runat="server" Width="200px"></asp:TextBox>
+                            <td valign="top" class="style24">
+                                <!--<asp:TextBox ID="txtEnfermedadMental" runat="server" Width="200px"></asp:TextBox>-->
+                                <asp:ListBox ID="lbEnfermedadMental" runat="server" SelectionMode="Multiple" 
+                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox> 
                             </td>
-                            <td class="style24">
-                                <asp:TextBox ID="txtEnfermedadPiel" runat="server" Width="200px"></asp:TextBox>
+                            <td valign="top" class="style24">
+                                <!--<asp:TextBox ID="txtEnfermedadPiel" runat="server" Width="200px"></asp:TextBox>-->
+                                <asp:ListBox ID="lbenfermedadPiel" runat="server" SelectionMode="Multiple" 
+                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox> 
                             </td>
                         </tr>
                         <tr>
@@ -771,14 +777,20 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="style24">
-                                <asp:TextBox ID="txtAdicciones" runat="server" Width="200px"></asp:TextBox>
+                            <td valign="top" class="style24">
+                                <!--<asp:TextBox ID="txtAdicciones" runat="server" Width="200px"></asp:TextBox>-->
+                                <asp:ListBox ID="lbAdicciones" runat="server" SelectionMode="Multiple" 
+                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox> 
                             </td>
-                            <td class="style24">
-                                <asp:TextBox ID="txtMedicamentos" runat="server" Width="200px"></asp:TextBox>
+                            <td valign="top" class="style24">
+                                <!--<asp:TextBox ID="txtMedicamentos" runat="server" Width="200px"></asp:TextBox>-->
+                                <asp:ListBox ID="lbMedicamentos" runat="server" SelectionMode="Multiple" 
+                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox> 
                             </td>
-                            <td class="style24">
-                                <asp:TextBox ID="txtCirugias" runat="server" Width="200px"></asp:TextBox>
+                            <td valign="top" class="style24">
+                                <!--<asp:TextBox ID="txtCirugias" runat="server" Width="200px"></asp:TextBox>-->
+                                <asp:ListBox ID="lbCirugias" runat="server" SelectionMode="Multiple" 
+                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox> 
                             </td>
                             <td class="style24">
                                 &nbsp;&nbsp;

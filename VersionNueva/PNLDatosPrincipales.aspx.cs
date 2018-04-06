@@ -84,9 +84,34 @@ namespace AtencionTemprana
                         lbPad.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
                     }
 
-                    foreach (var item in ld.cargarEnfermedadesSistematicas())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE PADECIMIENTOS
+                    foreach (var item in ld.cargarEnfermedadesSistematicas())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE ENFERMEDADES SISTEMATICAS
                     {
                         lbSistematicas.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                    }
+
+                    foreach (var item in ld.cargargarEnfermedadesMentales())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE ENFERMEDADES MENTALES
+                    {
+                        lbEnfermedadMental.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                    }
+
+                    foreach (var item in ld.cargarEnfermedadesPiel())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE ENFERMEDADES PIEL
+                    {
+                        lbenfermedadPiel.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                    }
+
+                    foreach (var item in ld.cargarAdicciones())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE ADICCIONES
+                    {
+                        lbAdicciones.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                    }
+
+                    foreach (var item in ld.cargarMedicamentos())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE MEDICAMENTOS
+                    {
+                        lbMedicamentos.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                    }
+
+                    foreach (var item in ld.cargarCirugias())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE MEDICAMENTOS
+                    {
+                        lbCirugias.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
                     }
 
                     cargarOfendido();
@@ -143,9 +168,34 @@ namespace AtencionTemprana
                             lbPad.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
                         }
 
-                        foreach (var item in ld.cargarEnfermedadesSistematicas())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE PADECIMIENTOS
+                        foreach (var item in ld.cargarEnfermedadesSistematicas())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE ENFERMEDADES SISTEMATICAS
                         {
                             lbSistematicas.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                        }
+
+                        foreach (var item in ld.cargargarEnfermedadesMentales())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE ENFERMEDADES MENTALES
+                        {
+                            lbEnfermedadMental.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                        }
+
+                        foreach (var item in ld.cargarEnfermedadesPiel())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE ENFERMEDADES PIEL
+                        {
+                            lbenfermedadPiel.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                        }
+
+                        foreach (var item in ld.cargarAdicciones())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE ADICCIONES
+                        {
+                            lbAdicciones.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                        }
+
+                        foreach (var item in ld.cargarMedicamentos())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE MEDICAMENTOS
+                        {
+                            lbMedicamentos.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+                        }
+
+                        foreach (var item in ld.cargarCirugias())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE MEDICAMENTOS
+                        {
+                            lbCirugias.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
                         }
 
                         CargarPNL();
@@ -411,10 +461,20 @@ namespace AtencionTemprana
                 //OBTENGO EN UNA VARIABLE EL TEXTO DEVUELTO EN LA CONSULTA
                 string p = txtPadecimientos.Text;
                 string s = txtSistematicas.Text;
+                string em = txtEnfermedadMental.Text;
+                string ep = txtEnfermedadPiel.Text;
+                string a = txtAdicciones.Text;
+                string m = txtMedicamentos.Text;
+                string c = txtCirugias.Text;
 
                 //SEPARO POR ',' LO QUE CONTIENE LA VARIABLE Y LO ALMACENO EN UN ARRAY STRING
                 string[] padecimientosList = p.Split(',');
                 string[] sistematicasList = s.Split(',');
+                string[] enfermedadMentalList = em.Split(',');
+                string[] enfermedadPielList = ep.Split(',');
+                string[] adiccionesList = a.Split(',');
+                string[] medicamentosList = m.Split(',');
+                string[] cirugiasList = c.Split(',');
 
                 /*
                  *RECORRO CADA ITEM DEL LISTBOX CARGADO Y LO COMPARO CON CADA ELEMENTO DEL ARREGLO PARA 
@@ -436,6 +496,72 @@ namespace AtencionTemprana
                     foreach (string sistematica in sistematicasList)
                     {
                         if (sistematica.Equals(item.Text))
+                        {
+                            item.Selected = true;
+                        }
+                    }
+                }
+
+                foreach (ListItem item in lbEnfermedadMental.Items)
+                {
+                    foreach (string enfermedadMental in enfermedadMentalList)
+                    {
+                        if (enfermedadMental.Equals(item.Text))
+                        {
+                            item.Selected = true;
+                        }
+                    }
+                }
+
+                foreach (ListItem item in lbenfermedadPiel.Items)
+                {
+                    foreach (string enfermedadPiel in enfermedadPielList)
+                    {
+                        if (enfermedadPiel.Equals(item.Text))
+                        {
+                            item.Selected = true;
+                        }
+                    }
+                }
+
+                foreach (ListItem item in  lbAdicciones.Items)
+                {
+                    foreach (string adiccion in adiccionesList)
+                    {
+                        if (adiccion.Equals(item.Text))
+                        {
+                            item.Selected = true;
+                        }
+                    }
+                }
+
+                foreach (ListItem item in lbMedicamentos.Items)
+                {
+                    foreach (string medicamento in medicamentosList)
+                    {
+                        if (medicamento.Equals(item.Text))
+                        {
+                            item.Selected = true;
+                        }
+                    }
+                }
+
+                foreach (ListItem item in lbMedicamentos.Items)
+                {
+                    foreach (string medicamento in medicamentosList)
+                    {
+                        if (medicamento.Equals(item.Text))
+                        {
+                            item.Selected = true;
+                        }
+                    }
+                }
+
+                foreach (ListItem item in lbCirugias.Items)
+                {
+                    foreach (string cirugia in cirugiasList)
+                    {
+                        if (cirugia.Equals(item.Text))
                         {
                             item.Selected = true;
                         }
@@ -705,6 +831,66 @@ namespace AtencionTemprana
                 }
             }
 
+            /*
+            * GUARDAR EN VARIABLE (enfermedadesMentales),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
+            */
+            string enfermedadesMentales = "";
+            foreach (ListItem item in lbEnfermedadMental.Items)
+            {
+                if (item.Selected)
+                {
+                    enfermedadesMentales += item.Text + ",";
+                }
+            }
+
+            /*
+            * GUARDAR EN VARIABLE (enfermedadPiel),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
+            */
+            string enfermedadesPiel = "";
+            foreach (ListItem item in lbenfermedadPiel.Items)
+            {
+                if (item.Selected)
+                {
+                    enfermedadesPiel += item.Text + ",";
+                }
+            }
+
+            /*
+            * GUARDAR EN VARIABLE (adicciones),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
+            */
+            string adicciones = "";
+            foreach (ListItem item in lbAdicciones.Items)
+            {
+                if (item.Selected)
+                {
+                    adicciones += item.Text + ",";
+                }
+            }
+
+            /*
+            * GUARDAR EN VARIABLE (medicamentos),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
+            */
+            string medicamentos = "";
+            foreach (ListItem item in lbMedicamentos.Items)
+            {
+                if (item.Selected)
+                {
+                    medicamentos += item.Text + ",";
+                }
+            }
+
+            /*
+            * GUARDAR EN VARIABLE (cirugias),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
+            */
+            string cirugias = "";
+            foreach (ListItem item in lbCirugias.Items)
+            {
+                if (item.Selected)
+                {
+                    cirugias += item.Text + ",";
+                }
+            }
+
             DateTime dt1 = new DateTime();
             dt1 = Convert.ToDateTime(txtUltimoAvistamiento.Text);
             if (dt1.Date > DateTime.Now.Date)
@@ -755,7 +941,7 @@ namespace AtencionTemprana
                         PGJ.PNL_InsertaInfoFinanciera(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(ddlBanco.SelectedValue), txtNumCuenta.Text, txtTipoCuenta.Text, short.Parse(ddlBanco0.SelectedValue), txtNumTarjetaCredito.Text, short.Parse(ddlBanco1.SelectedValue), txtNumTarjetaDebito.Text, txtTarjetaDepartamental.Text, txtNumTarjetaDepartamental.Text);
 
                         /*INSERTA DISCAPACIDADES*/
-                        PGJ.PNL_InsertaDiscapacidades(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, /*ddlPadecimientos.SelectedValue*//*txtPadecimientos.Text*/padecimientos, sistematicas/*txtSistematicas.Text*/, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), /*chCesarea*/rbCesarea.Checked, /*chPartoNatural*/rbPartoNat.Checked, /*chAborto*/rbAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
+                        PGJ.PNL_InsertaDiscapacidades(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, /*ddlPadecimientos.SelectedValue*//*txtPadecimientos.Text*/padecimientos, sistematicas/*txtSistematicas.Text*/, enfermedadesMentales /*txtEnfermedadMental.Text*/, enfermedadesPiel/*txtEnfermedadPiel.Text*/, adicciones/*txtAdicciones.Text*/, medicamentos/*txtMedicamentos.Text*/, cirugias/*txtCirugias.Text*/, short.Parse(rbEmbarazo.SelectedValue), /*chCesarea*/rbCesarea.Checked, /*chPartoNatural*/rbPartoNat.Checked, /*chAborto*/rbAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
 
                         /*INSERTA INFORMACIÓN ODONTOLÓGICA*/
                         PGJ.PNL_InsertaInformacionOdontologica(0, int.Parse(ID_CARPETA.Text), short.Parse(Session["IdMunicipio"].ToString()), int.Parse(ddlOfendido.SelectedValue.ToString()), short.Parse(rbExpedienteDental.SelectedValue), txtOdontologo.Text, short.Parse(ddlTamDientes.SelectedValue), short.Parse(rbCompletos.SelectedValue), short.Parse(rbSeparados.SelectedValue), short.Parse(rbGirados.SelectedValue), short.Parse(rbApinonados.SelectedValue), short.Parse(rbManchados.SelectedValue), short.Parse(rbDesgaste.SelectedValue), short.Parse(rbResinas.SelectedValue), short.Parse(rbAmalgamas.SelectedValue), short.Parse(rbCoronasMetalicas.SelectedValue), short.Parse(rbCoronasEsteticas.SelectedValue), short.Parse(rbEndodoncia.SelectedValue), short.Parse(rbBlanqueamiento.SelectedValue), short.Parse(rbIncrustacion.SelectedValue), txtOtro.Text, short.Parse(ddlProtesis.SelectedValue), short.Parse(rbBraquets.SelectedValue), short.Parse(rbRetenedores.SelectedValue), short.Parse(rbImplantes.SelectedValue), txtOtro.Text, short.Parse(rbPuesto.SelectedValue), txtAusenciasDentales.Text, txtHabitosDentales.Text);
@@ -787,8 +973,8 @@ namespace AtencionTemprana
                         txtNumTarjetaDepartamental.Text + ", DISCAPACIDADES: Discapacidad mental= " + ddlDiscapacidadMental.SelectedItem + ", Discapacidad mental= " +
                         txtDiscapacidadMental.Text + ", Discapacidad física= " + ddlDiscapacidadFisica.SelectedItem + ", Discapacidad física= " +
                         txtDiscapacidadFisica.Text + ", Padecimientos= " + /*txtPadecimientos.Text*/padecimientos + ", Enfermadades sistemáticas= " + sistematicas/*txtSistematicas.Text*/ +
-                        ", Enfermedad mental= " + txtEnfermedadMental.Text + ", Enfermedades piel= " + txtEnfermedadPiel.Text + ", Adicciones= " + txtAdicciones.Text +
-                        ", Medicamentos= " + txtMedicamentos.Text + ", Cirugias= " + txtCirugias.Text + ", Embarazo= " + rbEmbarazo.SelectedItem + ", Control natal= "
+                        ", Enfermedad mental= " + enfermedadesMentales/*txtEnfermedadMental.Text*/ + ", Enfermedades piel= " + enfermedadesPiel/*txtEnfermedadPiel.Text*/ + ", Adicciones= " + adicciones/*txtAdicciones.Text*/ +
+                        ", Medicamentos= " + medicamentos/*txtMedicamentos.Text*/ + ", Cirugias= " + cirugias/*txtCirugias.Text*/ + ", Embarazo= " + rbEmbarazo.SelectedItem + ", Control natal= "
                         + rbControlNatal.SelectedItem + ", Otro control natal= " + txtOtroControlNatal.Text + ", INFO ODNTOLOGICA: Odontólogo= " + txtOdontologo.Text +
                         ", Tamaño dientes= " + ddlTamDientes.SelectedItem + ", Dientes completos= " + rbCompletos.SelectedValue + ", Dientes separados= " +
                         rbSeparados.SelectedItem + ", Dientes girados= " + rbGirados.SelectedItem + ", Dientes apiñonados= " + rbApinonados.SelectedItem +
@@ -845,7 +1031,7 @@ namespace AtencionTemprana
                                 PGJ.PNL_ActualizaInfoFinanciera(int.Parse(ID_INFO_FINANCIERA.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlBanco.SelectedValue), txtNumCuenta.Text, txtTipoCuenta.Text, short.Parse(ddlBanco0.SelectedValue), txtNumTarjetaCredito.Text, short.Parse(ddlBanco1.SelectedValue), txtNumTarjetaDebito.Text, txtTarjetaDepartamental.Text, txtNumTarjetaDepartamental.Text);
 
                                 /*MODIFICA DISCAPACIDADES*/
-                                PGJ.PNL_ActualizaDiscapacidades(int.Parse(ID_DISCAPACIDADES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text, /*ddlPadecimientos.SelectedValue*//*txtPadecimientos.Text*/padecimientos, sistematicas/*txtSistematicas.Text*/, txtEnfermedadMental.Text, txtEnfermedadPiel.Text, txtAdicciones.Text, txtMedicamentos.Text, txtCirugias.Text, short.Parse(rbEmbarazo.SelectedValue), /*chCesarea*/rbCesarea.Checked, /*chPartoNatural*/rbPartoNat.Checked, /*chAborto*/rbAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
+                                PGJ.PNL_ActualizaDiscapacidades(int.Parse(ID_DISCAPACIDADES.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(ddlDiscapacidadMental.SelectedValue), txtDiscapacidadMental.Text, short.Parse(ddlDiscapacidadFisica.SelectedValue), txtDiscapacidadFisica.Text,  /*ddlPadecimientos.SelectedValue*//*txtPadecimientos.Text*/padecimientos, sistematicas/*txtSistematicas.Text*/, enfermedadesMentales /*txtEnfermedadMental.Text*/, enfermedadesPiel/*txtEnfermedadPiel.Text*/, adicciones/*txtAdicciones.Text*/, medicamentos/*txtMedicamentos.Text*/, cirugias/*txtCirugias.Text*/, short.Parse(rbEmbarazo.SelectedValue), /*chCesarea*/rbCesarea.Checked, /*chPartoNatural*/rbPartoNat.Checked, /*chAborto*/rbAborto.Checked, short.Parse(rbControlNatal.SelectedValue), txtOtroControlNatal.Text);
 
                                 /*MODIFICA INFORMACIÓN ODONTOLÓGICA*/
                                 PGJ.PNL_ActualizaInformacionOdontologica(int.Parse(ID_INFO_ODONTOLOGICA.Text), int.Parse(ID_CARPETA.Text), short.Parse(ID_MUNICIPIO_CARPETA.Text), int.Parse(ID_PERSONA.Text), short.Parse(rbExpedienteDental.SelectedValue), txtOdontologo.Text, short.Parse(ddlTamDientes.SelectedValue), short.Parse(rbCompletos.SelectedValue), short.Parse(rbSeparados.SelectedValue), short.Parse(rbGirados.SelectedValue), short.Parse(rbApinonados.SelectedValue), short.Parse(rbManchados.SelectedValue), short.Parse(rbDesgaste.SelectedValue), short.Parse(rbResinas.SelectedValue), short.Parse(rbAmalgamas.SelectedValue), short.Parse(rbCoronasMetalicas.SelectedValue), short.Parse(rbCoronasEsteticas.SelectedValue), short.Parse(rbEndodoncia.SelectedValue), short.Parse(rbBlanqueamiento.SelectedValue), short.Parse(rbIncrustacion.SelectedValue), txtOtro.Text, short.Parse(ddlProtesis.SelectedValue), short.Parse(rbBraquets.SelectedValue), short.Parse(rbRetenedores.SelectedValue), short.Parse(rbImplantes.SelectedValue), txtOtro.Text, short.Parse(rbPuesto.SelectedValue), txtAusenciasDentales.Text, txtHabitosDentales.Text);
