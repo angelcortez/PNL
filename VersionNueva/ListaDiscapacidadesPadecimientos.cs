@@ -187,6 +187,5 @@ namespace AtencionTemprana
             list.Add("VESICULA");
             return list;
         }
-
     }
 }

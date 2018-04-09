@@ -79,7 +79,15 @@ namespace AtencionTemprana
                     PGJ.CargaCombo(ddlVestimenta, "CAT_VESTUARIO", "ID_VSTUARIO", "VSTUARIO");
                     PGJ.CargaCombo(rb_ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
 
-                    foreach (var item in ld.cargarPadecimientos())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE PADECIMIENTOS
+                    PGJ.CargaListBox(lbPad, ld.cargarPadecimientos());
+                    PGJ.CargaListBox(lbSistematicas, ld.cargarEnfermedadesSistematicas());
+                    PGJ.CargaListBox(lbEnfermedadMental, ld.cargargarEnfermedadesMentales());
+                    PGJ.CargaListBox(lbenfermedadPiel, ld.cargarEnfermedadesPiel());
+                    PGJ.CargaListBox(lbAdicciones, ld.cargarAdicciones());
+                    PGJ.CargaListBox(lbMedicamentos, ld.cargarMedicamentos());
+                    PGJ.CargaListBox(lbCirugias, ld.cargarCirugias());
+                   
+                    /*foreach (var item in ld.cargarPadecimientos())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE PADECIMIENTOS
                     {
                         lbPad.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
                     }
@@ -112,7 +120,7 @@ namespace AtencionTemprana
                     foreach (var item in ld.cargarCirugias())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE MEDICAMENTOS
                     {
                         lbCirugias.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
-                    }
+                    }*/
 
                     cargarOfendido();
                 }
@@ -163,7 +171,15 @@ namespace AtencionTemprana
                         PGJ.CargaCombo(ddlVestimenta, "CAT_VESTUARIO", "ID_VSTUARIO", "VSTUARIO");
                         PGJ.CargaCombo(rb_ddlTipo, "PNL_CAT_SUJETOS_CAUSALES", "IdTipoSujeto", "TipoSujeto");
 
-                        foreach (var item in ld.cargarPadecimientos())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE PADECIMIENTOS
+                        PGJ.CargaListBox(lbPad, ld.cargarPadecimientos());
+                        PGJ.CargaListBox(lbSistematicas, ld.cargarEnfermedadesSistematicas());
+                        PGJ.CargaListBox(lbEnfermedadMental, ld.cargargarEnfermedadesMentales());
+                        PGJ.CargaListBox(lbenfermedadPiel, ld.cargarEnfermedadesPiel());
+                        PGJ.CargaListBox(lbAdicciones, ld.cargarAdicciones());
+                        PGJ.CargaListBox(lbMedicamentos, ld.cargarMedicamentos());
+                        PGJ.CargaListBox(lbCirugias, ld.cargarCirugias());
+
+                        /*foreach (var item in ld.cargarPadecimientos())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE PADECIMIENTOS
                         {
                             lbPad.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
                         }
@@ -196,7 +212,7 @@ namespace AtencionTemprana
                         foreach (var item in ld.cargarCirugias())// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA DE MEDICAMENTOS
                         {
                             lbCirugias.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
-                        }
+                        }*/
 
                         CargarPNL();
                         CargarPertenenciaSocial();                       
@@ -206,7 +222,6 @@ namespace AtencionTemprana
                         CargarOtros();
                         CargarCausales();
                         cargarOfendido();
-
 
                         PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 5, "Consulto PNL Datos Principales ID_DATOS_GENERALES=" + ID_DATOS_GENERALES.Text + " IdCarpeta=" + Session["ID_CARPETA"] + " IdPersona= " + ID_PERSONA.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
 
@@ -220,8 +235,7 @@ namespace AtencionTemprana
 
                     catch (Exception ex)
                     {
-
-
+                        lblEstatus.Text = ex.ToString();
                     }
                 }
             }
@@ -429,7 +443,6 @@ namespace AtencionTemprana
                 txtNumTarjetaDebito.Text = dr["NumTarjetaDebito"].ToString();
                 txtTarjetaDepartamental.Text = dr["TarjetaDepartamental"].ToString();
                 txtNumTarjetaDepartamental.Text = dr["NumTarjetaDepartamental"].ToString();
-
             }
             dr.Close();
 
@@ -458,7 +471,7 @@ namespace AtencionTemprana
                 rbEmbarazo.SelectedValue = dr["Embarazo"].ToString();
 
 
-                //OBTENGO EN UNA VARIABLE EL TEXTO DEVUELTO EN LA CONSULTA
+                /*//OBTENGO EN UNA VARIABLE EL TEXTO DEVUELTO EN LA CONSULTA
                 string p = txtPadecimientos.Text;
                 string s = txtSistematicas.Text;
                 string em = txtEnfermedadMental.Text;
@@ -474,12 +487,17 @@ namespace AtencionTemprana
                 string[] enfermedadPielList = ep.Split(',');
                 string[] adiccionesList = a.Split(',');
                 string[] medicamentosList = m.Split(',');
-                string[] cirugiasList = c.Split(',');
+                string[] cirugiasList = c.Split(',');*/
 
+                itemsSelected(lbPad, txtPadecimientos.Text.Split(','));
+                itemsSelected(lbSistematicas, txtSistematicas.Text.Split(','));
+                itemsSelected(lbEnfermedadMental, txtEnfermedadMental.Text.Split(','));
+                itemsSelected(lbenfermedadPiel, txtEnfermedadPiel.Text.Split(','));
+                itemsSelected(lbAdicciones, txtAdicciones.Text.Split(','));
+                itemsSelected(lbMedicamentos, txtMedicamentos.Text.Split(','));
+                itemsSelected(lbCirugias, txtCirugias.Text.Split(','));
+                
                 /*
-                 *RECORRO CADA ITEM DEL LISTBOX CARGADO Y LO COMPARO CON CADA ELEMENTO DEL ARREGLO PARA 
-                 *MARCAR COMO SELECCIONADO EL ITEM SI COINCIDE CON UN ELEMENTO DEL ARRAY 
-                 */
                 foreach (ListItem item in lbPad.Items)
                 {
                     foreach(string padecimiento in padecimientosList) 
@@ -566,9 +584,8 @@ namespace AtencionTemprana
                             item.Selected = true;
                         }
                     }
-                }
-
-
+                }*/
+                
                 if (rbEmbarazo.SelectedValue == "1")
                 {
                     /*Label27.Visible = true;
@@ -600,8 +617,7 @@ namespace AtencionTemprana
 
                 /*chCesarea*/rbCesarea.Checked = bool.Parse(dr["Cesarea"].ToString());
                 /*chPartoNatural*/rbPartoNat.Checked = bool.Parse(dr["PartoNatural"].ToString());
-                /*chAborto*/rbAborto.Checked = bool.Parse(dr["Aborto"].ToString());
-               
+                /*chAborto*/rbAborto.Checked = bool.Parse(dr["Aborto"].ToString());               
                 
                 rbControlNatal.SelectedValue = dr["ControlNatal"].ToString();
                 txtOtroControlNatal.Text = dr["OtroControlNatal"].ToString();
@@ -621,6 +637,25 @@ namespace AtencionTemprana
             }
             dr.Close();
 
+        }
+
+
+        void itemsSelected(ListBox lb, string[] lista)
+        {
+        /*
+         *RECORRO CADA ITEM DEL LISTBOX CARGADO Y LO COMPARO CON CADA ELEMENTO DEL ARREGLO PARA 
+         *MARCAR COMO SELECCIONADO EL ITEM SI COINCIDE CON UN ELEMENTO DEL ARRAY 
+         */
+            foreach (ListItem item in lb.Items)
+            {
+                foreach (string elemento in lista)
+                {
+                    if (elemento.Equals(item.Text))
+                    {
+                        item.Selected = true;
+                    }
+                }
+            }
         }
 
         void CargarInfoOdontologica()
@@ -728,7 +763,6 @@ namespace AtencionTemprana
 
         void CargarCausales()
         {
-
             SqlCommand sql = new SqlCommand("PNL_ConsultaCausalesDesaparicion " + ID_CARPETA.Text + "," + ID_MUNICIPIO_CARPETA.Text + "," + ID_PERSONA.Text, Data.CnnCentral);
             SqlDataReader dr = sql.ExecuteReader();
 
@@ -801,95 +835,114 @@ namespace AtencionTemprana
             }
             dr.Close();
         }
-                       
+
+        string concatenarEnfermedades(ListBox lb) 
+        {
+            string enfermedad = "";
+            foreach (ListItem item in lb.Items)
+            {
+                if (item.Selected){enfermedad += item.Text + ",";}
+            }
+            return enfermedad;
+        }
+       
         protected void btnGuardarDatos_Click(object sender, EventArgs e)
         {
 
-            lblError.Text = "";        
+            lblError.Text = "";
+
+            string padecimientos = concatenarEnfermedades(lbPad);
+            string sistematicas = concatenarEnfermedades(lbSistematicas);
+            string enfermedadesMentales = concatenarEnfermedades(lbEnfermedadMental);
+            string enfermedadesPiel = concatenarEnfermedades(lbenfermedadPiel);
+            string adicciones = concatenarEnfermedades(lbAdicciones);
+            string medicamentos = concatenarEnfermedades(lbMedicamentos);
+            string cirugias = concatenarEnfermedades(lbCirugias);
 
             /*
              * GUARDAR EN VARIABLE (padecimientos),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
              */
-            string padecimientos = "";
+
+           /* string padecimientos = ""; 
             foreach (ListItem item in lbPad.Items)
             {
                 if (item.Selected)
                 { 
                         padecimientos += item.Text + ",";
                 }
-            }
+            }*/
 
             /*
             * GUARDAR EN VARIABLE (sistematicas),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
             */
-            string sistematicas = "";
+            /*string sistematicas = "";
             foreach (ListItem item in lbSistematicas.Items)
             {
                 if (item.Selected)
                 {
                     sistematicas += item.Text + ",";
                 }
-            }
+            }*/
 
             /*
             * GUARDAR EN VARIABLE (enfermedadesMentales),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
             */
-            string enfermedadesMentales = "";
+            /*string enfermedadesMentales = "";
             foreach (ListItem item in lbEnfermedadMental.Items)
             {
                 if (item.Selected)
                 {
                     enfermedadesMentales += item.Text + ",";
                 }
-            }
+            }*/
 
             /*
             * GUARDAR EN VARIABLE (enfermedadPiel),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
             */
-            string enfermedadesPiel = "";
+            /*string enfermedadesPiel = "";
             foreach (ListItem item in lbenfermedadPiel.Items)
             {
                 if (item.Selected)
                 {
                     enfermedadesPiel += item.Text + ",";
                 }
-            }
+            }*/
 
             /*
             * GUARDAR EN VARIABLE (adicciones),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
             */
-            string adicciones = "";
+            /*string adicciones = "";
             foreach (ListItem item in lbAdicciones.Items)
             {
                 if (item.Selected)
                 {
                     adicciones += item.Text + ",";
                 }
-            }
+            }*/
 
             /*
             * GUARDAR EN VARIABLE (medicamentos),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
             */
-            string medicamentos = "";
+            /*string medicamentos = "";
             foreach (ListItem item in lbMedicamentos.Items)
             {
                 if (item.Selected)
                 {
                     medicamentos += item.Text + ",";
                 }
-            }
+            }*/
 
             /*
             * GUARDAR EN VARIABLE (cirugias),  LO SELECCIONADO EN EL LISTBOX MULTIPLE
             */
-            string cirugias = "";
+            /*string cirugias = "";
             foreach (ListItem item in lbCirugias.Items)
             {
                 if (item.Selected)
                 {
                     cirugias += item.Text + ",";
                 }
-            }
+            }*/
 
             DateTime dt1 = new DateTime();
             dt1 = Convert.ToDateTime(txtUltimoAvistamiento.Text);
@@ -1053,7 +1106,6 @@ namespace AtencionTemprana
                                 TabContainer1.Enabled = false;
                                 Panel17.Enabled = false;
                                 btnGuardarDatos.Enabled = false;
-
                             }
                             catch (Exception ex)
                             {
@@ -1160,7 +1212,6 @@ namespace AtencionTemprana
             {
                 if (lblArbol.Text == "2")
                 {
-
                     Response.Redirect("RAC.aspx?ID_CARPETA=" + Session["ID_CARPETA"].ToString() + "&ID_ESTADO_RAC=" + Session["ID_ESTADO_RAC"].ToString());
                 }
 
@@ -1192,8 +1243,7 @@ namespace AtencionTemprana
             catch (Exception ex)
             {
                 lblEstatus.Text = ex.Message;
-            }
-            
+            }            
             
             PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 7, "Click en Boton REGRESAR desde PNL Datos principales", int.Parse(Session["IdModuloBitacora"].ToString()));
 
@@ -1203,7 +1253,6 @@ namespace AtencionTemprana
 
         protected void chbLevantons_CheckedChanged(object sender, EventArgs e)
         {
-
             if (chbLevantons.Checked == true)
             {   
                 lblTipo.Visible = true;
@@ -1220,7 +1269,6 @@ namespace AtencionTemprana
         //evento del rbLevanton para mostrar el combobox con el tipo de privacion
         protected void _CheckedChanged(object sender, EventArgs e)
         {            
-
             if ( rbLevanton.Checked == true)
             {                
                 rb_lblTipo.Visible = true;

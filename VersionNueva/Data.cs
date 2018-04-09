@@ -10,6 +10,7 @@ using System.Xml.Linq;
 using System.Data.SqlClient;
 using System.Web.Security;
 using System.Data;
+using System.Collections;
 
 namespace AtencionTemprana
 {
@@ -210,6 +211,14 @@ namespace AtencionTemprana
             SqlDataReader DR = Cmd.ExecuteReader();
             IdTurnoPantalla = Convert.ToInt32(Cmd.Parameters["@IdTurnoPantalla"].Value);
             DR.Close();
+        }
+
+        public void CargaListBox(ListBox lb, ArrayList ld)
+        {
+            foreach (var item in ld)// RECORRO TODOS LOS ITEMS QUE SE ENCUENTRAN EN LA LISTA 
+            {
+                lb.Items.Add(item.ToString());// CARGO EL LISTBOX CON CADA ITEM
+            }
         }
 
         public void CargaCombo(DropDownList Combo, String Tabla, String Id, String Campo)
