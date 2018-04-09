@@ -1127,6 +1127,7 @@
     <Compile Include="LiberacionSec.aspx.designer.cs">
       <DependentUpon>LiberacionSec.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ListaDiscapacidadesPadecimientos.cs" />
     <Compile Include="Marcadores.cs" />
     <Compile Include="Mediacion.aspx.cs">
       <DependentUpon>Mediacion.aspx</DependentUpon>
@@ -1979,7 +1980,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50625</DevelopmentServerPort>
+          <DevelopmentServerPort>55714</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
