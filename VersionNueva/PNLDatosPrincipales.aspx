@@ -833,9 +833,9 @@
                             <td class="style24">
                                 <asp:RadioButtonList ID="rbEmbarazo" runat="server" Font-Bold="True" Font-Size="Small"
                                     ForeColor="Black" RepeatDirection="Horizontal" AutoPostBack="True"  
-                                    OnSelectedIndexChanged="_onSelectedIndexChangedRB">
-                                    <asp:ListItem Value="1" Text="SI"></asp:ListItem>
-                                    <asp:ListItem Value="0" Text="NO" Selected="True"></asp:ListItem>
+                                    OnSelectedIndexChanged="_onSelectedIndexChangedRB">       
+                                    <asp:ListItem Value="1">SI</asp:ListItem>          
+                                    <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>      
                                 </asp:RadioButtonList>
                             </td>
                             <td class="style24">
