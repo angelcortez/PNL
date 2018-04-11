@@ -371,7 +371,7 @@ namespace AtencionTemprana
                 if (Session["op"].ToString() == "Agregar")
                 {
                     lblEstatus.Text = "";
-                    if (ddlCorporacion.SelectedValue.ToString() == "")
+                    if (ddlCorporacion.SelectedValue.ToString() == "--SELECCIONE--")
                     {
                         corporacion = "0";
                     }
@@ -380,7 +380,7 @@ namespace AtencionTemprana
                         corporacion = ddlCorporacion.SelectedValue.ToString();
 
                     }
-                    if (dllSujetoInterviene.SelectedValue.ToString() == "")
+                    if (dllSujetoInterviene.SelectedValue.ToString() == "--SELECCIONE--")
                     {
                         sujeto = "0";
                     }
