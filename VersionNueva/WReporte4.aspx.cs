@@ -38,25 +38,35 @@ namespace AtencionTemprana
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-            try{
-            gvEstados.Visible = true;
-            gvEstados.DataSourceID = "ObjectTabla";
-            gvEstados.DataBind();
+            try
+            {
+                gvEstados.Visible = true;
+                gvEstados.DataSourceID = "ObjectTabla";
+                gvEstados.DataBind();
 
-            ObjectDataSource ObjectDataSource1 = new ObjectDataSource("AtencionTemprana.dsReportesTableAdapters.SP_ConteoMunicipioHechosTablaTableAdapter", "GetData");
-            ObjectDataSource1.SelectParameters.Add("IdUnidad", Session["IdUnidad"].ToString());
-            ObjectDataSource1.SelectParameters.Add("Fecha1", TxtFechaInicio.Text);
-            ObjectDataSource1.SelectParameters.Add("Fecha2", TxtFechaFin.Text);
+                if (DateTime.Parse(TxtFechaInicio.Text) > DateTime.Parse(TxtFechaFin.Text))
+                {
+                    lblEstatus1.Text = "LA FECHA INICIAL NO PUEDE SER MAYOR A LA FINAL, INTENTE NUEVAMENTE PORFAVOR";
+                }
+                else
+                {
+                    lblEstatus1.Text = "";
 
-            Microsoft.Reporting.WebForms.ReportDataSource rds = new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", ObjectDataSource1);
+                    ObjectDataSource ObjectDataSource1 = new ObjectDataSource("AtencionTemprana.dsReportesTableAdapters.SP_ConteoMunicipioHechosTablaTableAdapter", "GetData");
+                    ObjectDataSource1.SelectParameters.Add("IdUnidad", Session["IdUnidad"].ToString());
+                    ObjectDataSource1.SelectParameters.Add("Fecha1", TxtFechaInicio.Text);
+                    ObjectDataSource1.SelectParameters.Add("Fecha2", TxtFechaFin.Text);
 
-            ReportViewer1.LocalReport.DataSources.Clear();
-            ReportViewer1.LocalReport.DataSources.Add(rds);
-            ReportViewer1.LocalReport.ReportPath = "RptMunicipioHechos.rdlc";
-            ReportViewer1.LocalReport.Refresh();
+                    Microsoft.Reporting.WebForms.ReportDataSource rds = new Microsoft.Reporting.WebForms.ReportDataSource("DataSet1", ObjectDataSource1);
 
-            PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 10, "Conteo de denuncias por municipio de hechos, fecha de inicio: " + TxtFechaInicio.Text + " fecha fin: " + TxtFechaFin.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
-        }
+                    ReportViewer1.LocalReport.DataSources.Clear();
+                    ReportViewer1.LocalReport.DataSources.Add(rds);
+                    ReportViewer1.LocalReport.ReportPath = "RptMunicipioHechos.rdlc";
+                    ReportViewer1.LocalReport.Refresh();
+
+                    PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 10, "Conteo de denuncias por municipio de hechos, fecha de inicio: " + TxtFechaInicio.Text + " fecha fin: " + TxtFechaFin.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
+                }
+            }
             catch (Exception ex)
             {
                 lblEstatus.Text = ex.Message;
