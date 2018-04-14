@@ -16,12 +16,12 @@ namespace AtencionTemprana
     public partial class Alias : System.Web.UI.Page
     {
         Data PGJ = new Data();
-
+        public static string tipoActor = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-               
+                tipoActor = Request.QueryString["tipoActor"];
                 Session["ID_PERSONA"] = Request.QueryString["ID_PERSONA"];
                 Session["op"] = Request.QueryString["op"];
                
@@ -107,7 +107,24 @@ namespace AtencionTemprana
                 }
 
                 Session["op"] = " ";
-                Response.Redirect("Datos.aspx?ID_PERSONA=" + Session["ID_PERSONA"].ToString() + "&op=Modificar");
+
+                if (tipoActor == "ofendido")
+                {
+                    Response.Redirect("Datos.aspx?ID_PERSONA=" + Session["ID_PERSONA"].ToString() + "&op=ModificarOf");
+                }
+                else if (tipoActor == "testigo")
+                {
+                    Response.Redirect("Datos.aspx?ID_PERSONA=" + Session["ID_PERSONA"].ToString() + "&op=ModificarTes");
+                }
+                else if (tipoActor == "denunciante")
+                {
+                    Response.Redirect("Datos.aspx?ID_PERSONA=" + Session["ID_PERSONA"].ToString() + "&op=Modificar");
+                }
+                else if (tipoActor == "imputado")
+                {
+                    Response.Redirect("Datos.aspx?ID_PERSONA=" + Session["ID_PERSONA"].ToString() + "&op=ModificarPre");
+                }
+                //Response.Redirect("Datos.aspx?ID_PERSONA=" + Session["ID_PERSONA"].ToString() + "&op=Modificar");
             }
             catch (Exception ex)
             {

@@ -26,7 +26,7 @@ namespace AtencionTemprana
                     } catch (ex) {}
                 }";
         Data PGJ = new Data();
-
+        public static string tipoActor = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["IdUsuario"] == null)
@@ -143,6 +143,7 @@ namespace AtencionTemprana
                         lblOperacion.Text = "MODIFICAR SOLICITANTE";
                     }
 
+                    tipoActor = "denunciante";
                     lblOperacion.Text = "MODIFICAR DENUNCIANTE";
                     cmdAlias.Enabled = true;
                     cmdMedio.Enabled = true;                  
@@ -204,6 +205,7 @@ namespace AtencionTemprana
                 else if (Session["op"].ToString() == "ModificarOf")
                 {
                     lblOperacion.Text = "MODIFICAR OFENDIDO";
+                    tipoActor = "ofendido";
                     cmdAlias.Enabled = true;
                     cmdMedio.Enabled = true;
                     
@@ -303,6 +305,7 @@ namespace AtencionTemprana
 
 
                     lblOperacion.Text = "MODIFICAR IMPUTADO";
+                    tipoActor = "imputado";
                     cmdAlias.Enabled = true;
                     cmdMedio.Enabled = true;
                     lblDetenido.Visible = false;
@@ -398,7 +401,7 @@ namespace AtencionTemprana
                 else if (Session["op"].ToString() == "ModificarTes")
                 {
                     lblOperacion.Text = "MODIFICAR TESTIGO";
-
+                    tipoActor = "testigo";
                     cmdAlias.Enabled = true;
                     cmdMedio.Enabled = true;
                     lblDetenido.Visible = false;
@@ -509,7 +512,8 @@ namespace AtencionTemprana
         protected void cmdAlias_Click(object sender, EventArgs e)
         {
             Session["op"] = " ";
-            Response.Redirect("Alias.aspx?ID_PERSONA=" + ID_PERSONA.Text + "&op=Agregar");     
+            Response.Redirect("Alias.aspx?ID_PERSONA=" + ID_PERSONA.Text + "&op=Agregar" + "&tipoActor=" + tipoActor);
+            //Response.Redirect("Alias.aspx?ID_PERSONA=" + ID_PERSONA.Text + "&op=Agregar");     
             
         }
 
