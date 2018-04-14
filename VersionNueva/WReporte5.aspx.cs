@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 
 namespace AtencionTemprana
 {
@@ -34,6 +35,17 @@ namespace AtencionTemprana
                 IdUn.Text = Session["IdUnidad"].ToString();
             }
         }
+        private DataSet GetODS_DS(ObjectDataSource ods)
+        {
+            dynamic ds = new DataSet();
+            dynamic dv = (DataView)ods.Select();
+            if (dv != null && dv.Count > 0)
+            {
+                dynamic dt = dv.ToTable();
+                ds.Tables.Add(dt);
+            }
+            return ds;
+        }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -42,9 +54,7 @@ namespace AtencionTemprana
                 //gvEstados.Visible = true;
                 //gvEstados.DataSourceID = "ObjectTabla";
                 //gvEstados.DataBind();
-                LBVerDetalles.Visible = true;
-
-                ChartEstados.Visible = true;
+               
 
                 if (DateTime.Parse(TxtFechaInicio.Text) > DateTime.Parse(TxtFechaFin.Text))
                 {
@@ -53,6 +63,9 @@ namespace AtencionTemprana
                 else
                 {
                     lblEstatus1.Text = "";
+                    LBVerDetalles.Visible = true;
+                    ChartEstados.Visible = true;
+
 
                     ObjectDataSource ObjectDataSource1 = new ObjectDataSource("AtencionTemprana.dsReportesTableAdapters.SP_ConteoDelitosTablaTableAdapter", "GetData");
                     ObjectDataSource1.SelectParameters.Add("IdUnidad", IdUn.Text);
@@ -68,14 +81,33 @@ namespace AtencionTemprana
 
                     Microsoft.Reporting.WebForms.ReportDataSource rds2 = new Microsoft.Reporting.WebForms.ReportDataSource("DataSet2", ObjectDataSource2);
 
-                    ReportViewer1.LocalReport.DataSources.Clear();
-                    ReportViewer1.LocalReport.DataSources.Add(rds);
-                    ReportViewer1.LocalReport.DataSources.Add(rds2);
-                    ReportViewer1.LocalReport.ReportPath = "RptDelitos.rdlc";
-                    ReportViewer1.LocalReport.Refresh();
 
-                    PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 10, "Conteo de denuncias por delito, fecha de inicio: " + TxtFechaInicio.Text + " fecha fin: " + TxtFechaFin.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
+                    DataSet ds2 = GetODS_DS(ObjectDataSource1);
 
+
+                    if (ds2.Tables.Count == 0)
+                    {
+                        ChartEstados.Visible = false;
+                        LBVerDetalles.Visible = false;
+                        ReportViewer1.Visible = false;
+                        ReportViewer1.LocalReport.DataSources.Clear();
+                        ReportViewer1.LocalReport.Refresh();
+                        lblEstatus1.Text = "NO SE ENCONTRARON REGISTROS PARA EL RANGO DE FECHAS ESPECÍFICADO, INTENTE NUEVAMENTE POR FAVOR";
+                    }
+                    else
+                    {
+
+                        lblEstatus1.Text = "";
+                        ChartEstados.Visible = true;
+                        LBVerDetalles.Visible = false;
+                        ReportViewer1.LocalReport.DataSources.Clear();
+                        ReportViewer1.LocalReport.DataSources.Add(rds);
+                        ReportViewer1.LocalReport.DataSources.Add(rds2);
+                        ReportViewer1.LocalReport.ReportPath = "RptDelitos.rdlc";
+                        ReportViewer1.LocalReport.Refresh();
+
+                        PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 10, "Conteo de denuncias por delito, fecha de inicio: " + TxtFechaInicio.Text + " fecha fin: " + TxtFechaFin.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
+                    }
                 }
             }
             catch (Exception ex)

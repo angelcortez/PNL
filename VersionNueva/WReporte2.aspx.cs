@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -36,6 +37,18 @@ namespace AtencionTemprana
             }
         }
 
+        private DataSet GetODS_DS(ObjectDataSource ods)
+        {
+            dynamic ds = new DataSet();
+            dynamic dv = (DataView)ods.Select();
+            if (dv != null && dv.Count > 0)
+            {
+                dynamic dt = dv.ToTable();
+                ds.Tables.Add(dt);
+            }
+            return ds;
+        }
+
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -45,9 +58,8 @@ namespace AtencionTemprana
                 //gvEstados.DataBind();
 
 
-                ChartEstados.Visible = true;
+                
 
-                LBVerDetalles.Visible = true;
 
                 if (DateTime.Parse(TxtFechaInicio.Text) > DateTime.Parse(TxtFechaFin.Text))
                 {
@@ -56,7 +68,11 @@ namespace AtencionTemprana
                 else
                 {
                     lblEstatus1.Text = "";
-                
+                    ChartEstados.Visible = true;
+
+                    LBVerDetalles.Visible = true;
+                    
+
 
                     ObjectDataSource ObjectDataSource1 = new ObjectDataSource("AtencionTemprana.dsReportesTableAdapters.ESTADISTICA_ESTADOSTableAdapter", "GetData");
                     ObjectDataSource1.SelectParameters.Add("fechainicio", TxtFechaInicio.Text);
@@ -74,6 +90,26 @@ namespace AtencionTemprana
 
                     Microsoft.Reporting.WebForms.ReportDataSource rds2 = new Microsoft.Reporting.WebForms.ReportDataSource("DataSet2", ObjectDataSource2);
 
+
+
+                    DataSet ds2 = GetODS_DS(ObjectDataSource1);
+
+
+                    if (ds2.Tables.Count == 0)
+                    {
+                        ChartEstados.Visible = false;
+                        LBVerDetalles.Visible = false;
+                        ReportViewer1.Visible = false;
+                        ReportViewer1.LocalReport.DataSources.Clear();
+                        ReportViewer1.LocalReport.Refresh();
+                        lblEstatus1.Text = "NO SE ENCONTRARON REGISTROS PARA EL RANGO DE FECHAS ESPECÍFICADO, INTENTE NUEVAMENTE POR FAVOR";
+                    }
+                    else
+                    {
+
+                    lblEstatus1.Text = "";
+                    ChartEstados.Visible = true;
+                    LBVerDetalles.Visible = false;
                     ReportViewer1.LocalReport.DataSources.Clear();
                     ReportViewer1.LocalReport.DataSources.Add(rds);
                     ReportViewer1.LocalReport.DataSources.Add(rds2);
@@ -81,9 +117,10 @@ namespace AtencionTemprana
                     ReportViewer1.LocalReport.Refresh();
 
                     PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 10, "Conteo de denuncias, fecha de inicio: " + TxtFechaInicio.Text + " fecha fin: " + TxtFechaFin.Text, int.Parse(Session["IdModuloBitacora"].ToString()));
+                    }
+                }
+            }
 
-                }
-                }
             catch (Exception ex)
             {
 
@@ -91,10 +128,14 @@ namespace AtencionTemprana
                 lblEstatus.Text = ex.Message;
                 lblEstatus1.Text = "INTENTELO NUEVAMENTE";
             }
-            
-            }
+
+        }
+
+
+
         protected void LBVerDetalles_Click(object sender, EventArgs e)
         {
+
             //Response.Write("<script>window.open('WDetailsPerson.aspx','Titulo','height=300', 'width=300')</script>");
             Response.Write("<script>window.open('WDetailsDenPorEsta.aspx?IdU=" + IdUnidad.Text + "&IdM=" + IdMunicipio.Text + "&FI=" + TxtFechaInicio.Text + "&FF=" + TxtFechaFin.Text + "' ,'Titulo','height=300', 'width=300','toolbar=yes','scrollbars=yes','resizable=yes')</script>");
             ChartEstados.Visible = true;
@@ -103,4 +144,4 @@ namespace AtencionTemprana
             //gvEstados.DataBind();
         }
     }
-}
+    }
