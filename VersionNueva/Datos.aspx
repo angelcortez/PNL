@@ -315,7 +315,7 @@
                                         <Columns>
                                             <asp:TemplateField HeaderText="EDITAR">
                                                 <ItemTemplate>
-                                                    <a href='Alias.aspx?ID_PERSONA=<%#Eval("ID_PERSONA")%>&amp;&amp;op=Modificar&amp;ID_ALIAS=<%#Eval("ID_ALIAS")%>&amp;'>
+                                                    <a href='Alias.aspx?ID_PERSONA=<%#Eval("ID_PERSONA")%>&amp;&amp;op=Modificar&amp;ID_ALIAS=<%#Eval("ID_ALIAS")%>&amp;tipoActor=<%#Eval("tipoActor")%>&amp;'>
                                                     <asp:Image ID="Image1" runat="server" Height="18px" ImageUrl="img/view-tree.png" 
                                  Width="18px" />
                                                     </a>

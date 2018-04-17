@@ -108,19 +108,19 @@ namespace AtencionTemprana
 
                 Session["op"] = " ";
 
-                if (tipoActor == "ofendido")
+                if (tipoActor == "ofendido" || tipoActor=="OFENDIDO")
                 {
                     Response.Redirect("Datos.aspx?ID_PERSONA=" + Session["ID_PERSONA"].ToString() + "&op=ModificarOf");
                 }
-                else if (tipoActor == "testigo")
+                else if (tipoActor == "testigo" || tipoActor=="TESTIGO")
                 {
                     Response.Redirect("Datos.aspx?ID_PERSONA=" + Session["ID_PERSONA"].ToString() + "&op=ModificarTes");
                 }
-                else if (tipoActor == "denunciante")
+                else if (tipoActor == "denunciante" || tipoActor=="DENUNCIANTE")
                 {
                     Response.Redirect("Datos.aspx?ID_PERSONA=" + Session["ID_PERSONA"].ToString() + "&op=Modificar");
                 }
-                else if (tipoActor == "imputado")
+                else if (tipoActor == "imputado" || tipoActor=="IMPUTADO")
                 {
                     Response.Redirect("Datos.aspx?ID_PERSONA=" + Session["ID_PERSONA"].ToString() + "&op=ModificarPre");
                 }
