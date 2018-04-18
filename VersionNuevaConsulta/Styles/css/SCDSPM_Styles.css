@@ -1,0 +1,199 @@
+.td1
+{
+    border: 1px solid #000000;
+    font-family: Arial;
+    font-size: 12px;
+    color: #ffffff;
+    background: #CC0000 url(/Resources/Images/fnd_9.png) 50% 50%;
+    font-weight: bold;
+}
+
+.td2
+{
+	border: 1px solid #000000;
+	font-family: Arial;
+	font-size: 12px;
+	color: #000000;
+	background: url(/Resources/css/custom-theme/images/img_white_opacity.png) 50% 50%;
+	font-weight: bold;
+}
+
+.td3
+{
+	border: 1px solid #ffffff;
+	font-family: Arial;
+	font-size: 12px;
+	color: #ff9933;
+	background: url(/Resources/css/custom-theme/images/img_white_opacity.png) 50% 50%;
+	font-weight: bold;
+}
+
+.td4
+{
+	border: 1px solid #ffffff;
+	font-family: Arial;
+	font-size: 12px;
+	color: #000000;
+	background: #ff9933 url(/Resources/Images/fnd_9.png) 50% 50%;
+	font-weight: bold;
+}
+
+.txt
+{
+	border: 1px solid #000000;
+	font-family: Arial;
+	font-size: 11px !important;
+	color: #000000;
+	font-weight: bold;
+}
+
+.ddl
+{
+	border: 1px solid #000000;
+	font-family: Arial;
+	font-size: 11px;
+	color: #000000;
+	font-weight: bold;
+}
+
+.ddl option
+{
+	border: 1px solid #000000;
+	font-family: Arial;
+	font-size: 11px;
+	color: #000000;
+	font-weight: bold;
+}
+
+.file_Upload
+{
+	border: 1px solid #000000;
+	font-family: Arial;
+	font-size: 11px;
+	color: #0000cc;
+	font-weight: bold;
+}
+
+
+.mGrid
+{
+	font-family: Arial;
+	width: 100%;
+	background-color: #fff;
+	border: solid 1px #525252;
+	border-collapse: collapse;
+	font-weight: bold;
+}  
+.mGrid td
+{
+	padding: 2px;
+	border: solid 1px #c1c1c1;
+	color: #000000;
+	font-size: 10px;
+	background: #fcfcfc url(img/grd_alt_orange.png) repeat-x top;
+	font-weight: bold;
+}
+
+.mGrid th
+{
+	padding: 4px 2px;
+	color: #fff;
+	background: #424242 url(img/grd_head.png) repeat-x top;
+	border: solid 1px #c1c1c1;
+	font-size: 10px;
+	font-weight: bold;
+} 
+
+.mGrid .alt { background: #fcfcfc url(img/grd_alt_orange.png) repeat-x top; }  
+.mGrid .pgr { background: #424242 url(img/grd_pgr.png) repeat-x top; }
+.mGrid .pgr td
+{
+	border-width: 0;
+	padding: 0 6px;
+	border-left: solid 1px #666;
+	font-weight: bold;
+	color: #fff;
+	line-height: 12px;
+}     
+.mGrid .pgr a
+{
+	color: #000000;
+	text-decoration: none;
+}  
+.mGrid .pgr a:hover
+{
+	color: #000;
+	text-decoration: none;
+}
+
+
+.mGrid_Painted
+{
+	font-family: Arial;
+	width: 100%;
+	background-color: #fff;
+	border: solid 1px #525252;
+	border-collapse: collapse;
+	font-weight: bold;
+} 
+ 
+.mGrid_Painted td
+{
+	padding: 2px;
+	border: solid 1px #000000;
+	color: #000000;
+	font-size: 10px;
+	font-weight: bold !important;
+}
+
+.mGrid_Painted th
+{
+	padding: 4px 2px;
+	color: #fff;
+	background: #424242 url(img/grd_head.png) repeat-x top;
+	border-left: solid 1px #525252;
+	font-size: 10px;
+	font-weight: bold;
+} 
+
+.mGrid_Painted .pgr { background: #424242 url(img/grd_pgr.png) repeat-x top; }
+.mGrid_Painted .pgr td
+{
+	border-width: 0;
+	padding: 0 6px;
+	border-left: solid 1px #666;
+	font-weight: bold;
+	color: #fff;
+	line-height: 12px;
+}     
+.mGrid_Painted .pgr a
+{
+	color: #000000;
+	text-decoration: none;
+}  
+.mGrid_Painted .pgr a:hover
+{
+	color: #000;
+	text-decoration: none;
+}
+
+
+.mGrid_manual_Painted
+{
+	padding: 4px 2px !important;
+	color: #fff !important;
+	background: #424242 url(img/grd_head.png) repeat-x top !important;
+	border: solid 1px #000000;
+	font-size: 10px !important;
+	font-weight: bold !important;
+} 
+
+.mGrid_manual_Painted td
+{
+	border-width: 0 !important;
+	padding: 0 6px !important;
+	border-left: solid 1px #666 !important;
+	font-weight: bold;
+	color: #fff !important;
+	line-height: 12px !important;
+} 
