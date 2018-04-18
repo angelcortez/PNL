@@ -41,7 +41,7 @@ namespace AtencionTemprana
                 SCRIPT_DOFOCUS.Replace("REQUEST_LASTFOCUS", Request["__LASTFOCUS"]),
                 true);
                 //----
-
+                ddlDelito.Enabled = false;
                 lblArbol.Text = Session["lblArbol"].ToString();
 
                 //Session["ID_LUGAR_HECHOS"] = Request.QueryString["ID_LUGAR_HECHOS"];

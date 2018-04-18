@@ -315,7 +315,7 @@
                                         Width="470px" ID="gvAlias">
                                         <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
                                         <Columns>
-                                            <asp:TemplateField HeaderText="EDITAR">
+                                            <asp:TemplateField HeaderText="EDITAR" Visible=false>
                                                 <ItemTemplate>
                                                     <a href='Alias.aspx?ID_PERSONA=<%#Eval("ID_PERSONA")%>&amp;&amp;op=Modificar&amp;ID_ALIAS=<%#Eval("ID_ALIAS")%>&amp;tipoActor=<%#Eval("tipoActor")%>&amp;'>
                                                     <asp:Image ID="Image1" runat="server" Height="18px" ImageUrl="img/view-tree.png" 
@@ -708,7 +708,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtFecNaci" runat="server" Width="190px" MaxLength="10" class="bordeCampoObligatorio"
-                                        TabIndex="20" ReadOnly="True"></asp:TextBox>
+                                        TabIndex="20" ReadOnly="True" Enabled="False"></asp:TextBox>
                                             <asp:CalendarExtender ID="txtFecNaci_CalendarExtender" runat="server" 
                                     Enabled="True" Format="dd/MM/yyyy" TargetControlID="txtFecNaci">
                                             </asp:CalendarExtender>
@@ -787,7 +787,7 @@
                                         </td>
                                         <td>
                                             <asp:DropDownList ID="ddlIdentificacion" runat="server" Width="200px" class="bordeCampoObligatorio"
-                                                    TabIndex="25">
+                                                    TabIndex="25" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" 
                                                     ControlToValidate="ddlIdentificacion" Display="Dynamic" 
@@ -837,7 +837,7 @@
                                         <td>
                                             <asp:RadioButtonList ID="rbVivo" runat="server" Font-Bold="True" 
                                         Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" 
-                                        Visible="False" TabIndex="29">
+                                        Visible="False" TabIndex="29" Enabled="False">
                                                 <asp:ListItem Selected="True" Value="1">SI</asp:ListItem>
                                                 <asp:ListItem Value="0">NO</asp:ListItem>
                                             </asp:RadioButtonList>
@@ -1014,23 +1014,28 @@
                                     </tr>
                                     <tr>
                                         <td class="style2" colspan="2">
-                                            <asp:DropDownList ID="ddlTipoLugar" runat="server" Width="470px" TabIndex="34" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlTipoLugar" runat="server" Width="470px" TabIndex="34" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="ddlTipoLugar"
                                                 Display="Dynamic" ErrorMessage="INGRESA TIPO DE LUGAR" Font-Bold="True" Font-Size="Small"
                                                 ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td>
-                                            <asp:DropDownList ID="ddlMunicipioLH" runat="server" Width="200px" AutoPostBack="True" class="bordeCampoObligatorio"
-                                                TabIndex="35" OnSelectedIndexChanged="ddlMunicipioLH_SelectedIndexChanged">
+                                            <asp:DropDownList ID="ddlMunicipioLH" runat="server" Width="200px" 
+                                                AutoPostBack="True" class="bordeCampoObligatorio"
+                                                TabIndex="35" OnSelectedIndexChanged="ddlMunicipioLH_SelectedIndexChanged" 
+                                                Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" ControlToValidate="ddlMunicipioLH"
                                                 Display="Dynamic" ErrorMessage="INGRESA MUNICIPIO" Font-Bold="True" Font-Size="Small"
                                                 ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td>
-                                            <asp:DropDownList ID="ddlLocalidadLH" runat="server" Width="200px" AutoPostBack="True" class="bordeCampoObligatorio"
-                                                TabIndex="36" OnSelectedIndexChanged="ddlLocalidadLH_SelectedIndexChanged">
+                                            <asp:DropDownList ID="ddlLocalidadLH" runat="server" Width="200px" 
+                                                AutoPostBack="True" class="bordeCampoObligatorio"
+                                                TabIndex="36" OnSelectedIndexChanged="ddlLocalidadLH_SelectedIndexChanged" 
+                                                Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" ControlToValidate="ddlLocalidadLH"
                                                 Display="Dynamic" ErrorMessage="INGRESA LOCALIDAD" Font-Bold="True" Font-Size="Small"
@@ -1069,14 +1074,16 @@
                                     </tr>
                                     <tr>
                                         <td class="style2" colspan="2">
-                                            <asp:DropDownList ID="ddlColoniaLH" runat="server" Width="470px" TabIndex="37" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlColoniaLH" runat="server" Width="470px" TabIndex="37" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator24" runat="server" ControlToValidate="ddlColoniaLH"
                                                 Display="Dynamic" ErrorMessage="INGRESA COLONIA" Font-Bold="True" Font-Size="Small"
                                                 ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td colspan="2">
-                                            <asp:DropDownList ID="ddlCalleLH" runat="server" Width="470px" TabIndex="38" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlCalleLH" runat="server" Width="470px" TabIndex="38" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator25" runat="server" ControlToValidate="ddlCalleLH"
                                                 Display="Dynamic" ErrorMessage="INGRESA CALLE" Font-Bold="True" Font-Size="Small"
@@ -1101,14 +1108,16 @@
                                     </tr>
                                     <tr>
                                         <td class="style2" colspan="2">
-                                            <asp:DropDownList ID="ddlEntreCalleLH" runat="server" Width="470px" TabIndex="39" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlEntreCalleLH" runat="server" Width="470px" 
+                                                TabIndex="39" class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator26" runat="server" ControlToValidate="ddlEntreCalleLH"
                                                 Display="Dynamic" ErrorMessage="INGRESA ENTRE CALLE" Font-Bold="True" Font-Size="Small"
                                                 ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td colspan="2">
-                                            <asp:DropDownList ID="ddlYcalleLH" runat="server" Width="470px" TabIndex="40" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlYcalleLH" runat="server" Width="470px" TabIndex="40" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator27" runat="server" ControlToValidate="ddlYcalleLH"
                                                 Display="Dynamic" ErrorMessage="INGRESA Y CALLE" Font-Bold="True" Font-Size="Small"
@@ -1312,17 +1321,19 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:DropDownList ID="ddlEstadoDetenido" runat="server" TabIndex="48" Visible="TRUE" class="chosen-select"
-                                        Width="200px">
+                                    <asp:DropDownList ID="ddlEstadoDetenido" runat="server" TabIndex="48" 
+                                        Visible="TRUE" class="chosen-select"
+                                        Width="200px" Enabled="False">
                                     </asp:DropDownList>
                                 </td>
                                 <td>
                                     <asp:DropDownList ID="ddlPusoDisposicion" runat="server" TabIndex="49" class="chosen-select"
-                                        Visible="False" Width="200px">
+                                        Visible="False" Width="200px" Enabled="False">
                                     </asp:DropDownList>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtTiempoTraslado" runat="server" MaxLength="5" Width="200px" TabIndex="50">00:00</asp:TextBox>
+                                    <asp:TextBox ID="txtTiempoTraslado" runat="server" MaxLength="5" Width="200px" 
+                                        TabIndex="50" ReadOnly="True">00:00</asp:TextBox>
                                     <asp:MaskedEditExtender ID="MaskedEditExtender2" runat="server" AcceptAMPM="True"
                                         BehaviorID="_content_MaskedEditExtender2" Century="2000" CultureAMPMPlaceholder=""
                                         CultureCurrencySymbolPlaceholder="€" CultureDateFormat="DMY" CultureDatePlaceholder="/"
@@ -1364,7 +1375,8 @@
                               <td class="style11">
                                   <asp:RadioButtonList ID="OptProcedimientoDetencion" runat="server" AutoPostBack = "true"
                                       Font-Bold="False" Font-Size="Small" ForeColor="Black" TabIndex="51" 
-                                      onselectedindexchanged="OptProcedimientoDetencion_SelectedIndexChanged">
+                                      onselectedindexchanged="OptProcedimientoDetencion_SelectedIndexChanged" 
+                                      Enabled="False">
                                       <asp:ListItem Selected="True" Value="1">Flagrancia</asp:ListItem>
                                       <asp:ListItem Value="3">Caso Urgente</asp:ListItem>
                                   </asp:RadioButtonList>
@@ -1379,7 +1391,7 @@
                               <td>
                                      <asp:RadioButtonList ID="OptSupuestoFlagrancia" runat="server" 
                                              Font-Bold="False" Font-Size="Small" ForeColor="Black" TabIndex="52" 
-                                         style="margin-left: 0px">
+                                         style="margin-left: 0px" Enabled="False">
                                              <asp:ListItem Selected="True" Value="1">La persona es detenida después de cometer el delito (Código 146 Fracción I)</asp:ListItem>
                                              <asp:ListItem Value="2">La persona es sorprendida cometiendo el delito y es persiguida (Código 145 fracción II a))</asp:ListItem>
                                              <asp:ListItem Value="3">La persona es señalada por la victima u ofendido y tiene pruebas de ello (Código 146 Fracción II b))</asp:ListItem>
@@ -1417,7 +1429,8 @@
                                       Font-Bold="False" Font-Size="Small" ForeColor="Black" TabIndex="53" 
                                       
                                       Width="70px" AutoPostBack = "true"
-                                      onselectedindexchanged="rbLibertadInvestigacion_SelectedIndexChanged">
+                                      onselectedindexchanged="rbLibertadInvestigacion_SelectedIndexChanged" 
+                                      Enabled="False">
                                       <asp:ListItem Selected="True" Value="0">NO</asp:ListItem>
                                       <asp:ListItem Value="1">SI</asp:ListItem>
                                   </asp:RadioButtonList>
@@ -1430,7 +1443,8 @@
                               </td>
                               <td>
                                      <asp:RadioButtonList ID="rbMotivoLiberacion" runat="server" Visible="false" 
-                                             Font-Bold="False" Font-Size="Small" ForeColor="Black" TabIndex="54">
+                                             Font-Bold="False" Font-Size="Small" ForeColor="Black" TabIndex="54" 
+                                         Enabled="False">
                                              <asp:ListItem Selected="True" Value="1">No es legal la detención</asp:ListItem>
                                              <asp:ListItem Value="2">No hay flagrancia</asp:ListItem>
                                              <asp:ListItem Value="3">No solicita prisión preventiva como medida cautelar</asp:ListItem>
@@ -1632,8 +1646,9 @@
             </tr>
             <tr>
                 <td colspan="4" align="center">
-                    <asp:TextBox ID="txtDeclaracion" runat="server" Height="250px" TextMode="MultiLine" TabIndex="57" 
-                        Width="1000px"></asp:TextBox>
+                    <asp:TextBox ID="txtDeclaracion" runat="server" Height="250px" 
+                        TextMode="MultiLine" TabIndex="57" 
+                        Width="1000px" ReadOnly="True"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -1641,7 +1656,7 @@
 
                    <%-- </ContentTemplate>
     </asp:UpdatePanel>--%>
-                    <asp:Panel ID="Panel2" runat="server" style="text-align: center">
+                    <asp:Panel ID="Panel2" runat="server" style="text-align: center; display:none">
                         
                                 <br />
                         

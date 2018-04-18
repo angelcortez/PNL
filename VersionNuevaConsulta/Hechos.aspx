@@ -91,7 +91,7 @@
             <tr>
                 <td colspan="4" align="center">
                     <asp:TextBox ID="txtDes" runat="server" Height="609px" TextMode="MultiLine" 
-                        Width="1050px"></asp:TextBox>
+                        Width="1050px" ReadOnly="True"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -125,7 +125,7 @@
             <tr>
                 <td colspan="4" align="center">
                     <asp:TextBox ID="PreguntasPNL" runat="server" Height="400px" TextMode="MultiLine" 
-                        Width="1050px">
+                        Width="1050px" ReadOnly="True">
 1.- ÚLTIMA VEZ QUE LA VIO: 
 2.- PERSONA O PERSONAS QUE LA VIERON POR ÚLTIMA VEZ: 
 3.- SUS ÁMBITOS SOCIAL, LABORAL, FAMILIAR, SENTIMENTAL, ECONÓMICO: 
@@ -166,7 +166,7 @@
             <tr>
                 <td align="center" colspan="4">
                     &nbsp; &nbsp;
-                    <asp:Button ID="cmdGuardar" runat="server" onclick="cmdGuardar_Click" 
+                    <asp:Button ID="cmdGuardar" runat="server" onclick="cmdGuardar_Click" style="display:none"
                         Text="GUARDAR" Width="156px" Font-Bold="True" Height="40px" class="button" />
                     &nbsp;
                     <asp:Button ID="cmdReg" runat="server" onclick="cmdReg_Click" Text="REGRESAR" 
