@@ -249,7 +249,7 @@
                             <tr>
                                 <td>
                                     <asp:TextBox runat="server" MaxLength="30" TabIndex="1" Width="250px" class="bordeCampoObligatorio"
-                                        ID="txtNombre" style="text-transform :uppercase" onkeypress="return soloLetras(event);"></asp:TextBox>
+                                        ID="txtNombre" style="text-transform :uppercase" readonly=true onkeypress="return soloLetras(event);"></asp:TextBox>
                                     <asp:RequiredFieldValidator runat="server" ForeColor="Red" 
                                         ControlToValidate="txtNombre" ErrorMessage="INGRESA NOMBRE" Display="Dynamic" 
                                         Font-Bold="True" Font-Size="Small" ID="RequiredFieldValidator1">*</asp:RequiredFieldValidator>
@@ -258,7 +258,8 @@
                                 </td>
                                 <td>
                                     <asp:TextBox runat="server" MaxLength="30" TabIndex="2" Width="250px" class="bordeCampoObligatorio"
-                                        ID="txtPaterno" style="text-transform :uppercase" onkeypress="return soloLetras(event);"></asp:TextBox>
+                                        ID="txtPaterno" style="text-transform :uppercase" 
+                                        onkeypress="return soloLetras(event);" ReadOnly="True"></asp:TextBox>
                                     <asp:RequiredFieldValidator runat="server" ForeColor="Red" 
                                         ControlToValidate="txtPaterno" ErrorMessage="INGRESA PATERNO" Display="Dynamic" 
                                         Font-Bold="True" Font-Size="Small" ID="RequiredFieldValidator2">*</asp:RequiredFieldValidator>
@@ -267,7 +268,8 @@
                                 </td>
                                 <td>
                                     <asp:TextBox runat="server" MaxLength="30" TabIndex="3" Width="250px" 
-                                        ID="txtMaterno" style="text-transform :uppercase" onkeypress="return soloLetras(event);"></asp:TextBox>
+                                        ID="txtMaterno" style="text-transform :uppercase" 
+                                        onkeypress="return soloLetras(event);" ReadOnly="True"></asp:TextBox>
                                                          <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="txtMaterno"
                 ErrorMessage="SOLO LETRAS" ValidationExpression="^[a-zA-ZñÑ ]*$" Font-Size="Small"  ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
@@ -293,7 +295,7 @@
                         Font-Size="Medium" >
                         <table style="width:100%;">
                             <tr>
-                                <td class="style5">
+                                <td class="style5" style="display:none">
                                     <asp:Label runat="server" Text="AGREGAR" Font-Bold="True" 
                                         Font-Size="Small"  class="color-fuente" ID="Label32"></asp:Label>
                                     <asp:Button ID="cmdAlias" runat="server" OnClick="cmdAlias_Click" Text=" + " 
@@ -405,7 +407,7 @@
                                     <tr>
                                         <td>
                                             <asp:DropDownList  ID="ddlNacionalidad" runat="server" Width="200px" class="bordeCampoObligatorio"
-                                TabIndex="4">
+                                TabIndex="4" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                                 ControlToValidate="ddlNacionalidad" Display="Dynamic" 
@@ -414,7 +416,7 @@
                                         </td>
                                         <td>
                                             <asp:DropDownList ID="ddlPais" runat="server" Width="200px" AutoPostBack="True" class="bordeCampoObligatorio"
-                                onselectedindexchanged="ddlPais_SelectedIndexChanged" TabIndex="5">
+                                onselectedindexchanged="ddlPais_SelectedIndexChanged" TabIndex="5" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                                     ControlToValidate="ddlPais" Display="Dynamic" ErrorMessage="INGRESA PAIS" 
@@ -423,14 +425,15 @@
                                         <td>
                                             <asp:DropDownList ID="ddlEstado" runat="server" Width="200px" class="bordeCampoObligatorio"
                                     AutoPostBack="True" 
-                                    onselectedindexchanged="ddlEstado_SelectedIndexChanged" TabIndex="6">
+                                    onselectedindexchanged="ddlEstado_SelectedIndexChanged" TabIndex="6" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                                     ControlToValidate="ddlEstado" Display="Dynamic" ErrorMessage="INGRESA ESTADO" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td>
-                                            <asp:DropDownList  ID="ddlMunicipio" runat="server" Width="200px" TabIndex="7" class="bordeCampoObligatorio" >
+                                            <asp:DropDownList  ID="ddlMunicipio" runat="server" Width="200px" TabIndex="7" 
+                                                class="bordeCampoObligatorio" Enabled="False" >
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
                                     ControlToValidate="ddlMunicipio" Display="Dynamic" 
@@ -486,7 +489,7 @@
                                         <td>
                                             <asp:DropDownList ID="ddlPaisDom" runat="server" Width="200px" class="bordeCampoObligatorio"
                                     AutoPostBack="True" 
-                                    onselectedindexchanged="ddlPaisDom_SelectedIndexChanged" TabIndex="8">
+                                    onselectedindexchanged="ddlPaisDom_SelectedIndexChanged" TabIndex="8" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
                                     ControlToValidate="ddlPaisDom" Display="Dynamic" ErrorMessage="INGRESA PAIS" 
@@ -495,7 +498,8 @@
                                         <td>
                                             <asp:DropDownList ID="ddlEstadoDom" runat="server" Width="200px" class="bordeCampoObligatorio"
                                         AutoPostBack="True" 
-                                        onselectedindexchanged="ddlEstadoDom_SelectedIndexChanged" TabIndex="9">
+                                        onselectedindexchanged="ddlEstadoDom_SelectedIndexChanged" TabIndex="9" 
+                                                Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
                                         ControlToValidate="ddlEstadoDom" ErrorMessage="INGRESA ESTADO" Font-Bold="True" 
@@ -505,7 +509,7 @@
                                             <asp:DropDownList ID="ddlMunicipioDom" runat="server" Width="200px" class="bordeCampoObligatorio"
                                         AutoPostBack="True" 
                                         onselectedindexchanged="ddlMunicipioDom_SelectedIndexChanged" 
-                                        TabIndex="10">
+                                        TabIndex="10" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
                                         ControlToValidate="ddlMunicipioDom" Display="Dynamic" 
@@ -516,7 +520,7 @@
                                             <asp:DropDownList ID="ddlLocalidadDom" runat="server" Width="200px" class="bordeCampoObligatorio"
                                         AutoPostBack="True" 
                                         onselectedindexchanged="ddlLocalidadDom_SelectedIndexChanged" 
-                                        TabIndex="11">
+                                        TabIndex="11" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" 
                                         ControlToValidate="ddlLocalidadDom" Display="Dynamic" 
@@ -551,14 +555,15 @@
                                     <tr>
                                         <td colspan="2">
                                             <asp:DropDownList ID="ddlColonia" runat="server" Width="470px" class="bordeCampoObligatorio"
-                                AutoPostBack="True" TabIndex="12" >
+                                AutoPostBack="True" TabIndex="12" Enabled="False" >
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" 
                                 ControlToValidate="ddlColonia" Display="Dynamic" ErrorMessage="INGRESA COLONIA" 
                                 Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td colspan="2">
-                                            <asp:DropDownList ID="ddlCalle" runat="server" Width="470px" TabIndex="13" class="bordeCampoObligatorio"
+                                            <asp:DropDownList ID="ddlCalle" runat="server" Width="470px" TabIndex="13" 
+                                                class="bordeCampoObligatorio" Enabled="False"
                                     >
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" 
@@ -592,7 +597,8 @@
                                     </tr>
                                     <tr>
                                         <td colspan="2">
-                                            <asp:DropDownList ID="ddlEntreCalle" runat="server" Width="470px" TabIndex="14" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlEntreCalle" runat="server" Width="470px" TabIndex="14" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" 
                                 ControlToValidate="ddlEntreCalle" Display="Dynamic" 
@@ -600,7 +606,8 @@
                                 ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td colspan="2">
-                                            <asp:DropDownList ID="ddlYcalle" class="bordeCampoObligatorio" runat="server" Width="470px"  TabIndex="15">
+                                            <asp:DropDownList ID="ddlYcalle" class="bordeCampoObligatorio" runat="server" 
+                                                Width="470px"  TabIndex="15" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" 
                                     ControlToValidate="ddlYcalle" Display="Dynamic" ErrorMessage="INGRESA Y CALLE" 
@@ -636,15 +643,15 @@
                                     <tr>
                                         <td>
                                             <asp:TextBox ID="txtNumero" runat="server" Width="190px" MaxLength="10" 
-                                style="text-transform :uppercase" TabIndex="16"></asp:TextBox>
+                                style="text-transform :uppercase" TabIndex="16" ReadOnly="True"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtManzana" runat="server" Width="190px" MaxLength="10" 
-                                    style="text-transform :uppercase" TabIndex="17"></asp:TextBox>
+                                    style="text-transform :uppercase" TabIndex="17" ReadOnly="True"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtLote" runat="server" Width="190px" MaxLength="10" 
-                                    style="text-transform :uppercase" TabIndex="18"></asp:TextBox>
+                                    style="text-transform :uppercase" TabIndex="18" ReadOnly="True"></asp:TextBox>
                                         </td>
                                         <td>
                                             &nbsp;</td>
@@ -692,7 +699,8 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:DropDownList ID="ddlSexo" runat="server" Width="200px" TabIndex="19" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlSexo" runat="server" Width="200px" TabIndex="19" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" 
                                     ControlToValidate="ddlSexo" Display="Dynamic" ErrorMessage="INGRESA SEXO" 
@@ -700,7 +708,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtFecNaci" runat="server" Width="190px" MaxLength="10" class="bordeCampoObligatorio"
-                                        TabIndex="20"></asp:TextBox>
+                                        TabIndex="20" ReadOnly="True"></asp:TextBox>
                                             <asp:CalendarExtender ID="txtFecNaci_CalendarExtender" runat="server" 
                                     Enabled="True" Format="dd/MM/yyyy" TargetControlID="txtFecNaci">
                                             </asp:CalendarExtender>
@@ -714,7 +722,8 @@
                                                 ForeColor="#FF3300" ToolTip="EN CASO DE NO TERNER LA FECHA INGRESAR 01/01/1900">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td>
-                                            <asp:DropDownList ID="ddlEstadoCivil"  runat="server" Width="200px"  TabIndex="21" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlEstadoCivil"  runat="server" Width="200px"  
+                                                TabIndex="21" class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" 
                                         ControlToValidate="ddlEstadoCivil" Display="Dynamic" 
@@ -723,7 +732,7 @@
                                         <td>
                                             <asp:RadioButtonList ID="rbEscribir" runat="server" Font-Bold="True" 
                                         Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" 
-                                        TabIndex="22">
+                                        TabIndex="22" Enabled="False">
                                                 <asp:ListItem Selected="True" Value="1">SI</asp:ListItem>
                                                 <asp:ListItem Value="0">NO</asp:ListItem>
                                             </asp:RadioButtonList>
@@ -760,7 +769,7 @@
                                     <tr>
                                         <td>
                                             <asp:DropDownList ID="ddlEscolaridad" runat="server" Width="200px" class="bordeCampoObligatorio"
-                                                    TabIndex="23">
+                                                    TabIndex="23" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" 
                                                     ControlToValidate="ddlEscolaridad" Display="Dynamic" 
@@ -768,7 +777,8 @@
                                                     ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td>
-                                            <asp:DropDownList ID="ddlOcupacion" runat="server" Width="200px" TabIndex="24" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlOcupacion" runat="server" Width="200px" TabIndex="24" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" 
                                                     ControlToValidate="ddlOcupacion" Display="Dynamic" 
@@ -786,7 +796,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtFolio" runat="server" Width="190px" MaxLength="20" 
-                                                    style="text-transform :uppercase" TabIndex="26"></asp:TextBox>
+                                                    style="text-transform :uppercase" TabIndex="26" ReadOnly="True"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -818,11 +828,11 @@
                                     <tr>
                                         <td>
                                             <asp:TextBox ID="txtCurp" runat="server" Width="190px" 
-                                        style="text-transform :uppercase" TabIndex="27" MaxLength="18"></asp:TextBox>
+                                        style="text-transform :uppercase" TabIndex="27" MaxLength="18" ReadOnly="True"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtRFC" runat="server" Width="190px" 
-                                        style="text-transform :uppercase" TabIndex="28" MaxLength="13"></asp:TextBox>
+                                        style="text-transform :uppercase" TabIndex="28" MaxLength="13" ReadOnly="True"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:RadioButtonList ID="rbVivo" runat="server" Font-Bold="True" 
@@ -861,7 +871,8 @@
                                         <td>
                                             <asp:RadioButtonList ID="rbDetenido" runat="server" Font-Bold="True" AutoPostBack = "true"
                                                 Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" TabIndex="30" 
-                                                Visible="False" onselectedindexchanged="rbDetenido_SelectedIndexChanged">
+                                                Visible="False" onselectedindexchanged="rbDetenido_SelectedIndexChanged" 
+                                                Enabled="False">
                                                 <asp:ListItem Value="1">SI</asp:ListItem>
                                                 <asp:ListItem Selected="True" Value="0">NO</asp:ListItem>
                                             </asp:RadioButtonList>
@@ -931,7 +942,8 @@
                                     </tr>
                                     <tr>
                                         <td class="style17">
-                                            <asp:TextBox class="bordeCampoObligatorio" runat="server" MaxLength="10" TabIndex="32" Width="170px" ID="txtFecha"></asp:TextBox>
+                                            <asp:TextBox class="bordeCampoObligatorio" runat="server" MaxLength="10" 
+                                                TabIndex="32" Width="170px" ID="txtFecha" ReadOnly="True"></asp:TextBox>
                                             <asp:CalendarExtender runat="server" Format="dd/MM/yyyy" Enabled="True" TargetControlID="txtFecha"
                                                 ID="txtFecha_CalendarExtender">
                                             </asp:CalendarExtender>
@@ -942,7 +954,8 @@
                                                 Font-Bold="True" Font-Size="Medium" ID="RangeValidator3">*</asp:RangeValidator>
                                         </td>
                                         <td class="style18">
-                                            <asp:TextBox runat="server" MaxLength="5" TabIndex="33" Width="170px" ID="txtHora" class="bordeCampoObligatorio"></asp:TextBox>
+                                            <asp:TextBox runat="server" MaxLength="5" TabIndex="33" Width="170px" 
+                                                ID="txtHora" class="bordeCampoObligatorio" ReadOnly="True"></asp:TextBox>
                                             <asp:MaskedEditExtender ID="MaskedEditExtender3" runat="server" AcceptAMPM="True"
                                                 BehaviorID="_content_MaskedEditExtender3" Century="2000" CultureAMPMPlaceholder=""
                                                 CultureCurrencySymbolPlaceholder="€" CultureDateFormat="DMY" CultureDatePlaceholder="/"
@@ -1136,15 +1149,15 @@
                                     <tr>
                                         <td class="style17">
                                             <asp:TextBox ID="txtNumeroLH" runat="server" Width="170px" MaxLength="10" TabIndex="41"
-                                                Style="text-transform: uppercase"></asp:TextBox>
+                                                Style="text-transform: uppercase" ReadOnly="True"></asp:TextBox>
                                         </td>
                                         <td class="style18">
                                             <asp:TextBox ID="txtManzanaLH" runat="server" Width="170px" MaxLength="10" TabIndex="42"
-                                                Style="text-transform: uppercase"></asp:TextBox>
+                                                Style="text-transform: uppercase" ReadOnly="True"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtLoteLH" runat="server" Width="200px" MaxLength="10" TabIndex="43"
-                                                Style="text-transform: uppercase"></asp:TextBox>
+                                                Style="text-transform: uppercase" ReadOnly="True"></asp:TextBox>
                                         </td>
                                         <td>
                                             &nbsp;
@@ -1178,19 +1191,20 @@
                                     <tr>
                                         <td class="style17">
                                             <asp:TextBox ID="txtLatitud" runat="server" Width="170px" MaxLength="20" TabIndex="44"
-                                                Style="text-transform: uppercase" Enabled="False">0</asp:TextBox>
+                                                Style="text-transform: uppercase" Enabled="False" ReadOnly="True">0</asp:TextBox>
                                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator28" runat="server" ControlToValidate="txtLatitud"
                                                 Display="Dynamic" ErrorMessage="INGRESA LATITUD" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td class="style18">
                                             <asp:TextBox ID="txtLongitud" runat="server" Width="170px" MaxLength="20" TabIndex="45"
-                                                Style="text-transform: uppercase" Enabled="False">0</asp:TextBox>
+                                                Style="text-transform: uppercase" Enabled="False" ReadOnly="True">0</asp:TextBox>
                                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator29" runat="server" ControlToValidate="txtLongitud"
                                                 Display="Dynamic" ErrorMessage="INGRESA LONGITUD" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td colspan="2" rowspan="5">
                                             <asp:TextBox ID="txtReferencias" runat="server" Height="85px" TextMode="MultiLine"
-                                                Width="470px" MaxLength="250" TabIndex="46" Style="text-transform: uppercase"></asp:TextBox>
+                                                Width="470px" MaxLength="250" TabIndex="46" 
+                                                Style="text-transform: uppercase" ReadOnly="True"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -1456,7 +1470,7 @@
                             <tr>
                                 <td colspan="4" >
                                     <asp:TextBox ID="txtDescripcionHechos" TextMode="MultiLine"  runat="server" Width="1051px"
-                                        Height="96px" TabIndex="55"></asp:TextBox>
+                                        Height="96px" TabIndex="55" ReadOnly="True"></asp:TextBox>
                                 </td>
                               
                             </tr>
@@ -1521,7 +1535,7 @@
                             <ContentTemplate>
                                 <table style="width:100%;">
                                     <tr>
-                                        <td class="style5">
+                                        <td class="style5" style="display:none">
                                             <asp:Label ID="Label31" runat="server" Font-Bold="True" Font-Size="Small" 
                                                 class="color-fuente" Text="AGREGAR"></asp:Label>
                                             <asp:Button ID="cmdMedio" runat="server" onclick="cmdMedio_Click" Text=" + " 
@@ -1664,7 +1678,7 @@
                    
                     
                     <asp:Button ID="cmdGu" runat="server" onclick="cmdGu_Click" Text="GUARDAR" 
-                        Width="156px" TabIndex="58" Font-Bold="True" Height="40px" class="button"  />
+                        Width="156px" TabIndex="58" Font-Bold="True" Height="40px" class="button"  style="display:none"/>
                     &nbsp;
                     <asp:Button ID="cmdReg" runat="server" onclick="cmdReg_Click" Text="REGRESAR" 
                         Width="156px" TabIndex="59" Font-Bold="True" Height="40px" class="button" />
