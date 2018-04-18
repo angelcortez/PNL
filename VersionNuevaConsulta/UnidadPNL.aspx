@@ -67,7 +67,7 @@
     </table>
         <table style="width: 100%;">
             <tr>
-                <td align="left" colspan="3">
+                <td align="left" colspan="3" style="display:none">
                     <asp:Button ID="cmdNuc" runat="server" onclick="cmdNuc_Click" 
                         Text="GENERAR NUC" Font-Bold="True" class="button" />
                 </td>

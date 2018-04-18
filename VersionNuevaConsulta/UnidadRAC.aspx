@@ -88,7 +88,7 @@
 
         <table style="width: 100%;">
             <tr>
-                <td align="left" colspan="3">
+                <td align="left" colspan="3" style="display:none">
                     <asp:Button ID="cmdNuc" runat="server" 
                         Text="GENERAR RAC" Font-Bold="True" class="button" 
                         onclick="cmdNuc_Click" />
