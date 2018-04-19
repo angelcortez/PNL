@@ -107,7 +107,7 @@ namespace AtencionTemprana
                 }
                 else if (Session["op"].ToString() == "Modificar")
                 {
-                    lblOperacion.Text = "MODIFICAR DELITO";
+                    lblOperacion.Text = "CONSULTAR DELITO";
                     try
                     {
                         PGJ.CargaCombo(ddlDelito, "CAT_DELITO", "ID_DLTO", "DLTO");
