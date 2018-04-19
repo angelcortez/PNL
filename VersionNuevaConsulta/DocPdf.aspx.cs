@@ -62,7 +62,7 @@ namespace AtencionTemprana
                 }
                 else if (Session["op"].ToString() == "Modificar")
                 {
-                    lblOperacion.Text = "MODIFICAR DOCUMENTO PDF";
+                    lblOperacion.Text = "CONSULTAR DOCUMENTO PDF";
                     try{
                     PGJ.CargaComboNUC(ddlPlantilla);
                     cargarCarpetaPDF();
