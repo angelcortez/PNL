@@ -1569,7 +1569,7 @@
                                                 AutoGenerateColumns="False" DataSourceID="dsMedioContacto">
                                                 <AlternatingRowStyle BackColor="White" />
                                                 <Columns>
-                                                    <asp:TemplateField HeaderText="EDITAR">
+                                                    <asp:TemplateField HeaderText="EDITAR" Visible=false> 
                                                         <ItemTemplate>
                                                             <a href='MedioContacto.aspx?ID_PERSONA=<%#Eval("ID_PERSONA")%>&amp;&amp;op=Modificar&amp;ID_MEDIO_CONTACTO=<%#Eval("ID_MEDIO_CONTACTO")%>&amp;'>
                                                             <asp:Image ID="Image1" runat="server" Height="18px" ImageUrl="img/view-tree.png" 
