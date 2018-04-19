@@ -184,7 +184,7 @@ namespace AtencionTemprana
                 else if (Session["op"].ToString() == "Modificar")
                 {
 
-                    lblOperacion.Text = "MODIFICAR VEHICULO";
+                    lblOperacion.Text = "CONSULTAR VEHICULO";
                     try
                     {
                         PGJ.CargaCombo(ddlMarca, "CAT_MARCA", "id_marca", "marca");
@@ -853,7 +853,7 @@ namespace AtencionTemprana
             else
             {
                 txtNumeroAccidente.Enabled = false;
-                ddlEstadoVehiculo.Enabled = true;
+                ddlEstadoVehiculo.Enabled = false;
                 ddlPropietario.Enabled = true;
 
                 SqlCommand sqlFechaRobo = new SqlCommand("CargarFechaRoboVehiculo ", Data.CnnCentral);
@@ -1033,7 +1033,7 @@ namespace AtencionTemprana
             
                 //btnAutorizacion.Visible = true;
                 lblErrorAuto.Text = "CODIGO DE AUTORIZACIÓN GUARDADA";
-                btnDescargarDocumento.Visible = true;
+                btnDescargarDocumento.Visible = false;
                 cargarAutorizacion();
                 DesactivarControlesRobado();
             }
@@ -1062,7 +1062,7 @@ namespace AtencionTemprana
                 //Session["ID_PLANTILLA"] = "OFICIODEVOLUCIONVEHICULO.doc";
                 //DocumentoVehiculo.NombrePlantilla = "OFICIODEVOLUCIONVEHICULO";
                 LeerDeBD();
-                btnGuardarDocu.Visible = true;
+                btnGuardarDocu.Visible = false;
             }
             catch (Exception ex)
             {
@@ -1281,7 +1281,7 @@ namespace AtencionTemprana
 
             if (txtAutorizacion.Text != "")
             {
-                ddlEstadoVehiculo.Enabled = true;
+                ddlEstadoVehiculo.Enabled = false;
             }
             else {
                 ddlEstadoVehiculo.Enabled = false;
@@ -1358,8 +1358,8 @@ namespace AtencionTemprana
                 Label332.Visible = false;
             }
             else {
-                btnGuardarDocu.Visible = true;
-                btnDescargarDocumento.Visible = true;
+                btnGuardarDocu.Visible = false;
+                btnDescargarDocumento.Visible = false;
                 fileUpload.Visible = true;
                 Label332.Visible = true;
             }

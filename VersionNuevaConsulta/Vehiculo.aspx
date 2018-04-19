@@ -258,25 +258,29 @@
             <tr>
                 <td>
                     <asp:DropDownList ID="ddlMarca" runat="server" Width="200px" class="chosen-select"
-                        AutoPostBack="True" onselectedindexchanged="ddlMarca_SelectedIndexChanged">
+                        AutoPostBack="True" onselectedindexchanged="ddlMarca_SelectedIndexChanged" 
+                        Enabled="False">
                     </asp:DropDownList>
                    <asp:RequiredFieldValidator id="RequiredFieldValidator1" ControlToValidate="ddlMarca" InitialValue="999" runat="server" Display="Dynamic" 
                     ErrorMessage="SELECCIONE MARCA" Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlSubMarca" runat="server" Width="200px" class="chosen-select" >
+                    <asp:DropDownList ID="ddlSubMarca" runat="server" Width="200px" 
+                        class="chosen-select" Enabled="False" >
                     </asp:DropDownList>
 <%--                   <asp:RequiredFieldValidator id="RequiredFieldValidator2" ControlToValidate="ddlSubMarca" InitialValue="0" runat="server" Display="Dynamic" 
                     ErrorMessage="SELECCIONE SUBMARCA" Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlModelo" runat="server" Width="200px" class="chosen-select">
+                    <asp:DropDownList ID="ddlModelo" runat="server" Width="200px" 
+                        class="chosen-select" Enabled="False">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator id="RequiredFieldValidator3" ControlToValidate="ddlModelo" InitialValue="0" runat="server" Display="Dynamic" 
                     ErrorMessage="SELECCIONE MODELO" Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlColor" runat="server" Width="200px" class="chosen-select">
+                    <asp:DropDownList ID="ddlColor" runat="server" Width="200px" 
+                        class="chosen-select" Enabled="False">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator id="RequiredFieldValidator4" ControlToValidate="ddlColor" InitialValue="999" runat="server" Display="Dynamic" 
                     ErrorMessage="SELECCIONE COLOR" Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -315,20 +319,23 @@
                 <td>
                 
                     <asp:DropDownList ID="ddlProcedencia" runat="server" AutoPostBack="True" class="chosen-select"
-                        onselectedindexchanged="ddlProcedencia_SelectedIndexChanged" Width="200px">
+                        onselectedindexchanged="ddlProcedencia_SelectedIndexChanged" Width="200px" 
+                        Enabled="False">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator id="RequiredFieldValidator5" ControlToValidate="ddlProcedencia" InitialValue="99" runat="server" Display="Dynamic" 
                     ErrorMessage="SELECCIONE PROCEDENCIA" Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtSerie" runat="server" MaxLength="17" Width="200px" name="txtSerie" class="txtSerie"></asp:TextBox>
+                    <asp:TextBox ID="txtSerie" runat="server" MaxLength="17" Width="200px" 
+                        name="txtSerie" class="txtSerie" ReadOnly="True"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtPlaca" runat="server" MaxLength="10" Width="200px" name="txtPlaca" class="txtPlaca"></asp:TextBox>
+                    <asp:TextBox ID="txtPlaca" runat="server" MaxLength="10" Width="200px" 
+                        name="txtPlaca" class="txtPlaca" ReadOnly="True"></asp:TextBox>
                 </td>
                 <td>
                     <asp:DropDownList ID="ddlPlacasEstado" runat="server" class="chosen-select"
-                        style="margin-bottom: 0px" Width="200px">
+                        style="margin-bottom: 0px" Width="200px" Enabled="False">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator id="RequiredFieldValidator6" ControlToValidate="ddlPlacasEstado" InitialValue="0" runat="server" Display="Dynamic" 
                     ErrorMessage="SELECCIONE UN ESTADO PARA LA PLACA" Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -367,20 +374,22 @@
                     <asp:TextBox ID="txtSenas" runat="server" MaxLength="10" Width="200px"></asp:TextBox>
                </td>
                 <td>
-                    <asp:DropDownList ID="ddlTipoVehiculo" runat="server" Width="200px" class="chosen-select">
+                    <asp:DropDownList ID="ddlTipoVehiculo" runat="server" Width="200px" 
+                        class="chosen-select" Enabled="False">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator id="RequiredFieldValidator7" ControlToValidate="ddlTipoVehiculo" InitialValue="999" runat="server" Display="Dynamic" 
                     ErrorMessage="SELECCIONE TIPO DE VEHÍCULO" Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
                     <asp:DropDownList ID="ddlDisposicion" runat="server" style="margin-bottom: 0px" class="chosen-select"
-                        Width="200px">
+                        Width="200px" Enabled="False">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator id="RequiredFieldValidator8" ControlToValidate="ddlDisposicion" InitialValue="99" runat="server" Display="Dynamic" 
                     ErrorMessage="SELECCIONE PUESTO A DISPOSICION" Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlAsegurado" runat="server" Width="200px" class="chosen-select">
+                    <asp:DropDownList ID="ddlAsegurado" runat="server" Width="200px" 
+                        class="chosen-select" Enabled="False">
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator id="RequiredFieldValidator9" ControlToValidate="ddlAsegurado" InitialValue="0" runat="server" Display="Dynamic" 
                     ErrorMessage="SELECCIONE ASEGURADO POR" Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
@@ -415,23 +424,27 @@
             </tr>
             <tr>
                 <td>
-                    <asp:DropDownList ID="ddlAseguradora" runat="server" Width="200px" class="chosen-select" >
+                    <asp:DropDownList ID="ddlAseguradora" runat="server" Width="200px" 
+                        class="chosen-select" Enabled="False" >
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator id="RequiredFieldValidator10" ControlToValidate="ddlAseguradora" InitialValue="99" runat="server" Display="Dynamic" 
                     ErrorMessage="SELECCIONE ASEGURADORA" Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
-                   <asp:DropDownList ID="ddlTipoUso" runat="server" Width="200px" class="chosen-select"></asp:DropDownList>
+                   <asp:DropDownList ID="ddlTipoUso" runat="server" Width="200px" 
+                        class="chosen-select" Enabled="False"></asp:DropDownList>
                     <asp:RequiredFieldValidator id="RequiredFieldValidator11" ControlToValidate="ddlTipoUso" InitialValue="99" runat="server" Display="Dynamic" 
                     ErrorMessage="SELECCIONE TIPO DE USO" Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                 </td>
                 <td>
-                   <asp:DropDownList ID="ddlPropietario" runat="server" Width="200px" class="chosen-select"></asp:DropDownList>
+                   <asp:DropDownList ID="ddlPropietario" runat="server" Width="200px" 
+                        class="chosen-select" Enabled="False"></asp:DropDownList>
                 </td>
                 <td>
-                   <asp:DropDownList ID="ddlEstadoVehiculo" runat="server" Width="200px" class="chosen-select"
+                   <asp:DropDownList ID="ddlEstadoVehiculo" runat="server" Width="200px"
                         AutoPostBack="True" 
-                        onselectedindexchanged="ddlEstadoVehiculo_SelectedIndexChanged"></asp:DropDownList>
+                        onselectedindexchanged="ddlEstadoVehiculo_SelectedIndexChanged" 
+                        Enabled="False"></asp:DropDownList>
                 </td>
             </tr>
              <tr>
@@ -463,33 +476,39 @@
             </tr>
             <tr>
                 <td>
-                       <asp:TextBox ID="txtNumeroMotor" runat="server" MaxLength="50" Width="200px"
+                       <asp:TextBox ID="txtNumeroMotor" runat="server" MaxLength="50" Width="200px" ReadOnly="True"
                          ></asp:TextBox>
                 </td>
                 <td>
-                      <asp:TextBox ID="txtRegistroVehicular" runat="server" MaxLength="50" Width="200px" ></asp:TextBox>
+                      <asp:TextBox ID="txtRegistroVehicular" runat="server" MaxLength="50" 
+                          Width="200px" ReadOnly="True" ></asp:TextBox>
                 </td>
                 <td>
-                     <asp:TextBox ID="txtFechaRobo" runat="server" MaxLength="10" Width="200px" Enabled="False" 
+                     <asp:TextBox ID="txtFechaRobo" runat="server" MaxLength="10" Width="200px" 
+                         Enabled="False" ReadOnly="True" 
                          ></asp:TextBox>
                 </td>
                 <td>
-                     <asp:TextBox ID="txtHoraRobo" runat="server" MaxLength="10" Width="200px"  Enabled="False" 
+                     <asp:TextBox ID="txtHoraRobo" runat="server" MaxLength="10" Width="200px"  
+                         Enabled="False" ReadOnly="True" 
                        ></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td>
                     &nbsp;
-                    <asp:TextBox ID="txtFechaInicio" runat="server" MaxLength="10" Width="200px"  Visible=false ></asp:TextBox>
+                    <asp:TextBox ID="txtFechaInicio" runat="server" MaxLength="10" Width="200px"  
+                        Visible=false ReadOnly="True" ></asp:TextBox>
                 </td>
                 <td>
                     &nbsp;
-                    <asp:TextBox ID="txtHoraInicio" runat="server" MaxLength="10" Width="200px"  Visible=false  ></asp:TextBox>   
+                    <asp:TextBox ID="txtHoraInicio" runat="server" MaxLength="10" Width="200px"  
+                        Visible=false ReadOnly="True"  ></asp:TextBox>   
                  </td>
                 <td>
                     &nbsp;
-                    <asp:TextBox ID="txtExpediente" runat="server" MaxLength="20" Width="200px" Visible=false   ></asp:TextBox> 
+                    <asp:TextBox ID="txtExpediente" runat="server" MaxLength="20" Width="200px" 
+                        Visible=false ReadOnly="True"   ></asp:TextBox> 
                 </td>
                 <td>
                     &nbsp;
@@ -503,18 +522,18 @@
             </tr>
            <tr>
                 <td><asp:TextBox ID="txtFechaRecuperado" runat="server" MaxLength="50" 
-                        Width="200px" Visible=false  ></asp:TextBox>
+                        Width="200px" Visible=false ReadOnly="True"  ></asp:TextBox>
                     <asp:CalendarExtender ID="txtFechaRecuperadoCalendar" runat="server" 
                         Enabled="True" Format="dd/MM/yyyy" TargetControlID="txtFechaRecuperado" OnClientDateSelectionChanged="revisarFechaRecuperado">
                     </asp:CalendarExtender>
                 </td>
-                <td><asp:TextBox ID="txtHoraRecuperado" runat="server" MaxLength="5" Width="200px"  Visible=false>
-                </asp:TextBox>
+                <td><asp:TextBox ID="txtHoraRecuperado" runat="server" MaxLength="5" Width="200px"  
+                        Visible=false ReadOnly="True"></asp:TextBox>
                 </td>
                 <td><asp:DropDownList ID="ddlDepositado" runat="server" Width="200px" Visible=false class="chosen-select"
                         ></asp:DropDownList></td>
                 <td><asp:TextBox ID="txtFechaDeposito" runat="server" MaxLength="50" Width="200px" 
-                        Visible=false  ></asp:TextBox>
+                        Visible=false ReadOnly="True"  ></asp:TextBox>
                  <asp:CalendarExtender ID="txtFechaDepositoCalendar" runat="server" 
                         Enabled="True" Format="dd/MM/yyyy" TargetControlID="txtFechaDeposito" OnClientDateSelectionChanged="revisarFechaDepositado">
                     </asp:CalendarExtender>
@@ -533,7 +552,8 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td><asp:TextBox ID="txtHoraDeposito" runat="server" MaxLength="5" Width="200px" Visible=false></asp:TextBox></td>
+                <td><asp:TextBox ID="txtHoraDeposito" runat="server" MaxLength="5" Width="200px" 
+                        Visible=false ReadOnly="True"></asp:TextBox></td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -559,7 +579,7 @@
             <tr>
                 <td colspan="4">
                     <asp:TextBox ID="txtObservaciones" runat="server" Height="139px" 
-                        MaxLength="5000" TextMode="MultiLine" Width="903px"></asp:TextBox>
+                        MaxLength="5000" TextMode="MultiLine" Width="903px" ReadOnly="True"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -586,7 +606,7 @@
                     ForeColor=red Visible=false></asp:Label>
                 </td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td colspan="4"> <asp:Label ID="Label332" runat="server" Font-Bold="True" Font-Size="Small" 
                         ForeColor="Black" Text="SELECCIONE DOCUMENTO PDF"></asp:Label>
                <br />
@@ -630,9 +650,9 @@
                 <td align="center" colspan="4">
                           <asp:Button ID="btnGuardarDocu" runat="server" Text="GUARDAR OFICIO" 
             Font-Bold="True" Height="40px" Width="185px"  
-                              onclick="btnGuardarDocu_Click" class="button"  />
+                              onclick="btnGuardarDocu_Click" class="button" Visible="False"  />
              &nbsp;
-          <asp:Button ID="btnDescargarDocumento" runat="server" Text="GENERAR OFICIO" 
+          <asp:Button ID="btnDescargarDocumento" runat="server" Text="GENERAR OFICIO" Visible="False" 
             Font-Bold="True" Height="40px" Width="185px"  
                         onclick="btnDescargarDocumento_Click" class="button"  />
                 &nbsp;
@@ -642,11 +662,11 @@
                 &nbsp;
                   <asp:Button ID="btnAutorizacion" runat="server" 
                         Text="GENERAR AUTORIZACION" Font-Bold="True" Height="40px" Width="185px"  
-                        onclick="btnAutorizacion_Click" class="button"  />
+                        onclick="btnAutorizacion_Click" class="button" Visible="False"  />
                     &nbsp;
                     <asp:Button ID="cmdGuardar" runat="server" onclick="cmdGuardar_Click" 
                         Text="GUARDAR" Font-Bold="True" Height="40px" Width="185px" class="button" OnClientClick="this.disabled=true;this.value = 'GUARDAR...'" 
-      UseSubmitBehavior="false"/>
+      UseSubmitBehavior="false" Visible="False"/>
                     &nbsp;
                     <asp:Button ID="cmdRegresar" runat="server" onclick="cmdRegresar_Click" 
                         Text="REGRESAR" Font-Bold="True" Height="40px" Width="185px" class="button" />
