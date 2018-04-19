@@ -293,6 +293,7 @@
     <Content Include="PNLPeritoRecolector.aspx" />
     <Content Include="PNLPersonasNSJP.aspx" />
     <Content Include="PNLSeniasParticulares.aspx" />
+    <Content Include="PNLUnidades.aspx" />
     <Content Include="PoliciaInvestigador.aspx" />
     <Content Include="ProfugosSec.aspx" />
     <Content Include="PruebaPantallas.aspx" />
@@ -1357,6 +1358,13 @@
     </Compile>
     <Compile Include="PNLSeniasParticulares.aspx.designer.cs">
       <DependentUpon>PNLSeniasParticulares.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PNLUnidades.aspx.cs">
+      <DependentUpon>PNLUnidades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PNLUnidades.aspx.designer.cs">
+      <DependentUpon>PNLUnidades.aspx</DependentUpon>
     </Compile>
     <Compile Include="PNL_NSJPDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
