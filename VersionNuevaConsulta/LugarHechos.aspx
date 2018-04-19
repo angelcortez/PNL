@@ -204,9 +204,9 @@
                                     <asp:CalendarExtender runat="server" Format="dd/MM/yyyy" Enabled="True" 
                                         TargetControlID="txtFecha" ID="txtFecha_CalendarExtender" OnClientDateSelectionChanged="revisarFechaDepositado">
                                     </asp:CalendarExtender>
-                                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" 
+                                    <%--<asp:RequiredFieldValidator runat="server" ForeColor="Red" 
                                         ControlToValidate="txtFecha" ErrorMessage="INGRESA FECHA" Display="Dynamic" 
-                                        ID="RequiredFieldValidator1">*</asp:RequiredFieldValidator>
+                                        ID="RequiredFieldValidator1">*</asp:RequiredFieldValidator>--%>
                                     <asp:RangeValidator runat="server" MaximumValue="31/12/9999" 
                                         MinimumValue="01/01/1111" ForeColor="Red" ControlToValidate="txtFecha" 
                                         ErrorMessage="FECHA INVALIDA" Display="Dynamic" Font-Bold="True" 
@@ -224,9 +224,9 @@
                                             <asp:MaskedEditValidator ID="MaskedEditValidator3" runat="server" ControlExtender="MaskedEditExtender3"
                                                 ControlToValidate="txtHora" ErrorMessage="*" InvalidValueMessage="REGISTRE HORA"
                                                 ForeColor="Red" ToolTip="ERROR FORMATO HORA" TooltipMessage="Hora 00:00 am hasta 23:59 pm"></asp:MaskedEditValidator>
-                                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" 
+                                    <%--<asp:RequiredFieldValidator runat="server" ForeColor="Red" 
                                         ControlToValidate="txtHora" ErrorMessage="INGRESA HORA" Display="Dynamic" 
-                                        Font-Bold="True" Font-Size="Small" ID="RequiredFieldValidator2">*</asp:RequiredFieldValidator>
+                                        Font-Bold="True" Font-Size="Small" ID="RequiredFieldValidator2">*</asp:RequiredFieldValidator>--%>
                                     &nbsp;
                                     <asp:Label runat="server" Text="HRS." Font-Bold="True" ForeColor="Black" 
                                         ID="Label25"></asp:Label>
@@ -559,11 +559,12 @@
                 <td colspan="4">
 
                                                             <asp:Panel ID="Panel3" runat="server" GroupingText="DELITOS" Font-Bold="True" 
-                                                                Font-Size="Medium" >
+                                                                Font-Size="Medium" Enabled="False" Visible="False" >
                                                                 <table style="width:100%;">
                                                                     <tr>
                                                                         <td>
-                                                                            <asp:Label ID="Label26" runat="server" Font-Bold="True" Text="AGREGAR"></asp:Label>
+                                                                            <asp:Label ID="Label26" runat="server" Font-Bold="True" Text="AGREGAR" 
+                                                                                Visible="False"></asp:Label>
                                                                             <asp:Button ID="cmdDelito" runat="server" onclick="cmdDelito_Click" 
                                                                                 Text=" + " Width="39px" class="button" Enabled="False" Visible="False" />
                                                                         </td>
