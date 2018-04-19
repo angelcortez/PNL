@@ -74,7 +74,7 @@ namespace AtencionTemprana
                     cargaDefensor();
                     //ddlPlanel();
                     CargarDocumento(IdPdf.Text);
-                    cmdGeneraPdf.Visible = true;
+                    cmdGeneraPdf.Visible = false;
 
                     PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 5, "Consulto PDF IdPdf=" + IdPdf.Text + " IdCarpeta=" + Session["ID_CARPETA"], int.Parse(Session["IdModuloBitacora"].ToString()));
             
@@ -364,7 +364,7 @@ namespace AtencionTemprana
                 cmdGeneraPdf.Visible = false;
                 Panel38.Visible = true;
             }
-            cmdGeneraPdf.Visible = true ;
+            cmdGeneraPdf.Visible = false ;
         }
         #endregion
 
