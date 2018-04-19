@@ -140,11 +140,11 @@ namespace AtencionTemprana
 
                     if (lblArbol.Text == "3")
                     {
-                        lblOperacion.Text = "MODIFICAR SOLICITANTE";
+                        lblOperacion.Text = "CONSULTAR SOLICITANTE";
                     }
 
                     tipoActor = "denunciante";
-                    lblOperacion.Text = "MODIFICAR DENUNCIANTE";
+                    lblOperacion.Text = "CONSULTAR DENUNCIANTE";
                     cmdAlias.Enabled = true;
                     cmdMedio.Enabled = true;                  
                     lblVivo.Visible = false;
@@ -204,7 +204,7 @@ namespace AtencionTemprana
                 }
                 else if (Session["op"].ToString() == "ModificarOf")
                 {
-                    lblOperacion.Text = "MODIFICAR OFENDIDO";
+                    lblOperacion.Text = "CONSULTAR OFENDIDO";
                     tipoActor = "ofendido";
                     cmdAlias.Enabled = true;
                     cmdMedio.Enabled = true;
@@ -300,11 +300,11 @@ namespace AtencionTemprana
                 {
                     if (lblArbol.Text == "3")
                     {
-                        lblOperacion.Text = "MODIFICAR INVITADO";
+                        lblOperacion.Text = "CONSULTAR INVITADO";
                     }
 
 
-                    lblOperacion.Text = "MODIFICAR IMPUTADO";
+                    lblOperacion.Text = "CONSULTAR IMPUTADO";
                     tipoActor = "imputado";
                     cmdAlias.Enabled = true;
                     cmdMedio.Enabled = true;
@@ -400,7 +400,7 @@ namespace AtencionTemprana
                 }
                 else if (Session["op"].ToString() == "ModificarTes")
                 {
-                    lblOperacion.Text = "MODIFICAR TESTIGO";
+                    lblOperacion.Text = "CONSULTAR TESTIGO";
                     tipoActor = "testigo";
                     cmdAlias.Enabled = true;
                     cmdMedio.Enabled = true;
