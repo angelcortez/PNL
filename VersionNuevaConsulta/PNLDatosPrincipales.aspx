@@ -364,28 +364,28 @@
                         <tr>
                             <td class="style34">
                                 <!--<asp:TextBox ID="txtONG" runat="server" ></asp:TextBox>-->
-                                <asp:RadioButtonList ID="rb_ong" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" >
+                                <asp:RadioButtonList ID="rb_ong" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                     <asp:ListItem Value="SI" Text="SI"></asp:ListItem>
                                     <asp:ListItem Value="NO" Selected="True" Text="NO"></asp:ListItem>
                                 </asp:RadioButtonList>                                
                             </td>
                             <td class="style35">
                                 <!--<asp:TextBox ID="txtSindicalista" runat="server"></asp:TextBox>-->
-                                <asp:RadioButtonList ID="rb_sindicalista" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" >
+                                <asp:RadioButtonList ID="rb_sindicalista" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                     <asp:ListItem Value="SI" Text="SI"></asp:ListItem>
                                     <asp:ListItem Value="NO" Selected="True" Text="NO"></asp:ListItem>
                                 </asp:RadioButtonList>
                             </td>
                             <td class="style36">
                                 <!--<asp:TextBox ID="txtReinsertado" runat="server"></asp:TextBox>-->
-                                <asp:RadioButtonList ID="rb_reinsertado" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" >
+                                <asp:RadioButtonList ID="rb_reinsertado" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                     <asp:ListItem Value="SI" Text="SI"></asp:ListItem>
                                     <asp:ListItem Value="NO" Selected="True" Text="NO"></asp:ListItem>
                                 </asp:RadioButtonList>
                             </td>
                             <td class="style37">
                                 <!--<asp:TextBox ID="txtGrupoReligioso" runat="server"></asp:TextBox>-->
-                                <asp:DropDownList ID="ddlGrupoRel" runat="server"  Width="200px" Visible="TRUE">
+                                <asp:DropDownList ID="ddlGrupoRel" runat="server"  Width="200px" Visible="TRUE" Enabled="False">
                                 <asp:ListItem Value="--SELECCIONE--" ></asp:ListItem>
                                 <asp:ListItem Value="NINGUNA" ></asp:ListItem>
                                 <asp:ListItem Value="DESCONOCIDA" ></asp:ListItem>
@@ -433,20 +433,20 @@
                         <tr>
                             <td class="style27">
                                 <!--<asp:TextBox ID="txtOrgEstatal" runat="server"></asp:TextBox>-->
-                                <asp:RadioButtonList ID="rb_OrgEstatal" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" >
+                                <asp:RadioButtonList ID="rb_OrgEstatal" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                     <asp:ListItem Value="SI" Text="SI"></asp:ListItem>
                                     <asp:ListItem Value="NO" Selected="True" Text="NO"></asp:ListItem>
                                 </asp:RadioButtonList>
                             </td>
                             <td class="style30">
                                 <!--<asp:TextBox ID="txtDH" runat="server"></asp:TextBox>-->
-                                <asp:RadioButtonList ID="rb_DH" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" >
+                                <asp:RadioButtonList ID="rb_DH" runat="server" Font-Bold="true" Font-Size="Small" ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                     <asp:ListItem Value="SI" Text="SI"></asp:ListItem>
                                     <asp:ListItem Value="NO" Selected="True" Text="NO"></asp:ListItem>
                                 </asp:RadioButtonList>
                             </td>
                             <td class="style33">
-                                <asp:TextBox ID="txtOtros" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtOtros" runat="server" ReadOnly="True"></asp:TextBox>
                             </td>
                             <td>
                                 &nbsp;&nbsp;
@@ -497,17 +497,17 @@
                             <tr>
                                 <td class="style34">
                                 <!-- class="chosen-select" -->
-                                    <asp:DropDownList ID="ddlBanco" runat="server" Width="200px" >
+                                    <asp:DropDownList ID="ddlBanco" runat="server" Width="200px" Enabled="False">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="style35">
-                                    <asp:TextBox ID="txtNumCuenta" runat="server"></asp:TextBox><asp:FilteredTextBoxExtender
+                                    <asp:TextBox ID="txtNumCuenta" runat="server" ReadOnly="True"></asp:TextBox><asp:FilteredTextBoxExtender
                                         ID="txtNumCuenta_FilteredTextBoxExtender" runat="server" Enabled="True" FilterType="Numbers"
                                         TargetControlID="txtNumCuenta">
                                     </asp:FilteredTextBoxExtender>
                                 </td>
                                 <td class="style36">
-                                    <asp:TextBox ID="txtTipoCuenta" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtTipoCuenta" runat="server" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td class="style37">
                                     &#160;&nbsp;
@@ -568,22 +568,22 @@
                             <tr>
                                 <td class="style34">
                                 <!-- class="chosen-select" -->
-                                    <asp:DropDownList ID="ddlBanco0" runat="server" Width="200px" >
+                                    <asp:DropDownList ID="ddlBanco0" runat="server" Width="200px" Enabled="False">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="style35">
-                                    <asp:TextBox ID="txtNumTarjetaCredito" runat="server"></asp:TextBox><asp:FilteredTextBoxExtender
+                                    <asp:TextBox ID="txtNumTarjetaCredito" runat="server" ReadOnly="True"></asp:TextBox><asp:FilteredTextBoxExtender
                                         ID="txtNumTarjetaCredito_FilteredTextBoxExtender" runat="server" Enabled="True"
                                         FilterType="Numbers" TargetControlID="txtNumTarjetaCredito">
                                     </asp:FilteredTextBoxExtender>
                                 </td>
                                 <td class="style36">
                                 <!-- class="chosen-select" -->
-                                    <asp:DropDownList ID="ddlBanco1" runat="server" Width="200px" >
+                                    <asp:DropDownList ID="ddlBanco1" runat="server" Width="200px" Enabled="False">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="style37">
-                                    <asp:TextBox ID="txtNumTarjetaDebito" runat="server"></asp:TextBox><asp:FilteredTextBoxExtender
+                                    <asp:TextBox ID="txtNumTarjetaDebito" runat="server" ReadOnly="True"></asp:TextBox><asp:FilteredTextBoxExtender
                                         ID="txtNumTarjetaDebito_FilteredTextBoxExtender" runat="server" Enabled="True"
                                         FilterType="Numbers" TargetControlID="txtNumTarjetaDebito">
                                     </asp:FilteredTextBoxExtender>
@@ -621,10 +621,10 @@
                             </tr>
                             <tr>
                                 <td class="style27">
-                                    <asp:TextBox ID="txtTarjetaDepartamental" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtTarjetaDepartamental" runat="server" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td class="style30">
-                                    <asp:TextBox ID="txtNumTarjetaDepartamental" runat="server"></asp:TextBox><asp:FilteredTextBoxExtender
+                                    <asp:TextBox ID="txtNumTarjetaDepartamental" runat="server" ReadOnly="True"></asp:TextBox><asp:FilteredTextBoxExtender
                                         ID="txtNumTarjetaDepartamental_FilteredTextBoxExtender" runat="server" Enabled="True"
                                         FilterType="Numbers" TargetControlID="txtNumTarjetaDepartamental">
                                     </asp:FilteredTextBoxExtender>
@@ -945,13 +945,13 @@
                         <tr>
                             <td class="style15">
                                 <asp:RadioButtonList ID="rbExpedienteDental" runat="server" Font-Bold="True" Font-Size="Small"
-                                    ForeColor="Black" RepeatDirection="Horizontal">
+                                    ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                     <asp:ListItem Value="1">SI</asp:ListItem>
                                     <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                 </asp:RadioButtonList>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtOdontologo" runat="server" Width="200px"></asp:TextBox>
+                                <asp:TextBox ID="txtOdontologo" runat="server" Width="200px" ReadOnly="True"></asp:TextBox>
                             </td>
                             <td>
                                 &nbsp;&nbsp;
@@ -985,26 +985,26 @@
                             <tr>
                                 <td class="style17">
                                 <!--class="chosen-select" -->
-                                    <asp:DropDownList ID="ddlTamDientes" runat="server" Width="200px" >
+                                    <asp:DropDownList ID="ddlTamDientes" runat="server" Width="200px" Enabled="False">
                                     </asp:DropDownList>
                                 </td>
                                 <td>
                                     <asp:RadioButtonList ID="rbCompletos" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
                                     <asp:RadioButtonList ID="rbSeparados" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
                                     <asp:RadioButtonList ID="rbGirados" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
@@ -1030,21 +1030,21 @@
                             <tr>
                                 <td class="style17">
                                     <asp:RadioButtonList ID="rbApinonados" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
                                     <asp:RadioButtonList ID="rbManchados" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
                                     <asp:RadioButtonList ID="rbDesgaste" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
@@ -1080,28 +1080,28 @@
                             <tr>
                                 <td class="style9">
                                     <asp:RadioButtonList ID="rbResinas" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td class="style11">
                                     <asp:RadioButtonList ID="rbAmalgamas" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td class="style12">
                                     <asp:RadioButtonList ID="rbCoronasMetalicas" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
                                     <asp:RadioButtonList ID="rbCoronasEsteticas" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
@@ -1128,27 +1128,27 @@
                             <tr>
                                 <td class="style9">
                                     <asp:RadioButtonList ID="rbEndodoncia" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td class="style11">
                                     <asp:RadioButtonList ID="rbBlanqueamiento" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td class="style12">
                                     <asp:RadioButtonList ID="rbIncrustacion" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtOtro" runat="server" Width="200px"></asp:TextBox>
+                                    <asp:TextBox ID="txtOtro" runat="server" Width="200px" ReadOnly="True"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>
@@ -1178,26 +1178,26 @@
                             <tr>
                                 <td class="style21">
                                 <!--class="chosen-select" -->
-                                    <asp:DropDownList ID="ddlProtesis" runat="server" Width="200px" >
+                                    <asp:DropDownList ID="ddlProtesis" runat="server" Width="200px" Enabled="False">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="style16">
                                     <asp:RadioButtonList ID="rbBraquets" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
                                     <asp:RadioButtonList ID="rbRetenedores" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
                                     <asp:RadioButtonList ID="rbImplantes" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
@@ -1221,11 +1221,11 @@
                             </tr>
                             <tr>
                                 <td class="style21">
-                                    <asp:TextBox ID="txtAditamento" runat="server" Width="200px"></asp:TextBox>
+                                    <asp:TextBox ID="txtAditamento" runat="server" Width="200px" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td class="style16">
                                     <asp:RadioButtonList ID="rbPuesto" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" RepeatDirection="Horizontal">
+                                        ForeColor="Black" RepeatDirection="Horizontal" Enabled="False">
                                         <asp:ListItem Value="1">SI</asp:ListItem>
                                         <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>
                                     </asp:RadioButtonList>
@@ -1252,10 +1252,10 @@
                             </tr>
                             <tr>
                                 <td class="style14">
-                                    <asp:TextBox ID="txtAusenciasDentales" runat="server" Width="300px"></asp:TextBox>
+                                    <asp:TextBox ID="txtAusenciasDentales" runat="server" Width="300px" ReadOnly="True"></asp:TextBox>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtHabitosDentales" runat="server" Width="300px"></asp:TextBox>
+                                    <asp:TextBox ID="txtHabitosDentales" runat="server" Width="300px" ReadOnly="True"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>
@@ -1273,69 +1273,69 @@
                             <tr>
                                 <td class="style27">
                                     <asp:CheckBox ID="chbDetencion" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="DETENCIÓN" />
+                                        ForeColor="Black" Text="DETENCIÓN" Enabled="False" />
                                 </td>
                                 <td class="style30">
                                     <asp:CheckBox ID="chbAllamiento" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="ALLANAMIENTO" />
+                                        ForeColor="Black" Text="ALLANAMIENTO" Enabled="False" />
                                 </td>
                                 <td class="style33">
                                     <asp:CheckBox ID="chbHostigamiento" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="HOSTIGAMIENTO" />
+                                        ForeColor="Black" Text="HOSTIGAMIENTO" Enabled="False" />
                                 </td>
                                 <td>
                                     <asp:CheckBox ID="chbAmenazas" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="AMENAZAS" />
+                                        ForeColor="Black" Text="AMENAZAS" Enabled="False" />
                                 </td>
                             </tr>
                             <tr>
                                 <td class="style39">
                                     <asp:CheckBox ID="chbLesiones" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="LESIONES" />
+                                        ForeColor="Black" Text="LESIONES" Enabled="False"/>
                                 </td>
                                 <td class="style40">
                                     <asp:CheckBox ID="chbDisposicionDinero" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="DISPOSICIÓN DE DINERO EN EFECTIVO" />
+                                        ForeColor="Black" Text="DISPOSICIÓN DE DINERO EN EFECTIVO" Enabled="False"/>
                                 </td>
                                 <td class="style41">
                                     <asp:CheckBox ID="chbProblemasVecinales" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="PROBLEMAS VECINALES" />
+                                        ForeColor="Black" Text="PROBLEMAS VECINALES" Enabled="False"/>
                                 </td>
                                 <td class="style38">
                                     <asp:CheckBox ID="chbProblemasFamiliares" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="PROBLEMAS FAMILIARES" />
+                                        ForeColor="Black" Text="PROBLEMAS FAMILIARES" Enabled="False"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="style34">
                                     <asp:CheckBox ID="chbActitudNerviosa" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="ACTITUD NERVIOSA" />
+                                        ForeColor="Black" Text="ACTITUD NERVIOSA" Enabled="False"/>
                                 </td>
                                 <td class="style35">
                                     <asp:CheckBox ID="chbMovimientosCB" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="MOVIMIENTOS EN CUENTAS BANCARIAS" />
+                                        ForeColor="Black" Text="MOVIMIENTOS EN CUENTAS BANCARIAS" Enabled="False"/>
                                 </td>
                                 <td class="style36">
                                     <asp:CheckBox ID="chbDesaparecido" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="COMUNICACIÓN CON EL DESAPARECIDO" />
+                                        ForeColor="Black" Text="COMUNICACIÓN CON EL DESAPARECIDO" Enabled="False"/>
                                 </td>
                                 <td class="style37">
                                     <asp:CheckBox ID="chbCaptores" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="COMUNICACIÓN CON SUS CAPTORES" />
+                                        ForeColor="Black" Text="COMUNICACIÓN CON SUS CAPTORES" Enabled="False"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="style27">
                                     <asp:CheckBox ID="chbSolicitud" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="SOLCICITUD PARA DEJARLO EN LIBERTAD" />
+                                        ForeColor="Black" Text="SOLCICITUD PARA DEJARLO EN LIBERTAD" Enabled="False"/>
                                 </td>
                                 <td class="style30">
                                     <asp:CheckBox ID="chbInternet" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="COMUNICACIÓN POR INTERNET" />
+                                        ForeColor="Black" Text="COMUNICACIÓN POR INTERNET" Enabled="False"/>
                                 </td>
                                 <td class="style33">
                                     <asp:CheckBox ID="chbParadero" runat="server" Font-Bold="True" Font-Size="Small"
-                                        ForeColor="Black" Text="INFORMACIÓN DE SU PARADERO" />
+                                        ForeColor="Black" Text="INFORMACIÓN DE SU PARADERO" Enabled="False"/>
                                 </td>
                                 <td>
                                     &#160;&nbsp;
@@ -1609,7 +1609,7 @@
                                         Style="text-transform: uppercase" Width="930px">
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
-                                            <asp:TemplateField>
+                                            <asp:TemplateField Visible=false>
                                                 <ItemTemplate>
                                                     <a href='PNLMediaFiliacion.aspx?IDMEDIAFILIACION=<%#Eval("IDMEDIAFILIACIONPNL")%>&amp;op=Modificar&amp;'>
                                                         <asp:Image ID="Image1" runat="server" Height="23px" ImageUrl="~/img/editar.png" Width="21px" /></a></ItemTemplate>
@@ -1671,7 +1671,7 @@
                                         Style="text-transform: uppercase" Width="930px">
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
-                                            <asp:TemplateField>
+                                            <asp:TemplateField Visible=false>
                                                 <ItemTemplate>
                                                     <a href='PNLSeniasParticulares.aspx?ID_SENIA=<%#Eval("IDSENAPARTICULARPNL")%>&amp;op=Modificar&amp;'>
                                                         <asp:Image ID="Image1" runat="server" Height="23px" ImageUrl="~/img/editar.png" Width="21px" /></a></ItemTemplate>
@@ -1739,7 +1739,7 @@
                                         GridLines="None" Style="text-transform: uppercase" Width="930px">
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
-                                            <asp:TemplateField>
+                                            <asp:TemplateField Visible=false>
                                                 <ItemTemplate>
                                                     <a href='PNLDonante.aspx?ID_DONANTE=<%#Eval("IDDONANTE")%>&amp;op=Modificar&amp;'>
                                                         <asp:Image ID="Image1" runat="server" Height="23px" ImageUrl="~/img/editar.png" Width="21px" /></a></ItemTemplate>
@@ -1807,7 +1807,7 @@
                                         GridLines="None" Style="text-transform: uppercase" Width="930px">
                                         <AlternatingRowStyle BackColor="White" />
                                         <Columns>
-                                            <asp:TemplateField>
+                                            <asp:TemplateField Visible=false>
                                                 <ItemTemplate>
                                                     <a href='PNLFotografia.aspx?IDFOTOGRAFIA=<%#Eval("IDFOTOGRAFIA")%>&amp;op=Modificar&amp&IdP=<%#Eval("IdPersona")%>;'>
                                                         <asp:Image ID="Image1" runat="server" Height="23px" ImageUrl="~/img/editar.png" Width="21px" /></a></ItemTemplate>
