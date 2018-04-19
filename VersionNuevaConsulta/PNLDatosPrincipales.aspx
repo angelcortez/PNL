@@ -106,6 +106,11 @@
             height: 20px;
         }
         
+        .style26
+        {
+            height: 20px;
+        }
+        
     </style>
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
@@ -214,7 +219,8 @@
                             <tr>
                                 <td colspan="3">
                                 <!-- class="chosen-select" -->
-                                    <asp:DropDownList ID="ddlOfendido" runat="server" Width="400px" class="bordeCampoObligatorio">
+                                    <asp:DropDownList ID="ddlOfendido" runat="server" Width="400px" 
+                                        class="bordeCampoObligatorio" Enabled="False">
                                     </asp:DropDownList>
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidatorCB" runat="server" ControlToValidate="ddlOfendido" Display="Dynamic" ErrorMessage="SELECCIONE UNA PERSONA" ForeColor="Red">* SELECCIONE UN A PERSONA
                                     </asp:RequiredFieldValidator>
@@ -226,15 +232,15 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>
+                                <td class="style26">
                                     <asp:Label ID="Label100" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                         Text="¿PERTENECE A ALGUNA ETNIA?"></asp:Label>
                                 </td>
-                                <td>
+                                <td class="style26">
                                     <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                         Text="FECHA DE ULTIMO AVISTAMIENTO"></asp:Label>
                                 </td>
-                                <td>
+                                <td class="style26">
                                     <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                         Text="ÚLTIMA ACTIVIDAD REGISTRADA"></asp:Label>
                                 </td>
@@ -242,11 +248,14 @@
                             <tr>
                                 <td>
                                 <!-- class="chosen-select" -->
-                                    <asp:DropDownList ID="ddlEtnia" runat="server" TabIndex="1" Width="200px" >
+                                    <asp:DropDownList ID="ddlEtnia" runat="server" TabIndex="1" Width="200px" 
+                                        Enabled="False" >
                                     </asp:DropDownList>
                                 </td>
                                 <td>
-                                    <asp:TextBox ID="txtUltimoAvistamiento" runat="server" MaxLength="7" Style="text-transform: uppercase" TabIndex="4" Width="200px" class="bordeCampoObligatorio"></asp:TextBox>
+                                    <asp:TextBox ID="txtUltimoAvistamiento" runat="server" MaxLength="7" 
+                                        Style="text-transform: uppercase" TabIndex="4" Width="200px" 
+                                        class="bordeCampoObligatorio" Enabled="False"></asp:TextBox>
                                     <asp:CalendarExtender ID="txtUltimoAvistamento_CalendarExtender" runat="server" Enabled="True"  Format="dd/MM/yyyy"  TargetControlID="txtUltimoAvistamiento">
                                     </asp:CalendarExtender>                                    
                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtUltimoAvistamiento" Display="Dynamic" ErrorMessage="INGRESA FECHA" ForeColor="Red">* INGRESE FECHA
@@ -258,7 +267,8 @@
                                 </td>
                                 <td>
                                 <!-- class="chosen-select" -->
-                                    <asp:DropDownList ID="ddlUltimaActividad" runat="server" TabIndex="3" Width="200px" class="bordeCampoObligatorio">
+                                    <asp:DropDownList ID="ddlUltimaActividad" runat="server" TabIndex="3" 
+                                        Width="200px" class="bordeCampoObligatorio" Enabled="False">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
@@ -673,14 +683,17 @@
                         <tr>
                             <td class="style24">
                             <!--class="chosen-select" -->
-                                <asp:DropDownList ID="ddlDiscapacidadMental" runat="server" Width="200px"></asp:DropDownList>                                
+                                <asp:DropDownList ID="ddlDiscapacidadMental" runat="server" Width="200px" 
+                                    Enabled="False"></asp:DropDownList>                                
                             </td>
                             <td class="style24">
-                                <asp:TextBox ID="txtDiscapacidadMental" runat="server" Width="200px"></asp:TextBox>
+                                <asp:TextBox ID="txtDiscapacidadMental" runat="server" Width="200px" 
+                                    ReadOnly="True"></asp:TextBox>
                             </td>
                             <td class="style24">
                             <!--class="chosen-select" -->
-                                <asp:DropDownList ID="ddlDiscapacidadFisica" runat="server" Width="200px">
+                                <asp:DropDownList ID="ddlDiscapacidadFisica" runat="server" Width="200px" 
+                                    Enabled="False">
                                 </asp:DropDownList>
                             </td>
                             <td class="style24">
@@ -726,22 +739,22 @@
                                <!--<asp:DropDownList ID="ddlPadecimientos" runat="server"  Width="200px" Visible="true" > 
                                     </asp:DropDownList> class="chosen-select"-->
                                 <asp:ListBox ID="lbPad" runat="server" SelectionMode="Multiple" Width="200px" 
-                                    AutoPostBack="True" class="chosen-select"></asp:ListBox>                              
+                                    AutoPostBack="True" class="chosen-select" Enabled="False"></asp:ListBox>                              
                             </td>
                             <td valign="top" class="style24">
                                 <!--<asp:TextBox ID="txtSistematicas" runat="server" Width="200px"></asp:TextBox>-->                                
                                     <asp:ListBox ID="lbSistematicas" runat="server" SelectionMode="Multiple" 
-                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox>                                                              
+                                    Width="200px" AutoPostBack="True" class="chosen-select" Enabled="False"></asp:ListBox>                                                              
                             </td>
                             <td valign="top" class="style24">
                                 <!--<asp:TextBox ID="txtEnfermedadMental" runat="server" Width="200px"></asp:TextBox>-->
                                 <asp:ListBox ID="lbEnfermedadMental" runat="server" SelectionMode="Multiple" 
-                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox> 
+                                    Width="200px" AutoPostBack="True" class="chosen-select" Enabled="False"></asp:ListBox> 
                             </td>
                             <td valign="top" class="style24">
                                 <!--<asp:TextBox ID="txtEnfermedadPiel" runat="server" Width="200px"></asp:TextBox>-->
                                 <asp:ListBox ID="lbenfermedadPiel" runat="server" SelectionMode="Multiple" 
-                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox> 
+                                    Width="200px" AutoPostBack="True" class="chosen-select" Enabled="False"></asp:ListBox> 
                             </td>
                         </tr>
                         <tr>
@@ -779,17 +792,17 @@
                             <td valign="top" class="style24">
                                 <!--<asp:TextBox ID="txtAdicciones" runat="server" Width="200px"></asp:TextBox>-->
                                 <asp:ListBox ID="lbAdicciones" runat="server" SelectionMode="Multiple" 
-                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox> 
+                                    Width="200px" AutoPostBack="True" class="chosen-select" Enabled="False"></asp:ListBox> 
                             </td>
                             <td valign="top" class="style24">
                                 <!--<asp:TextBox ID="txtMedicamentos" runat="server" Width="200px"></asp:TextBox>-->
                                 <asp:ListBox ID="lbMedicamentos" runat="server" SelectionMode="Multiple" 
-                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox> 
+                                    Width="200px" AutoPostBack="True" class="chosen-select" Enabled="False"></asp:ListBox> 
                             </td>
                             <td valign="top" class="style24">
                                 <!--<asp:TextBox ID="txtCirugias" runat="server" Width="200px"></asp:TextBox>-->
                                 <asp:ListBox ID="lbCirugias" runat="server" SelectionMode="Multiple" 
-                                    Width="200px" AutoPostBack="True" class="chosen-select"></asp:ListBox> 
+                                    Width="200px" AutoPostBack="True" class="chosen-select" Enabled="False"></asp:ListBox> 
                             </td>
                             <td class="style24">
                                 &nbsp;&nbsp;
@@ -833,7 +846,7 @@
                             <td class="style24">
                                 <asp:RadioButtonList ID="rbEmbarazo" runat="server" Font-Bold="True" Font-Size="Small"
                                     ForeColor="Black" RepeatDirection="Horizontal" AutoPostBack="True"  
-                                    OnSelectedIndexChanged="_onSelectedIndexChangedRB">       
+                                    OnSelectedIndexChanged="_onSelectedIndexChangedRB" Enabled="False">       
                                     <asp:ListItem Value="1">SI</asp:ListItem>          
                                     <asp:ListItem Value="0" Selected="True">NO</asp:ListItem>      
                                 </asp:RadioButtonList>
@@ -843,21 +856,21 @@
                                <asp:RadioButton GroupName="embarazoGroup" ID="rbCesarea" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" 
-                                    Text="CESAREA"/>
+                                    Text="CESAREA" Enabled="False"/>
                             </td>
                             <td class="style24">
                                <!--<asp:CheckBox ID="chPartoNatural" runat="server" /> -->
                                <asp:RadioButton GroupName="embarazoGroup" ID="rbPartoNat" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" 
-                                    Text="PARTO NATURAL"/>
+                                    Text="PARTO NATURAL" Enabled="False"/>
                             </td>
                             <td class="style24">
                                 <!--<asp:CheckBox ID="chAborto" runat="server" />-->
                                 <asp:RadioButton GroupName="embarazoGroup" ID="rbAborto" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" 
-                                    Text="ABORTO"/>
+                                    Text="ABORTO" Enabled="False"/>
                             </td>
                         </tr>
                         <tr>
@@ -885,7 +898,8 @@
                         <tr>
                             <td class="style24">
                                 <asp:RadioButtonList ID="rbControlNatal" runat="server" Font-Bold="True" Font-Size="Small"
-                                    ForeColor="Black" RepeatDirection="Horizontal" AutoPostBack="True" OnSelectedIndexChanged="rbControlNatal_SelectedIndexChanged">
+                                    ForeColor="Black" RepeatDirection="Horizontal" AutoPostBack="True" 
+                                    OnSelectedIndexChanged="rbControlNatal_SelectedIndexChanged" Enabled="False">
                                     <asp:ListItem Value="1">DIU</asp:ListItem>
                                     <asp:ListItem Value="2">VASECTOMÍA</asp:ListItem>
                                     <asp:ListItem Value="3" Selected="True">NINGUNO</asp:ListItem>
@@ -893,7 +907,8 @@
                                 </asp:RadioButtonList>
                             </td>
                             <td class="style24">
-                                <asp:TextBox ID="txtOtroControlNatal" runat="server" Width="200px" Visible="False"></asp:TextBox>
+                                <asp:TextBox ID="txtOtroControlNatal" runat="server" Width="200px" 
+                                    Visible="False" ReadOnly="True"></asp:TextBox>
                             </td>
                             <td class="style24">
                                 &nbsp;&nbsp;
@@ -1444,25 +1459,25 @@
                                 <asp:RadioButton GroupName="causalesGroup" ID="rbPropiaVoluntad" runat="server" 
                                 Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                 AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                Text="POR SU PRPIA VOLUNTAD" />                                
+                                Text="POR SU PRPIA VOLUNTAD" Enabled="False" />                                
                             </td>
                             <td class="style30"> 
                                 <asp:RadioButton  GroupName="causalesGroup" ID="rbSustraccionMenores" runat="server"
                                 Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                 AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                Text="SUSTRACION DE MENORES" />
+                                Text="SUSTRACION DE MENORES" Enabled="False" />
                             </td>
                             <td class="style33">
                                 <asp:RadioButton GroupName="causalesGroup"  ID="rbSalud" runat="server" 
                                 Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                 AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                Text="SALUD" />
+                                Text="SALUD" Enabled="False" />
                             </td>
                             <td>
                                 <asp:RadioButton GroupName="causalesGroup" ID="rbProblemasFamiliares" runat="server" 
                                 Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                 AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                Text="PROBLEMAS FAMILIARES" />
+                                Text="PROBLEMAS FAMILIARES" Enabled="False" />
                             </td>
                             </tr>
                             <tr>
@@ -1470,25 +1485,25 @@
                                     <asp:RadioButton GroupName="causalesGroup" ID="rbMigracion" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                    Text="MIGRACION" />
+                                    Text="MIGRACION" Enabled="False" />
                                 </td>
                                 <td>
                                     <asp:RadioButton GroupName="causalesGroup" ID="rbComisionDelito" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                    Text="POR LA COMISION DE UN DELITO" />
+                                    Text="POR LA COMISION DE UN DELITO" Enabled="False" />
                                 </td>
                                 <td>
                                     <asp:RadioButton GroupName="causalesGroup" ID="rbLevanton" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"     
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"                                                                
-                                    Text="PRIVACION ILEGAL DE LA LIBERTAD (LEVANTON)" />
+                                    Text="PRIVACION ILEGAL DE LA LIBERTAD (LEVANTON)" Enabled="False" />
                                 </td>
                                 <td>
                                     <asp:RadioButton GroupName="causalesGroup" ID="rbAddicciones" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                    Text="ADICCIONES" />
+                                    Text="ADICCIONES" Enabled="False" />
                                 </td>
                             </tr>
                             <tr>
@@ -1496,13 +1511,13 @@
                                     <asp:RadioButton GroupName="causalesGroup" ID="rbVictimaDelito" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                    Text="VICTIMA DE DELITO" />
+                                    Text="VICTIMA DE DELITO" Enabled="False" />
                                 </td>
                                 <td>
                                     <asp:RadioButton GroupName="causalesGroup" ID="rbAccidentes" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                    Text="ACCIDENTES" />
+                                    Text="ACCIDENTES" Enabled="False" />
                                 </td>
                                 <td class="style36">
 
@@ -1511,7 +1526,8 @@
                                     Text="PRIVACIÓN POR:" Visible="false">
                                     </asp:Label>
                            
-                                    <asp:DropDownList ID="rb_ddlTipo" runat="server"  Width="300px" Visible="false">
+                                    <asp:DropDownList ID="rb_ddlTipo" runat="server"  Width="300px" Visible="false" 
+                                        Enabled="False">
                                     </asp:DropDownList>
 
                                 </td>
@@ -1519,7 +1535,8 @@
                                     <asp:RadioButton GroupName="causalesGroup" ID="rbDetenido" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                    Text="DETENIDO (PERSONAS NO LOCALIZADAS RELACIONADAS CON ALGUN ACTO ILICITO)" />
+                                    Text="DETENIDO (PERSONAS NO LOCALIZADAS RELACIONADAS CON ALGUN ACTO ILICITO)" 
+                                        Enabled="False" />
                                 </td>
                             </tr>
                             <tr>
@@ -1527,25 +1544,25 @@
                                     <asp:RadioButton GroupName="causalesGroup" ID="rbMotivosLaborales" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                    Text="MOTIVOS LABORALES" />
+                                    Text="MOTIVOS LABORALES" Enabled="False" />
                                 </td>
                                 <td>
                                     <asp:RadioButton GroupName="causalesGroup" ID="rbDesaparicionForzada" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                    Text="DESAPARICION FORZADA" />
+                                    Text="DESAPARICION FORZADA" Enabled="False" />
                                 </td>
                                 <td>
                                     <asp:RadioButton GroupName="causalesGroup" ID="rbSeDesconoce" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                    Text="SE DESCONOCE" />
+                                    Text="SE DESCONOCE" Enabled="False" />
                                 </td>
                                 <td>
                                     <asp:RadioButton GroupName="causalesGroup" ID="rbRelacionesPersonales" runat="server" 
                                     Font-Bold="True" Font-Size="Small" ForeColor="Black"
                                     AutoPostBack="True" oncheckedchanged="_CheckedChanged"
-                                    Text="RELACIONES PERSONALES" />
+                                    Text="RELACIONES PERSONALES" Enabled="False" />
                                 </td>                               
                             </tr>
 
@@ -1564,7 +1581,7 @@
                     <asp:Label ID="lblError" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="Red"></asp:Label>                    
                 </td>
             </tr>
-            <tr align="center">
+            <tr align="center" style="display:none">
                 <td colspan="4">
                     <asp:Button ID="btnGuardarDatos"  runat="server" Text="GUARDAR DATOS" OnClick= "btnGuardarDatos_Click" 
                         Height="40px" Width="156px" class="button" />
@@ -1579,7 +1596,7 @@
                     <asp:Panel ID="Panel16" runat="server" GroupingText="MEDIA FILIACIÓN" Font-Bold="True"
                         Font-Size="Medium">
                         <table style="width: 100%;">
-                            <tr>
+                            <tr style="display:none">
                                 <td colspan="4">
                                     <asp:Button ID="btnMediaFiliacion" runat="server" Text="AGREGAR MEDIA FILIACIÓN"
                                         Visible="false" OnClick="btnMediaFiliacion_Click" class="button" />
@@ -1641,7 +1658,7 @@
                     <asp:Panel ID="Panel1" runat="server" GroupingText="SEÑAS PARTICULARES" Font-Bold="True"
                         Font-Size="Medium">
                         <table style="width: 100%;">
-                            <tr>
+                            <tr style="display:none">
                                 <td colspan="4">
                                     <asp:Button ID="btnSeniasParticulares" runat="server" Text="AGREGAR SEÑAS PARTICULARES"
                                         Visible="false" OnClick="btnSeniasParticulares_Click" class="button" />
@@ -1709,7 +1726,7 @@
                     <asp:Panel ID="Panel13" runat="server" GroupingText="DONANTE Y PERITO RECOLECTOR"
                         Font-Bold="True" Font-Size="Medium">
                         <table style="width: 100%;">
-                            <tr>
+                            <tr style="display:none">
                                 <td colspan="4">
                                     <asp:Button ID="btnAgregarDonante" runat="server" Visible="false" Text="AGREGAR DONANTE"
                                         OnClick="btnAgregarDonante_Click" class="button" />
@@ -1777,7 +1794,7 @@
                     <asp:Panel ID="Panel14" runat="server" GroupingText="FOTOGRAFÍA" Font-Bold="True"
                         Font-Size="Medium">
                         <table style="width: 100%;">
-                            <tr>
+                            <tr style="display:none">
                                 <td colspan="4">
                                     <asp:Button ID="btnAgregarFotografia" runat="server" Visible="false" Text="AGREGAR FOTOGRAFÍA"
                                         OnClick="btnAgregarFotografia_Click" class="button" />
@@ -1849,7 +1866,7 @@
                                     &nbsp;
                                 </td>
                             </tr>
-                            <tr>
+                            <tr style="display:none">
                                 <td colspan="4">
                                     <asp:DropDownList ID="ddlVestimenta" runat="server" TabIndex="3" Width="200px">
                                     </asp:DropDownList>
@@ -1907,7 +1924,7 @@
                     <asp:Panel ID="Panel15" runat="server" GroupingText="DATOS DE LOCALIZACIÓN" Font-Bold="True"
                         Font-Size="Medium">
                         <table style="width: 100%;">
-                            <tr>
+                            <tr style="display:none">
                                 <td colspan="4">
                                     <asp:Button ID="btnLocalizacion" runat="server" Visible="false" Text="AGREGAR DATOS"
                                         OnClick="btnLocalizacion_Click" class="button" />

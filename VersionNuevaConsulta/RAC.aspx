@@ -97,7 +97,7 @@
     </table> 
 <h2><asp:Label ID="Label1" runat="server" Text="REGISTRO DE ATENCION CIUDADANA" 
         class="color-fuente"></asp:Label></h2>
-         <table style="width: 100%;">
+         <table style="width: 100%; display:none">
             <tr>
                 <td>
                     <asp:ImageButton ID="Canalizar" runat="server" Height="63px" 
@@ -183,7 +183,6 @@
                     &nbsp;</td>
             </tr>
         </table>
-
           <table style="width: 100%;">
             <tr>
                 <td align="left" class="style2">

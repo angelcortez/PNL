@@ -143,7 +143,7 @@
             <td class="style6">
                 &nbsp;</td>
         </tr>
-        <tr>
+        <tr style="display:none">
             <td>
                 <asp:ImageButton ID="Iniciar" runat="server" Height="63px" 
                     ImageUrl="~/img/estados/INICIAR.png" onclick="Iniciar_Click" />
@@ -177,7 +177,7 @@
                     
             </td>
         </tr>
-        <tr>
+        <tr style="display:none">
             <td>
                 <asp:ImageButton ID="Incompetencia" runat="server" Height="63px" 
                     ImageUrl="~/img/estados/icompetencia.png" onclick="Incompetencia_Click" />
