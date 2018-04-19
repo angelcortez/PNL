@@ -112,7 +112,9 @@ namespace AtencionTemprana
                     lblOperacion.Text = "AGREGAR LUGAR DE LOS HECHOS";    
                     IdCarpeta.Text = Session["ID_CARPETA"].ToString();
                     cmdDelito.Enabled = false;
+                    lblOperacion.Visible = false;
                     try{
+
                     PGJ.CargaCombo(ddlTipoLugar, "CAT_LUGAR_TIPO", "ID_LGR_TPO", "LGR_TPO");
                     PGJ.CargaComboFiltrado(ddlMunicipio, "Cat_Municipio", "Id_Mncpio", "Mncpio", "Id_Pais=1 and Id_Estdo=28");
                     //cargarAgregarLugarHechos();
@@ -124,7 +126,9 @@ namespace AtencionTemprana
                     ddlEntreCalle.Items.Insert(0, "--SELECCIONE--");
                     ddlYcalle.Items.Insert(0, "--SELECCIONE--");
 
+
                     }
+
                     catch (Exception ex)
                     {
                         Response.Redirect("LugarHechos.aspx?&op=Agregar");
@@ -139,7 +143,7 @@ namespace AtencionTemprana
                         cmdGuardar.Visible = false;
                     }
 
-                    lblOperacion.Text = "MODIFICAR LUGAR DE LOS HECHOS";
+                    lblOperacion.Text = "CONSULTAR LUGAR DE LOS HECHOS";
                     cmdDelito.Enabled = true;
                     //try
                     //{

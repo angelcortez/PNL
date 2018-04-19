@@ -170,7 +170,7 @@
                     <asp:Label ID="lblArbol" runat="server" Visible="False"></asp:Label>
                 </td>
                 <td>
-                    <asp:Label ID="ID_LUGAR_HECHOS" runat="server" Visible="False"></asp:Label>
+                    <asp:Label ID="ID_LUGAR_HECHOS" runat="server" Visible="False" style="display:none"></asp:Label>
                 </td>
                 <td>
                     &nbsp;</td>
@@ -200,7 +200,7 @@
                             <tr>
                                 <td class="style12">
                                     <asp:TextBox class="bordeCampoObligatorio" runat="server" MaxLength="10" TabIndex="1" Width="170px" 
-                                        ID="txtFecha"></asp:TextBox>
+                                        ID="txtFecha" Enabled="false"></asp:TextBox>
                                     <asp:CalendarExtender runat="server" Format="dd/MM/yyyy" Enabled="True" 
                                         TargetControlID="txtFecha" ID="txtFecha_CalendarExtender" OnClientDateSelectionChanged="revisarFechaDepositado">
                                     </asp:CalendarExtender>
@@ -214,7 +214,7 @@
                                 </td>
                                 <td>
                                     <asp:TextBox runat="server" MaxLength="5" TabIndex="2" Width="170px"  class="bordeCampoObligatorio"
-                                        ID="txtHora"></asp:TextBox>
+                                        ID="txtHora" Enabled="false"></asp:TextBox>
                                      <asp:MaskedEditExtender ID="MaskedEditExtender3" runat="server" AcceptAMPM="True"
                                                 BehaviorID="_content_MaskedEditExtender3" Century="2000" CultureAMPMPlaceholder=""
                                                 CultureCurrencySymbolPlaceholder="€" CultureDateFormat="DMY" CultureDatePlaceholder="/"
@@ -271,32 +271,34 @@
                                     <tr>
                                         <td class="style2">
                                             <asp:Label ID="Label4" runat="server" Text="TIPO DE LUGAR" Font-Bold="True" 
-                                                Font-Size="Small" ForeColor="Black"></asp:Label>
+                                                Font-Size="Small" ForeColor="Black" Enabled="false"></asp:Label>
                                         </td>
                                         <td>
                                             &nbsp;</td>
                                         <td>
                                             <asp:Label ID="Label5" runat="server" Font-Bold="True" Font-Size="Small" 
-                                                ForeColor="Black" Text="MUNICIPIO"></asp:Label>
+                                                ForeColor="Black" Text="MUNICIPIO" Enabled="false"></asp:Label>
                                         </td>
                                         <td>
                                             <asp:Label ID="Label6" runat="server" Font-Bold="True" Font-Size="Small" 
-                                                ForeColor="Black" Text="LOCALIDAD"></asp:Label>
+                                                ForeColor="Black" Text="LOCALIDAD" Enabled="false"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style2" colspan="2">
-                                            <asp:DropDownList ID="ddlTipoLugar" runat="server" Width="470px" TabIndex="3" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlTipoLugar" runat="server" Width="470px" TabIndex="3" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                                                 ControlToValidate="ddlTipoLugar" Display="Dynamic" 
                                                 ErrorMessage="INGRESA TIPO DE LUGAR" Font-Bold="True" Font-Size="Small" 
-                                                ForeColor="Red">*</asp:RequiredFieldValidator>
+                                                ForeColor="Red" Enabled="false">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td>
                                             <asp:DropDownList ID="ddlMunicipio" runat="server" Width="200px" class="bordeCampoObligatorio"
                                                 AutoPostBack="True" 
-                                                onselectedindexchanged="ddlMunicipio_SelectedIndexChanged" TabIndex="4">
+                                                onselectedindexchanged="ddlMunicipio_SelectedIndexChanged" TabIndex="4" 
+                                                Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                                                 ControlToValidate="ddlMunicipio" Display="Dynamic" 
@@ -306,7 +308,8 @@
                                         <td>
                                             <asp:DropDownList ID="ddlLocalidad" runat="server" Width="200px" class="bordeCampoObligatorio"
                                                 AutoPostBack="True" 
-                                                onselectedindexchanged="ddlLocalidad_SelectedIndexChanged" TabIndex="5">
+                                                onselectedindexchanged="ddlLocalidad_SelectedIndexChanged" TabIndex="5" 
+                                                Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                                                 ControlToValidate="ddlLocalidad" Display="Dynamic" 
@@ -340,14 +343,16 @@
                                     </tr>
                                     <tr>
                                         <td class="style2" colspan="2">
-                                            <asp:DropDownList ID="ddlColonia" runat="server" Width="470px" TabIndex="6" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlColonia" runat="server" Width="470px" TabIndex="6" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                                                 ControlToValidate="ddlColonia" Display="Dynamic" ErrorMessage="INGRESA COLONIA" 
                                                 Font-Bold="True" Font-Size="Small" ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td colspan="2">
-                                            <asp:DropDownList ID="ddlCalle" runat="server" Width="470px" TabIndex="7" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlCalle" runat="server" Width="470px" TabIndex="7" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
                                                 ControlToValidate="ddlCalle" Display="Dynamic" ErrorMessage="INGRESA CALLE" 
@@ -370,7 +375,8 @@
                                     </tr>
                                     <tr>
                                         <td class="style2" colspan="2">
-                                            <asp:DropDownList ID="ddlEntreCalle" runat="server" Width="470px" TabIndex="8" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlEntreCalle" runat="server" Width="470px" TabIndex="8" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" 
                                                 ControlToValidate="ddlEntreCalle" Display="Dynamic" 
@@ -378,7 +384,8 @@
                                                 ForeColor="Red">*</asp:RequiredFieldValidator>
                                         </td>
                                         <td colspan="2">
-                                            <asp:DropDownList ID="ddlYcalle" runat="server" Width="470px" TabIndex="9" class="bordeCampoObligatorio">
+                                            <asp:DropDownList ID="ddlYcalle" runat="server" Width="470px" TabIndex="9" 
+                                                class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" 
                                                 ControlToValidate="ddlYcalle" Display="Dynamic" ErrorMessage="INGRESA Y CALLE" 
@@ -414,15 +421,15 @@
                                     <tr>
                                         <td class="style2">
                                             <asp:TextBox ID="txtNumero" runat="server" Width="170px" MaxLength="10" 
-                                                TabIndex="10" style="text-transform :uppercase"></asp:TextBox>
+                                                TabIndex="10" style="text-transform :uppercase" ReadOnly="True"></asp:TextBox>
                                         </td>
                                         <td class="style2">
                                             <asp:TextBox ID="txtManzana" runat="server" Width="170px" MaxLength="10" 
-                                                TabIndex="11" style="text-transform :uppercase"></asp:TextBox>
+                                                TabIndex="11" style="text-transform :uppercase" ReadOnly="True"></asp:TextBox>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtLote" runat="server" Width="200px" MaxLength="10" 
-                                                TabIndex="12" style="text-transform :uppercase"></asp:TextBox>
+                                                TabIndex="12" style="text-transform :uppercase" ReadOnly="True"></asp:TextBox>
                                         </td>
                                         <td>
                                             &nbsp;</td>
@@ -452,14 +459,16 @@
                                     <tr>
                                         <td class="style2">
                                             <asp:TextBox ID="txtLatitud" runat="server" Width="170px" MaxLength="20" 
-                                                TabIndex="13" style="text-transform :uppercase" Enabled="False">0</asp:TextBox>
+                                                TabIndex="13" style="text-transform :uppercase" Enabled="False" 
+                                                ReadOnly="True">0</asp:TextBox>
                                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" 
                                                 ControlToValidate="txtLatitud" Display="Dynamic" ErrorMessage="INGRESA LATITUD" 
                                                 ForeColor="Red">*</asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtLongitud" runat="server" Width="170px" MaxLength="20" 
-                                                TabIndex="14" style="text-transform :uppercase" Enabled="False">0</asp:TextBox>
+                                                TabIndex="14" style="text-transform :uppercase" Enabled="False" 
+                                                ReadOnly="True">0</asp:TextBox>
                                             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" 
                                                 ControlToValidate="txtLongitud" Display="Dynamic" 
                                                 ErrorMessage="INGRESA LONGITUD" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
@@ -467,7 +476,7 @@
                                         <td colspan="2" rowspan="5">
                                             <asp:TextBox ID="txtReferencias" runat="server" Height="85px" 
                                                 TextMode="MultiLine" Width="470px" MaxLength="250" TabIndex="15" 
-                                                style="text-transform :uppercase"></asp:TextBox>
+                                                style="text-transform :uppercase" Enabled="False"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -497,7 +506,7 @@
                                     <tr>
                                         <td class="style2">
                                             <asp:Button ID="cmdMapa" runat="server" onclick="cmdMapa_Click" 
-                                                Text="ACTUALIZAR MAPA" class="button" />
+                                                Text="ACTUALIZAR MAPA" class="button" Enabled="False" />
                                         </td>
                                         <td>
                                             &nbsp;</td>
@@ -556,7 +565,7 @@
                                                                         <td>
                                                                             <asp:Label ID="Label26" runat="server" Font-Bold="True" Text="AGREGAR"></asp:Label>
                                                                             <asp:Button ID="cmdDelito" runat="server" onclick="cmdDelito_Click" 
-                                                                                Text=" + " Width="39px" class="button" />
+                                                                                Text=" + " Width="39px" class="button" Enabled="False" Visible="False" />
                                                                         </td>
                                                                         <td>
                                                                             &nbsp;</td>
@@ -567,7 +576,7 @@
                                                                         <td colspan="3">
                                                                             <asp:GridView ID="gvAlias" runat="server" AutoGenerateColumns="False" 
                                                                                 CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" 
-                                                                                GridLines="None" Width="470px">
+                                                                                GridLines="None" Width="470px" UseAccessibleHeader="False">
                                                                                 <AlternatingRowStyle BackColor="White" />
                                                                                 <Columns>
                                                                                     <asp:BoundField DataField="ID_LUGAR_HECHOS" HeaderText="ID_LUGAR_HECHOS" 
@@ -634,12 +643,12 @@
                 <td align="center" colspan="4">
 
                     
-                    
+                   
                        <asp:Button ID="cmdGuardar" runat="server" Text="GUARDAR" Width="156px" 
-                        onclick="cmdGuardar_Click" TabIndex="16" Font-Bold="True" Height="40px" class="button"  />
+                        onclick="cmdGuardar_Click" TabIndex="16" Font-Bold="True" Height="40px" class="button"  style="display:none" />
                     <asp:Button ID="cmdReg" runat="server" onclick="cmdReg_Click" Text="REGRESAR" 
                         Width="156px" TabIndex="17" Font-Bold="True" Height="40px" class="button" />
-                   
+                  
                  
 
 
