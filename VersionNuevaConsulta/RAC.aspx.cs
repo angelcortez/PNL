@@ -492,7 +492,7 @@ namespace AtencionTemprana
                 cmdConvenioIncompleto.Visible = false;
 
 
-                //SI NO TIENE LUGAR DE HECHOS, OBLIGARLO A QUE LO CAPTURE
+                ////SI NO TIENE LUGAR DE HECHOS, OBLIGARLO A QUE LO CAPTURE
                 SqlCommand sqlTotal = new SqlCommand("SPValidaLH ", Data.CnnCentral);
                 sqlTotal.CommandType = CommandType.StoredProcedure;
                 sqlTotal.Parameters.Add("@IdCarpeta", SqlDbType.Int);
@@ -510,12 +510,14 @@ namespace AtencionTemprana
                 }
                 drTotal.Close();
 
-                if (TotalLH1 == "0")
-                {
-                    Response.Redirect("LugarHechos.aspx?&op=Agregar");
-                }
 
-                //SI NO TIENE DELITO, OBLIGARLO A QUE LO CAPTURE
+               
+                //if (TotalLH1 == "0")
+                //{
+                //    Response.Redirect("LugarHechos.aspx?&op=Agregar");
+                //}
+
+                ////SI NO TIENE DELITO, OBLIGARLO A QUE LO CAPTURE
                 SqlCommand sqlDelito = new SqlCommand("SPValidaD ", Data.CnnCentral);
                 sqlDelito.CommandType = CommandType.StoredProcedure;
                 sqlDelito.Parameters.Add("@IdCarpeta", SqlDbType.Int);
@@ -533,30 +535,35 @@ namespace AtencionTemprana
                 }
                 drDelito.Close();
 
-
-                if (TotalD == "0")
+                if (TotalLH1 == "0" && TotalD == "0")
                 {
-                    //obtener el IdLugarHechos
-                    SqlCommand sqlIdLH = new SqlCommand("SPLugarHechoId", Data.CnnCentral);
-                    sqlIdLH.CommandType = CommandType.StoredProcedure;
-                    sqlIdLH.Parameters.Add("@IdCarpeta", SqlDbType.Int);
-                    sqlIdLH.Parameters.Add("@IdMunicipio", SqlDbType.Int);
 
-                    sqlIdLH.Parameters["@IdCarpeta"].Value = int.Parse(IdCarpeta.Text);
-                    sqlIdLH.Parameters["@IdMunicipio"].Value = int.Parse(Session["IdMunicipio"].ToString());
-
-                    SqlDataReader drIdLG = sqlIdLH.ExecuteReader();
-                    if (drIdLG.HasRows)
-                    {
-                        drIdLG.Read();
-                        TotalIdLH = drIdLG["ID_LUGAR_HECHOS"].ToString();
-
-                    }
-                    drIdLG.Close();
-
-
-                    Response.Redirect("LugarHechos.aspx?ID_LUGAR_HECHOS=" + TotalIdLH + "&op=Modificar");
+                    Response.Redirect("UnidadRAC.aspx");
                 }
+
+                //if (TotalD == "0")
+                //{
+                //    //obtener el IdLugarHechos
+                //    SqlCommand sqlIdLH = new SqlCommand("SPLugarHechoId", Data.CnnCentral);
+                //    sqlIdLH.CommandType = CommandType.StoredProcedure;
+                //    sqlIdLH.Parameters.Add("@IdCarpeta", SqlDbType.Int);
+                //    sqlIdLH.Parameters.Add("@IdMunicipio", SqlDbType.Int);
+
+                //    sqlIdLH.Parameters["@IdCarpeta"].Value = int.Parse(IdCarpeta.Text);
+                //    sqlIdLH.Parameters["@IdMunicipio"].Value = int.Parse(Session["IdMunicipio"].ToString());
+
+                //    SqlDataReader drIdLG = sqlIdLH.ExecuteReader();
+                //    if (drIdLG.HasRows)
+                //    {
+                //        drIdLG.Read();
+                //        TotalIdLH = drIdLG["ID_LUGAR_HECHOS"].ToString();
+
+                //    }
+                //    drIdLG.Close();
+
+
+                //    Response.Redirect("LugarHechos.aspx?ID_LUGAR_HECHOS=" + TotalIdLH + "&op=Modificar");
+                //}
             }
         }
 

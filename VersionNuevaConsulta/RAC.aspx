@@ -43,10 +43,10 @@
                 <asp:Label ID="UNDD" runat="server" Font-Bold="True" Font-Size="Medium" 
                     class="color-fuente"></asp:Label>
             </td>
-            <td>
+            <%--<td>
                 &nbsp;</td>
             <td>
-                &nbsp;</td>
+                &nbsp;</td>--%>
             <td align="right">
                 <asp:Label ID="lblFecha" runat="server" Font-Bold="True" ForeColor="Black"></asp:Label>
             </td>
@@ -58,13 +58,13 @@
                 <asp:Label ID="LBLUSUARIO" runat="server" Font-Bold="True" ForeColor="#666666" 
                     style="text-transform :uppercase"></asp:Label>
             </td>
-            <td>
+            <%--<td>
                 &nbsp;</td>
             <td>
                 &nbsp;
             </td>
             <td align="right">
-                &nbsp;</td>
+                &nbsp;</td>--%>
         </tr>
      
       
@@ -98,7 +98,7 @@
 <h2><asp:Label ID="Label1" runat="server" Text="REGISTRO DE ATENCION CIUDADANA" 
         class="color-fuente"></asp:Label></h2>
          <table style="width: 100%; display:none">
-            <tr>
+            <tr style="display:none">
                 <td>
                     <asp:ImageButton ID="Canalizar" runat="server" Height="63px" 
                         ImageUrl="~/img/estados/CANALIZAR.png" onclick="Canalizar_Click" />
@@ -124,7 +124,7 @@
                         ImageUrl="~/img/estados/resolver-01.png" onclick="Resolver_Click" />
                 </td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>
                     <asp:ImageButton ID="Archivo" runat="server" Height="63px" 
                         ImageUrl="~/img/estados/ARCHIVO TEMPORAL-01.png" onclick="Archivo_Click" />
@@ -145,7 +145,7 @@
                 <td>
                     &nbsp;</td>
             </tr>
-            <tr>
+            <tr style="display:none">
                 <td>
                     <asp:Button ID="cmdConvenio" runat="server" Height="38px" 
                         onclick="cmdConvenio_Click" Text="CONVENIO" Width="155px" />
