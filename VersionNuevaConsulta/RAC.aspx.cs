@@ -736,7 +736,11 @@ namespace AtencionTemprana
                 EsteNombre = drArbol["Nodo"].ToString();
 
                 TreeNode NuevoNodo = new TreeNode(EsteNombre, EsteId.ToString(), drArbol["Icon"].ToString());
-                NuevoNodo.NavigateUrl = drArbol["URL"].ToString();
+                if (IdPadre!=1)
+                {
+                    NuevoNodo.NavigateUrl = drArbol["URL"].ToString();    
+                }
+                
                 Nodo.Add(NuevoNodo);
                 LLenarArbol(NuevoNodo.ChildNodes, EsteId);
             }
