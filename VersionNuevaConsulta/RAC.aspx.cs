@@ -619,22 +619,22 @@ namespace AtencionTemprana
                 // PGJ.InsertaArbol(3, 1, "NUM", "", "", IdUser);
                 //PGJ.InsertaArbol(4, 1, "NUC", "WebHojadeAtencion.aspx", "", IdUser);
 
-                PGJ.InsertaArbol(5, 1, "DENUNCIANTE", "AutoridadDenuncia.aspx?&op=Agregar", "", IdUser);
-                PGJ.InsertaArbol(6, 1, "OFENDIDO", "QuienResulteOfendido.aspx", "", IdUser);
+                PGJ.InsertaArbol(5, 1, "DENUNCIANTE", "", "", IdUser);
+                PGJ.InsertaArbol(6, 1, "OFENDIDO", "", "", IdUser);
                 //   PGJ.InsertaArbol(16, 1, "EMPRESA", "EmpreaOfendida.aspx?&op=Agregar", "", IdUser);
-                PGJ.InsertaArbol(7, 1, "IMPUTADO", "QuienResulteResponsable.aspx", "", IdUser);
+                PGJ.InsertaArbol(7, 1, "IMPUTADO", "", "", IdUser);
                 //PGJ.InsertaArbol(19, 1, "DATOS DE LA DETENCIÓN", "DatosDetenidoPI.aspx?&op=Agregar", "", IdUser);
                 //PGJ.InsertaArbol(20, 1, "MEDIA FILIACIÓN DETENIDO", "MediaFiliacionDetenido.aspx?&op=Agregar", "", IdUser);
                 //PGJ.InsertaArbol(21, 1, "SEÑAS PARTICULARES DETENIDO", "SeñasParticularesDetenido.aspx?&op=Agregar", "", IdUser);
                 //PGJ.InsertaArbol(22, 1, "OBJETOS, ARMAS Y DROGAS", "RegistrarDetencion.aspx?&op=Agregar", "", IdUser);
-                PGJ.InsertaArbol(8, 1, "TESTIGO", "Datos.aspx?&op=AgregarTes", "", IdUser);
-                PGJ.InsertaArbol(14, 1, "DEFENSOR", "Defensor.aspx?&op=Agregar", "", IdUser);
-                PGJ.InsertaArbol(9, 1, "LUGAR DE HECHOS", "LugarHechos.aspx?&op=Agregar", "", IdUser);
+                PGJ.InsertaArbol(8, 1, "TESTIGO", "", "", IdUser);
+                PGJ.InsertaArbol(14, 1, "DEFENSOR", "", "", IdUser);
+                PGJ.InsertaArbol(9, 1, "LUGAR DE HECHOS", "", "", IdUser);
                 PGJ.InsertaArbol(10, 1, "DELITO", "", "", IdUser);
-                PGJ.InsertaArbol(15, 1, "VEHÍCULOS", "Vehiculo.aspx?&op=Agregar", "", IdUser);
-                PGJ.InsertaArbol(11, 1, "DESCRIPCION HECHOS", "Hechos.aspx?&op=Agregar", "", IdUser);
+                PGJ.InsertaArbol(15, 1, "VEHÍCULOS", "", "", IdUser);
+                PGJ.InsertaArbol(11, 1, "DESCRIPCION HECHOS", "", "", IdUser);
 
-                PGJ.InsertaArbol(12, 1, "PERSONAS NO LOCALIZADAS", "PNLDatosPrincipales.aspx?&op=Agregar", "", IdUser);
+                PGJ.InsertaArbol(12, 1, "PERSONAS NO LOCALIZADAS", "", "", IdUser);
 
                 // PGJ.InsertaArbol(12, 1, "SOLICITUDES DE AUDIENCIA", "Solicitudes.aspx?&op=Agregar", "", IdUser);
 
@@ -647,8 +647,8 @@ namespace AtencionTemprana
                 //PGJ.InsertaArbol(18, 1, "LIBERACIÓN", "LiberacionSec.aspx?&op=Agregar", "", IdUser);
 
 
-                PGJ.InsertaArbol(13, 1, "ACTUACIONES", "DocPdf.aspx?op=Agregar", "", IdUser);
-                PGJ.InsertaArbol(16, 1, "BOLETÍN", "WPNLBoletin.aspx?op=Agregar", "", IdUser);
+                PGJ.InsertaArbol(13, 1, "ACTUACIONES", "", "", IdUser);
+                PGJ.InsertaArbol(16, 1, "BOLETÍN", "", "", IdUser);
 
                 PGJ.InsertaArbol(17, 1, "HISTORIAL RAC", "", "", IdUser);
 
