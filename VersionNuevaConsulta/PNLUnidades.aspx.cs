@@ -12,6 +12,12 @@ namespace AtencionTemprana
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            GridUnidades.Visible = false;
+            GridUnidades.Visible = true;
+            GridUnidades.DataSourceID = "dsCargarUnidades";
+            GridUnidades.DataBind();
+
+           
         }
     }
 }

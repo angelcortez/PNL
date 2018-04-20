@@ -13,6 +13,9 @@ namespace AtencionTemprana
         {
             Session.Timeout = 300;
 
+            Session["IdUsuario"] = "510";
+            Session["ID_PUESTO"] = "10";
+
             Session["IdUsuario"].ToString();
 
 
