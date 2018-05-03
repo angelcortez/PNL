@@ -29,29 +29,35 @@ namespace AtencionTemprana
         public static int IdTurnoPersona;
         public static int IdTurnoPantalla;
         public static short IdUsuario;
+
+        public static string ip;
         
+        
+
         public void ConnectServer()
         {
-            CnnCentral = new SqlConnection("Data Source=172.23.8.25;Initial Catalog=PNL_NSJP2;User ID=PGJNSJP;Password=Usuario.25;MultipleActiveResultSets=true");
-            CnnCentral.Open();
+                
+                CnnCentral = new SqlConnection("Data Source="+ip+";Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218;MultipleActiveResultSets=true");
+                CnnCentral.Open();
+           
+            
 
             //SqlCommand Cmd = new SqlCommand("set dateformat dmy", Data.CnnCentral);
             //SqlDataReader DR = Cmd.ExecuteReader();
-            //DR.Close();
-
+            //DR.Close();            
         }
 
+
         
+
        public void ConnectCatalogosMediaFiliacion()
         {
-
             CnnCatalogos = new SqlConnection("Data Source=172.23.8.25;Initial Catalog=PGJ_MEDIA_FILIACION;User ID=PGJNSJP;Password=Usuario.25");
             CnnCatalogos.Open();
 
             //SqlCommand Cmd = new SqlCommand("set dateformat dmy", Data.CnnCentral);
             //SqlDataReader DR = Cmd.ExecuteReader();
             //DR.Close();
-
         }
 
         public void CargaComboCatalogosMediaFiliacion(DropDownList Combo, String Tabla, String Id, String Campo)

@@ -659,3 +659,13 @@ C:\Users\A\Documents\GitHub\PNL\VersionNueva\obj\Debug\RdlCompile.cache
 C:\Users\A\Documents\GitHub\PNL\VersionNueva\obj\Debug\RdlCompile.compiled
 C:\Users\A\Documents\GitHub\PNL\VersionNueva\obj\Debug\AtencionTemprana.dll
 C:\Users\A\Documents\GitHub\PNL\VersionNueva\obj\Debug\AtencionTemprana.pdb
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta\bin\AtencionTemprana.dll
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta\bin\AtencionTemprana.pdb
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta\bin\itextsharp.dll
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta\obj\Debug\AtencionTemprana.csproj.ResolveComReference.cache
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta\obj\Debug\AtencionTemprana.dll.licenses
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta\obj\Debug\RdlCompile.cache
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta\obj\Debug\RdlCompile.compiled
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta\obj\Debug\AtencionTemprana.dll
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta\obj\Debug\AtencionTemprana.pdb
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta\obj\Debug\AtencionTemprana.csprojResolveAssemblyReference.cache

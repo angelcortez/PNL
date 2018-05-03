@@ -16,6 +16,7 @@ namespace AtencionTemprana
 
     public partial class Default : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             string ipAddress = string.Empty;
@@ -39,9 +40,36 @@ namespace AtencionTemprana
         {
             try
             {
+                Data PGJ = new Data();               
+                //PGJ.ConnectServer();
 
-                Data PGJ = new Data();
-                PGJ.ConnectServer();
+                string unidad = string.Empty;
+                
+                if (Request.QueryString["unidad"] == "victoria")
+                {
+                    unidad = "172.23.8.22";
+                    PGJ.ConnectServer(unidad);
+                }
+                else if (Request.QueryString["unidad"] == "tampico")
+                {
+                    unidad = "10.8.167.20";
+                    PGJ.ConnectServer(unidad);
+                }
+                else if (Request.QueryString["unidad"] == "reynosa")
+                {
+                    unidad = "10.8.42.14";
+                    PGJ.ConnectServer(unidad);
+                }
+                else if (Request.QueryString["unidad"] == "matamoros")
+                {
+                    unidad = "10.8.32.21";
+                    PGJ.ConnectServer(unidad);
+                }
+                else if (Request.QueryString["unidad"] == "laredo")
+                {
+                    unidad = "10.8.77.22";
+                    PGJ.ConnectServer(unidad);
+                }
 
                 SqlCommand cmd = new SqlCommand();
 
@@ -182,29 +210,21 @@ namespace AtencionTemprana
                     else if (Session["IdModulo"].ToString() == "12")
                     {
                         PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 1, "Inicio de Sesion", int.Parse(Session["IdModuloBitacora"].ToString()));
-                        //Response.Redirect("UnidadPNL.aspx");
-                        Response.Redirect("PNLUnidades.aspx");
-                                                          
+                        Response.Redirect("UnidadPNL.aspx");
+                        //Response.Redirect("PNLUnidades.aspx");                                                          
                     }
-
-
-
                 }
-
                 else
                 {
                     lblError.Text = "USUARIO O CONTRASEÑA  INVÁLIDO";
                 }
-
                 //rd.Close();
                 rd.Dispose();
-
             }
             catch (Exception ex)
             {
                 lblError.Text = ex.Message;
             }
-
         }
     }
 }

@@ -10,15 +10,10 @@
 
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager> 
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-
-     
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">     
      <Triggers>
     <asp:PostBackTrigger ControlID="GridUnidades" />
     </Triggers>
-
-
-    
     <ContentTemplate>
         <table style="width: 100%;">
             <tr>
@@ -30,25 +25,26 @@
                 <td>
                     <asp:GridView ID="GridUnidades" runat="server" CellPadding="4" 
                         ForeColor="#333333" GridLines="None" Width="1050px" 
-                        AutoGenerateColumns="False" Visible=false
+                        AutoGenerateColumns="False" Visible="false"                        
                         AllowPaging="True" AllowSorting="True" 
-                        DataKeyNames="idUnidad" >
+                        DataKeyNames="idUnidad , municipio"
+                        OnSelectedIndexChanged="GridUnidades_SelectedIndexChanged"                        
+                        AutoGenerateSelectButton="True" >                        
+                        
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
 
                            <asp:TemplateField HeaderText=" ">
                                                     <ItemTemplate>
-                                                    <%--<a href='RAC.aspx?ID_CARPETA=<%#Eval("ID_CARPETA")%>&amp;ID_ESTADO_RAC=<%#Eval("ID_ESTADO_RAC")%>'>--%>
-                                                    
-                                                    <asp:Image ID="Image1" runat="server" Height="40px" ImageUrl="img/view-tree.png" />
-                                                    </a>
-                                                    
-                                                                    </ItemTemplate>
-                                                                     
-                                                                    </asp:TemplateField>
+                                                    <%-- <a href='RAC.aspx?ID_CARPETA=<%#Eval("ID_CARPETA")%>&amp;ID_ESTADO_RAC=<%#Eval("ID_ESTADO_RAC")%>'>        --%>        
+                                                    <!--<a href='UnidadRAC.aspx'>-->
+                                                    <asp:Image ID="Image1" runat="server" Height="40px" ImageUrl="img/view-tree.png"/>
+                                                    <!--</a>-->
+                                                    </ItemTemplate>                                                                     
+                           </asp:TemplateField>
 
                            <asp:BoundField DataField="idUnidad" HeaderText="idUnidad" 
-                                SortExpression="idUnidad" Visible="False" />
+                                SortExpression="idUnidad" Visible="TRUE" />
                             <asp:BoundField DataField="municipio" HeaderText="MUNICIPIO" ReadOnly="True" 
                                 SortExpression="idMunicipio" />
                             <asp:BoundField DataField="ip" HeaderText="DIRECCIÓN IP" 
@@ -76,7 +72,7 @@
                 <tr>
                 <td>
                     <asp:SqlDataSource ID="dsCargarUnidades" runat="server" 
-                        ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString2 %>" 
+                        ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString %>" 
                         SelectCommand="spPNLConsultarServidoresUnidades" SelectCommandType="StoredProcedure">
                     </asp:SqlDataSource>
                 </td>

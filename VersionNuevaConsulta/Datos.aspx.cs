@@ -41,9 +41,6 @@ namespace AtencionTemprana
                 "ScriptDoFocus",
                 SCRIPT_DOFOCUS.Replace("REQUEST_LASTFOCUS", Request["__LASTFOCUS"]),
                 true);
-                
-
-                
 
                 GMap1.Add(new GMapUI());
 
@@ -56,7 +53,6 @@ namespace AtencionTemprana
                 GMap1.Add(new GControl(GControl.extraBuilt.TextualOnClickCoordinatesControl, new GControlPosition(GControlPosition.position.Top_Right)));
                 GMap1.setCenter(new GLatLng(23.736819471992295, -99.14335536956787), 13);
                 GMap1.enableGKeyboardHandler = true;
-
 
                 lblArbol.Text = Session["lblArbol"].ToString();
                 Session["ID_PERSONA"] = Request.QueryString["ID_PERSONA"];              

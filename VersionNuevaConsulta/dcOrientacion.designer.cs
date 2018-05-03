@@ -33,7 +33,7 @@ namespace AtencionTemprana
     #endregion
 		
 		public dcOrientacionDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["PGJ_NSJPConnectionString2"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["PGJ_NSJPConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

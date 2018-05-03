@@ -669,3 +669,13 @@ C:\Users\DESAROLLO-LUMAMEDIA\Documents\GitHub\PNL\VersionNuevaConsulta\obj\Debug
 C:\Users\DESAROLLO-LUMAMEDIA\Documents\GitHub\PNL\VersionNuevaConsulta\obj\Debug\RdlCompile.compiled
 C:\Users\DESAROLLO-LUMAMEDIA\Documents\GitHub\PNL\VersionNuevaConsulta\obj\Debug\AtencionTemprana.dll
 C:\Users\DESAROLLO-LUMAMEDIA\Documents\GitHub\PNL\VersionNuevaConsulta\obj\Debug\AtencionTemprana.pdb
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\bin\AtencionTemprana.dll
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\bin\AtencionTemprana.pdb
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\bin\itextsharp.dll
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\AtencionTemprana.csprojResolveAssemblyReference.cache
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\AtencionTemprana.csproj.ResolveComReference.cache
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\AtencionTemprana.dll.licenses
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\RdlCompile.cache
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\RdlCompile.compiled
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\AtencionTemprana.dll
+C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\AtencionTemprana.pdb

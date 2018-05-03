@@ -304,8 +304,9 @@
                 <td>
                     <br />
                     <br />
-                      <asp:SqlDataSource ID="dsBuscarRAc" runat="server" 
-                        ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString2 %>" 
+                    <%if (Session["UNIDAD"] == "75"){ %>
+                      <asp:SqlDataSource ID="dsBuscarRAc" runat="server"                      
+                        ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString2 %>"                                                 
                         SelectCommand="BuscarRAC" SelectCommandType="StoredProcedure">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="txtRAC" Name="RAC" 
@@ -315,7 +316,24 @@
                             <asp:ControlParameter ControlID="IdUnidad" Name="IdUnidad" PropertyName="Text" 
                                 Type="Int16" />
                         </SelectParameters>
-                    </asp:SqlDataSource>
+                    </asp:SqlDataSource>     
+                    <%}
+                      else if (Session["UNIDAD"] == "73")
+                      { %>  
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server"                      
+                        ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString3 %>"                                                 
+                        SelectCommand="BuscarRAC" SelectCommandType="StoredProcedure">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="txtRAC" Name="RAC" 
+                                PropertyName="Text" Type="String" />
+                            <asp:ControlParameter ControlID="IdMunicipio" Name="IdMunicipio" PropertyName="Text" 
+                                Type="Int16" />
+                            <asp:ControlParameter ControlID="IdUnidad" Name="IdUnidad" PropertyName="Text" 
+                                Type="Int16" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>  
+                    <%}%>          
+
                     <asp:SqlDataSource ID="dsConsultaRAC0" runat="server" 
                         ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString2 %>" 
                         SelectCommand="ConsultaRAC" SelectCommandType="StoredProcedure">

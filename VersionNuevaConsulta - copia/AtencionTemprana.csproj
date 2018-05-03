@@ -69,6 +69,7 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -1833,6 +1834,9 @@
       <DependentUpon>DSRepIniciadasNUC.xsd</DependentUpon>
     </None>
     <Content Include="FotoBPNL.ashx" />
+    <Content Include="OutApp.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="PDF_ATENCION\DENUNCIA.pdf" />
     <None Include="PDF_NUC\ACTA DE DENUNCIA O QUERELLA.pdf" />
     <None Include="PDF_NUC\ACTA DE LECTURA Y EXPLICACIÓN DE DERECHOS A LA VÍCTIMA.pdf" />

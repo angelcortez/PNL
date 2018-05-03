@@ -10,10 +10,10 @@ using System.Xml.Linq;
 using System.Data.SqlClient;
 using System.Web.Security;
 using System.Data;
+using System.Configuration;
 
 namespace AtencionTemprana
 {
-
     public partial class Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -21,9 +21,7 @@ namespace AtencionTemprana
             string ipAddress = string.Empty;
             if (!string.IsNullOrEmpty(Request.ServerVariables[""]))
             {
-
                 ipAddress = Request.ServerVariables["HTTP_X_FORWARED_FOR"];
-
             }
             else
             {
@@ -31,16 +29,14 @@ namespace AtencionTemprana
                 ipAddress = Request.ServerVariables["REMOTE_ADDR"];
             }
             IP_MAQUINA.Text = ipAddress;
-
-
-
         }
+
         protected void cmdAceptar_Click(object sender, EventArgs e)
         {
             try
             {
-
                 Data PGJ = new Data();
+                Data.ip = "10.8.32.21";
                 PGJ.ConnectServer();
 
                 SqlCommand cmd = new SqlCommand();
@@ -63,7 +59,6 @@ namespace AtencionTemprana
                 //Data PGJ = new Data();
                 //PGJ.ConnectServer();
 
-
                 //SqlCommand cmd = new SqlCommand("sp_Cargar_Usuario_Login " + txtUsuario.Text + "," + txtPass.Text, Data.CnnCentral);
                 //SqlDataReader rd = cmd.ExecuteReader();
 
@@ -75,7 +70,7 @@ namespace AtencionTemprana
                     Session["IdUsuario"] = rd["id_usuario"].ToString();
                     Session["IdUnidad"] = rd["Id_Undd"].ToString();
                     Session["IdMunicipio"] = rd["ID_MNCPIO"].ToString();
-                   Data.IdMunicipio = short.Parse(rd["ID_MNCPIO"].ToString());
+                    Data.IdMunicipio = short.Parse(rd["ID_MNCPIO"].ToString());
                     Session["IdModulo"] = rd["ID_MODULO"].ToString();
                     Session["UNDD_DSCRPCION"] = rd["UNDD_DSCRPCION"].ToString();
                     Session["PUESTO"] = rd["PUESTO"].ToString();
@@ -183,28 +178,21 @@ namespace AtencionTemprana
                     {
                         PGJ.InsertarBitacora(int.Parse(Session["IdUsuario"].ToString()), Session["IP_MAQUINA"].ToString(), HttpContext.Current.Request.Url.AbsoluteUri, 1, "Inicio de Sesion", int.Parse(Session["IdModuloBitacora"].ToString()));
                         //Response.Redirect("UnidadPNL.aspx");
-                        Response.Redirect("UnidadRAC.aspx");
-                                                          
+                        Response.Redirect("PNLUnidades.aspx");                                                          
                     }
-
-
-
                 }
 
                 else
                 {
                     lblError.Text = "USUARIO O CONTRASEÑA  INVÁLIDO";
                 }
-
                 //rd.Close();
                 rd.Dispose();
-
             }
             catch (Exception ex)
             {
                 lblError.Text = ex.Message;
             }
-
         }
     }
 }

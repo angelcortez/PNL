@@ -12,6 +12,7 @@ namespace AtencionTemprana
         Data PGJ = new Data();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Session["IdUsuario"] == null)
                 Response.Redirect("Default.aspx");
 
@@ -36,7 +37,6 @@ namespace AtencionTemprana
             {
                 lblFecha.Text = propiedad.FechaActual.ToString();
             }
-
         }
 
         protected void cmdNuc_Click(object sender, EventArgs e)
