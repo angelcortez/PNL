@@ -10,6 +10,8 @@ using System.Xml.Linq;
 using System.Data.SqlClient;
 using System.Web.Security;
 using System.Data;
+using System.Configuration;
+using System.Reflection;
 
 namespace AtencionTemprana
 {
@@ -19,6 +21,16 @@ namespace AtencionTemprana
         
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Request.QueryString["unidad"] == "victoria")
+            {
+                var settings = ConfigurationManager.ConnectionStrings[0];
+                var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+                fi.SetValue(settings, false);
+                settings.ConnectionString = "Data Source=172.23.8.22;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
+            }
+
+
             string ipAddress = string.Empty;
             if (!string.IsNullOrEmpty(Request.ServerVariables[""]))
             {
@@ -49,10 +61,11 @@ namespace AtencionTemprana
                 {
                     unidad = "172.23.8.22";
                     PGJ.ConnectServer(unidad);
+                    
                 }
                 else if (Request.QueryString["unidad"] == "tampico")
                 {
-                    unidad = "10.8.167.20";
+                    unidad = "10.8.167.20";                  
                     PGJ.ConnectServer(unidad);
                 }
                 else if (Request.QueryString["unidad"] == "reynosa")
@@ -117,7 +130,8 @@ namespace AtencionTemprana
                     Session["Us"] = rd["NMBRE"].ToString() + " " + rd["PTRNO"].ToString() + " " + rd["MTRNO"].ToString();
                     if (Session["IdUsuario"].ToString() == "4")
                     {
-                        Response.Redirect("Plantillas.aspx");
+                        Response.Redirect("Plantillas.aspx");       
+                        
                     }
 
                     rd.Dispose();

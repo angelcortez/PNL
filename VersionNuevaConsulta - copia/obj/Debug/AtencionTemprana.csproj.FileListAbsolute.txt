@@ -679,3 +679,4 @@ C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\RdlCompil
 C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\RdlCompile.compiled
 C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\AtencionTemprana.dll
 C:\Users\A\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\AtencionTemprana.pdb
+C:\Users\PC-3328009\Documents\GitHub\PNL\VersionNuevaConsulta - copia\obj\Debug\AtencionTemprana.csprojResolveAssemblyReference.cache
