@@ -261,6 +261,7 @@
     <Content Include="Judicializada.aspx" />
     <Content Include="JusticiaAlternativaAudiencia.aspx" />
     <Content Include="LiberacionSec.aspx" />
+    <Content Include="Loguin.aspx" />
     <Content Include="Mediacion.aspx" />
     <Content Include="MediaFiliacionDetenido.aspx" />
     <Content Include="ModuloSecuestros.aspx" />
@@ -1130,6 +1131,13 @@
       <DependentUpon>LiberacionSec.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListaDiscapacidadesPadecimientos.cs" />
+    <Compile Include="Loguin.aspx.cs">
+      <DependentUpon>Loguin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loguin.aspx.designer.cs">
+      <DependentUpon>Loguin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Marcadores.cs" />
     <Compile Include="Mediacion.aspx.cs">
       <DependentUpon>Mediacion.aspx</DependentUpon>
