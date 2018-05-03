@@ -8,11 +8,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-<<<<<<< HEAD
+
           <StartPageUrl>PNLUnidades.aspx</StartPageUrl>
-=======
+
           <StartPageUrl>Loguin.aspx</StartPageUrl>
->>>>>>> 96a24d8e81bf0a455e40fed94d66c348847828f7
+
           <StartAction>SpecificPage</StartAction>
           <AspNetDebugging>True</AspNetDebugging>
           <SilverlightDebugging>False</SilverlightDebugging>
