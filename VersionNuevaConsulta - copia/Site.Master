@@ -102,7 +102,9 @@
                             <li>
                                  <asp:HyperLink ID="HyperLinkEsta" runat="server" Font-Bold="True" ForeColor="White" 
                                 NavigateUrl="~/WEstadistica.aspx">REPORTES</asp:HyperLink></li>
-
+                                <li>
+                                <asp:HyperLink ID="hBackUnidades" runat="server" Font-Bold="true" ForeColor="White" NavigateUrl="~/PNLUnidades.aspx">UNIDADES</asp:HyperLink>
+                                </li>
 
                         
                         <li>
