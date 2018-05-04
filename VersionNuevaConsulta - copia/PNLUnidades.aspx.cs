@@ -31,11 +31,21 @@ namespace AtencionTemprana
             //config.ConnectionStrings.ConnectionStrings["PGJ_NSJPConnectionString2"].ConnectionString = "Data Source=10.8.32.21;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
             //config.Save();
             //ConfigurationManager.RefreshSection("connectionStrings");
+
             
-            var settings = ConfigurationManager.ConnectionStrings[0];
-            var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
-            fi.SetValue(settings, false);
-            settings.ConnectionString = "Data Source=172.23.8.22;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
+            try
+            {
+                var settings = ConfigurationManager.ConnectionStrings[0];
+                if (!settings.Equals(null))
+                {
+                    var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+                    fi.SetValue(settings, false);
+                    settings.ConnectionString = "Data Source=172.23.8.22;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
+                }
+            }catch(Exception ex)
+            {
+                Label12.Text =  ex.Message.ToString();
+            }           
 
             Response.Redirect("Default.aspx?unidad=victoria");
         }
@@ -49,11 +59,19 @@ namespace AtencionTemprana
             //config.Save();
             //ConfigurationManager.RefreshSection("connectionStrings");
 
-
-            var settings = ConfigurationManager.ConnectionStrings[0];
-            var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
-            fi.SetValue(settings, false);
-            settings.ConnectionString = "Data Source=10.8.167.20;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
+            try
+            {
+                var settings = ConfigurationManager.ConnectionStrings[0];
+                if (!settings.Equals(null))
+                {
+                    var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+                    fi.SetValue(settings, false);
+                    settings.ConnectionString = "Data Source=10.8.167.20;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
+                }
+            }catch (Exception ex)
+            {
+                Label12.Text = ex.Message.ToString();
+            }
 
             Response.Redirect("Default.aspx?unidad=tampico");
         }
@@ -67,12 +85,19 @@ namespace AtencionTemprana
             //config.Save();
             //ConfigurationManager.RefreshSection("connectionStrings");
 
-
-            var settings = ConfigurationManager.ConnectionStrings[0];
-            var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
-            fi.SetValue(settings, false);
-            settings.ConnectionString = "Data Source=10.8.42.14;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
-
+            try
+            {
+                var settings = ConfigurationManager.ConnectionStrings[0];
+                if (!settings.Equals(null))
+                {
+                    var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+                    fi.SetValue(settings, false);
+                    settings.ConnectionString = "Data Source=10.8.42.14;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
+                }
+            }catch(Exception ex)
+            {
+                Label12.Text = ex.Message.ToString();
+            }
             Response.Redirect("Default.aspx?unidad=reynosa");
         }
         protected void Button4_Click(object sender, EventArgs e)
@@ -85,12 +110,19 @@ namespace AtencionTemprana
             //config.Save();
             //ConfigurationManager.RefreshSection("connectionStrings");
 
-
-            var settings = ConfigurationManager.ConnectionStrings[0];
-            var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
-            fi.SetValue(settings, false);
-            settings.ConnectionString = "Data Source=10.8.32.21;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
-
+            try
+            {
+                var settings = ConfigurationManager.ConnectionStrings[0];
+                if (!settings.Equals(null))
+                {
+                    var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+                    fi.SetValue(settings, false);
+                    settings.ConnectionString = "Data Source=10.8.32.21;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
+                }
+            }catch(Exception ex)
+            {
+                Label12.Text = ex.Message.ToString();
+            }
             Response.Redirect("Default.aspx?unidad=matamoros");
         }
         protected void Button5_Click(object sender, EventArgs e)
@@ -103,11 +135,19 @@ namespace AtencionTemprana
             //config.Save();
             //ConfigurationManager.RefreshSection("connectionStrings");
 
-
-            var settings = ConfigurationManager.ConnectionStrings[0];
-            var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
-            fi.SetValue(settings, false);
-            settings.ConnectionString = "Data Source=10.8.77.22;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
+            try
+            {
+                var settings = ConfigurationManager.ConnectionStrings[0];
+                if (!settings.Equals(null))
+                {
+                    var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
+                    fi.SetValue(settings, false);
+                    settings.ConnectionString = "Data Source=10.8.77.22;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
+                }
+            }catch(Exception ex)
+            {
+                Label12.Text = ex.Message.ToString();
+            }
 
             Response.Redirect("Default.aspx?unidad=laredo");
         }
