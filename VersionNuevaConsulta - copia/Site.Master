@@ -110,7 +110,7 @@
                         
                         <li>
                             <asp:HyperLink ID="hCerrarSesion" runat="server" Font-Bold="True" ForeColor="White" 
-                                NavigateUrl="~/Default.aspx">CERRAR SESIÓN</asp:HyperLink></li>
+                                NavigateUrl="~/Loguin.aspx">CERRAR SESIÓN</asp:HyperLink></li>
                     </ul>
                 </div>
             </div>
