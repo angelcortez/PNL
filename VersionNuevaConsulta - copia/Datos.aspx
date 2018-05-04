@@ -702,9 +702,9 @@
                                             <asp:DropDownList ID="ddlSexo" runat="server" Width="200px" TabIndex="19" 
                                                 class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" 
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" 
                                     ControlToValidate="ddlSexo" Display="Dynamic" ErrorMessage="INGRESA SEXO" 
-                                    Font-Bold="True" Font-Size="Small" ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>
+                                    Font-Bold="True" Font-Size="Small" ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtFecNaci" runat="server" Width="190px" MaxLength="10" class="bordeCampoObligatorio"
@@ -712,22 +712,22 @@
                                             <asp:CalendarExtender ID="txtFecNaci_CalendarExtender" runat="server" 
                                     Enabled="True" Format="dd/MM/yyyy" TargetControlID="txtFecNaci">
                                             </asp:CalendarExtender>
-                                            <asp:RangeValidator ID="RangeValidator1" runat="server" 
+                                            <%--<asp:RangeValidator ID="RangeValidator1" runat="server" 
                                         ControlToValidate="txtFecNaci" ErrorMessage="FECHA INVALIDA" Font-Bold="True" 
                                         Font-Size="Medium" ForeColor="Red" MaximumValue="31/12/9999" 
-                                        MinimumValue="01/01/1111" Display="Dynamic">*</asp:RangeValidator>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator30" runat="server" 
+                                        MinimumValue="01/01/1111" Display="Dynamic">*</asp:RangeValidator>--%>
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator30" runat="server" 
                                                 ControlToValidate="txtFecNaci" Display="Dynamic" 
                                                 ErrorMessage="INGRESA FECHA NACIMINETO **NOTA (EN CASO DE NO TERNER LA FECHA INGRESAR 01/01/1900)" 
-                                                ForeColor="#FF3300" ToolTip="EN CASO DE NO TERNER LA FECHA INGRESAR 01/01/1900">*</asp:RequiredFieldValidator>
+                                                ForeColor="#FF3300" ToolTip="EN CASO DE NO TERNER LA FECHA INGRESAR 01/01/1900">*</asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td>
                                             <asp:DropDownList ID="ddlEstadoCivil"  runat="server" Width="200px"  
                                                 TabIndex="21" class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" 
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" 
                                         ControlToValidate="ddlEstadoCivil" Display="Dynamic" 
-                                        ErrorMessage="INGRESA ESTADO CIVIL" ForeColor="#FF3300" InitialValue="0">*</asp:RequiredFieldValidator>
+                                        ErrorMessage="INGRESA ESTADO CIVIL" ForeColor="#FF3300" InitialValue="0">*</asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td>
                                             <asp:RadioButtonList ID="rbEscribir" runat="server" Font-Bold="True" 
@@ -771,28 +771,28 @@
                                             <asp:DropDownList ID="ddlEscolaridad" runat="server" Width="200px" class="bordeCampoObligatorio"
                                                     TabIndex="23" Enabled="False">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" 
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" 
                                                     ControlToValidate="ddlEscolaridad" Display="Dynamic" 
                                                     ErrorMessage="INGRESA ESCOLARIDAD" Font-Bold="True" Font-Size="Small" 
-                                                    ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>
+                                                    ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td>
                                             <asp:DropDownList ID="ddlOcupacion" runat="server" Width="200px" TabIndex="24" 
                                                 class="bordeCampoObligatorio" Enabled="False">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" 
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" 
                                                     ControlToValidate="ddlOcupacion" Display="Dynamic" 
                                                     ErrorMessage="INGRESA OCUPACION" Font-Bold="True" Font-Size="Small" 
-                                                    ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>
+                                                    ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td>
                                             <asp:DropDownList ID="ddlIdentificacion" runat="server" Width="200px" class="bordeCampoObligatorio"
                                                     TabIndex="25" Enabled="False">
                                             </asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" 
+                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" 
                                                     ControlToValidate="ddlIdentificacion" Display="Dynamic" 
                                                     ErrorMessage="INGRESA IDENTIFICACION" Font-Bold="True" Font-Size="Small" 
-                                                    ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>
+                                                    ForeColor="Red" InitialValue="0">*</asp:RequiredFieldValidator>--%>
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtFolio" runat="server" Width="190px" MaxLength="20" 
