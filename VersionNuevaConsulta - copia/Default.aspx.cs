@@ -22,15 +22,6 @@ namespace AtencionTemprana
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (Request.QueryString["unidad"] == "victoria")
-            {
-                var settings = ConfigurationManager.ConnectionStrings[0];
-                var fi = typeof(ConfigurationElement).GetField("_bReadOnly", BindingFlags.Instance | BindingFlags.NonPublic);
-                fi.SetValue(settings, false);
-                settings.ConnectionString = "Data Source=172.23.8.22;Initial Catalog=PNL_NSJP;User ID=JESUS;Password=PNL_JG0218";
-            }
-
-
             string ipAddress = string.Empty;
             if (!string.IsNullOrEmpty(Request.ServerVariables[""]))
             {
