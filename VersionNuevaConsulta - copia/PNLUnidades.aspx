@@ -14,6 +14,10 @@
         {
             width: 106px;
         }
+        .style5
+        {
+            width: 116px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -26,7 +30,7 @@
     <ContentTemplate>
         <table style="width: 100%;">
             <tr>
-                <td class="style4">
+                <td class="style5">
                     <asp:Label ID="UNDD" runat="server" Font-Bold="True" Font-Size="Medium" class="color-fuente" Text="Unidades PNL"></asp:Label>
                 </td>
                 <td class="style3">
@@ -35,7 +39,7 @@
                     &nbsp;</td>
                 </tr>
                 <tr>
-                <td class="style4">
+                <td class="style5">
                     &nbsp;</td>
                     <td class="style3">
                         &nbsp;</td>
@@ -44,69 +48,69 @@
                 </tr>
             </tr>
             <tr>
-                <td class="style4"> 
+                <td class="style5"> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:ImageButton 
                         ID="Button11" runat="server" Height="40px" ImageUrl="img/view-tree.png" 
                         OnClick="Button1_Click" Text="Button" />
                 </td>
                <td class="style4">
-                    <a href="Default.aspx?unidad=victoria"><asp:Label ID="Label1" runat="server"  Font-Size="Medium"  Text="VICTORIA"></asp:Label></a>
+                    <asp:Label ID="Label1" runat="server"  Font-Size="Medium"  Text="VICTORIA"></asp:Label>
                     </td>
                 <td>   
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="style4">                
+                <td class="style5">                
                     <asp:ImageButton ID="Button22" runat="server" Height="40px" 
                         ImageUrl="img/view-tree.png" onclick="Button2_Click" Text="Button" />
                     </td>
                 <td class="style3">
-                    <a href="Default.aspx?unidad=tampico"><asp:Label ID="Label5" runat="server"  Font-Size="Medium"  Text="TAMPICO"></asp:Label></a>
+                    <asp:Label ID="Label5" runat="server"  Font-Size="Medium"  Text="TAMPICO"></asp:Label>
                     </td>
                 <td>
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="style4">                
+                <td class="style5">                
                 
                     <asp:ImageButton ID="Button33" runat="server" Height="40px" 
                         ImageUrl="img/view-tree.png" onclick="Button3_Click" Text="Button" />
                 
                     </td>
                 <td class="style3">
-                    <a href="Default.aspx?unidad=reynosa"><asp:Label ID="Label4"  runat="server"  Font-Size="Medium"  Text="REYNOSA"></asp:Label></a>
+                    <asp:Label ID="Label4"  runat="server"  Font-Size="Medium"  Text="REYNOSA"></asp:Label>
                     </td>
                 <td>
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="style4">
+                <td class="style5">
                
                     <asp:ImageButton ID="Button44" runat="server" Height="40px" 
                         ImageUrl="img/view-tree.png" onclick="Button4_Click" Text="Button" />
                
                     </td>
                 <td class="style3">
-                    <a href="Default.aspx?unidad=matamoros"><asp:Label ID="Label2" runat="server"  Font-Size="Medium"  Text="MATAMOROS"></asp:Label></a>
+                    <asp:Label ID="Label2" runat="server"  Font-Size="Medium"  Text="MATAMOROS"></asp:Label>
                     </td>
                 <td>
                     &nbsp;</td>
             </tr>
             <tr>
-                <td class="style4">
+                <td class="style5">
                
                     <asp:ImageButton ID="Button55" runat="server" Height="40px" 
                         ImageUrl="img/view-tree.png" onclick="Button5_Click" Text="Button" />
                
                     </td>
                 <td class=style4>
-                    <a href="Default.aspx?unidad=laredo"><asp:Label ID="Label3" runat="server"  Font-Size="Medium"  Text="NUEVO LAREDO"></asp:Label>
+                    <asp:Label ID="Label3" runat="server"  Font-Size="Medium"  Text="NUEVO LAREDO"></asp:Label>
                     </td>
                 <td>
                     &nbsp;</td>
             </tr>
                 <tr>
-                <td align="right" class="style4">
+                <td align="right" class="style5">
                     <asp:Label ID="lblFecha" runat="server"  ForeColor="Black"></asp:Label>
                 </td>
                     <td align="right" class="style3">
