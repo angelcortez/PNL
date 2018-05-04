@@ -29,13 +29,10 @@ namespace AtencionTemprana
             string ipAddress = string.Empty;
             if (!string.IsNullOrEmpty(Request.ServerVariables[""]))
             {
-
                 ipAddress = Request.ServerVariables["HTTP_X_FORWARED_FOR"];
-
             }
             else
             {
-
                 ipAddress = Request.ServerVariables["REMOTE_ADDR"];
             }
             IP_MAQUINA.Text = ipAddress;
