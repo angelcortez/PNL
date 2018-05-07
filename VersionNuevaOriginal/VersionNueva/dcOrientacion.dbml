@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PNL_NSJP2" Class="dcOrientacionDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=172.23.8.25;Initial Catalog=PNL_NSJP2;User ID=PGJNSJP" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PGJ_NSJPConnectionString2" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.agregarTurno" Method="agregarTurno" IsComposable="true">
+    <Parameter Name="cNumeroTurno" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cTipoTurno" Type="System.String" DbType="VarChar(30)" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Paterno" Parameter="paterno" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Materno" Parameter="materno" Type="System.String" DbType="VarChar(50)" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.consultaClasificacionCorporacion" Method="consultaClasificacionCorporacion">
+    <Parameter Name="ID_CLASIFICACION" Parameter="iD_CLASIFICACION" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="consultaClasificacionCorporacionResult">
+      <Column Name="ID_CORPORACION" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ID_CLASIFICACION" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CORPORACION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.consultaDesHechos" Method="consultaDesHechos">
+    <Parameter Name="IdCarpeta" Parameter="idCarpeta" Type="System.Int32" DbType="Int" />
+    <ElementType Name="consultaDesHechosResult">
+      <Column Name="ID_CARPETA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_HECHOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DESCRIPCION" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FECHA_REGISTRO" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.consultaEstadoMunicipio" Method="consultaEstadoMunicipio">
+    <Parameter Name="ID_PAIS" Parameter="iD_PAIS" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_ESTDO" Parameter="iD_ESTDO" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="consultaEstadoMunicipioResult">
+      <Column Name="ID_MNCPIO" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_ESTDO" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_PAIS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="MNCPIO" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.consultaLocalidadCalle" Method="consultaLocalidadCalle">
+    <Parameter Name="ID_PAIS" Parameter="iD_PAIS" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_ESTDO" Parameter="iD_ESTDO" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_MNCPIO" Parameter="iD_MNCPIO" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_LOCALIDAD" Parameter="iD_LOCALIDAD" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="consultaLocalidadCalleResult">
+      <Column Name="ID_CLLE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_LCLDD" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_MNCPIO" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_ESTDO" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_PAIS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="CLLE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.consultaLocalidadColonia" Method="consultaLocalidadColonia">
+    <Parameter Name="ID_PAIS" Parameter="iD_PAIS" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_ESTDO" Parameter="iD_ESTDO" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_MNCPIO" Parameter="iD_MNCPIO" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_LOCALIDAD" Parameter="iD_LOCALIDAD" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="consultaLocalidadColoniaResult">
+      <Column Name="ID_CLNIA" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_LCLDD" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_MNCPIO" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_ESTDO" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_PAIS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="CLNIA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.consultaMunicipioLocalidad" Method="consultaMunicipioLocalidad">
+    <Parameter Name="ID_PAIS" Parameter="iD_PAIS" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_ESTDO" Parameter="iD_ESTDO" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_MNCPIO" Parameter="iD_MNCPIO" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="consultaMunicipioLocalidadResult">
+      <Column Name="ID_LCLDD" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_MNCPIO" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_ESTDO" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_PAIS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="LCLDD" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.consultaPaisEstado" Method="consultaPaisEstado">
+    <Parameter Name="ID_PAIS" Parameter="iD_PAIS" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="consultaPaisEstadoResult">
+      <Column Name="ID_ESTDO" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ID_PAIS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ESTDO" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.fechaServidor" Method="fechaServidor">
+    <ElementType Name="fechaServidorResult">
+      <Column Name="FechaActual" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.llamarTurno" Method="llamarTurno">
+    <Parameter Name="IdUnidad" Parameter="idUnidad" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="llamarTurnoResult">
+      <Column Name="ID_TURNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NUMERO_TURNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FECHA_ATENDIDO" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_UNIDAD_TURNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="NOMBRE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PATERNO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MATERNO" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TurnoMaxAtencion" Method="TurnoMaxAtencion">
+    <ElementType Name="TurnoMaxAtencionResult">
+      <Column Name="ID_TURNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TURNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TurnoMaxMediacion" Method="TurnoMaxMediacion">
+    <ElementType Name="TurnoMaxMediacionResult">
+      <Column Name="ID_TURNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TURNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TurnoMaxOficialia" Method="TurnoMaxOficialia">
+    <ElementType Name="TurnoMaxOficialiaResult">
+      <Column Name="ID_TURNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TURNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.TurnoMaxOrientacion" Method="TurnoMaxOrientacion">
+    <ElementType Name="TurnoMaxOrientacionResult">
+      <Column Name="ID_TURNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TURNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ValidaTurnoOrientacio" Method="ValidaTurnoOrientacio" IsComposable="true">
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.VALIDAR_PGJ_CARPETA_RAC" Method="VALIDAR_PGJ_CARPETA_RAC">
+    <Parameter Name="Numero" Parameter="numero" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="Año" Parameter="año" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="x" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VALIDAR_PGJ_DELITOS" Method="VALIDAR_PGJ_DELITOS">
+    <Parameter Name="IDCARPETA" Parameter="iDCARPETA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_PRINCIPAL" Parameter="iD_PRINCIPAL" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="x" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.consultaIdPersonaMax" Method="consultaIdPersonaMax">
+    <Parameter Name="Paterno" Parameter="paterno" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Materno" Parameter="materno" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="consultaIdPersonaMaxResult">
+      <Column Name="ID_PERSONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.consultaMarcaSubMarca" Method="consultaMarcaSubMarca">
+    <Parameter Name="Idmarca" Parameter="idmarca" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="consultaMarcaSubMarcaResult">
+      <Column Name="id_marca" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="id_submarca" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="marca" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Column Name="submarca" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.VALIDAR_PGJ_CARPETA_NUC" Method="VALIDAR_PGJ_CARPETA_NUC">
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Municipio" Parameter="municipio" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Unidad" Parameter="unidad" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="Año" Parameter="año" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="x" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SolicitarNuc" Method="SolicitarNuc">
+    <Parameter Name="IdCarpeta" Parameter="idCarpeta" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SolicitarNucResult">
+      <Column Name="NUC" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ConsultaImputadoDefensor" Method="ConsultaImputadoDefensor">
+    <Parameter Name="IdCarpeta" Parameter="idCarpeta" Type="System.Int32" DbType="Int" />
+    <ElementType Name="ConsultaImputadoDefensorResult">
+      <Column Name="IMPUTADO" Type="System.String" DbType="VarChar(152)" CanBeNull="true" />
+      <Column Name="ID_PERSONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.consultaAccionDelito" Method="consultaAccionDelito">
+    <Parameter Name="IdDelito" Parameter="idDelito" Type="System.Int16" DbType="SmallInt" />
+    <ElementType Name="consultaAccionDelitoResult">
+      <Column Name="ID_ACCION" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="ACCION" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.consultaPusoDisposicion" Method="consultaPusoDisposicion">
+    <ElementType Name="consultaPusoDisposicionResult">
+      <Column Name="ID_PUSO_DISPOSICION" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PUSO_DISPOSICION" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MarcadorDenunciante" Method="MarcadorDenunciante">
+    <Parameter Name="IdCarpeta" Parameter="idCarpeta" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MarcadorDenuncianteResult">
+      <Column Name="DENUNCIANTE" Type="System.String" DbType="VarChar(152)" CanBeNull="true" />
+      <Column Name="ID_PERSONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MarcadorOfendido" Method="MarcadorOfendido">
+    <Parameter Name="IdCarpeta" Parameter="idCarpeta" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MarcadorOfendidoResult">
+      <Column Name="OFENDIDO" Type="System.String" DbType="VarChar(152)" CanBeNull="true" />
+      <Column Name="ID_PERSONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MarcadorImputado" Method="MarcadorImputado">
+    <Parameter Name="IdCarpeta" Parameter="idCarpeta" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MarcadorImputadoResult">
+      <Column Name="IMPUTADO" Type="System.String" DbType="VarChar(152)" CanBeNull="true" />
+      <Column Name="ID_PERSONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.InsertaDefensor" Method="InsertaDefensor">
+    <Parameter Name="IdCarpeta" Parameter="idCarpeta" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdPersona" Parameter="idPersona" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Paterno" Parameter="paterno" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Materno" Parameter="materno" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Nombre" Parameter="nombre" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="DEFENSOR_PUB_PRIV" Parameter="dEFENSOR_PUB_PRIV" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="IdTipoActor" Parameter="idTipoActor" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_IDENTIFICACION" Parameter="iD_IDENTIFICACION" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="FOLIO" Parameter="fOLIO" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="TELEFONO" Parameter="tELEFONO" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ID_NACIONALIDAD" Parameter="iD_NACIONALIDAD" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_PAIS_ORIGEN" Parameter="iD_PAIS_ORIGEN" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_ESTADO_ORIGEN" Parameter="iD_ESTADO_ORIGEN" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_MUNICIPIO_ORIGEN" Parameter="iD_MUNICIPIO_ORIGEN" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_PAIS" Parameter="iD_PAIS" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_ESTADO" Parameter="iD_ESTADO" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_MUNICIPIO" Parameter="iD_MUNICIPIO" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_LOCALIDAD" Parameter="iD_LOCALIDAD" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_COLONIA" Parameter="iD_COLONIA" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_CALLE" Parameter="iD_CALLE" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_ENTRE_CALLE" Parameter="iD_ENTRE_CALLE" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="ID_Y_CALLE" Parameter="iD_Y_CALLE" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="NUMERO" Parameter="nUMERO" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MANZANA" Parameter="mANZANA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="LOTE" Parameter="lOTE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ID_MUNICIPIO_DEFENSOR" Parameter="iD_MUNICIPIO_DEFENSOR" Type="System.Int16" DbType="SmallInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MarcadorTestigo" Method="MarcadorTestigo">
+    <Parameter Name="IdCarpeta" Parameter="idCarpeta" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MarcadorTestigoResult">
+      <Column Name="TESTIGO" Type="System.String" DbType="VarChar(152)" CanBeNull="true" />
+      <Column Name="ID_PERSONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.MarcadorDefensor" Method="MarcadorDefensor">
+    <Parameter Name="IdCarpeta" Parameter="idCarpeta" Type="System.Int32" DbType="Int" />
+    <ElementType Name="MarcadorDefensorResult">
+      <Column Name="DEFENSOR" Type="System.String" DbType="VarChar(152)" CanBeNull="true" />
+      <Column Name="ID_DEFENSOR" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.VALIDAR_PGJ_CARPETA_NUM" Method="VALIDAR_PGJ_CARPETA_NUM">
+    <Parameter Name="Estado" Parameter="estado" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Municipio" Parameter="municipio" Type="System.String" DbType="VarChar(2)" />
+    <Parameter Name="Unidad" Parameter="unidad" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Numero" Parameter="numero" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="Año" Parameter="año" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="x" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VALIDAR_PGJ_CARPETA_NAC" Method="VALIDAR_PGJ_CARPETA_NAC">
+    <Parameter Name="Numero" Parameter="numero" Type="System.String" DbType="VarChar(5)" />
+    <Parameter Name="Año" Parameter="año" Type="System.String" DbType="VarChar(4)" />
+    <Parameter Name="x" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VALIDAR_NUM_INICIADA" Method="VALIDAR_NUM_INICIADA">
+    <Parameter Name="IDCARPETA" Parameter="iDCARPETA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_MUNICIPIO_INICIADA" Parameter="iD_MUNICIPIO_INICIADA" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="x" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.VALIDAR_NUM_CUM_DIFERIDO" Method="VALIDAR_NUM_CUM_DIFERIDO">
+    <Parameter Name="IDCARPETA" Parameter="iDCARPETA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ID_MUNICIPIO" Parameter="iD_MUNICIPIO" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="x" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InvitadoNombreNUM" Method="InvitadoNombreNUM">
+    <Parameter Name="IdCarpeta" Parameter="idCarpeta" Type="System.Int32" DbType="Int" />
+    <ElementType Name="InvitadoNombreNUMResult">
+      <Column Name="INVITADO" Type="System.String" DbType="VarChar(152)" CanBeNull="true" />
+      <Column Name="ID_PERSONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SolicitanteNombreNUM" Method="SolicitanteNombreNUM">
+    <Parameter Name="IdCarpeta" Parameter="idCarpeta" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SolicitanteNombreNUMResult">
+      <Column Name="SOLICITANTE" Type="System.String" DbType="VarChar(152)" CanBeNull="true" />
+      <Column Name="ID_PERSONA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.consultaIdAcuerdoDiferidoMax" Method="consultaIdAcuerdoDiferidoMax">
+    <ElementType Name="consultaIdAcuerdoDiferidoMaxResult">
+      <Column Name="ID_NUM_CUM_DIFERIDO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_ComboFoto" Method="SP_ComboFoto">
+    <Parameter Name="IdPersona" Parameter="idPersona" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_ComboFotoResult">
+      <Column Name="IdFotografia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descripcion" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

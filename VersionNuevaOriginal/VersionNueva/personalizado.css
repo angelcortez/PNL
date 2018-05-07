@@ -1,0 +1,86 @@
+﻿
+.color-fuente
+{
+    color:#005CB9;   
+ }
+
+
+.buttonSI {
+  border: 1px solid #DBE1EB;
+    font-family: Arial, Verdana;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 4px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-image: url("img/si.png");
+   /* background: #97C93D;
+    background: linear-gradient(left, #97C93D, #97C93D);
+    background: -moz-linear-gradient(left, #97C93D, #97C93D);
+    background: -webkit-linear-gradient(left, #97C93D, #97C93D);
+    background: -o-linear-gradient(left, #97C93D, #97C93D);
+    color: #FFFFFF;*/
+   
+}
+
+.buttonNO {
+  border: 1px solid #DBE1EB;
+    font-family: Arial, Verdana;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 4px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-image: url("img/no.png");
+   /* background: #97C93D;
+    background: linear-gradient(left, #97C93D, #97C93D);
+    background: -moz-linear-gradient(left, #97C93D, #97C93D);
+    background: -webkit-linear-gradient(left, #97C93D, #97C93D);
+    background: -o-linear-gradient(left, #97C93D, #97C93D);
+    color: #FFFFFF;*/
+   
+}
+
+
+
+.button {
+  border: 1px solid #DBE1EB;
+    font-family: Arial, Verdana;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 4px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    background: #97C93D;
+    background: linear-gradient(left, #97C93D, #97C93D);
+    background: -moz-linear-gradient(left, #97C93D, #97C93D);
+    background: -webkit-linear-gradient(left, #97C93D, #97C93D);
+    background: -o-linear-gradient(left, #97C93D, #97C93D);
+    color: #FFFFFF;
+   
+}
+
+
+#boletin
+{
+     /*background: #97C93D;
+     height:2550px;
+     width: 3300px;*/
+     
+}
+
+.tituloAzul
+{
+    color: #0064A7;
+    font-family: Arial, Verdana;
+    font-size: 20px;
+}
