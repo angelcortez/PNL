@@ -612,7 +612,7 @@
                                                                     <tr>
                                                                         <td>
                                                                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-                                                                                ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString %>" 
+                                                                                ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString2 %>" 
                                                                                 SelectCommand="consultaDelito" SelectCommandType="StoredProcedure">
                                                                                 <SelectParameters>
                                                                                     <asp:ControlParameter ControlID="ID_LUGAR_HECHOS" Name="IdLugarHechos" 

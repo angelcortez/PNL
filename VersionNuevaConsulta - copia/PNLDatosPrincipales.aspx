@@ -1632,7 +1632,7 @@
                                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="dsMediaF" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_CURSO_NSJPConnectionString %>"
+                                    <asp:SqlDataSource ID="dsMediaF" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString2 %>"
                                         SelectCommand="PNL_MediaFiliacionGrid" SelectCommandType="StoredProcedure">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="ID_CARPETA" Name="IdCarpeta" PropertyName="Text"
@@ -1699,7 +1699,7 @@
                                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="dsSenias" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_CURSO_NSJPConnectionString %>"
+                                    <asp:SqlDataSource ID="dsSenias" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString2 %>"
                                         SelectCommand="PNL_SeñasParticularesGrid" SelectCommandType="StoredProcedure">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="ID_CARPETA" Name="IdCarpeta" PropertyName="Text"
@@ -1768,7 +1768,7 @@
                                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="dsDonantes" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_CURSO_NSJPConnectionString %>"
+                                    <asp:SqlDataSource ID="dsDonantes" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString2 %>"
                                         SelectCommand="PNL_ConsultaDonante" SelectCommandType="StoredProcedure">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="ID_CARPETA" Name="IdCarpeta" PropertyName="Text"
@@ -1834,7 +1834,7 @@
                                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="dsFoto" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_CURSO_NSJPConnectionString %>"
+                                    <asp:SqlDataSource ID="dsFoto" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString2 %>"
                                         SelectCommand="PNL_ConsultaFotoGrid" SelectCommandType="StoredProcedure">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="ID_CARPETA" Name="IdCarpeta" PropertyName="Text"
@@ -1898,7 +1898,7 @@
                                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="dsConsultaVestimenta" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_CURSO_NSJPConnectionString %>"
+                                    <asp:SqlDataSource ID="dsConsultaVestimenta" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString2 %>"
                                         SelectCommand="PNL_ConsultaVestimentaGrid" SelectCommandType="StoredProcedure">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="ID_CARPETA" Name="IdCarpeta" PropertyName="Text"
@@ -2032,7 +2032,7 @@
                                         <SortedDescendingCellStyle BackColor="#E9EBEF" />
                                         <SortedDescendingHeaderStyle BackColor="#4870BE" />
                                     </asp:GridView>
-                                    <asp:SqlDataSource ID="dsLocalizacion" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_CURSO_NSJPConnectionString %>"
+                                    <asp:SqlDataSource ID="dsLocalizacion" runat="server" ConnectionString="<%$ ConnectionStrings:PGJ_NSJPConnectionString2 %>"
                                         SelectCommand="PNL_ConsultaLocalizacionGrid" SelectCommandType="StoredProcedure">
                                         <SelectParameters>
                                             <asp:ControlParameter ControlID="ID_CARPETA" Name="IdCarpeta" PropertyName="Text"
